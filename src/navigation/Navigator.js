@@ -54,6 +54,8 @@ export default () => {
     return (
         <Tabs.Navigator screenOptions={({ route }) => ({
             tabBarStyle: { display: getTabBarVisibility(route) },
+            tabBarActiveTintColor: Colors.Primary,
+            tabBarInactiveTintColor: Colors.Black,
             tabBarIcon: ({ focused, color, size }) => {
                 let iconName;
                 let IconComponent = Feather;
@@ -73,12 +75,10 @@ export default () => {
                 return (<IconComponent name={iconName} size={20} color={focused ? Colors.Primary : Colors.Black} />);
             }
         })}
-
         >
             <Tabs.Screen name={'DashboardStack'} options={{ headerShown: false, tabBarLabel: 'Dashboard' }} component={DashboardStackScreens} />
             <Tabs.Screen name={'ServicesStack'} options={{ headerShown: false, tabBarLabel: 'Services' }} component={ServicesStackScreens} />
             <Tabs.Screen name={'AccountStack'} options={{ headerShown: false, tabBarLabel: 'Account' }} component={AccountStackScreens} />
         </Tabs.Navigator>
-
     )
 }

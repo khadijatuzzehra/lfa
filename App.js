@@ -1,26 +1,14 @@
 import React from 'react'
-import { SafeAreaView, Text } from 'react-native'
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import Navigator from './src/navigation/Navigator';
+import MainContainer from './MainContainer'
+import { Provider } from 'react-redux';
+import store from './src/store/Store';
 
 const App = () => {
-
-  const MyTheme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      // background: Colors.LightPrimary,
-    },
-  };
-
   return (
-    // <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    //   <Text>Boiler Plate</Text>
-    // </SafeAreaView>
+    <Provider store={store}>
+      <MainContainer />
+    </Provider>
 
-    <NavigationContainer theme={MyTheme}>
-      <Navigator />
-    </NavigationContainer>
   )
 }
 
