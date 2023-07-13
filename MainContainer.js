@@ -26,8 +26,8 @@ const MainContainer = () => {
         AsyncStorage.getItem('userInfo').then((userInfo) => {
             if (userInfo != null) {
                 dispatch({ type: LOGIN_SUCCESS, payload: JSON.parse(userInfo) })
-                setLoading(false)
             }
+            setLoading(false)
         })
         return () => {
         }

@@ -10,8 +10,6 @@ const getToken = async () => JSON.parse(await AsyncStorage.getItem("token"));
 
 export const ApiProvider = (props) => {
 
-    const [user, setUser] = useState(null);
-
     const get = async (url, options) => {
         const requestURL = `${baseURL}${url}`;
         const token = await getToken();
@@ -159,7 +157,7 @@ export const ApiProvider = (props) => {
     const apiBaseUrl = 'https://devapi.fabluent.com/api/';
     const assetBaseUrl = 'https://devapi.fabluent.com/img/';
 
-    const contextValue = { baseUrl, apiBaseUrl, assetBaseUrl, get, post, remove, put, patch, user, setUser }
+    const contextValue = { baseUrl, apiBaseUrl, assetBaseUrl, get, post, remove, put, patch }
 
     return (
         <ApiContext.Provider value={contextValue}>
