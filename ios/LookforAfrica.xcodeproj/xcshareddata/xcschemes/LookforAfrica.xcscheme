@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "LookforAfrica.app"
-               BlueprintName = "LookforAfrica"
-               ReferencedContainer = "container:LookforAfrica.xcodeproj">
+               BuildableName = "LookForAfrica.app"
+               BlueprintName = "LookForAfrica"
+               ReferencedContainer = "container:LookForAfrica.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "LookforAfricaTests.xctest"
-               BlueprintName = "LookforAfricaTests"
-               ReferencedContainer = "container:LookforAfrica.xcodeproj">
+               BuildableName = "LookForAfricaTests.xctest"
+               BlueprintName = "LookForAfricaTests"
+               ReferencedContainer = "container:LookForAfrica.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "LookforAfrica.app"
-            BlueprintName = "LookforAfrica"
-            ReferencedContainer = "container:LookforAfrica.xcodeproj">
+            BuildableName = "LookForAfrica.app"
+            BlueprintName = "LookForAfrica"
+            ReferencedContainer = "container:LookForAfrica.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "LookforAfrica.app"
-            BlueprintName = "LookforAfrica"
-            ReferencedContainer = "container:LookforAfrica.xcodeproj">
+            BuildableName = "LookForAfrica.app"
+            BlueprintName = "LookForAfrica"
+            ReferencedContainer = "container:LookForAfrica.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

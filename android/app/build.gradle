@@ -94,14 +94,18 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.reactnativeboilerplate"
+    namespace "com.lookforafrica"
     defaultConfig {
-        applicationId "com.reactnativeboilerplate"
+        applicationId "com.lookforafrica"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
+
+    project.ext.vectoricons = [
+    iconFontNames: ['Poppins-Bold.ttf','Poppins-Light.ttf','Poppins-Regular.ttf', 'Poppins-SemiBold.ttf','Poppins-Medium.ttf']
+    ]
 
     splits {
         abi {
@@ -150,9 +154,11 @@ android {
 }
 
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:32.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-
+    // implementation project(':react-native-splash-screen')
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
@@ -169,3 +175,4 @@ dependencies {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply plugin: 'com.google.gms.google-services'

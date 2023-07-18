@@ -1,41 +1,30 @@
-// const Primary = '#4660ac';
-const Primary = '#00A4C4';
-const LightPrimary = '#F1F5FF';
-// const Secondary = '#606161';
-const Secondary = '#225886';
-const White = 'white';
-const Yellow = '#ebcc34';
-const Red = 'red';
-const RedLight = 'rgba(80,24,9,0.5)';
-const OrangeLight = 'rgba(70,96,172,0.5)';
+const Primary = '#FFFFFF';
+const LightPrimary = '#EDEDED';
+const Secondary = '#F38218';
+const TextDarker = '#212121';
+const TextDark = '#313131';
+const TextLight = '#575757';
+const Text = '#A2A6AC';
+const DarkGray = '#188F79';
+const Gray = '#898989';
+const LightGray = '#9D9393';
+const LighterGray = '#959AA1';
+const LightestGray = '#A8A2A2';
+const Black = '#000000';
+const White = '#FFFFFF';
 
-const Gray = 'gray';
-const Green = '#64CC62';
-const Black = 'black';
-const LightGray = 'lightgrey';
-const DarkOpacity = 'rgba(0,0,0,0.3)';
-const DarkerOpacity = 'rgba(0,0,0,0.5)';
-const LighterGray = '#d6d6d6';
-const LightestGray = '#fafafa';
-const Blue = '#0010fd';
-const Gold = '#d4af37'
 export default {
-    Primary,
-    LightPrimary,
-    Secondary,
-    White,
-    Red,
-    RedLight,
-    Black,
-    Gray,
-    Green,
-    LightGray,
-    Yellow,
-    OrangeLight,
-    DarkOpacity,
-    DarkerOpacity,
-    LightestGray,
-    LighterGray,
-    Blue,
-    Gold
-}
+  Primary,
+  LightPrimary,
+  Secondary,
+  TextDark,
+  TextLight,
+  Text,
+  DarkGray,
+  Gray,
+  LightestGray,
+  LighterGray,
+  LightGray,
+  Black,
+  White,
+};

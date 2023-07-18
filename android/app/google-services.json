@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1091379759654",
+    "project_id": "lookforafrica-1b84d",
+    "storage_bucket": "lookforafrica-1b84d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091379759654:android:061088fa002d25d097b4e7",
+        "android_client_info": {
+          "package_name": "com.lookforafrica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091379759654-98bc7v3jsrt4cqicb731qko8pu90t4ad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lookforafrica",
+            "certificate_hash": "77f0d920eb9dff9c060a29bd699f0cc8b906cdfc"
+          }
+        },
+        {
+          "client_id": "1091379759654-dd3j0j9ksk3tat6lda72fl3ro274fuo6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lookforafrica",
+            "certificate_hash": "de9e36db75fea3b81efe299ae9bd1009b0736b6c"
+          }
+        },
+        {
+          "client_id": "1091379759654-0qno7galr7ft280sb69if9einrlsnuml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrBxe48SFnDpaOtnqbyJlO3VXjHJDA6JA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091379759654-0qno7galr7ft280sb69if9einrlsnuml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

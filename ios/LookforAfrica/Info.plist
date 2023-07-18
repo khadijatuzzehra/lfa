@@ -2,10 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UILaunchImages</key>
+	<array>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>11.0</string>
+			<key>UILaunchImageName</key>
+			<string>SplashScreen</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{320, 480}</string>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Look for Africa</string>
+	<string>LookForAfrica</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -37,25 +50,30 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
-  <key>UIAppFonts</key>
-  <array>
-    <string>AntDesign.ttf</string>
-    <string>Entypo.ttf</string>
-    <string>EvilIcons.ttf</string>
-    <string>Feather.ttf</string>
-    <string>FontAwesome.ttf</string>
-    <string>FontAwesome5_Brands.ttf</string>
-    <string>FontAwesome5_Regular.ttf</string>
-    <string>FontAwesome5_Solid.ttf</string>
-    <string>Foundation.ttf</string>
-    <string>Ionicons.ttf</string>
-    <string>MaterialIcons.ttf</string>
-    <string>MaterialCommunityIcons.ttf</string>
-    <string>SimpleLineIcons.ttf</string>
-    <string>Octicons.ttf</string>
-    <string>Zocial.ttf</string>
-    <string>Fontisto.ttf</string>
-  </array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>Zocial.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Light.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
