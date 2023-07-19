@@ -8,12 +8,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [RNSplashScreen show]; 
   self.moduleName = @"LookForAfrica";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
   RCTImageLoader.sharedImageLoader.cache = [[RCTImageCache alloc] init];
+  [RNSplashScreen show]; 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
