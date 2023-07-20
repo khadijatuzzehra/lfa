@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch, useSelector} from 'react-redux';
-
+import {useNavigation} from '@react-navigation/native';
 import {LOGIN_SUCCESS} from '../../store/ActionTypes';
 import auth from '@react-native-firebase/auth';
 import {
@@ -38,6 +38,7 @@ import colors from '../../theme/Colors';
 import Line from '../../assets/svgs/Line 1';
 
 const Login = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,6 +52,9 @@ const Login = () => {
     }
   };
 
+  const onSignUp = () => {
+    navigation.navigate('Register');
+  };
   const handlePress = text => {
     let info = {name: 'John', email: 'john@example.com'};
     AsyncStorage.setItem('userInfo', JSON.stringify(info)).then(() => {
@@ -67,9 +71,7 @@ const Login = () => {
       auth()
         .signInWithCredential(googleCredential)
         .then(userCredential => {
-          console.log('Signed in');
           const user = userCredential.user;
-          console.log(user);
           AsyncStorage.setItem('userInfo', JSON.stringify(user)).then(() => {
             dispatch({type: LOGIN_SUCCESS, payload: user});
           });
@@ -98,12 +100,14 @@ const Login = () => {
     <ScrollView
       contentContainerStyle={styles.container}
       keyboardShouldPersistTaps="handled">
-      <Headings text="Hello! Welcome Back!" />
-      <InfoText text="Hello again, you've been missed!" />
+      <View style={styles.header}>
+        <Headings text="Welcome Back!" />
+        <InfoText text="Hello again, you've been missed!" />
+      </View>
       <Labels text="Email Address" />
       <CustomTextInput
         placeholder="Enter your email"
-        height={dimensions.Height / 18}
+        height={dimensions.Height / 16}
         width={dimensions.Width / 1.1}
         onChangeText={handleTextChange}
         fieldType="email"
@@ -111,7 +115,7 @@ const Login = () => {
       <Labels text="Password" />
       <CustomTextInput
         placeholder="Enter your password"
-        height={dimensions.Height / 18}
+        height={dimensions.Height / 16}
         width={dimensions.Width / 1.1}
         onChangeText={handleTextChange}
         fieldType="password"
@@ -122,18 +126,20 @@ const Login = () => {
           <InfoText text="Forgot Password" />
         </TouchableOpacity>
       </View>
-      <CustomButton
-        text="Login"
-        height={dimensions.Height / 18}
-        width={dimensions.Width / 1.1}
-        backgroundColor={colors.Secondary}
-        color={colors.White}
-        onClick={handlePress}
-      />
+      <View style={styles.button}>
+        <CustomButton
+          text="Login"
+          height={dimensions.Height / 16}
+          width={dimensions.Width / 1.4}
+          backgroundColor={colors.Secondary}
+          color={colors.White}
+          onClick={handlePress}
+        />
+      </View>
       <View style={styles.option}>
-        <Line style={styles.line} />
+        <Line />
         <Labels text="Or Login with" />
-        <Line style={{width: 5, height: 1}} />
+        <Line />
       </View>
       <View style={styles.socialAuth}>
         <FacebookLoginButton onClick={handlePress} />
@@ -143,7 +149,7 @@ const Login = () => {
         <ActionButton
           text="Don't have an Account? "
           buttonText="Sign UP"
-          handlePress={handlePress}
+          handlePress={onSignUp}
         />
       </View>
     </ScrollView>
@@ -154,11 +160,15 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingTop: dimensions.Height / 7,
     backgroundColor: colors.White,
-    paddingHorizontal: 10,
+    paddingHorizontal: dimensions.Width / 80,
   },
-  line: {
-    width: 5,
-    height: 1,
+  header: {
+    alignItems: 'center',
+    paddingBottom: dimensions.Height / 15,
+  },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   socialAuth: {
     flexDirection: 'row',
@@ -167,17 +177,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: dimensions.Height / 35,
+    marginTop: dimensions.Height / 50,
   },
   recovery: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginHorizontal: 20,
-    paddingHorizontal: 10,
   },
   ActionButtonContainer: {
-    marginTop: dimensions.Height / 5,
+    marginTop: dimensions.Height / 8,
   },
 });
 export default Login;

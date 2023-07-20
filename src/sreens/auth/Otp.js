@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: dimensions.Height / 5,
     backgroundColor: colors.White,
-    paddingHorizontal: 10,
+    paddingHorizontal: dimensions.Width / 40,
   },
   row: {
     flexDirection: 'row',

@@ -17,7 +17,7 @@ const Labels = ({text}) => {
 const styles = StyleSheet.create({
   container: {},
   text: {
-    marginHorizontal: 20,
+    marginHorizontal: dimensions.Width / 30,
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font12,
     color: colors.Black,

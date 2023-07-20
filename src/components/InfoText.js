@@ -17,8 +17,7 @@ const InfoText = ({text}) => {
 const styles = StyleSheet.create({
   container: {},
   text: {
-    marginHorizontal: 20,
-    marginVertical: 5,
+    marginHorizontal: dimensions.Width / 30,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font12,
     color: colors.LightestGray,

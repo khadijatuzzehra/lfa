@@ -15,10 +15,10 @@ const CustomButton = ({
   onClick,
 }) => {
   const handlePress = () => {
-    if (text === 'Register') {
-      onClick('Register');
-    } else {
+    if (text == 'Login') {
       onClick('Login');
+    } else {
+      onClick('Register');
     }
   };
   return (
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btn: {
-    color: colors.Secondary,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,

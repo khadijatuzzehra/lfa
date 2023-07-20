@@ -39,20 +39,20 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    marginVertical: 10,
+    marginHorizontal: dimensions.Width / 30,
+    marginTop: dimensions.Height / 100,
   },
   label: {
-    marginLeft: 4,
-    fontSize: 16,
+    marginLeft: dimensions.Width / 80,
+    fontSize: fonts.size.font14,
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font12,
     color: colors.Black,
   },
   icon: {
-    padding: 8,
-    height: 18,
-    width: 18,
-    color: colors.Gray,
+    height: dimensions.Width / 22,
+    width: dimensions.Width / 22,
+    color: colors.LightestGray,
   },
 });
 

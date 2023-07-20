@@ -20,7 +20,7 @@ const ProfileUpdate = () => {
       <Headings text="Set up your Profile" />
       <InfoText text="Upload a profile picture " />
       <TouchableOpacity style={styles.imageContainer}>
-        <ProfilePic style={styles.image} />
+        <ProfilePic />
       </TouchableOpacity>
       <CustomButton
         text="Next"
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: dimensions.Height / 5,
     backgroundColor: colors.White,
-    paddingHorizontal: 10,
+    paddingHorizontal: dimensions.Width / 40,
   },
   row: {
     flexDirection: 'row',
@@ -52,11 +52,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     alignItems: 'center',
-    margin: 50,
-  },
-  image: {
-    height: 80,
-    width: 80,
+    margin: dimensions.Width / 20,
   },
 });
 

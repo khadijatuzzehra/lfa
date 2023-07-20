@@ -5,7 +5,6 @@ import Headings from '../components/Headings';
 import InfoText from '../components/InfoText';
 import ActionButton from '../components/ActionButton';
 import CustomButton from '../components/CustomButton';
-import HorizontalFlatList from '../components/HorizontalFlatList';
 
 import OnBoarding1 from '../assets/svgs/one';
 import OnBoarding2 from '../assets/svgs/OnBoarding2';
@@ -25,7 +24,7 @@ const OnBoarding = () => {
   const flatListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const onNext = () => {
-    navigation.navigate('Login');
+    navigation.navigate('GetStarted');
   };
   const handlePress = () => {
     const nextIndex = (currentIndex + 1) % data.length;
@@ -44,47 +43,42 @@ const OnBoarding = () => {
       index === 0 && styles.firstItem,
       index === data.length - 1 && styles.lastItem,
     ];
-    const SvgComponent = '';
-    if (item.svgName === 'OnBoarding1') {
-      return (
-        <View style={styles.container}>
-          <View style={containerStyle}>
-            <View style={styles.image}>
-              <OnBoarding1 />
-            </View>
-            <Headings text={item.heading} />
-            <InfoText text={item.text} />
+
+    let SvgComponent = null;
+
+    switch (item.svgName) {
+      case 'OnBoarding1':
+        SvgComponent = <OnBoarding1 />;
+        break;
+      case 'OnBoarding2':
+        SvgComponent = <OnBoarding2 />;
+        break;
+      case 'OnBoarding3':
+        SvgComponent = <OnBoarding3 />;
+        break;
+      default:
+        SvgComponent = null;
+    }
+
+    return (
+      <View style={styles.container}>
+        <View style={containerStyle}>
+          <View style={styles.image}>{SvgComponent}</View>
+          <Headings text={item.heading} />
+          <InfoText text={item.text} />
+          {item.svgName === 'OnBoarding1' && (
             <ProgressBar1 style={styles.progressBar} />
-          </View>
-          <View style={styles.button}>
-            <TouchableOpacity onPress={() => onNext()}>
-              <InfoText text="Skip" />
-            </TouchableOpacity>
-            <CustomButton
-              text="Next"
-              height={dimensions.Height / 14}
-              width={dimensions.Width / 4}
-              backgroundColor={colors.Secondary}
-              color={colors.White}
-              onClick={handlePress}
-            />
-          </View>
-        </View>
-      );
-    }
-    if (item.svgName === 'OnBoarding2') {
-      return (
-        <View style={styles.container}>
-          <View style={containerStyle}>
-            <View style={styles.image}>
-              <OnBoarding2 />
-            </View>
-            <Headings text={item.heading} />
-            <InfoText text={item.text} />
+          )}
+          {item.svgName === 'OnBoarding2' && (
             <ProgressBar2 style={styles.progressBar} />
-          </View>
+          )}
+          {item.svgName === 'OnBoarding3' && (
+            <ProgressBar3 style={styles.progressBar} />
+          )}
+        </View>
+        {item.svgName !== 'OnBoarding3' && (
           <View style={styles.button}>
-            <TouchableOpacity onPress={() => onNext()}>
+            <TouchableOpacity onPress={onNext}>
               <InfoText text="Skip" />
             </TouchableOpacity>
             <CustomButton
@@ -96,35 +90,23 @@ const OnBoarding = () => {
               onClick={handlePress}
             />
           </View>
-        </View>
-      );
-    }
-    if (item.svgName === 'OnBoarding3') {
-      return (
-        <View style={styles.container}>
-          <View style={containerStyle}>
-            <View style={styles.image}>
-              <OnBoarding3 />
-            </View>
-            <Headings text={item.heading} />
-            <InfoText text={item.text} />
-            <ProgressBar3 style={styles.progressBar} />
-          </View>
+        )}
+        {item.svgName === 'OnBoarding3' && (
           <View style={styles.button2}>
             <CustomButton
-              style={{marginLeft: dimensions.Width / 8}}
               text="Done"
               height={dimensions.Height / 14}
-              width={dimensions.Width / 1.1}
+              width={dimensions.Width / 1.5}
               backgroundColor={colors.Secondary}
               color={colors.White}
               onClick={onNext}
             />
           </View>
-        </View>
-      );
-    }
+        )}
+      </View>
+    );
   };
+
   const data = [
     {
       id: '1',
@@ -169,25 +151,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingTop: dimensions.Height / 10,
-    paddingHorziontal: dimensions.Width / 50,
+    paddingHorizontal: dimensions.Width / 200,
   },
   listContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: dimensions.Width / 8, // Add left padding to the first item
+    marginHorizontal: dimensions.Width / 8,
   },
   firstItem: {
-    marginRight: dimensions.Width / 8, // Add left padding to the first item
+    marginLeft: dimensions.Width / 7, // Add left padding to the first item
   },
   lastItem: {
-    marginRight: dimensions.Width / 5,
+    marginHorizontal: dimensions.Width / 7,
   },
   image: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: dimensions.Height / 10,
     marginBottom: dimensions.Height / 5,
-    marginHorizontal: dimensions.Width / 3,
+    marginHorizontal: dimensions.Width / 10,
     paddingRight: dimensions.Width / 12,
     height: 20,
     width: 10,
@@ -203,15 +185,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: dimensions.Height / 20,
     paddingTop: dimensions.Height / 10,
-    paddingHorizontal: dimensions.Width / 20,
+    paddingHorizontal: dimensions.Width / 30,
   },
   button2: {
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: dimensions.Height / 20,
-    marginLeft: dimensions.Width / 40,
     paddingTop: dimensions.Height / 10,
-    paddingRight: dimensions.Width / 5,
   },
 });
 

@@ -5,12 +5,26 @@ import colors from '../theme/Colors';
 import dimensions from '../theme/Dimensions';
 import fonts from '../theme/Fonts';
 
-const Dropdown = ({height, width, placeholder, onClick, dropdownValues}) => {
+const SelectMultipleDropdown = ({
+  height,
+  width,
+  placeholder,
+  onClick,
+  dropdownValues,
+}) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState([]);
 
   const handleValue = () => {
     onClick(placeholder, value);
+  };
+  // Custom label to show the selected item count
+  const customLabel = () => {
+    if (value.length === 0) {
+      return placeholder;
+    } else {
+      return `${value.length} item${value.length > 1 ? 's' : ''} selected`;
+    }
   };
 
   return (
@@ -18,9 +32,8 @@ const Dropdown = ({height, width, placeholder, onClick, dropdownValues}) => {
       <DropDownPicker
         style={[{height, width}, styles.dropdown]}
         textStyle={{
-          fontSize: fonts.size.font12,
+          fontSize: 14,
           fontFamily: fonts.family.regular,
-          color: colors.LightestGray,
         }}
         autoScroll={true}
         nestedScrollEnabled={true}
@@ -34,10 +47,13 @@ const Dropdown = ({height, width, placeholder, onClick, dropdownValues}) => {
         setOpen={setOpen}
         setValue={setValue}
         dropDownDirection="BOTTOM"
-        placeholder={placeholder}
+        placeholder={customLabel()}
         itemStyle={styles.dropdownItem}
         dropDownStyle={styles.dropdownMenu}
         onChangeValue={handleValue}
+        multiple={true}
+        min={1}
+        max={dropdownValues.length}
       />
     </View>
   );
@@ -56,10 +72,11 @@ const styles = StyleSheet.create({
   dropdownItem: {
     justifyContent: 'flex-start',
     backgroundColor: '#ECECEC', // Set your desired background color here
-    padding: dimensions.Width / 30,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
   },
   dropdownMenu: {
     backgroundColor: '#ECECEC', // Set your desired background color here
   },
 });
-export default Dropdown;
+export default SelectMultipleDropdown;

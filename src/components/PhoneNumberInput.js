@@ -66,11 +66,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.LightestGray,
     borderRadius: 4,
-    padding: 10,
-    marginHorizontal: 10,
-    marginVertical: 10,
-    height: dimensions.Height / 14,
+    marginHorizontal: dimensions.Width / 30,
+    height: dimensions.Height / 16,
     width: dimensions.Width / 1.1,
+    marginBottom: dimensions.Width / 30,
   },
   dropdownContainer: {
     flexDirection: 'row',
@@ -79,9 +78,8 @@ const styles = StyleSheet.create({
     width: 100,
   },
   dropdown: {
-    flex: 1,
+    height: dimensions.Height / 20,
     borderWidth: 0,
-    borderColor: 'transparent',
   },
   dropdownText: {
     fontSize: fonts.size.font12,
@@ -92,23 +90,21 @@ const styles = StyleSheet.create({
   separator: {
     fontSize: fonts.size.font20,
     textAlign: 'center',
-    paddingBottom: 8,
+    paddingBottom: dimensions.Width / 50,
     color: colors.Gray,
-    marginRight: 20,
+    marginRight: dimensions.Width / 50,
   },
   phoneNumberInput: {
     flex: 1,
     height: '200%',
     fontSize: fonts.size.font12,
-    marginLeft: 20,
     fontFamily: fonts.family.regular,
     color: colors.Gray,
   },
   dropdownItem: {
     justifyContent: 'flex-start',
     backgroundColor: '#ECECEC', // Set your desired background color here
-    paddingHorizontal: 10,
-    paddingVertical: 8,
+    padding: dimensions.Width / 30,
   },
   dropdownMenu: {
     backgroundColor: '#ECECEC', // Set your desired background color here
