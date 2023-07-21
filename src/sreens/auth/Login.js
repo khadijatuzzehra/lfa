@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   Alert,
+  Image,
   StyleSheet,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -100,6 +101,13 @@ const Login = () => {
     <ScrollView
       contentContainerStyle={styles.container}
       keyboardShouldPersistTaps="handled">
+      <View style={styles.topImage}>
+        <Image
+          source={require('../../assets/Images/LoginIllustration.png')}
+          style={styles.image}
+          resizeMode="cover"
+        />
+      </View>
       <View style={styles.header}>
         <Headings text="Welcome Back!" />
         <InfoText text="Hello again, you've been missed!" />
@@ -158,13 +166,11 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    paddingTop: dimensions.Height / 7,
     backgroundColor: colors.White,
     paddingHorizontal: dimensions.Width / 80,
   },
   header: {
-    alignItems: 'center',
-    paddingBottom: dimensions.Height / 15,
+    paddingTop: dimensions.Height / 7,
   },
   button: {
     justifyContent: 'center',
@@ -186,6 +192,16 @@ const styles = StyleSheet.create({
   },
   ActionButtonContainer: {
     marginTop: dimensions.Height / 8,
+  },
+  topImage: {
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    width: dimensions.Width,
+    height: dimensions.Height / 20,
+  },
+  image: {
+    width: dimensions.Width / 2,
+    right: 0,
   },
 });
 export default Login;

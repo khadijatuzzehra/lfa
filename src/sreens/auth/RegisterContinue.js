@@ -3,15 +3,20 @@ import {
   SafeAreaView,
   View,
   Text,
+  Image,
   TouchableOpacity,
+  ScrollView,
   StyleSheet,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch, useSelector} from 'react-redux';
 import {LOGIN_SUCCESS} from '../../store/ActionTypes';
+//Components Imports
 import CustomButton from '../../components/CustomButton';
 import Headings from '../../components/Headings';
+import Interests from '../../components/Interests';
 import InfoText from '../../components/InfoText';
+import UploadPicture from '../../components/UploadPicture';
 import Labels from '../../components/Labels';
 import CustomTextInput from '../../components/CustomTextInput';
 import PhoneNumberInput from '../../components/PhoneNumberInput';
@@ -19,16 +24,17 @@ import Dropdown from '../../components/Dropdown';
 import SelectMultipleDropdown from '../../components/SelectMultipleDropdown';
 import Agree from '../../components/Checkbox';
 import ActionButton from '../../components/ActionButton';
+//Theme
 import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';
+//Navigation
 import {useNavigation} from '@react-navigation/native';
-
 const RegisterContinue = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  const [image, setImage] = useState(null);
   const [profession, setProfession] = useState('');
   const [higherLevelEducation, setHigherLevelEducation] = useState('');
-  const [interests, setInterests] = useState('');
   const professionRef = useRef('');
   const higherLevelEducationRef = useRef('');
   const interestRef = useRef('');
@@ -41,15 +47,32 @@ const RegisterContinue = () => {
     if (ph == 'Higher Level Education') {
       higherLevelEducationRef.current = value;
       setHigherLevelEducation(higherLevelEducationRef.current);
-    } else {
-      interestRef.current = value;
-      setInterests(interestRef.current);
     }
+  };
+  const clickUploadPicture = image => {
+    console.log('Uploading picture', image);
+    setImage(image);
   };
   const handlePress = text => {
     navigation.navigate('Otp');
   };
 
+  const [selectedInterests, setSelectedInterests] = useState([]);
+
+  const interests = [
+    'Tech',
+    'Business',
+    'Educational',
+    'Music',
+    'Sports',
+    'Art',
+    'Travel',
+    'Cooking',
+    'Reading',
+    'Gaming',
+    'Data Science',
+    'Data Engineering',
+  ];
   const dropdownValues1 = [
     'Actor',
     'Accountant',
@@ -67,18 +90,17 @@ const RegisterContinue = () => {
     'Postgraduate',
     'none of the above',
   ];
-  const dropdownValues3 = [
-    'Marketing',
-    'Developer',
-    'Engineering',
-    'None of the above',
-  ];
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Headings text="Profile Setup" />
         <InfoText text="Let us know about you" />
       </View>
+      <InfoText
+        text="You can also fill out this section later when setting up 
+your profile *"
+      />
+      <UploadPicture uploadPicture={clickUploadPicture} />
       <View style={styles.holder}>
         <Labels text="Profession" />
         <Dropdown
@@ -100,34 +122,30 @@ const RegisterContinue = () => {
         />
       </View>
       <View style={styles.holder}>
-        <Labels text="Interests" />
-        <SelectMultipleDropdown
-          height={dimensions.Height / 10}
-          width={dimensions.Width / 1.1}
-          placeholder="Select your Interests"
-          onClick={handleChange}
-          dropdownValues={dropdownValues3}
-        />
+        <View style={{flexDirection: 'row'}}>
+          <Labels text="Interests" />
+          <InfoText text="(Select Your Interests)" />
+        </View>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          {interests.map(interest => (
+            <Interests
+              key={interest}
+              interest={interest}
+              selectedInterests={selectedInterests}
+              setSelectedInterests={setSelectedInterests}
+            />
+          ))}
+        </ScrollView>
       </View>
       <View style={styles.bottom}>
-        <View style={styles.button}>
-          <CustomButton
-            text="Later"
-            height={dimensions.Height / 16}
-            width={dimensions.Width / 4}
-            backgroundColor="#C8C8C8"
-            color={colors.White}
-            onClick={handlePress}
-          />
-          <CustomButton
-            text="Next"
-            height={dimensions.Height / 16}
-            width={dimensions.Width / 4}
-            backgroundColor={colors.Secondary}
-            color={colors.White}
-            onClick={handlePress}
-          />
-        </View>
+        <CustomButton
+          text="Next"
+          height={dimensions.Height / 16}
+          width={dimensions.Width / 1.1}
+          backgroundColor={colors.Secondary}
+          color={colors.White}
+          onClick={handlePress}
+        />
       </View>
     </SafeAreaView>
   );
@@ -141,7 +159,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.Width / 100,
   },
   header: {
-    paddingBottom: dimensions.Height / 15,
+    alignItems: 'center',
+    paddingBottom: dimensions.Height / 20,
   },
   holder: {
     marginBottom: dimensions.Height / 100,
@@ -152,9 +171,10 @@ const styles = StyleSheet.create({
     position: 'relative',
     paddingBottom: dimensions.Height / 20,
   },
-  button: {
+  contentContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    marginHorizontal: dimensions.Width / 30,
   },
 });
 

@@ -12,6 +12,8 @@ const LighterGray = '#959AA1';
 const LightestGray = '#A8A2A2';
 const Black = '#000000';
 const White = '#FFFFFF';
+const badgeSelected = '#2B6F64';
+const badge = '#CDCDCD';
 
 export default {
   Primary,
@@ -27,4 +29,6 @@ export default {
   LightGray,
   Black,
   White,
+  badge,
+  badgeSelected,
 };
