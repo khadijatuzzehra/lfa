@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1091379759654-0493h02kfjq1obs7chaf1u8u9nbppmkh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lookforafrica",
+            "certificate_hash": "f399939166a8007c027f4dd88f38adfa51100701"
+          }
+        },
+        {
           "client_id": "1091379759654-98bc7v3jsrt4cqicb731qko8pu90t4ad.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -45,6 +53,13 @@
             {
               "client_id": "1091379759654-0qno7galr7ft280sb69if9einrlsnuml.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1091379759654-o79h0r3vqkr8s54vqg6b5kcvtbdohl2a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lookforafrica"
+              }
             }
           ]
         }
