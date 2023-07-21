@@ -1,5 +1,12 @@
 import React, {useState, useRef} from 'react';
-import {View, StyleSheet, FlatList, Text, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  FlatList,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import Svg, {Circle, Rect} from 'react-native-svg';
 import Headings from '../components/Headings';
 import InfoText from '../components/InfoText';
@@ -61,7 +68,7 @@ const OnBoarding = () => {
     }
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={containerStyle}>
           <View style={styles.image}>{SvgComponent}</View>
           <Headings text={item.heading} />
@@ -103,7 +110,7 @@ const OnBoarding = () => {
             />
           </View>
         )}
-      </View>
+      </SafeAreaView>
     );
   };
 
@@ -171,8 +178,8 @@ const styles = StyleSheet.create({
     marginBottom: dimensions.Height / 5,
     marginHorizontal: dimensions.Width / 10,
     paddingRight: dimensions.Width / 12,
-    height: 20,
-    width: 10,
+    height: dimensions.Height / 50,
+    width: dimensions.Width / 50,
   },
   progressBar: {
     height: 60,

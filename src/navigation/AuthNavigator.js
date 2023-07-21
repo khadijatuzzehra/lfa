@@ -1,12 +1,12 @@
 import React from 'react';
-import Login from '../sreens/auth/Login';
-import Register from '../sreens/auth/Register';
-import RegisterContinue from '../sreens/auth/RegisterContinue';
-import Otp from '../sreens/auth/Otp';
-import ProfileUpdate from '../sreens/auth/ProfileUpdate';
-import GetStarted from '../sreens/auth/GetStarted';
+import Login from '../screens/auth/Login';
+import Register from '../screens/auth/Register';
+import RegisterContinue from '../screens/auth/RegisterContinue';
+import Otp from '../screens/auth/Otp';
+import ProfileUpdate from '../screens/auth/ProfileUpdate';
+import GetStarted from '../screens/auth/GetStarted';
 
-import OnBoarding from '../sreens/OnBoarding';
+import OnBoarding from '../screens/OnBoarding';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const AuthStack = createNativeStackNavigator();

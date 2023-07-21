@@ -3,9 +3,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Feather from 'react-native-vector-icons/Feather';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import Account from '../sreens/Account';
-import Dashboard from '../sreens/Dashboard';
-import Services from '../sreens/Services';
+import Account from '../screens/Account';
+import Dashboard from '../screens/Dashboard';
+import Services from '../screens/Services';
 import Colors from '../theme/Colors';
 
 const DashboardStack = createNativeStackNavigator();

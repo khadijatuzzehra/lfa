@@ -23,24 +23,24 @@ const MainContainer = () => {
   };
 
   useEffect(() => {
+    SplashScreen.hide();
     AsyncStorage.getItem('userInfo').then(userInfo => {
       if (userInfo != null) {
         dispatch({type: LOGIN_SUCCESS, payload: JSON.parse(userInfo)});
       }
-      SplashScreen.hide();
       setLoading(false);
     });
     return () => {};
   }, []);
 
-  //   if (loading) {
-  //     return (
-  //       <SafeAreaView
-  //         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-  //         <ActivityIndicator size={'large'} color={Colors.Primary} />
-  //       </SafeAreaView>
-  //     );
-  //   }
+  if (loading) {
+    return (
+      <SafeAreaView
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <ActivityIndicator size={'large'} color={Colors.Primary} />
+      </SafeAreaView>
+    );
+  }
   return (
     <NavigationContainer theme={MyTheme}>
       {user ? <Navigator /> : <AuthNavigator />}
