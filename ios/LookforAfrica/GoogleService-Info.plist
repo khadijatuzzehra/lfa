@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1091379759654-o79h0r3vqkr8s54vqg6b5kcvtbdohl2a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1091379759654-o79h0r3vqkr8s54vqg6b5kcvtbdohl2a</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1091379759654-98bc7v3jsrt4cqicb731qko8pu90t4ad.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBJQN6mFKqUMGJfbX9Yl2f8foJuEtjcudw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1091379759654</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lookforafrica</string>
+	<key>PROJECT_ID</key>
+	<string>lookforafrica-1b84d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lookforafrica-1b84d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1091379759654:ios:8fdc87ab091558ef97b4e7</string>
+</dict>
+</plist>

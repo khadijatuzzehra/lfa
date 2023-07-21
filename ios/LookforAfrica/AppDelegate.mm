@@ -1,20 +1,22 @@
+#import <Firebase.h>
 #import "AppDelegate.h"
-#import "RNSplashScreen.h"  // here
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTImageLoader.h>
+#import "RNSplashScreen.h"
 
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [FIRApp configure];
   self.moduleName = @"LookForAfrica";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-  RCTImageLoader.sharedImageLoader.cache = [[RCTImageCache alloc] init];
-  [RNSplashScreen show]; 
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  bool didFinish=[super application:application didFinishLaunchingWithOptions:launchOptions];
+  [RNSplashScreen show];
+  return didFinish;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
