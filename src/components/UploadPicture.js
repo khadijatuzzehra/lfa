@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
-import ImagePicker from 'react-native-image-picker';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import Upload from '../assets/svgs/Upload';
+import Images from '../utils/Images';
+
 // import theme
 import colors from '../theme/Colors';
 import dimensions from '../theme/Dimensions';
@@ -29,7 +30,7 @@ const UploadPicture = ({uploadPicture}) => {
         <Image source={{uri: image.assets[0].uri}} style={styles.image} />
       ) : (
         <Image
-          source={require('../assets/Images/Profile.png')}
+          source={Images.ProfilePicture}
           resizeMode="cover"
           style={styles.image}
         />
@@ -59,14 +60,14 @@ const styles = StyleSheet.create({
   icon: {
     height: dimensions.Width / 25,
     width: dimensions.Width / 25,
-    color: colors.Secondary,
+    color: colors.Primary,
   },
   image: {
     height: dimensions.Width / 4,
     width: dimensions.Width / 4,
   },
   btnText: {
-    color: colors.Secondary,
+    color: colors.Primary,
     fontFamily: fonts.family.bold,
     paddingHorizontal: dimensions.Width / 100,
   },

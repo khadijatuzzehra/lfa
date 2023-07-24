@@ -20,7 +20,6 @@ const Checkbox = ({text}) => {
     } else {
       return <Unchecked style={styles.icon} />;
     }
-    return null;
   };
 
   return (
@@ -44,7 +43,6 @@ const styles = StyleSheet.create({
   },
   label: {
     marginLeft: dimensions.Width / 80,
-    fontSize: fonts.size.font14,
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font12,
     color: colors.Black,
@@ -52,7 +50,7 @@ const styles = StyleSheet.create({
   icon: {
     height: dimensions.Width / 22,
     width: dimensions.Width / 22,
-    color: colors.LightestGray,
+    color: colors.borderColor,
   },
 });
 

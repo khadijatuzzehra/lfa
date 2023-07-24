@@ -3,27 +3,15 @@ import {
   SafeAreaView,
   View,
   StyleSheet,
+  Image,
   FlatList,
-  Text,
   TouchableOpacity,
 } from 'react-native';
-import Svg, {Circle, Rect} from 'react-native-svg';
-import Headings from '../components/Headings';
-import InfoText from '../components/InfoText';
-import ActionButton from '../components/ActionButton';
+import TextCustom from '../components/TextCustom';
 import CustomButton from '../components/CustomButton';
-
-import OnBoarding1 from '../assets/svgs/one';
-import OnBoarding2 from '../assets/svgs/OnBoarding2';
-import OnBoarding3 from '../assets/svgs/OnBoarding3';
-import ProgressBar1 from '../assets/svgs/ProgressBar1';
-import ProgressBar2 from '../assets/svgs/ProgressBar2';
-import ProgressBar3 from '../assets/svgs/ProgressBar3';
-
-// import theme
+import Images from '../utils/Images';
 import colors from '../theme/Colors';
 import dimensions from '../theme/Dimensions';
-import fonts from '../theme/Fonts';
 import {useNavigation} from '@react-navigation/native';
 
 const OnBoarding = () => {
@@ -51,60 +39,66 @@ const OnBoarding = () => {
       index === data.length - 1 && styles.lastItem,
     ];
 
-    let SvgComponent = null;
+    let ImageComponent = null;
 
-    switch (item.svgName) {
+    switch (item.imgName) {
       case 'OnBoarding1':
-        SvgComponent = <OnBoarding1 />;
+        ImageComponent = (
+          <Image source={Images.OnBoarding1} style={styles.image} />
+        );
         break;
       case 'OnBoarding2':
-        SvgComponent = <OnBoarding2 />;
+        ImageComponent = (
+          <Image source={Images.OnBoarding2} style={styles.image} />
+        );
         break;
       case 'OnBoarding3':
-        SvgComponent = <OnBoarding3 />;
+        ImageComponent = (
+          <Image source={Images.OnBoarding3} style={styles.image} />
+        );
         break;
       default:
-        SvgComponent = null;
+        ImageComponent = null;
     }
 
     return (
       <SafeAreaView style={styles.container}>
         <View style={containerStyle}>
-          <View style={styles.image}>{SvgComponent}</View>
-          <Headings text={item.heading} />
-          <InfoText text={item.text} />
-          {item.svgName === 'OnBoarding1' && (
-            <ProgressBar1 style={styles.progressBar} />
+          <View style={styles.imageContainer}>{ImageComponent}</View>
+          <TextCustom text={item.heading} textType="Headings" />
+          <TextCustom text={item.text} textType="InfoText" />
+          {item.imgName === 'OnBoarding1' && (
+            <Images.ProgressBar1 style={styles.progressBar} />
           )}
-          {item.svgName === 'OnBoarding2' && (
-            <ProgressBar2 style={styles.progressBar} />
+          {item.imgName === 'OnBoarding2' && (
+            <Images.ProgressBar2 style={styles.progressBar} />
           )}
-          {item.svgName === 'OnBoarding3' && (
-            <ProgressBar3 style={styles.progressBar} />
+          {item.imgName === 'OnBoarding3' && (
+            <Images.ProgressBar3 style={styles.progressBar} />
           )}
         </View>
-        {item.svgName !== 'OnBoarding3' && (
+        {item.imgName !== 'OnBoarding3' && (
           <View style={styles.button}>
             <TouchableOpacity onPress={onNext}>
-              <InfoText text="Skip" />
+              <TextCustom text="Skip" textType="InfoText" />
             </TouchableOpacity>
             <CustomButton
               text="Next"
               height={dimensions.Height / 14}
               width={dimensions.Width / 4}
-              backgroundColor={colors.Secondary}
+              backgroundColor={colors.Primary}
               color={colors.White}
               onClick={handlePress}
             />
           </View>
         )}
-        {item.svgName === 'OnBoarding3' && (
+        {item.imgName === 'OnBoarding3' && (
           <View style={styles.button2}>
             <CustomButton
               text="Done"
               height={dimensions.Height / 14}
               width={dimensions.Width / 1.5}
-              backgroundColor={colors.Secondary}
+              backgroundColor={colors.Primary}
               color={colors.White}
               onClick={onNext}
             />
@@ -117,21 +111,21 @@ const OnBoarding = () => {
   const data = [
     {
       id: '1',
-      svgName: 'OnBoarding1',
+      imgName: 'OnBoarding1',
       svgName2: 'ProgressBar1',
       heading: 'Lorem Ipsum',
       text: 'Unleashing Africas Collective Ingenuity ',
     },
     {
       id: '2',
-      svgName: 'OnBoarding2',
+      imgName: 'OnBoarding2',
       svgName2: 'ProgressBar2',
       heading: 'Lorem Ipsum',
       text: 'Unleashing Africas Collective Ingenuity ',
     },
     {
       id: '3',
-      svgName: 'OnBoarding3',
+      imgName: 'OnBoarding3',
       svgName2: 'ProgressBar3',
       heading: 'Lorem Ipsum',
       text: 'Unleashing Africas Collective Ingenuity ',
@@ -171,19 +165,17 @@ const styles = StyleSheet.create({
   lastItem: {
     marginHorizontal: dimensions.Width / 7,
   },
-  image: {
+  imageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: dimensions.Height / 10,
-    marginBottom: dimensions.Height / 5,
-    marginHorizontal: dimensions.Width / 10,
-    paddingRight: dimensions.Width / 12,
+    marginBottom: dimensions.Height / 4,
     height: dimensions.Height / 50,
     width: dimensions.Width / 50,
   },
   progressBar: {
-    height: 60,
-    width: 60,
+    height: dimensions.Height / 100,
+    width: dimensions.Height / 100,
     marginTop: dimensions.Height / 30,
   },
   button: {

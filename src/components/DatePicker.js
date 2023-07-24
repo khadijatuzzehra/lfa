@@ -8,27 +8,13 @@ import fonts from '../theme/Fonts';
 import moment from 'moment';
 
 const DatePicker = ({placeholder, onSelect}) => {
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(
-    moment().format('YYYY-MM-DD'),
-  );
-  const [cDate, setCDate] = useState(moment().format('D MMMM YYYY'));
-  const [weekDates, setWeekDates] = useState([]);
   const [isModalVisible, setModalVisible] = useState(false);
-
   const [date, setDate] = useState('DD/MM/YYYY');
-  const handleDatePress = date => {
-    setSelectedDate(date);
-    console.log(date);
-  };
-  const handleDateChange = date => {
-    const formattedDate = moment(date, 'YYYY/MM/DD').format('D/MM/YYYY');
-    setCDate(formattedDate);
+  const handleDateChange = dateInput => {
+    const formattedDate = moment(dateInput, 'YYYY/MM/DD').format('D/MM/YYYY');
     setDate(formattedDate);
     onSelect(formattedDate);
     setModalVisible(false);
-
-    // setTimeout(() => {}, 1000);
   };
 
   return (
@@ -44,19 +30,16 @@ const DatePicker = ({placeholder, onSelect}) => {
         <View>
           <DatePick
             mode="calendar"
-            onDateChange={date => {
-              handleDateChange(date);
+            onDateChange={dateSelected => {
+              handleDateChange(dateSelected);
             }}
             options={{
               textHeaderColor: '#333333',
               textDefaultColor: '#333333',
-              mainColor: colors.Secondary,
-              textSecondaryColor: colors.Secondary,
+              mainColor: colors.Primary,
+              textSecondaryColor: colors.Primary,
             }}
-            style={{
-              borderRadius: 10,
-              backgroundColor: colors.White,
-            }}
+            style={styles.datepicker}
           />
         </View>
       </Modal>
@@ -73,7 +56,7 @@ const styles = StyleSheet.create({
   dropdown: {
     height: dimensions.Height / 16,
     width: dimensions.Width / 2.5,
-    borderColor: colors.LightestGray,
+    borderColor: colors.borderColor,
     borderWidth: 1,
     borderRadius: 4,
     justifyContent: 'center',
@@ -82,6 +65,10 @@ const styles = StyleSheet.create({
     fontFamily: fonts.family.regular,
     color: colors.Gray,
     padding: dimensions.Width / 30,
+  },
+  datepicker: {
+    borderRadius: 10,
+    backgroundColor: colors.White,
   },
 });
 

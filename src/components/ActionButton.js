@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 // import theme
 import colors from '../theme/Colors';
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: fonts.family.regular,
-    color: colors.LightGray,
+    color: colors.Text,
     fontSize: fonts.size.font12,
   },
   btnText: {
     fontFamily: fonts.family.semiBold,
-    color: colors.DarkGray,
+    color: colors.ButtonText,
     fontSize: fonts.size.font12,
   },
 });

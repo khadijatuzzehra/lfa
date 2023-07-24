@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 // import theme
 import colors from '../theme/Colors';
@@ -7,7 +7,6 @@ import fonts from '../theme/Fonts';
 const Interest = ({interest, selectedInterests, setSelectedInterests}) => {
   const isSelected = selectedInterests.includes(interest);
   const badgeBackgroundColor = isSelected ? colors.badgeSelected : colors.badge;
-  const badgeTextColor = isSelected ? '#fff' : '#000';
 
   const handlePress = () => {
     if (isSelected) {

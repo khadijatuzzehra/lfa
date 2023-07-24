@@ -82,8 +82,9 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     margin: dimensions.Width / 30,
-    color: colors.Gray,
+    color: colors.borderColor,
     fontFamily: fonts.family.regular,
+    justifyContent: 'center',
   },
   icon: {
     height: dimensions.Width / 22,
@@ -92,5 +93,4 @@ const styles = StyleSheet.create({
     color: colors.LightestGray,
   },
 });
-
 export default CustomTextInput;

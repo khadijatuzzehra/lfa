@@ -2,8 +2,6 @@ import React from 'react';
 import Login from '../screens/auth/Login';
 import Register from '../screens/auth/Register';
 import RegisterContinue from '../screens/auth/RegisterContinue';
-import Otp from '../screens/auth/Otp';
-import ProfileUpdate from '../screens/auth/ProfileUpdate';
 import GetStarted from '../screens/auth/GetStarted';
 
 import OnBoarding from '../screens/OnBoarding';
@@ -45,20 +43,6 @@ const AuthNavigator = () => {
       <AuthStack.Screen
         name={'RegisterContinue'}
         component={RegisterContinue}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <AuthStack.Screen
-        name={'Otp'}
-        component={Otp}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <AuthStack.Screen
-        name={'ProfileUpdate'}
-        component={ProfileUpdate}
         options={{
           headerShown: false,
         }}

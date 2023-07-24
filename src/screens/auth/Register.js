@@ -1,18 +1,7 @@
-import React, {useState, useRef} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useDispatch, useSelector} from 'react-redux';
-import {LOGIN_SUCCESS} from '../../store/ActionTypes';
+import React, {useState} from 'react';
+import {SafeAreaView, View, StyleSheet} from 'react-native';
 import CustomButton from '../../components/CustomButton';
-import Headings from '../../components/Headings';
-import InfoText from '../../components/InfoText';
-import Labels from '../../components/Labels';
+import TextCustom from '../../components/TextCustom';
 import CustomTextInput from '../../components/CustomTextInput';
 import PhoneNumberInput from '../../components/PhoneNumberInput';
 import Dropdown from '../../components/Dropdown';
@@ -22,114 +11,93 @@ import ActionButton from '../../components/ActionButton';
 import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';
 import {useNavigation} from '@react-navigation/native';
+import Data from '../../utils/Data';
 
 const Register = () => {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
-  const [inputText, setInputText] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [countryCode, setCountryCode] = useState('');
-  const [gender, setGender] = useState('');
-  const [dob, setDob] = useState('');
-  const [countryName, setCountryName] = useState('');
-  const [cityName, setCityName] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const countryNameRef = useRef('');
-  const genderRef = useRef('');
-  const dateRef = useRef('');
-  const cityNameRef = useRef('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    countryCode: '',
+    password: '',
+    dob: '',
+    gender: '',
+    countryName: '',
+    cityName: '',
+  });
 
   const handleTextChange = (inputText, fieldType) => {
-    // Your logic here
-    if (fieldType == 'email') {
-      setEmail(inputText);
-    }
-    if (fieldType == 'name') {
-      setName(inputText);
-    } else {
-      setPassword(inputText);
-    }
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [fieldType]: inputText,
+    }));
+  };
+
+  const handleChange = (placeholder, value) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [placeholder.toLowerCase()]: value,
+    }));
+  };
+
+  const handleDateSelect = value => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      dob: value,
+    }));
+  };
+
+  const handlePhoneNumberChange = (inputText, country) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      phoneNumber: inputText,
+      countryCode: country,
+    }));
   };
 
   const onLogin = () => {
     navigation.navigate('Login');
   };
-  const handleChange = async (ph, value) => {
-    if (ph == 'Country') {
-      countryNameRef.current = value;
-      setCountryName(countryNameRef.current);
-    }
-    if (ph == 'Gender') {
-      genderRef.current = value;
-      setGender(genderRef.current);
-    } else {
-      cityNameRef.current = value;
-      setCityName(cityNameRef.current);
-    }
-  };
-  const handleDateSelect = async value => {
-    dateRef.current = value;
-    setDob(dateRef.current);
-  };
 
-  const onChangeText = (inputText, country) => {
-    // Your logic here
-    setPhoneNumber(inputText);
-    setCountryCode(country);
-  };
-  const handlePress = text => {
-    // let info = {name: 'John', email: 'john@example.com'};
-    // AsyncStorage.setItem('userInfo', JSON.stringify(info)).then(() => {
-    //   dispatch({type: LOGIN_SUCCESS, payload: info});
-    // });
+  const handlePress = () => {
     navigation.navigate('RegisterContinue');
   };
 
-  const dropdownValues1 = ['Pakistan', 'South Africa', 'Bangladesh'];
-  const dropdownValues2 = [
-    'Islamabad',
-    'Lahore',
-    'Karachi',
-    'Cape Town',
-    'Pretoria',
-    'Dhaka',
-  ];
-  const dropdownValues3 = ['Male', 'Female', 'Prefer not to say'];
   return (
     <SafeAreaView style={styles.container}>
-      <Headings text="Create Account" />
-      <InfoText text="Connect through look for Africa today" />
-      <Labels text="Full Name" />
+      <TextCustom text="Create Account" textType="Headings" />
+      <TextCustom
+        text="Connect through look for Africa today"
+        textType="InfoText"
+      />
+      <TextCustom text="Full Name" textType="Labels" />
       <CustomTextInput
         placeholder="Write Your Full Name"
         height={dimensions.Height / 16}
         width={dimensions.Width / 1.1}
-        onChangeText={handleTextChange}
-        fieldType="name"
+        onChangeText={text => handleTextChange(text, 'name')}
       />
-      <Labels text="Email" />
+      <TextCustom text="Email" textType="Labels" />
       <CustomTextInput
         placeholder="Enter your email"
         height={dimensions.Height / 16}
         width={dimensions.Width / 1.1}
-        onChangeText={handleTextChange}
-        fieldType="email"
+        onChangeText={text => handleTextChange(text, 'email')}
       />
-      <Labels text="Mobile Number" />
-      <PhoneNumberInput onChangeText={onChangeText} />
-      <Labels text="Password" />
+      <TextCustom text="Mobile Number" textType="Labels" />
+      <PhoneNumberInput onChangeText={handlePhoneNumberChange} />
+      <TextCustom text="Password" textType="Labels" />
       <CustomTextInput
         placeholder="Enter your password"
         height={dimensions.Height / 16}
         width={dimensions.Width / 1.1}
-        onChangeText={handleTextChange}
         fieldType="password"
+        onChangeText={text => handleTextChange(text, 'password')}
       />
       <View style={styles.labelHolder}>
-        <Labels text="Date of Birth" />
-        <Labels text="Gender" />
+        <TextCustom text="Date of Birth" textType="Labels" />
+        <TextCustom text="Gender" textType="Labels" />
       </View>
       <View style={styles.dropDownHolder}>
         <DatePicker placeholder="DD/MM/YYYY" onSelect={handleDateSelect} />
@@ -138,12 +106,12 @@ const Register = () => {
           width={dimensions.Width / 2.5}
           placeholder="Gender"
           onClick={handleChange}
-          dropdownValues={dropdownValues3}
+          dropdownValues={Data.Gender}
         />
       </View>
       <View style={styles.labelHolder}>
-        <Labels text="Country" />
-        <Labels text="City/State" />
+        <TextCustom text="Country" textType="Labels" />
+        <TextCustom text="City/State" textType="Labels" />
       </View>
       <View style={styles.dropDownHolder}>
         <Dropdown
@@ -151,14 +119,14 @@ const Register = () => {
           width={dimensions.Width / 2.5}
           placeholder="Country"
           onClick={handleChange}
-          dropdownValues={dropdownValues1}
+          dropdownValues={Data.Country}
         />
         <Dropdown
           height={dimensions.Height / 16}
           width={dimensions.Width / 2.5}
           placeholder="City"
           onClick={handleChange}
-          dropdownValues={dropdownValues2}
+          dropdownValues={Data.City}
         />
       </View>
       <View style={{marginVertical: dimensions.Width / 100}}>
@@ -168,7 +136,7 @@ const Register = () => {
         text="Sign Up"
         height={dimensions.Height / 16}
         width={dimensions.Width / 1.1}
-        backgroundColor={colors.Secondary}
+        backgroundColor={colors.Primary}
         color={colors.White}
         onClick={handlePress}
       />
@@ -180,11 +148,10 @@ const Register = () => {
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: dimensions.Height / 15,
+    paddingTop: dimensions.Height / 20,
     backgroundColor: colors.White,
     paddingHorizontal: dimensions.Width / 100,
   },
@@ -197,5 +164,4 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
-
 export default Register;

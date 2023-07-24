@@ -1,19 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import CustomButton from '../../components/CustomButton';
-import Headings from '../../components/Headings';
-import InfoText from '../../components/InfoText';
+import TextCustom from '../../components/TextCustom';
 import {useNavigation} from '@react-navigation/native';
+import Images from '../../utils/Images';
 
 // import theme
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
-import fonts from '../../theme/Fonts';
 const GetStarted = () => {
   const navigation = useNavigation();
 
   const handlePress = text => {
-    if (text == 'Login') {
+    if (text === 'Login') {
       navigation.navigate('Login');
     } else {
       navigation.navigate('Register');
@@ -22,21 +21,24 @@ const GetStarted = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/Images/hand-shake.png')}
+        source={Images.HandShake}
         style={styles.backgroundSvg}
-        resizeMode="stretch" // Apply stretch to fill the entire container
+        resizeMode="stretch"
       />
       <View style={styles.top}>
         <View style={styles.text}>
-          <Headings text="Let's Get Started" />
-          <InfoText text="Lorem Ipsum sit amet Constentular giz not namet Ipsum" />
+          <TextCustom text="Let's Get Started" textType="Headings" />
+          <TextCustom
+            text="Lorem Ipsum sit amet Constentular giz not namet Ipsum"
+            textType="InfoText"
+          />
         </View>
         <View style={styles.buttonContainer}>
           <CustomButton
             text="Login"
             height={dimensions.Height / 14}
             width={dimensions.Width / 1.1}
-            backgroundColor={colors.Secondary}
+            backgroundColor={colors.Primary}
             color={colors.White}
             onClick={handlePress}
           />
@@ -52,9 +54,9 @@ const GetStarted = () => {
       </View>
       <View style={styles.bottom}>
         <Image
-          source={require('../../assets/Images/Bottom.png')}
+          source={Images.Bottom}
           style={styles.image}
-          resizeMode="stretch" // Apply stretch to fill the entire container
+          resizeMode="stretch"
         />
       </View>
     </View>

@@ -2,8 +2,6 @@ import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 // import theme
-import colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
 import fonts from '../theme/Fonts';
 
 const CustomButton = ({
@@ -15,7 +13,7 @@ const CustomButton = ({
   onClick,
 }) => {
   const handlePress = () => {
-    if (text == 'Login') {
+    if (text === 'Login') {
       onClick('Login');
     } else {
       onClick('Register');
