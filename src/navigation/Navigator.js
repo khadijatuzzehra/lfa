@@ -1,50 +1,82 @@
 import React, {useEffect, useState} from 'react';
+import {StyleSheet, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Feather from 'react-native-vector-icons/Feather';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import Account from '../screens/Account';
 import Dashboard from '../screens/Dashboard';
+import Feed from '../screens/feed/Feed';
+
 import Services from '../screens/Services';
 import Colors from '../theme/Colors';
+import dimensions from '../theme/Dimensions';
+import Fonts from '../theme/Fonts';
 
-const DashboardStack = createNativeStackNavigator();
-const DashboardStackScreens = () => (
-  <DashboardStack.Navigator>
-    <DashboardStack.Screen
+import Images from '../utils/Images';
+import TestIcon from '../assets/svgs/Group 13';
+
+const FeedStack = createNativeStackNavigator();
+const FeedStackScreens = () => (
+  <FeedStack.Navigator>
+    <FeedStack.Screen
+      name={'Feed'}
+      component={Feed}
+      options={{headerShown: false}}
+    />
+    <FeedStack.Screen
       name={'Dashboard'}
       component={Dashboard}
       options={{headerShown: false}}
     />
-  </DashboardStack.Navigator>
+  </FeedStack.Navigator>
 );
 
-const AccountStack = createNativeStackNavigator();
-const AccountStackScreens = () => (
-  <AccountStack.Navigator>
-    <AccountStack.Screen
+const OpportunityStack = createNativeStackNavigator();
+const OpportunityStackScreens = () => (
+  <OpportunityStack.Navigator>
+    <OpportunityStack.Screen
       name={'Account'}
       component={Account}
       options={{
         headerShown: false,
       }}
     />
-  </AccountStack.Navigator>
+  </OpportunityStack.Navigator>
 );
 
-const ServicesStack = createNativeStackNavigator();
-const ServicesStackScreens = () => (
-  <ServicesStack.Navigator>
-    <ServicesStack.Screen
+const ExploreStack = createNativeStackNavigator();
+const ExploreStackScreens = () => (
+  <ExploreStack.Navigator>
+    <ExploreStack.Screen
       name={'Services'}
       component={Services}
       options={{
         headerShown: false,
       }}
     />
-  </ServicesStack.Navigator>
+  </ExploreStack.Navigator>
 );
-
+const EventsStack = createNativeStackNavigator();
+const EventsStackScreens = () => (
+  <EventsStack.Navigator>
+    <EventsStack.Screen
+      name={'Dashboard'}
+      component={Dashboard}
+      options={{headerShown: false}}
+    />
+  </EventsStack.Navigator>
+);
+const ProfileStack = createNativeStackNavigator();
+const ProfileStackScreens = () => (
+  <ProfileStack.Navigator>
+    <ProfileStack.Screen
+      name={'Dashboard'}
+      component={Dashboard}
+      options={{headerShown: false}}
+    />
+  </ProfileStack.Navigator>
+);
 function getTabBarVisibility(route) {
   const routeName = getFocusedRouteNameFromRoute(route);
 
@@ -71,49 +103,131 @@ export default () => {
   return (
     <Tabs.Navigator
       screenOptions={({route}) => ({
-        tabBarStyle: {display: getTabBarVisibility(route)},
+        tabBarStyle: {
+          height: dimensions.Height / 14,
+          display: getTabBarVisibility(route),
+        },
+        tabBarLabelStyle: {
+          fontFamily: Fonts.family.regular,
+          fontSize: Fonts.size.font8,
+        },
         tabBarActiveTintColor: Colors.Primary,
         tabBarInactiveTintColor: Colors.Black,
         tabBarIcon: ({focused, color, size}) => {
-          let iconName;
-          let IconComponent = Feather;
           switch (route.name) {
-            case 'DashboardStack':
-              iconName = 'home';
+            case 'FeedStack':
+              if (focused) {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.FeedFocused />
+                  </View>
+                );
+              } else {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.Feed />
+                  </View>
+                );
+              }
               break;
 
-            case 'ServicesStack':
-              iconName = 'grid';
+            case 'OpportunityStack':
+              if (focused) {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.OpportunityFocused />
+                  </View>
+                );
+              } else {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.Opportunity />
+                  </View>
+                );
+              }
               break;
 
-            case 'AccountStack':
-              iconName = 'user';
+            case 'ExploreStack':
+              if (focused) {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.ExploreFocused />
+                  </View>
+                );
+              } else {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.Explore />
+                  </View>
+                );
+              }
+              break;
+
+            case 'EventsStack':
+              if (focused) {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.EventsFocused />
+                  </View>
+                );
+              } else {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.Events />
+                  </View>
+                );
+              }
+              break;
+
+            case 'ProfileStack':
+              if (focused) {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.ProfileFocused />
+                  </View>
+                );
+              } else {
+                return (
+                  <View style={styles.iconBackground}>
+                    <Images.Profile />
+                  </View>
+                );
+              }
               break;
           }
-          return (
-            <IconComponent
-              name={iconName}
-              size={20}
-              color={focused ? Colors.Primary : Colors.Black}
-            />
-          );
         },
       })}>
       <Tabs.Screen
-        name={'DashboardStack'}
-        options={{headerShown: false, tabBarLabel: 'Dashboard'}}
-        component={DashboardStackScreens}
+        name={'FeedStack'}
+        options={{headerShown: false, tabBarLabel: 'Feed'}}
+        component={FeedStackScreens}
       />
       <Tabs.Screen
-        name={'ServicesStack'}
-        options={{headerShown: false, tabBarLabel: 'Services'}}
-        component={ServicesStackScreens}
+        name={'OpportunityStack'}
+        options={{headerShown: false, tabBarLabel: 'Opportunity'}}
+        component={OpportunityStackScreens}
       />
       <Tabs.Screen
-        name={'AccountStack'}
-        options={{headerShown: false, tabBarLabel: 'Account'}}
-        component={AccountStackScreens}
+        name={'ExploreStack'}
+        options={{headerShown: false, tabBarLabel: 'Explore'}}
+        component={ExploreStackScreens}
+      />
+      <Tabs.Screen
+        name={'EventsStack'}
+        options={{headerShown: false, tabBarLabel: 'Events'}}
+        component={EventsStackScreens}
+      />
+      <Tabs.Screen
+        name={'ProfileStack'}
+        options={{headerShown: false, tabBarLabel: 'Profile'}}
+        component={ProfileStackScreens}
       />
     </Tabs.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  iconBackground: {
+    backgroundColor: Colors.White,
+  },
+});

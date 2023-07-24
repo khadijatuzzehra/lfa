@@ -11,10 +11,13 @@ import TextCustom from '../components/TextCustom';
 import CustomButton from '../components/CustomButton';
 import Images from '../utils/Images';
 import colors from '../theme/Colors';
+import Data from '../utils/Data';
+
 import dimensions from '../theme/Dimensions';
 import {useNavigation} from '@react-navigation/native';
 
 const OnBoarding = () => {
+  const data = Data.OnBoarding;
   const navigation = useNavigation();
   const flatListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,29 +111,6 @@ const OnBoarding = () => {
     );
   };
 
-  const data = [
-    {
-      id: '1',
-      imgName: 'OnBoarding1',
-      svgName2: 'ProgressBar1',
-      heading: 'Lorem Ipsum',
-      text: 'Unleashing Africas Collective Ingenuity ',
-    },
-    {
-      id: '2',
-      imgName: 'OnBoarding2',
-      svgName2: 'ProgressBar2',
-      heading: 'Lorem Ipsum',
-      text: 'Unleashing Africas Collective Ingenuity ',
-    },
-    {
-      id: '3',
-      imgName: 'OnBoarding3',
-      svgName2: 'ProgressBar3',
-      heading: 'Lorem Ipsum',
-      text: 'Unleashing Africas Collective Ingenuity ',
-    },
-  ];
   return (
     <View style={styles.container}>
       <FlatList

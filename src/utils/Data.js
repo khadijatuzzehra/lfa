@@ -41,7 +41,29 @@ const Education = [
   'Postgraduate',
   'none of the above',
 ];
-
+const OnBoarding = [
+  {
+    id: '1',
+    imgName: 'OnBoarding1',
+    svgName2: 'ProgressBar1',
+    heading: 'Lorem Ipsum',
+    text: 'Unleashing Africas Collective Ingenuity ',
+  },
+  {
+    id: '2',
+    imgName: 'OnBoarding2',
+    svgName2: 'ProgressBar2',
+    heading: 'Lorem Ipsum',
+    text: 'Unleashing Africas Collective Ingenuity ',
+  },
+  {
+    id: '3',
+    imgName: 'OnBoarding3',
+    svgName2: 'ProgressBar3',
+    heading: 'Lorem Ipsum',
+    text: 'Unleashing Africas Collective Ingenuity ',
+  },
+];
 export default {
   CountryCode,
   Country,
@@ -50,4 +72,5 @@ export default {
   Interests,
   Profession,
   Education,
+  OnBoarding,
 };
