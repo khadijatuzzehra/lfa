@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import {TextInput, View, StyleSheet} from 'react-native';
-import EyeOpen from '../assets/svgs/eye-outline';
-import EyeClose from '../assets/svgs/eye-off-outline';
-
-// import theme
-import colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
-import fonts from '../theme/Fonts';
+import EyeOpen from '../../assets/svgs/eye-outline';
+import EyeClose from '../../assets/svgs/eye-off-outline';
+import colors from '../../theme/Colors';
+import dimensions from '../../theme/Dimensions';
+import fonts from '../../theme/Fonts';
 
 const CustomTextInput = ({
   placeholder,

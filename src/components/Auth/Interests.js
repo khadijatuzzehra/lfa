@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 // import theme
-import colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
-import fonts from '../theme/Fonts';
+import colors from '../../theme/Colors';
+import dimensions from '../../theme/Dimensions';
+import fonts from '../../theme/Fonts';
 const Interest = ({interest, selectedInterests, setSelectedInterests}) => {
   const isSelected = selectedInterests.includes(interest);
   const badgeBackgroundColor = isSelected ? colors.badgeSelected : colors.badge;

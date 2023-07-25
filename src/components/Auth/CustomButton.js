@@ -1,8 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-
-// import theme
-import fonts from '../theme/Fonts';
+import fonts from '../../theme/Fonts';
 
 const CustomButton = ({
   text,

@@ -1,10 +1,10 @@
 import React, {useState, useRef} from 'react';
 import {SafeAreaView, View, ScrollView, StyleSheet} from 'react-native';
-import CustomButton from '../../components/CustomButton';
-import TextCustom from '../../components/TextCustom';
-import Interests from '../../components/Interests';
-import UploadPicture from '../../components/UploadPicture';
-import Dropdown from '../../components/Dropdown';
+import CustomButton from '../../components/Auth/CustomButton';
+import TextCustom from '../../components/Auth/TextCustom';
+import Interests from '../../components/Auth/Interests';
+import UploadPicture from '../../components/Auth/UploadPicture';
+import Dropdown from '../../components/Auth/Dropdown';
 import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';
 import Data from '../../utils/Data';

@@ -7,12 +7,12 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import TextCustom from '../../components/TextCustom';
-import CustomTextInput from '../../components/CustomTextInput';
-import RememberMe from '../../components/Checkbox';
-import CustomButton from '../../components/CustomButton';
-import SocialLoginButton from '../../components/SocialLoginButton';
-import ActionButton from '../../components/ActionButton';
+import TextCustom from '../../components/Auth/TextCustom';
+import CustomTextInput from '../../components/Auth/CustomTextInput';
+import RememberMe from '../../components/Auth/Checkbox';
+import CustomButton from '../../components/Auth/CustomButton';
+import SocialLoginButton from '../../components/Auth/SocialLoginButton';
+import ActionButton from '../../components/Auth/ActionButton';
 import Images from '../../utils/Images';
 import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';

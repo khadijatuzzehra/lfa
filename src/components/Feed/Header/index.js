@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import Images from '../../utils/Images';
-import dimensions from '../../theme/Dimensions';
-import colors from '../../theme/Colors';
-import fonts from '../../theme/Fonts';
+import Data from '../../../utils/Data';
+import Images from '../../../utils/Images';
+
+import colors from '../../../theme/Colors';
+import dimensions from '../../../theme/Dimensions';
+import fonts from '../../../theme/Fonts';
 
 const Header = () => {
   const [notifications, setNotifications] = useState(1);

@@ -7,9 +7,9 @@ import {
   Text,
 } from 'react-native';
 import Modal from 'react-native-modal';
-import colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
-import fonts from '../theme/Fonts';
+import colors from '../../theme/Colors';
+import dimensions from '../../theme/Dimensions';
+import fonts from '../../theme/Fonts';
 
 const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
   let dropDownStyle = '';

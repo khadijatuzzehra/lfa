@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import {View, TextInput, StyleSheet, Text} from 'react-native';
-import Dropdown from '../components/Dropdown';
-// import theme
-import colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
-import fonts from '../theme/Fonts';
+import Dropdown from '../../components/Auth/Dropdown';
+import colors from '../../theme/Colors';
+import dimensions from '../../theme/Dimensions';
+import fonts from '../../theme/Fonts';
 
 const PhoneNumberInput = ({onChangeText}) => {
   const [text, setText] = useState('');

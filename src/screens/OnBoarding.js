@@ -7,8 +7,8 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import TextCustom from '../components/TextCustom';
-import CustomButton from '../components/CustomButton';
+import TextCustom from '../components/Auth/TextCustom';
+import CustomButton from '../components/Auth/CustomButton';
 import Images from '../utils/Images';
 import colors from '../theme/Colors';
 import Data from '../utils/Data';

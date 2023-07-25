@@ -22,7 +22,7 @@ const LoginIllustration = require('../assets/Images/LoginIllustration.png');
 const OnBoarding1 = require('../assets/Images/OnBoarding1.png');
 const OnBoarding2 = require('../assets/Images/OnBoarding2.png');
 const OnBoarding3 = require('../assets/Images/OnBoarding3.png');
-
+const AddButton = require('../assets/Images/AddButton.png');
 const Logo = require('../assets/Images/LfaLogo.png');
 export default {
   ProfilePicture,
@@ -48,4 +48,5 @@ export default {
   ProfileFocused,
   Logo,
   Bell,
+  AddButton,
 };

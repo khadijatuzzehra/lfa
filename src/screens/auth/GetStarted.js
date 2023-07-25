@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import CustomButton from '../../components/CustomButton';
-import TextCustom from '../../components/TextCustom';
+import CustomButton from '../../components/Auth/CustomButton';
+import TextCustom from '../../components/Auth/TextCustom';
 import {useNavigation} from '@react-navigation/native';
 import Images from '../../utils/Images';
 

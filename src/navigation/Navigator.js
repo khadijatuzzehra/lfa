@@ -108,11 +108,11 @@ export default () => {
           display: getTabBarVisibility(route),
         },
         tabBarLabelStyle: {
-          fontFamily: Fonts.family.regular,
+          fontFamily: Fonts.family.bold,
           fontSize: Fonts.size.font8,
         },
-        tabBarActiveTintColor: Colors.Primary,
-        tabBarInactiveTintColor: Colors.Black,
+        tabBarActiveTintColor: Colors.Headings,
+        tabBarInactiveTintColor: Colors.Headings,
         tabBarIcon: ({focused, color, size}) => {
           switch (route.name) {
             case 'FeedStack':
@@ -229,5 +229,10 @@ export default () => {
 const styles = StyleSheet.create({
   iconBackground: {
     backgroundColor: Colors.White,
+  },
+  tabItem: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

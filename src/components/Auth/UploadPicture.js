@@ -1,24 +1,22 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
-import Upload from '../assets/svgs/Upload';
-import Images from '../utils/Images';
+import Upload from '../../assets/svgs/Upload';
+import Images from '../../utils/Images';
 
 // import theme
-import colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
-import fonts from '../theme/Fonts';
+import colors from '../../theme/Colors';
+import dimensions from '../../theme/Dimensions';
+import fonts from '../../theme/Fonts';
 const UploadPicture = ({uploadPicture}) => {
   const [image, setImage] = useState(null);
   const handlePress = async () => {
     try {
-      const response = await launchImageLibrary({mediaType: 'photo'});
+      const response = await launchImageLibrary({mediaType: 'mixed'});
       if (!response.didCancel) {
         setImage(response);
-        uploadPicture(image);
       } else {
         console.log('Image selection cancelled.');
-        uploadPicture();
       }
     } catch (error) {
       console.log(error.response.data);

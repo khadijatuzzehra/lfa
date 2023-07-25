@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 import DatePick from 'react-native-modern-datepicker';
 import Modal from 'react-native-modal';
-import colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
-import fonts from '../theme/Fonts';
+import colors from '../../theme/Colors';
+import dimensions from '../../theme/Dimensions';
+import fonts from '../../theme/Fonts';
 import moment from 'moment';
 
 const DatePicker = ({placeholder, onSelect}) => {
