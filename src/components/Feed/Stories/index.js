@@ -1,40 +1,34 @@
 import React, {useState} from 'react';
 import InstaStory from 'react-native-insta-story';
 import {View, TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
-import {launchImageLibrary} from 'react-native-image-picker';
-
+import {handlePress} from '../../../utils/GlobalFunctions';
 import Data from '../../../utils/Data';
 import Images from '../../../utils/Images';
-
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
 import fonts from '../../../theme/Fonts';
 
 const Stories = () => {
   const [image, setImage] = useState(null);
-  const handlePress = async () => {
-    try {
-      const response = await launchImageLibrary({mediaType: 'photo'});
-      if (!response.didCancel) {
-        setImage(response);
-      } else {
-        console.log('Image selection cancelled.');
-      }
-    } catch (error) {
-      console.log(error.response.data);
-    }
-  };
+
   const data = Data.StoriesData;
   const userId = 1;
   const user = data.find(item => item.user_id === userId);
   const filteredData = data.filter(user => user.stories.length > 0);
 
+  const handleClick = async () => {
+    const imageRes = await handlePress();
+    if (imageRes) {
+      setImage(imageRes);
+      console.log(image);
+    }
+  };
   return (
     <View style={{flex: 1, flexDirection: 'row'}}>
       {user.stories.length < 1 && (
         <TouchableOpacity
           style={styles.yourStory}
-          onPress={() => handlePress()}>
+          onPress={() => handleClick()}>
           <Image source={Images.ProfilePicture} style={styles.avatar} />
           <View style={styles.badgeContainer}>
             <View style={styles.badge}>
@@ -80,14 +74,14 @@ const styles = StyleSheet.create({
   badgeContainer: {
     position: 'absolute',
     top: 0,
-    right: -2,
+    right: 7,
     zIndex: 1,
   },
   badge: {
     backgroundColor: colors.Primary,
     borderRadius: 10,
-    minWidth: 20,
-    height: 20,
+    height: dimensions.Height / 70,
+    width: dimensions.Width / 70,
     alignItems: 'center',
     justifyContent: 'center',
   },

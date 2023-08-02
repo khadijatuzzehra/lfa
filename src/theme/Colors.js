@@ -5,6 +5,7 @@ const InfoText = '#93908D';
 const borderColor = '#A2A7AD';
 const borderSocial = '#D9D9D9';
 const LightestGray = '#A8A2A2';
+const cancelButton = '#BEBEBE';
 const Text = '#A2A6AC';
 const ButtonText = '#00726D';
 const TextDarker = '#212121';
@@ -16,9 +17,10 @@ const LightGray = '#9D9393';
 const LighterGray = '#959AA1';
 const Black = '#000000';
 const White = '#FFFFFF';
+const WhiteDull = '#F6F6F6';
 const badgeSelected = '#2B6F64';
 const badge = '#CDCDCD';
-
+const red = '#F31D1D';
 export default {
   Primary,
   LightPrimary,
@@ -37,6 +39,9 @@ export default {
   LightGray,
   Black,
   White,
+  WhiteDull,
   badge,
+  cancelButton,
   badgeSelected,
+  red,
 };

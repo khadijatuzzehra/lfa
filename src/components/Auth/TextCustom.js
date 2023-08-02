@@ -16,6 +16,24 @@ const TextCustom = ({text, textType}) => {
   if (textType === 'Headings') {
     styleUse = styles.headings;
   }
+  if (textType === 'HomeScreenHeadings') {
+    styleUse = styles.homeScreenHeadings;
+  }
+  if (textType === 'Navigation') {
+    styleUse = styles.navigation;
+  }
+  if (textType === 'Date') {
+    styleUse = styles.date;
+  }
+  if (textType === 'CompTitles') {
+    styleUse = styles.compTitles;
+  }
+  if (textType === 'Description') {
+    styleUse = styles.description;
+  }
+  if (textType === 'Role') {
+    styleUse = styles.role;
+  }
   return (
     <View style={styles.container}>
       <Text style={styleUse}>{text}</Text>
@@ -26,23 +44,60 @@ const TextCustom = ({text, textType}) => {
 const styles = StyleSheet.create({
   container: {},
   headings: {
-    marginHorizontal: dimensions.Width / 30,
+    marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font20,
     color: colors.Headings,
   },
+  homeScreenHeadings: {
+    fontFamily: fonts.family.bold,
+    fontSize: fonts.size.font20,
+    color: colors.Primary,
+    marginTop: dimensions.Height / 100,
+  },
   infoText: {
-    marginHorizontal: dimensions.Width / 30,
+    marginLeft: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font12,
     color: colors.InfoText,
   },
+  role: {
+    marginLeft: dimensions.Width / 30,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font14,
+    color: colors.InfoText,
+  },
   labels: {
-    marginHorizontal: dimensions.Width / 30,
+    marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font12,
     color: colors.Black,
+  },
+  description: {
+    marginLeft: dimensions.Width / 30,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font10,
+    color: colors.Black,
+  },
+  compTitles: {
+    marginLeft: dimensions.Width / 30,
+    fontFamily: fonts.family.bold,
+    fontSize: fonts.size.font15,
+    color: colors.Black,
+  },
+  date: {
+    marginLeft: dimensions.Width / 30,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font11,
+    color: colors.Gray,
+  },
+  navigation: {
+    marginLeft: dimensions.Width / 30,
+    marginVertical: dimensions.Width / 30,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font14,
+    color: colors.InfoText,
   },
 });
 

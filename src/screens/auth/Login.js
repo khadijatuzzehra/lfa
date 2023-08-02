@@ -16,7 +16,7 @@ import ActionButton from '../../components/Auth/ActionButton';
 import Images from '../../utils/Images';
 import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';
-
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
@@ -37,10 +37,8 @@ const Login = () => {
   const handleTextChange = (inputText, fieldType) => {
     if (fieldType === 'email') {
       setEmail(inputText);
-      console.log(email);
     } else {
       setPassword(inputText);
-      console.log(password);
     }
   };
   const onSignUp = () => {
@@ -76,78 +74,80 @@ const Login = () => {
   }
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps="handled">
-      <View style={styles.topImage}>
-        <Image
-          source={Images.LoginIllustration}
-          style={styles.image}
-          resizeMode="cover"
-        />
-      </View>
-      <View style={styles.header}>
-        <TextCustom text="Welcome Back!" textType="Headings" />
-        <TextCustom
-          text="Hello again, you've been missed!"
-          textType="InfoText"
-        />
-      </View>
-      <TextCustom text="Email Address" textType="Labels" />
-      <CustomTextInput
-        placeholder="Enter your email"
-        height={dimensions.Height / 16}
-        width={dimensions.Width / 1.1}
-        onChangeText={handleTextChange}
-        fieldType="email"
-      />
-      <TextCustom text="Password" textType="Labels" />
-      <CustomTextInput
-        placeholder="Enter your password"
-        height={dimensions.Height / 16}
-        width={dimensions.Width / 1.1}
-        onChangeText={handleTextChange}
-        fieldType="password"
-      />
-      <View style={styles.recovery}>
-        <RememberMe text="Remember Me" />
-        <TouchableOpacity>
-          <TextCustom text="Forgot Password" textType="InfoText" />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.button}>
-        <CustomButton
-          text="Login"
+    <KeyboardAwareScrollView style={{flex: 1}}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps="handled">
+        <View style={styles.topImage}>
+          <Image
+            source={Images.LoginIllustration}
+            style={styles.image}
+            resizeMode="stretch"
+          />
+        </View>
+        <View style={styles.header}>
+          <TextCustom text="Welcome Back!" textType="Headings" />
+          <TextCustom
+            text="Hello again, you've been missed!"
+            textType="InfoText"
+          />
+        </View>
+        <TextCustom text="Email Address" textType="Labels" />
+        <CustomTextInput
+          placeholder="Enter your email"
           height={dimensions.Height / 16}
-          width={dimensions.Width / 1.4}
-          backgroundColor={colors.Primary}
-          color={colors.White}
-          onClick={handlePress}
+          width={dimensions.Width / 1.1}
+          onChangeText={handleTextChange}
+          fieldType="email"
         />
-      </View>
-      <View style={styles.option}>
-        <Images.Line />
-        <TextCustom text="Or Login with" textType="Labels" />
-        <Images.Line />
-      </View>
-      <View style={styles.socialAuth}>
-        <SocialLoginButton
-          onGoogleButtonPress={handlePress}
-          buttonName="Facebook"
+        <TextCustom text="Password" textType="Labels" />
+        <CustomTextInput
+          placeholder="Enter your password"
+          height={dimensions.Height / 16}
+          width={dimensions.Width / 1.1}
+          onChangeText={handleTextChange}
+          fieldType="password"
         />
-        <SocialLoginButton
-          onGoogleButtonPress={onGoogleButtonPress}
-          buttonName="Google"
-        />
-      </View>
-      <View style={styles.ActionButtonContainer}>
-        <ActionButton
-          text="Don't have an Account? "
-          buttonText="Sign UP"
-          handlePress={onSignUp}
-        />
-      </View>
-    </ScrollView>
+        <View style={styles.recovery}>
+          <RememberMe text="Remember Me" />
+          <TouchableOpacity>
+            <TextCustom text="Forgot Password" textType="InfoText" />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.button}>
+          <CustomButton
+            text="Login"
+            height={dimensions.Height / 16}
+            width={dimensions.Width / 1.4}
+            backgroundColor={colors.Primary}
+            color={colors.White}
+            onClick={handlePress}
+          />
+        </View>
+        <View style={styles.option}>
+          <Images.Line />
+          <TextCustom text="Or Login with" textType="Labels" />
+          <Images.Line />
+        </View>
+        <View style={styles.socialAuth}>
+          <SocialLoginButton
+            onGoogleButtonPress={handlePress}
+            buttonName="Facebook"
+          />
+          <SocialLoginButton
+            onGoogleButtonPress={onGoogleButtonPress}
+            buttonName="Google"
+          />
+        </View>
+        <View style={styles.ActionButtonContainer}>
+          <ActionButton
+            text="Don't have an Account? "
+            buttonText="Sign UP"
+            handlePress={onSignUp}
+          />
+        </View>
+      </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: colors.White,
     paddingHorizontal: dimensions.Width / 80,
+    paddingBottom: dimensions.Height / 10,
   },
   header: {
     paddingTop: dimensions.Height / 7,

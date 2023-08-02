@@ -52,7 +52,10 @@ const CustomTextInput = ({
   return (
     <View style={[{height, width}, styles.container]}>
       <TextInput
-        style={styles.input}
+        style={[
+          styles.input,
+          fieldType === 'description' ? styles.descriptionInput : null,
+        ]}
         placeholder={placeholder}
         autoCapitalize="none"
         placeholderTextColor="#959AA1"
@@ -75,11 +78,12 @@ const styles = StyleSheet.create({
     borderColor: colors.LightestGray,
     marginHorizontal: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
+    backgroundColor: colors.White,
   },
   input: {
     flex: 1,
     height: '100%',
-    margin: dimensions.Width / 30,
+    margin: dimensions.Width / 100,
     color: colors.borderColor,
     fontFamily: fonts.family.regular,
     justifyContent: 'center',
@@ -89,6 +93,9 @@ const styles = StyleSheet.create({
     width: dimensions.Width / 22,
     paddingHorizontal: dimensions.Width / 20,
     color: colors.LightestGray,
+  },
+  descriptionInput: {
+    textAlignVertical: 'top',
   },
 });
 export default CustomTextInput;

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import Data from '../../../utils/Data';
 import Images from '../../../utils/Images';
 
@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <View style={styles.header}>
       <Image source={Images.Logo} />
-      <View style={styles.content}>
+      <TouchableOpacity style={styles.content}>
         <Images.Bell />
         {notifications > 0 && (
           <View style={styles.badgeContainer}>
@@ -21,7 +21,7 @@ const Header = () => {
             </View>
           </View>
         )}
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginHorizontal: dimensions.Width / 30,
   },
   badgeText: {
     color: 'black',

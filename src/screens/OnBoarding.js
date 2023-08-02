@@ -140,7 +140,8 @@ const styles = StyleSheet.create({
     marginHorizontal: dimensions.Width / 8,
   },
   firstItem: {
-    marginLeft: dimensions.Width / 7, // Add left padding to the first item
+    marginLeft: dimensions.Width / 7,
+    marginRight: dimensions.Width / 6,
   },
   lastItem: {
     marginHorizontal: dimensions.Width / 7,

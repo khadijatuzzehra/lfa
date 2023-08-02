@@ -25,10 +25,9 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
   const [selectedValue, setSelectedValue] = useState(null);
 
   const handlePress = item => {
-    console.log(placeholder);
     setSelectedValue(item);
     setModalVisible(false);
-    onClick(placeholder, selectedValue);
+    onClick(selectedValue, placeholder);
   };
 
   return (
@@ -63,9 +62,10 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 15,
+    marginHorizontal: dimensions.Width / 30,
     borderColor: colors.LightestGray,
     marginBottom: dimensions.Height / 100,
+    backgroundColor: colors.White,
   },
   dropdown: {
     borderColor: colors.borderColor,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: fonts.family.regular,
     color: colors.Gray,
-    padding: dimensions.Width / 30,
+    padding: dimensions.Width / 100,
   },
 
   modalContainer: {

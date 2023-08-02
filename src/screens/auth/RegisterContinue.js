@@ -18,7 +18,7 @@ const RegisterContinue = () => {
   const professionRef = useRef('');
   const higherLevelEducationRef = useRef('');
 
-  const handleChange = async (placeholder, value) => {
+  const handleChange = async (value, placeholder) => {
     if (placeholder === 'Write your Profession') {
       professionRef.current = value;
       setProfession(professionRef.current);

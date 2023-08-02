@@ -1,25 +1,19 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
+import {handlePress} from '../../utils/GlobalFunctions';
 import Upload from '../../assets/svgs/Upload';
 import Images from '../../utils/Images';
-
-// import theme
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
+
 const UploadPicture = ({uploadPicture}) => {
   const [image, setImage] = useState(null);
-  const handlePress = async () => {
-    try {
-      const response = await launchImageLibrary({mediaType: 'mixed'});
-      if (!response.didCancel) {
-        setImage(response);
-      } else {
-        console.log('Image selection cancelled.');
-      }
-    } catch (error) {
-      console.log(error.response.data);
+  const handleClick = async () => {
+    const imageRes = await handlePress();
+    if (imageRes) {
+      setImage(imageRes);
     }
   };
   return (
@@ -35,7 +29,7 @@ const UploadPicture = ({uploadPicture}) => {
       )}
       <TouchableOpacity
         style={styles.buttonUpload}
-        onPress={() => handlePress()}>
+        onPress={() => handleClick()}>
         <Upload style={styles.icon} />
         <Text style={styles.btnText}> Upload Picture</Text>
       </TouchableOpacity>

@@ -22,7 +22,7 @@ const GetStarted = () => {
     <View style={styles.container}>
       <Image
         source={Images.HandShake}
-        style={styles.backgroundSvg}
+        style={styles.background}
         resizeMode="stretch"
       />
       <View style={styles.top}>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  backgroundSvg: {
+  background: {
     position: 'absolute',
     height: '100%',
     resizeMode: 'repeat',

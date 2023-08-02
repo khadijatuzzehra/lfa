@@ -7,6 +7,17 @@ import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import Account from '../screens/Account';
 import Dashboard from '../screens/Dashboard';
 import Feed from '../screens/feed/Feed';
+//profile stack
+import Profile from '../screens/profile/Profile';
+import PersonalBio from '../screens/profile/PersonalBio/PersonalBio';
+import Experiences from '../screens/profile/Experiences/Experiences';
+import EditExperiences from '../screens/profile/Experiences/EditExperiences';
+import Education from '../screens/profile/Education/Education';
+import EditEducation from '../screens/profile/Education/EditEducation';
+import Projects from '../screens/profile/Projects/Projects';
+import EditProjects from '../screens/profile/Projects/EditProjects';
+import Recommendations from '../screens/profile/Recommendations/Recommendations';
+import Language from '../screens/profile/Language/Language';
 
 import Services from '../screens/Services';
 import Colors from '../theme/Colors';
@@ -71,6 +82,58 @@ const ProfileStack = createNativeStackNavigator();
 const ProfileStackScreens = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen
+      name={'Profile'}
+      component={Profile}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'PersonalBio'}
+      component={PersonalBio}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'Experiences'}
+      component={Experiences}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <ProfileStack.Screen
+      name={'Education'}
+      component={Education}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'Projects'}
+      component={Projects}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'Recommendations'}
+      component={Recommendations}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'Language'}
+      component={Language}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'EditEducation'}
+      component={EditEducation}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'EditExperiences'}
+      component={EditExperiences}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
+      name={'EditProjects'}
+      component={EditProjects}
+      options={{headerShown: false}}
+    />
+    <ProfileStack.Screen
       name={'Dashboard'}
       component={Dashboard}
       options={{headerShown: false}}
@@ -81,15 +144,16 @@ function getTabBarVisibility(route) {
   const routeName = getFocusedRouteNameFromRoute(route);
 
   if (
-    routeName == 'Announcements' ||
-    routeName == 'Announcement' ||
-    routeName == 'PostBooking' ||
-    routeName == 'BookDriverForDelivery' ||
-    routeName == 'PostDelivery' ||
-    routeName == 'SpecialBusinesses' ||
-    routeName == 'VipOffers' ||
+    routeName == 'PersonalBio' ||
+    routeName == 'Education' ||
+    routeName == 'EditEducation' ||
+    routeName == 'Experiences' ||
+    routeName == 'EditExperiences' ||
+    routeName == 'Projects' ||
+    routeName == 'EditProjects' ||
+    routeName == 'Recommendations' ||
+    routeName === 'Language' ||
     routeName == 'SpecialOffers' ||
-    routeName === 'ProductDetail' ||
     routeName == 'Businesses'
   ) {
     return 'none';
@@ -104,9 +168,10 @@ export default () => {
     <Tabs.Navigator
       screenOptions={({route}) => ({
         tabBarStyle: {
-          height: dimensions.Height / 14,
+          height: dimensions.Height / 12,
           display: getTabBarVisibility(route),
         },
+        tabBarHideOnKeyboard: true,
         tabBarLabelStyle: {
           fontFamily: Fonts.family.bold,
           fontSize: Fonts.size.font8,
@@ -227,9 +292,7 @@ export default () => {
 };
 
 const styles = StyleSheet.create({
-  iconBackground: {
-    backgroundColor: Colors.White,
-  },
+  iconBackground: {},
   tabItem: {
     flex: 1,
     alignItems: 'center',

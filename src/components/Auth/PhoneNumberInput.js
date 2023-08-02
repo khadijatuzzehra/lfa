@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     width: dimensions.Width / 1.1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.White,
   },
   separator: {
     fontSize: fonts.size.font20,

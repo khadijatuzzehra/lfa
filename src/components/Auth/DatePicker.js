@@ -16,6 +16,9 @@ const DatePicker = ({placeholder, onSelect}) => {
     onSelect(formattedDate);
     setModalVisible(false);
   };
+  const handlePress = () => {
+    setModalVisible(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -41,6 +44,9 @@ const DatePicker = ({placeholder, onSelect}) => {
             }}
             style={styles.datepicker}
           />
+          <TouchableOpacity onPress={() => handlePress('')}>
+            <Text style={styles.text}>Close</Text>
+          </TouchableOpacity>
         </View>
       </Modal>
     </View>
@@ -49,9 +55,10 @@ const DatePicker = ({placeholder, onSelect}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 15,
+    marginHorizontal: dimensions.Width / 30,
     borderColor: colors.LightestGray,
     marginBottom: dimensions.Height / 100,
+    backgroundColor: colors.White,
   },
   dropdown: {
     height: dimensions.Height / 16,
@@ -64,11 +71,16 @@ const styles = StyleSheet.create({
   dateText: {
     fontFamily: fonts.family.regular,
     color: colors.Gray,
-    padding: dimensions.Width / 30,
+    padding: dimensions.Width / 100,
   },
   datepicker: {
     borderRadius: 10,
     backgroundColor: colors.White,
+  },
+  text: {
+    fontFamily: fonts.family.regular,
+    color: colors.Gray,
+    padding: dimensions.Width / 30,
   },
 });
 
