@@ -34,6 +34,9 @@ const TextCustom = ({text, textType}) => {
   if (textType === 'Role') {
     styleUse = styles.role;
   }
+  if (textType === 'Button') {
+    styleUse = styles.buttonText;
+  }
   return (
     <View style={styles.container}>
       <Text style={styleUse}>{text}</Text>
@@ -54,6 +57,13 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.font20,
     color: colors.Primary,
     marginTop: dimensions.Height / 100,
+  },
+  buttonText: {
+    marginLeft: dimensions.Width / 30,
+    marginTop: dimensions.Width / 50,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font12,
+    color: colors.InfoText,
   },
   infoText: {
     marginLeft: dimensions.Width / 30,

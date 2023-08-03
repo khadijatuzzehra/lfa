@@ -76,7 +76,7 @@ const Styles = StyleSheet.create({
     marginRight: dimensions.Width / 10,
     paddingRight: dimensions.Width / 20,
     textAlign: 'left',
-    fontFamily: fonts.family.regular,
+    fontFamily: fonts.family.medium,
     fontSize: fonts.size.font10,
     color: colors.Black,
   },

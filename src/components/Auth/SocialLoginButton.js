@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: dimensions.Height / 16,
     width: dimensions.Width / 2.5,
-    borderColor: colors.borderSocial,
+    borderColor: colors.borderSocialButton,
     borderWidth: 1,
     borderRadius: 4,
     marginHorizontal: dimensions.Width / 30,

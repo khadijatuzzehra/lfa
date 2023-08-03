@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Checked from '../../assets/svgs/checkbox-outline';
 import Unchecked from '../../assets/svgs/square-outline';
-
-// import theme
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';

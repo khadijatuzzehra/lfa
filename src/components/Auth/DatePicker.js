@@ -30,7 +30,7 @@ const DatePicker = ({placeholder, onSelect}) => {
         </View>
       </TouchableOpacity>
       <Modal isVisible={isModalVisible}>
-        <View>
+        <View style={styles.modal}>
           <DatePick
             mode="calendar"
             onDateChange={dateSelected => {
@@ -44,10 +44,10 @@ const DatePicker = ({placeholder, onSelect}) => {
             }}
             style={styles.datepicker}
           />
-          <TouchableOpacity onPress={() => handlePress('')}>
-            <Text style={styles.text}>Close</Text>
-          </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={() => handlePress('')}>
+          <Text style={styles.textClose}>Close</Text>
+        </TouchableOpacity>
       </Modal>
     </View>
   );
@@ -60,6 +60,14 @@ const styles = StyleSheet.create({
     marginBottom: dimensions.Height / 100,
     backgroundColor: colors.White,
   },
+  modal: {
+    height: dimensions.Height / 2,
+    width: dimensions.Width / 1.1,
+    backgroundColor: colors.White,
+    borderRadius: 10,
+    backgroundColor: colors.White,
+  },
+
   dropdown: {
     height: dimensions.Height / 16,
     width: dimensions.Width / 2.5,
@@ -81,6 +89,13 @@ const styles = StyleSheet.create({
     fontFamily: fonts.family.regular,
     color: colors.Gray,
     padding: dimensions.Width / 30,
+  },
+  textClose: {
+    position: 'absolute',
+    top: -50,
+    right: 0,
+    fontFamily: fonts.family.bold,
+    color: colors.Black,
   },
 });
 

@@ -111,7 +111,7 @@ const Login = () => {
         <View style={styles.recovery}>
           <RememberMe text="Remember Me" />
           <TouchableOpacity>
-            <TextCustom text="Forgot Password" textType="InfoText" />
+            <TextCustom text="Forgot Password" textType="Button" />
           </TouchableOpacity>
         </View>
         <View style={styles.button}>
@@ -177,7 +177,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingRight: dimensions.Height / 50,
+    marginBottom: dimensions.Width / 50,
   },
+
   ActionButtonContainer: {
     marginTop: dimensions.Height / 8,
   },

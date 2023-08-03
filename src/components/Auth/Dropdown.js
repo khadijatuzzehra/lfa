@@ -41,18 +41,18 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
       </TouchableOpacity>
       <Modal isVisible={isModalVisible}>
         <View style={styles.modalContainer}>
+          <TouchableOpacity onPress={() => handlePress('')}>
+            <Text style={styles.textClose}>Close</Text>
+          </TouchableOpacity>
           <ScrollView contentContainerStyle={styles.scrollViewContent}>
             {dropdownValues.map((item, index) => (
               <TouchableOpacity
                 key={index}
                 onPress={() => handlePress(item)}
                 style={styles.item}>
-                <Text style={styles.text}>{item}</Text>
+                <Text style={styles.textDropdown}>{item}</Text>
               </TouchableOpacity>
             ))}
-            <TouchableOpacity onPress={() => handlePress('')}>
-              <Text style={styles.text}>Close</Text>
-            </TouchableOpacity>
           </ScrollView>
         </View>
       </Modal>
@@ -80,6 +80,15 @@ const styles = StyleSheet.create({
   phoneNumberDropdown: {
     justifyContent: 'center',
   },
+  textDropdown: {
+    marginTop: dimensions.Height / 50,
+    borderBottomColor: colors.borderColor,
+    borderBottomWidth: 0.2,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font14,
+    color: colors.Gray,
+    padding: dimensions.Width / 100,
+  },
   text: {
     fontFamily: fonts.family.regular,
     color: colors.Gray,
@@ -95,6 +104,13 @@ const styles = StyleSheet.create({
   },
   scrollViewContent: {
     flexGrow: 1,
+  },
+  textClose: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    fontFamily: fonts.family.bold,
+    color: colors.Black,
   },
 });
 

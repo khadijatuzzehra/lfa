@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: fonts.family.regular,
-    color: colors.Text,
+    color: colors.ActionButton,
     fontSize: fonts.size.font12,
   },
   btnText: {

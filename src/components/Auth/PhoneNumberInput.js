@@ -30,7 +30,7 @@ const PhoneNumberInput = ({onChangeText}) => {
       <TextInput
         style={styles.phoneNumberInput}
         placeholder="Phone Number"
-        placeholderTextColor="#959AA1"
+        placeholderTextColor={colors.placeholder}
         onChangeText={handleTextChange}
         value={text}
         keyboardType="phone-pad"

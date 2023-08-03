@@ -58,7 +58,7 @@ const CustomTextInput = ({
         ]}
         placeholder={placeholder}
         autoCapitalize="none"
-        placeholderTextColor="#959AA1"
+        placeholderTextColor={colors.placeholder}
         secureTextEntry={secureTextEntry}
         onChangeText={handleTextChange}
         value={text}
