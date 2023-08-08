@@ -68,8 +68,6 @@ const OnBoarding = () => {
       <SafeAreaView style={styles.container}>
         <View style={containerStyle}>
           <View style={styles.imageContainer}>{ImageComponent}</View>
-          <TextCustom text={item.heading} textType="Headings" />
-          <TextCustom text={item.text} textType="InfoText" />
           {item.imgName === 'OnBoarding1' && (
             <Images.ProgressBar1 style={styles.progressBar} />
           )}
@@ -79,20 +77,33 @@ const OnBoarding = () => {
           {item.imgName === 'OnBoarding3' && (
             <Images.ProgressBar3 style={styles.progressBar} />
           )}
+          <TextCustom
+            text={item.heading}
+            textType="Headings"
+            color={colors.Headings}
+          />
+          <TextCustom
+            text={item.text}
+            textType="OnBoardingText"
+            color={colors.InfoText}
+          />
         </View>
         {item.imgName !== 'OnBoarding3' && (
           <View style={styles.button}>
             <TouchableOpacity onPress={onNext}>
-              <TextCustom text="Skip" textType="InfoText" />
+              <TextCustom
+                text="Skip"
+                textType="OnBoardingText"
+                color={colors.InfoText}
+              />
             </TouchableOpacity>
-            <CustomButton
-              text="Next"
-              height={dimensions.Height / 14}
-              width={dimensions.Width / 4}
-              backgroundColor={colors.Primary}
-              color={colors.White}
-              onClick={handlePress}
-            />
+            <TouchableOpacity onPress={handlePress}>
+              <TextCustom
+                text="Next"
+                textType="OnBoardingText"
+                color={colors.Primary}
+              />
+            </TouchableOpacity>
           </View>
         )}
         {item.imgName === 'OnBoarding3' && (
@@ -137,14 +148,14 @@ const styles = StyleSheet.create({
   listContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: dimensions.Width / 8,
+    marginHorizontal: dimensions.Width / 10,
   },
   firstItem: {
     marginLeft: dimensions.Width / 7,
-    marginRight: dimensions.Width / 6,
+    marginRight: dimensions.Width / 10,
   },
   lastItem: {
-    marginHorizontal: dimensions.Width / 7,
+    marginHorizontal: dimensions.Width / 8,
   },
   imageContainer: {
     justifyContent: 'center',
@@ -157,7 +168,7 @@ const styles = StyleSheet.create({
   progressBar: {
     height: dimensions.Height / 100,
     width: dimensions.Height / 100,
-    marginTop: dimensions.Height / 30,
+    marginBottom: dimensions.Height / 30,
   },
   button: {
     alignItems: 'center',
@@ -171,7 +182,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: dimensions.Height / 20,
-    paddingTop: dimensions.Height / 10,
+    paddingTop: dimensions.Height / 30,
+  },
+  image: {
+    height: dimensions.Height / 2.5,
+    width: dimensions.Width / 1.2,
+    resizeMode: 'contain',
   },
 });
 

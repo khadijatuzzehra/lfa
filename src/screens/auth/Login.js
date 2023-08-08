@@ -74,25 +74,34 @@ const Login = () => {
   }
 
   return (
-    <KeyboardAwareScrollView style={{flex: 1}}>
+    <KeyboardAwareScrollView style={styles.mainContainer}>
       <ScrollView
         contentContainerStyle={styles.container}
         keyboardShouldPersistTaps="handled">
-        <View style={styles.topImage}>
+        {/* <View style={styles.topImage}>
           <Image
             source={Images.LoginIllustration}
             style={styles.image}
             resizeMode="stretch"
           />
-        </View>
+        </View> */}
         <View style={styles.header}>
-          <TextCustom text="Welcome Back!" textType="Headings" />
+          <TextCustom
+            text="Welcome Back!"
+            textType="Headings"
+            color={colors.Headings}
+          />
           <TextCustom
             text="Hello again, you've been missed!"
             textType="InfoText"
+            color={colors.InfoText}
           />
         </View>
-        <TextCustom text="Email Address" textType="Labels" />
+        <TextCustom
+          text="Email Address"
+          textType="Labels"
+          color={colors.Black}
+        />
         <CustomTextInput
           placeholder="Enter your email"
           height={dimensions.Height / 16}
@@ -100,7 +109,7 @@ const Login = () => {
           onChangeText={handleTextChange}
           fieldType="email"
         />
-        <TextCustom text="Password" textType="Labels" />
+        <TextCustom text="Password" textType="Labels" color={colors.Black} />
         <CustomTextInput
           placeholder="Enter your password"
           height={dimensions.Height / 16}
@@ -111,13 +120,17 @@ const Login = () => {
         <View style={styles.recovery}>
           <RememberMe text="Remember Me" />
           <TouchableOpacity>
-            <TextCustom text="Forgot Password" textType="Button" />
+            <TextCustom
+              text="Forgot Password"
+              textType="Button"
+              color={colors.Primary}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.button}>
           <CustomButton
             text="Login"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 20}
             width={dimensions.Width / 1.4}
             backgroundColor={colors.Primary}
             color={colors.White}
@@ -126,7 +139,11 @@ const Login = () => {
         </View>
         <View style={styles.option}>
           <Images.Line />
-          <TextCustom text="Or Login with" textType="Labels" />
+          <TextCustom
+            text="Or Login with"
+            textType="Labels"
+            color={colors.Black}
+          />
           <Images.Line />
         </View>
         <View style={styles.socialAuth}>
@@ -151,14 +168,18 @@ const Login = () => {
   );
 };
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
   container: {
     flexGrow: 1,
     backgroundColor: colors.White,
     paddingHorizontal: dimensions.Width / 80,
-    paddingBottom: dimensions.Height / 10,
   },
   header: {
-    paddingTop: dimensions.Height / 7,
+    paddingTop: dimensions.Height / 20,
+    paddingBottom: dimensions.Height / 10,
   },
   button: {
     justifyContent: 'center',
@@ -171,7 +192,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: dimensions.Height / 50,
+    marginTop: dimensions.Height / 20,
   },
   recovery: {
     flexDirection: 'row',
@@ -182,7 +203,7 @@ const styles = StyleSheet.create({
   },
 
   ActionButtonContainer: {
-    marginTop: dimensions.Height / 8,
+    marginTop: dimensions.Height / 7,
   },
   topImage: {
     justifyContent: 'flex-start',
@@ -192,6 +213,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: dimensions.Width / 2,
+    top: 0,
     right: 0,
   },
 });

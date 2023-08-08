@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, ImageBackground} from 'react-native';
 import CustomButton from '../../components/Auth/CustomButton';
 import TextCustom from '../../components/Auth/TextCustom';
 import {useNavigation} from '@react-navigation/native';
@@ -20,17 +20,22 @@ const GetStarted = () => {
   };
   return (
     <View style={styles.container}>
-      <Image
+      <ImageBackground
         source={Images.HandShake}
         style={styles.background}
         resizeMode="stretch"
       />
       <View style={styles.top}>
         <View style={styles.text}>
-          <TextCustom text="Let's Get Started" textType="Headings" />
+          <TextCustom
+            text="Let's Get Started"
+            textType="Headings"
+            color={colors.Headings}
+          />
           <TextCustom
             text="Lorem Ipsum sit amet Constentular giz not namet Ipsum"
             textType="InfoText"
+            color={colors.InfoText}
           />
         </View>
         <View style={styles.buttonContainer}>
@@ -65,7 +70,6 @@ const GetStarted = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
   },
   background: {
     position: 'absolute',
@@ -78,13 +82,11 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   top: {
-    justifyContent: 'center',
-    flex: 1,
     paddingHorizontal: dimensions.Width / 40,
-    paddingTop: dimensions.Height / 8,
+    paddingTop: dimensions.Height / 20,
   },
   buttonContainer: {
-    marginTop: dimensions.Height / 5,
+    paddingTop: dimensions.Height / 1.7,
   },
   image: {
     height: dimensions.Height / 100,

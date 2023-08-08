@@ -6,6 +6,7 @@ const size = {
   font10: metrics.screenWidth * (10 / 365),
   font11: metrics.screenWidth * (11 / 365),
   font12: metrics.screenWidth * (12 / 365),
+  font13: metrics.screenWidth * (13 / 365),
   font14: metrics.screenWidth * (14 / 365),
   font15: metrics.screenWidth * (15 / 365),
   font16: metrics.screenWidth * (16 / 365),

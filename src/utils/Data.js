@@ -12,16 +12,16 @@ const Gender = ['Male', 'Female', 'Prefer not to say'];
 const Interests = [
   'Tech',
   'Business',
-  'Educational',
   'Music',
   'Sports',
+  'AI',
+  'Cooking',
   'Art',
   'Travel',
-  'Cooking',
   'Reading',
   'Gaming',
-  'Data Science',
-  'Data Engineering',
+  'Education',
+  'Singing',
 ];
 const Profession = [
   'Actor',
@@ -60,7 +60,7 @@ const OnBoarding = [
     imgName: 'OnBoarding3',
     svgName2: 'ProgressBar3',
     heading: 'Lorem Ipsum',
-    text: 'Unleashing Africas Collective Ingenuity ',
+    text: 'Unleashing Africas Collective Ingenuity\nlorem ipsum consectetur adipiscing\nvoluptatem accusantium doloremque',
   },
 ];
 const StoriesData = [
@@ -206,6 +206,39 @@ const ProfileNavigation = [
     navigation: 'Language',
   },
 ];
+
+const ProfileNavigation2 = [
+  {
+    id: 1,
+    name: 'Contact Us',
+    image: 'Contact',
+    navigation: 'Contact',
+  },
+  {
+    id: 2,
+    name: 'Share',
+    image: 'Share',
+    navigation: 'Share',
+  },
+  {
+    id: 3,
+    name: 'Terms',
+    image: 'Terms',
+    navigation: 'Terms',
+  },
+  {
+    id: 4,
+    name: 'Privacy',
+    image: 'Privacy',
+    navigation: 'Privacy',
+  },
+  {
+    id: 5,
+    name: 'Sign Out',
+    image: 'SignOut',
+    navigation: 'SignOut',
+  },
+];
 const Experience = [
   {
     id: 1,
@@ -276,10 +309,11 @@ const Users = [
     id: 1,
     user_id: 2,
     user_name: 'Ashely Rave',
-    user_image: 'OnBoarding1',
-    designation: 'Senior Vice President | Designer Teacher',
+    user_image: 'userPhoto',
+    designation: 'Senior Vice President',
     date: 'October 22, 2021',
     bio: 'I highly recommend the Overture Maps Foundation to developers looking to create cutting-edge mapping and navigation products.',
+    followed: false,
   },
   {
     id: 2,
@@ -289,6 +323,27 @@ const Users = [
     designation: 'Designer Teacher',
     date: 'March 22, 2022',
     bio: 'I highly recommend the Overture Maps Foundation to developers looking to create cutting-edge mapping and navigation products.',
+    followed: false,
+  },
+  {
+    id: 3,
+    user_id: 2,
+    user_name: 'Jake Paul',
+    user_image: 'Post1',
+    designation: 'Mobile App Developer',
+    date: 'March 22, 2022',
+    bio: 'I highly recommend the Overture Maps Foundation to developers looking to create cutting-edge mapping and navigation products.',
+    followed: false,
+  },
+  {
+    id: 4,
+    user_id: 2,
+    user_name: 'Sarah Forest',
+    user_image: 'userPhoto',
+    designation: 'UI/UX Designer',
+    date: 'October 22, 2021',
+    bio: 'I highly recommend the Overture Maps Foundation to developers looking to create cutting-edge mapping and navigation products.',
+    followed: false,
   },
 ];
 export default {
@@ -303,6 +358,7 @@ export default {
   StoriesData,
   PostsData,
   ProfileNavigation,
+  ProfileNavigation2,
   Experience,
   Educations,
   Projects,

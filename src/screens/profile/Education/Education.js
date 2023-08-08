@@ -8,6 +8,7 @@ import Header from '../../../components/Profile/Header';
 import Images from '../../../utils/Images';
 import Data from '../../../utils/Data';
 import styles from '../SharedStyles';
+import colors from '../../../theme/Colors';
 
 const Education = () => {
   const navigation = useNavigation();
@@ -40,9 +41,21 @@ const Education = () => {
         {education.map(item => (
           <View style={styles.component} key={item.id}>
             <View style={styles.textContainer}>
-              <TextCustom text={item.instName} textType="CompTitles" />
-              <TextCustom text={item.years} textType="Date" />
-              <TextCustom text={item.role} textType="Role" />
+              <TextCustom
+                text={item.instName}
+                textType="CompTitles"
+                color={colors.Black}
+              />
+              <TextCustom
+                text={item.years}
+                textType="Date"
+                color={colors.Headings}
+              />
+              <TextCustom
+                text={item.role}
+                textType="Role"
+                color={colors.InfoText}
+              />
             </View>
             <View style={styles.manageContainer}>
               <TouchableOpacity onPress={() => handleNavigation(item)}>

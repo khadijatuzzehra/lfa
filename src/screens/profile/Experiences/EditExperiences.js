@@ -10,6 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 import Header from '../../../components/Profile/Header';
 import CustomButton from '../../../components/Auth/CustomButton';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
+import Checkbox from '../../../components/Auth/Checkbox';
 import Dropdown from '../../../components/Auth/Dropdown';
 import TextCustom from '../../../components/Auth/TextCustom';
 import DatePicker from '../../../components/Auth/DatePicker';
@@ -25,7 +26,11 @@ const EditExperiences = () => {
       <KeyboardAwareScrollView>
         <Header text="Edit Experience" />
         <View style={styles.form}>
-          <TextCustom text="Company Name" textType="Labels" />
+          <TextCustom
+            text="Company Name"
+            textType="Labels"
+            color={colors.Black}
+          />
           <CustomTextInput
             placeholder="WestWick IC"
             height={dimensions.Height / 16}
@@ -36,7 +41,11 @@ const EditExperiences = () => {
               handleTextChange(text, 'companyname', setFormData)
             }
           />
-          <TextCustom text="Designation" textType="Labels" />
+          <TextCustom
+            text="Designation"
+            textType="Labels"
+            color={colors.Black}
+          />
           <CustomTextInput
             placeholder="Customer Support Manager"
             height={dimensions.Height / 16}
@@ -48,8 +57,16 @@ const EditExperiences = () => {
             }
           />
           <View style={styles.labelHolder}>
-            <TextCustom text="Start Year" textType="Labels" />
-            <TextCustom text="End Year" textType="Labels" />
+            <TextCustom
+              text="Start Year"
+              textType="Labels"
+              color={colors.Black}
+            />
+            <TextCustom
+              text="End Year"
+              textType="Labels"
+              color={colors.Black}
+            />
           </View>
           <View style={styles.dropDownHolder}>
             <DatePicker
@@ -61,7 +78,14 @@ const EditExperiences = () => {
               onSelect={value => handleChange('EndYear', value, setFormData)}
             />
           </View>
-          <TextCustom text="Description" textType="Labels" />
+          <View style={styles.checkbox}>
+            <Checkbox text="I currently work at this role" />
+          </View>
+          <TextCustom
+            text="Description"
+            textType="Labels"
+            color={colors.Black}
+          />
           <CustomTextInput
             placeholder="Describe your role..."
             height={dimensions.Height / 7}
@@ -103,5 +127,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: dimensions.Width / 20,
+  },
+  checkbox: {
+    marginVertical: dimensions.Width / 100,
   },
 });

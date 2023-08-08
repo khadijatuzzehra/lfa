@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
   profile: {
     height: dimensions.Height / 20,
     width: dimensions.Height / 20,
-    borderWidth: 0.5,
-    borderColor: colors.LightestGray,
+    borderWidth: 2,
+    borderColor: colors.Primary,
     borderRadius: dimensions.Width / 20,
   },
   userName: {
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   postImage: {
     width: dimensions.Width,
     height: dimensions.Height / 2,
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     marginVertical: dimensions.Width / 30,
     borderRadius: 4,
   },

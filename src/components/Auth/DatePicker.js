@@ -17,7 +17,8 @@ const DatePicker = ({placeholder, onSelect}) => {
     setModalVisible(false);
   };
   const handlePress = () => {
-    setModalVisible(false);
+    console.log('Inside handlePress');
+    setModalVisible(!isModalVisible);
   };
 
   return (
@@ -29,7 +30,11 @@ const DatePicker = ({placeholder, onSelect}) => {
           <Text style={styles.dateText}>{date}</Text>
         </View>
       </TouchableOpacity>
-      <Modal isVisible={isModalVisible}>
+      <Modal
+        isVisible={isModalVisible}
+        onBackdropPress={() => {
+          setModalVisible(false);
+        }}>
         <View style={styles.modal}>
           <DatePick
             mode="calendar"
@@ -45,9 +50,6 @@ const DatePicker = ({placeholder, onSelect}) => {
             style={styles.datepicker}
           />
         </View>
-        <TouchableOpacity onPress={() => handlePress('')}>
-          <Text style={styles.textClose}>Close</Text>
-        </TouchableOpacity>
       </Modal>
     </View>
   );
@@ -89,13 +91,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.family.regular,
     color: colors.Gray,
     padding: dimensions.Width / 30,
-  },
-  textClose: {
-    position: 'absolute',
-    top: -50,
-    right: 0,
-    fontFamily: fonts.family.bold,
-    color: colors.Black,
   },
 });
 

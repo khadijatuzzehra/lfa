@@ -19,7 +19,7 @@ const Styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingHorizontal: dimensions.Width / 100,
+    // paddingHorizontal: dimensions.Width / 100,
     backgroundColor: '#F8F8F8',
   },
 
@@ -30,8 +30,9 @@ const Styles = StyleSheet.create({
   component: {
     flexDirection: 'row',
     borderRadius: 4,
-    borderWidth: 0.2,
-    borderColor: colors.borderColor,
+    shadowColor: colors.borderColor,
+    shadowRadius: 2,
+    elevation: 5,
     justifyContent: 'space-between',
     backgroundColor: colors.White,
     marginVertical: dimensions.Width / 50,

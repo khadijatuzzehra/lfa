@@ -33,23 +33,32 @@ const RegisterContinue = () => {
     setImage(imageInput);
   };
   const handlePress = text => {
-    navigation.navigate('Login');
+    navigation.navigate('DiscoverPeople');
   };
   const [selectedInterests, setSelectedInterests] = useState([]);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TextCustom text="Profile Setup" textType="Headings" />
-        <TextCustom text="Let us know about you" textType="InfoText" />
+        <TextCustom
+          text="Profile Setup"
+          textType="Headings"
+          color={colors.Headings}
+        />
+        <TextCustom
+          text="Let us know about you!"
+          textType="InfoText"
+          color={colors.InfoText}
+        />
       </View>
       <TextCustom
         text="You can also fill out this section later when setting up 
 your profile *"
         textType="InfoText"
+        color={colors.InfoText}
       />
       <UploadPicture uploadPicture={clickUploadPicture} />
       <View style={styles.holder}>
-        <TextCustom text="Profession" textType="Labels" />
+        <TextCustom text="Profession" textType="Labels" color={colors.Black} />
         <Dropdown
           height={dimensions.Height / 16}
           width={dimensions.Width / 1.1}
@@ -59,7 +68,11 @@ your profile *"
         />
       </View>
       <View style={styles.holder}>
-        <TextCustom text="Highest Level Education" textType="Labels" />
+        <TextCustom
+          text="Highest Level Education"
+          textType="Labels"
+          color={colors.Black}
+        />
         <Dropdown
           height={dimensions.Height / 16}
           width={dimensions.Width / 1.1}
@@ -70,8 +83,12 @@ your profile *"
       </View>
       <View style={styles.holder}>
         <View style={styles.row}>
-          <TextCustom text="Interests" textType="Labels" />
-          <TextCustom text="(Select Your Interests)" textType="InfoText" />
+          <TextCustom text="Interests" textType="Labels" color={colors.Black} />
+          <TextCustom
+            text="(Select Your Interests)"
+            textType="InfoText"
+            color={colors.InfoText}
+          />
         </View>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           {Data.Interests.map(interest => (
@@ -87,7 +104,7 @@ your profile *"
       <View style={styles.bottom}>
         <CustomButton
           text="Next"
-          height={dimensions.Height / 16}
+          height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
           backgroundColor={colors.Primary}
           color={colors.White}
@@ -106,7 +123,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.Width / 100,
   },
   header: {
-    alignItems: 'center',
     paddingBottom: dimensions.Height / 100,
   },
   holder: {
@@ -116,11 +132,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     position: 'relative',
-    paddingBottom: dimensions.Height / 20,
+    paddingBottom: dimensions.Width / 10,
+    paddingTop: dimensions.Width / 15,
   },
   contentContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     marginHorizontal: dimensions.Width / 30,
     marginBottom: dimensions.Width / 100,
   },

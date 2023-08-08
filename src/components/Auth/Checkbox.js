@@ -7,7 +7,7 @@ import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
 
 const Checkbox = ({text}) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);

@@ -24,15 +24,15 @@ const Stories = () => {
     }
   };
   return (
-    <View style={{flex: 1, flexDirection: 'row'}}>
+    <View style={styles.container}>
       {user.stories.length < 1 && (
         <TouchableOpacity
           style={styles.yourStory}
           onPress={() => handleClick()}>
           <Image source={Images.ProfilePicture} style={styles.avatar} />
           <View style={styles.badgeContainer}>
-            <View style={styles.badge}>
-              <Image source={Images.AddButton} />
+            <View>
+              <Image source={Images.AddButton} style={styles.badge} />
             </View>
           </View>
           <Text
@@ -61,9 +61,15 @@ const Stories = () => {
   );
 };
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingLeft: dimensions.Width / 100,
+  },
   avatar: {
-    height: 64,
-    width: 64,
+    height: dimensions.Width / 7,
+    width: dimensions.Width / 7,
+    marginBottom: dimensions.Height / 180,
     resizeMode: 'cover',
   },
   yourStory: {
@@ -73,17 +79,15 @@ const styles = StyleSheet.create({
   },
   badgeContainer: {
     position: 'absolute',
-    top: 0,
-    right: 7,
+    bottom: 20,
+    right: 0,
     zIndex: 1,
   },
   badge: {
     backgroundColor: colors.Primary,
     borderRadius: 10,
-    height: dimensions.Height / 70,
-    width: dimensions.Width / 70,
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: dimensions.Width / 20,
+    width: dimensions.Width / 20,
   },
 });
 

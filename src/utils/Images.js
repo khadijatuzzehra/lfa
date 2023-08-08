@@ -20,7 +20,20 @@ import BackButton from '../assets/svgs/BackButton';
 import EditOutline from '../assets/svgs/Edit-Outline';
 import DeleteOutline from '../assets/svgs/Delete-Outline';
 import EditLogo from '../assets/svgs/edit';
+import DropdownArrow from '../assets/svgs/dropdown';
 import Add from '../assets/svgs/AddButton';
+
+import PersonalBio from '../assets/svgs/PersonalBio';
+import Experiences from '../assets/svgs/Experiences';
+import Education from '../assets/svgs/Education';
+import Projects from '../assets/svgs/Projects';
+import Recommendations from '../assets/svgs/Recommendations';
+import Language from '../assets/svgs/Language';
+import Contact from '../assets/svgs/Contact';
+import Share from '../assets/svgs/Share';
+import Terms from '../assets/svgs/Terms';
+import Privacy from '../assets/svgs/Privacy';
+import SignOut from '../assets/svgs/SignOut';
 
 const ProfilePicture = require('../assets/Images/Profile.png');
 const ProfilePicture2 = require('../assets/Images/PP2.png');
@@ -39,12 +52,17 @@ const Post4 = require('../assets/Images/Post4.png');
 const Liked = require('../assets/Images/Liked.png');
 const LikedOutline = require('../assets/Images/Liked-Outline.png');
 const Comment = require('../assets/Images/Comment.png');
-const PersonalBio = require('../assets/Images/PersonalBio.png');
-const Experiences = require('../assets/Images/Experiences.png');
-const Education = require('../assets/Images/Education.png');
-const Projects = require('../assets/Images/Projects.png');
-const Recommendations = require('../assets/Images/Recommendations.png');
-const Language = require('../assets/Images/Language.png');
+// const PersonalBio = require('../assets/Images/PersonalBio.png');
+// const Experiences = require('../assets/Images/Experiences.png');
+// const Education = require('../assets/Images/Education.png');
+// const Projects = require('../assets/Images/Projects.png');
+// const Recommendations = require('../assets/Images/Recommendations.png');
+// const Language = require('../assets/Images/Language.png');
+// const Contact = require('../assets/Images/Contact.png');
+// const Share = require('../assets/Images/Share.png');
+// const Terms = require('../assets/Images/Terms.png');
+// const Privacy = require('../assets/Images/Privacy.png');
+// const SignOut = require('../assets/Images/SignOut.png');
 const coverPhoto = require('../assets/Images/coverPhoto.png');
 const userPhoto = require('../assets/Images/userPhoto.png');
 const ProfileHeader = require('../assets/Images/ProfileHeader.png');
@@ -91,6 +109,11 @@ export default {
   Projects,
   Recommendations,
   Language,
+  Contact,
+  Share,
+  Terms,
+  Privacy,
+  SignOut,
   Arrow,
   coverPhoto,
   userPhoto,
@@ -101,4 +124,5 @@ export default {
   DeleteOutline,
   AlertLine,
   Add,
+  DropdownArrow,
 };

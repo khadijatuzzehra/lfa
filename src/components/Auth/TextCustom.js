@@ -5,8 +5,14 @@ import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
 
-const TextCustom = ({text, textType}) => {
+const TextCustom = ({text, textType, color}) => {
   let styleUse = '';
+  if (textType === 'OnBoardingText') {
+    styleUse = styles.onBoardingText;
+    if (text === 'Next') {
+      styleUse = styles.onBoardingText2;
+    }
+  }
   if (textType === 'Labels') {
     styleUse = styles.labels;
   }
@@ -37,77 +43,98 @@ const TextCustom = ({text, textType}) => {
   if (textType === 'Button') {
     styleUse = styles.buttonText;
   }
+  if (textType === 'Name') {
+    styleUse = styles.name;
+  }
+  if (textType === 'Designation') {
+    styleUse = styles.designation;
+  }
   return (
-    <View style={styles.container}>
-      <Text style={styleUse}>{text}</Text>
+    <View>
+      <Text style={[{color}, styleUse]}>{text}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
   headings: {
     marginLeft: dimensions.Width / 30,
-    fontFamily: fonts.family.medium,
+    fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font20,
-    color: colors.Headings,
   },
   homeScreenHeadings: {
+    marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.bold,
     fontSize: fonts.size.font20,
-    color: colors.Primary,
-    marginTop: dimensions.Height / 100,
   },
+
   buttonText: {
     marginLeft: dimensions.Width / 30,
     marginTop: dimensions.Width / 50,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font12,
-    color: colors.InfoText,
   },
   infoText: {
     marginLeft: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font12,
-    color: colors.InfoText,
+  },
+  onBoardingText: {
+    marginLeft: dimensions.Width / 30,
+    marginBottom: dimensions.Width / 30,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font13,
+    textAlign: 'center',
+  },
+  onBoardingText2: {
+    marginRight: dimensions.Width / 30,
+    marginBottom: dimensions.Width / 30,
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font13,
+    textAlign: 'center',
   },
   role: {
     marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font14,
-    color: colors.InfoText,
   },
   labels: {
     marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font12,
-    color: colors.Black,
   },
   description: {
     marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font10,
-    color: colors.Black,
   },
   compTitles: {
     marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.bold,
     fontSize: fonts.size.font15,
-    color: colors.Black,
   },
   date: {
     marginLeft: dimensions.Width / 30,
-    fontFamily: fonts.family.regular,
-    fontSize: fonts.size.font11,
-    color: colors.Gray,
+    width: dimensions.Width / 1.5,
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font10,
   },
   navigation: {
     marginLeft: dimensions.Width / 30,
     marginVertical: dimensions.Width / 30,
-    fontFamily: fonts.family.regular,
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font16,
+  },
+  name: {
+    textAlign: 'center',
+    fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font14,
-    color: colors.InfoText,
+  },
+  designation: {
+    textAlign: 'center',
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font10,
   },
 });
 

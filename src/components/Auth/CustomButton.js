@@ -17,12 +17,23 @@ const CustomButton = ({
       onClick('Register');
     }
   };
+  let styleUse = styles.btn;
+  let buttonStyle = styles.btnText;
+  if (
+    text === 'Follow' ||
+    text === 'Following' ||
+    text === 'Delete' ||
+    text === 'Cancel'
+  ) {
+    styleUse = styles.button;
+    buttonStyle = styles.btnText2;
+  }
   return (
     <View>
       <TouchableOpacity
         onPress={() => handlePress()}
-        style={[{height, width, backgroundColor}, styles.btn]}>
-        <Text style={[{color}, styles.btnText]}>{text}</Text>
+        style={[{height, width, backgroundColor}, styleUse]}>
+        <Text style={[{color}, buttonStyle]}>{text}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -35,12 +46,24 @@ const styles = StyleSheet.create({
   btn: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 5,
     marginHorizontal: 10,
     marginVertical: 10,
   },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginHorizontal: 2,
+    marginVertical: 10,
+  },
   btnText: {
-    fontFamily: fonts.family.semiBold,
+    fontFamily: fonts.family.bold,
+    fontSize: fonts.size.font12,
+  },
+  btnText2: {
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font11,
   },
 });
 

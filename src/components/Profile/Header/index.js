@@ -17,7 +17,7 @@ const Header = ({text}) => {
         <Images.BackButton />
       </TouchableOpacity>
       <View style={styles.headerText}>
-        <TextCustom text={text} textType="Headings" />
+        <TextCustom text={text} textType="Headings" color={colors.Headings} />
       </View>
     </View>
   );
@@ -26,13 +26,14 @@ const Header = ({text}) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    height: dimensions.Height / 8,
+    height: dimensions.Height / 10,
     width: dimensions.Width,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: 'gray',
-    borderBottomWidth: 0.2,
     backgroundColor: colors.White,
+    shadowColor: colors.LightestGray,
+    shadowRadius: 0.5,
+    elevation: 10,
   },
   backButton: {
     position: 'absolute',

@@ -8,7 +8,6 @@ import {
   StyleSheet,
 } from 'react-native';
 import {ScrollView} from 'react-native-virtualized-view';
-import TextCustom from '../../components/Auth/TextCustom';
 import Header from '../../components/Feed/Header';
 import Stories from '../../components/Feed/Stories';
 import Posts from '../../components/Feed/Posts';

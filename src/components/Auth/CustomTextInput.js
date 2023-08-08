@@ -52,9 +52,12 @@ const CustomTextInput = ({
   return (
     <View style={[{height, width}, styles.container]}>
       <TextInput
+        multiline
         style={[
           styles.input,
-          fieldType === 'description' ? styles.descriptionInput : null,
+          fieldType === 'description' || 'skills'
+            ? styles.descriptionInput
+            : null,
         ]}
         placeholder={placeholder}
         autoCapitalize="none"

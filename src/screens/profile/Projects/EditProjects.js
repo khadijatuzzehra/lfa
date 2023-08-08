@@ -9,6 +9,7 @@ import {
 } from '../../../utils/GlobalFunctions';
 import Header from '../../../components/Profile/Header';
 import CustomButton from '../../../components/Auth/CustomButton';
+import Checkbox from '../../../components/Auth/Checkbox';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
 import TextCustom from '../../../components/Auth/TextCustom';
 import DatePicker from '../../../components/Auth/DatePicker';
@@ -23,9 +24,13 @@ const EditProjects = () => {
       <KeyboardAwareScrollView>
         <Header text="Edit Project" />
         <View style={styles.form}>
-          <TextCustom text="Project Name" textType="Labels" />
+          <TextCustom
+            text="Project Name"
+            textType="Labels"
+            color={colors.Black}
+          />
           <CustomTextInput
-            placeholder="WestWick IC"
+            placeholder="Seccuracy"
             height={dimensions.Height / 16}
             width={dimensions.Width / 1.1}
             onChangeText={text =>
@@ -33,17 +38,33 @@ const EditProjects = () => {
             }
             fieldType="projectName"
           />
-          <TextCustom text="Project Description" textType="Labels" />
+          <TextCustom
+            text="Role Title"
+            textType="Labels"
+            color={colors.Black}
+          />
+          <CustomTextInput
+            placeholder="Your role title..."
+            height={dimensions.Height / 16}
+            width={dimensions.Width / 1.1}
+            onChangeText={text => handleTextChange(text, 'role', setFormData)}
+            fieldType="role"
+          />
+          <TextCustom
+            text="Project Description"
+            textType="Labels"
+            color={colors.Black}
+          />
           <CustomTextInput
             placeholder="Tell us more..."
-            height={dimensions.Height / 7}
+            height={dimensions.Height / 10}
             width={dimensions.Width / 1.1}
             onChangeText={text =>
               handleTextChange(text, 'description', setFormData)
             }
             fieldType="description"
           />
-          <TextCustom text="Web Link" textType="Labels" />
+          <TextCustom text="Web Link" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="www.seccuracy.com"
             height={dimensions.Height / 16}
@@ -53,17 +74,18 @@ const EditProjects = () => {
             }
             fieldType="webLink"
           />
-          <TextCustom text="Your Role" textType="Labels" />
-          <CustomTextInput
-            placeholder="Describe your role..."
-            height={dimensions.Height / 16}
-            width={dimensions.Width / 1.1}
-            onChangeText={text => handleTextChange(text, 'role', setFormData)}
-            fieldType="role"
-          />
+
           <View style={styles.labelHolder}>
-            <TextCustom text="Start Year" textType="Labels" />
-            <TextCustom text="End Year" textType="Labels" />
+            <TextCustom
+              text="Start Year"
+              textType="Labels"
+              color={colors.Black}
+            />
+            <TextCustom
+              text="End Year"
+              textType="Labels"
+              color={colors.Black}
+            />
           </View>
           <View style={styles.dropDownHolder}>
             <DatePicker
@@ -75,6 +97,19 @@ const EditProjects = () => {
               onSelect={value => handleChange('EndYear', value, setFormData)}
             />
           </View>
+          <View style={styles.checkbox}>
+            <Checkbox text="I currently work at this role" />
+          </View>
+          <TextCustom text="Skills" textType="Labels" color={colors.Black} />
+          <CustomTextInput
+            placeholder="Write your skills..."
+            height={dimensions.Height / 10}
+            width={dimensions.Width / 1.1}
+            onChangeText={text =>
+              handleTextChange(text, 'description', setFormData)
+            }
+            fieldType="skills"
+          />
         </View>
         <CustomButton
           text="Done"
@@ -95,7 +130,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.Width / 80,
   },
   form: {
-    marginTop: dimensions.Width / 10,
+    marginTop: dimensions.Width / 30,
     marginBottom: dimensions.Width / 100,
   },
   dropDownHolder: {
@@ -106,6 +141,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: dimensions.Width / 20,
+  },
+  checkbox: {
+    marginVertical: dimensions.Width / 100,
   },
 });
 export default EditProjects;

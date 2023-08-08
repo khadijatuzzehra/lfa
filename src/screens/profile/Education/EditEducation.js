@@ -9,6 +9,7 @@ import {
 } from '../../../utils/GlobalFunctions';
 import Header from '../../../components/Profile/Header';
 import CustomButton from '../../../components/Auth/CustomButton';
+import Checkbox from '../../../components/Auth/Checkbox';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
 import Dropdown from '../../../components/Auth/Dropdown';
 import TextCustom from '../../../components/Auth/TextCustom';
@@ -25,7 +26,11 @@ const EditEducation = () => {
       <KeyboardAwareScrollView>
         <Header text="Edit Education" />
         <View style={styles.form}>
-          <TextCustom text="Highest level of education" textType="Labels" />
+          <TextCustom
+            text="Highest level of education"
+            textType="Labels"
+            color={colors.Black}
+          />
           <Dropdown
             height={dimensions.Height / 16}
             width={dimensions.Width / 1.1}
@@ -33,7 +38,7 @@ const EditEducation = () => {
             onClick={value => handleChange('Education', value, setFormData)}
             dropdownValues={Data.Education}
           />
-          <TextCustom text="Institute" textType="Labels" />
+          <TextCustom text="Institute" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="Customer Support Manager"
             height={dimensions.Height / 16}
@@ -44,8 +49,16 @@ const EditEducation = () => {
             fieldType="institute"
           />
           <View style={styles.labelHolder}>
-            <TextCustom text="Start Year" textType="Labels" />
-            <TextCustom text="End Year" textType="Labels" />
+            <TextCustom
+              text="Start Year"
+              textType="Labels"
+              color={colors.Black}
+            />
+            <TextCustom
+              text="End Year"
+              textType="Labels"
+              color={colors.Black}
+            />
           </View>
           <View style={styles.dropDownHolder}>
             <DatePicker
@@ -56,6 +69,9 @@ const EditEducation = () => {
               placeholder="EndYear"
               onSelect={value => handleChange('StartYear', value, setFormData)}
             />
+          </View>
+          <View style={styles.checkbox}>
+            <Checkbox text="I currently work at this role" />
           </View>
         </View>
         <CustomButton
@@ -89,5 +105,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: dimensions.Width / 20,
+  },
+  checkbox: {
+    marginVertical: dimensions.Width / 100,
   },
 });

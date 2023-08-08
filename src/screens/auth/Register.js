@@ -66,30 +66,39 @@ const Register = () => {
   };
 
   return (
-    <KeyboardAwareScrollView style={{flex: 1}}>
+    <KeyboardAwareScrollView style={styles.mainContainer}>
       <SafeAreaView style={styles.container}>
-        <TextCustom text="Create Account" textType="Headings" />
         <TextCustom
-          text="Connect through look for Africa today"
-          textType="InfoText"
+          text="Create Account"
+          textType="Headings"
+          color={colors.Headings}
         />
-        <TextCustom text="Full Name" textType="Labels" />
+        <TextCustom
+          text="Connect through look for Africa Today!"
+          textType="InfoText"
+          color={colors.InfoText}
+        />
+        <TextCustom text="Full Name" textType="Labels" color={colors.Black} />
         <CustomTextInput
           placeholder="Write Your Full Name"
           height={dimensions.Height / 16}
           width={dimensions.Width / 1.1}
           onChangeText={text => handleTextChange(text, 'name')}
         />
-        <TextCustom text="Email" textType="Labels" />
+        <TextCustom text="Email" textType="Labels" color={colors.Black} />
         <CustomTextInput
           placeholder="Enter your email"
           height={dimensions.Height / 16}
           width={dimensions.Width / 1.1}
           onChangeText={text => handleTextChange(text, 'email')}
         />
-        <TextCustom text="Mobile Number" textType="Labels" />
+        <TextCustom
+          text="Mobile Number"
+          textType="Labels"
+          color={colors.Black}
+        />
         <PhoneNumberInput onChangeText={handlePhoneNumberChange} />
-        <TextCustom text="Password" textType="Labels" />
+        <TextCustom text="Password" textType="Labels" color={colors.Black} />
         <CustomTextInput
           placeholder="Enter your password"
           height={dimensions.Height / 16}
@@ -98,22 +107,30 @@ const Register = () => {
           onChangeText={text => handleTextChange(text, 'password')}
         />
         <View style={styles.labelHolder}>
-          <TextCustom text="Date of Birth" textType="Labels" />
-          <TextCustom text="Gender" textType="Labels" />
+          <TextCustom
+            text="Date of Birth"
+            textType="Labels"
+            color={colors.Black}
+          />
+          <TextCustom text="Gender" textType="Labels" color={colors.Black} />
         </View>
         <View style={styles.dropDownHolder}>
           <DatePicker placeholder="DD/MM/YYYY" onSelect={handleDateSelect} />
           <Dropdown
             height={dimensions.Height / 16}
             width={dimensions.Width / 2.5}
-            placeholder="Gender"
+            placeholder="Select"
             onClick={handleChange}
             dropdownValues={Data.Gender}
           />
         </View>
         <View style={styles.labelHolder}>
-          <TextCustom text="Country" textType="Labels" />
-          <TextCustom text="City/State" textType="Labels" />
+          <TextCustom text="Country" textType="Labels" color={colors.Black} />
+          <TextCustom
+            text="City/State"
+            textType="Labels"
+            color={colors.Black}
+          />
         </View>
         <View style={styles.dropDownHolder}>
           <Dropdown
@@ -136,7 +153,7 @@ const Register = () => {
         </View>
         <CustomButton
           text="Sign Up"
-          height={dimensions.Height / 16}
+          height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
           backgroundColor={colors.Primary}
           color={colors.White}
@@ -152,12 +169,15 @@ const Register = () => {
   );
 };
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
   container: {
     flex: 1,
     paddingTop: dimensions.Height / 20,
     backgroundColor: colors.White,
     paddingHorizontal: dimensions.Width / 100,
-    paddingBottom: dimensions.Height / 10,
   },
   dropDownHolder: {
     flexDirection: 'row',

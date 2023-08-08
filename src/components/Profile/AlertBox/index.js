@@ -17,14 +17,20 @@ const AlertBox = ({text, textDescription, isVisible, onCancel, onConfirm}) => {
       backDropOpacity={10}
       hasBackdrop={true}>
       <View style={styles.modalContainer}>
-        <TextCustom text={text} textType="Headings" />
-        <Image style={styles.line} source={Images.AlertLine} />
+        <View style={styles.icons}>
+          <Images.DeleteOutline />
+        </View>
         <View style={styles.modalContent}>
-          <TextCustom text={textDescription} textType="Labels" />
+          <TextCustom text={text} textType="Headings" color={colors.Headings} />
+          <TextCustom
+            text={textDescription}
+            textType="Labels"
+            color={colors.Black}
+          />
           <View style={styles.modalButtonsContainer}>
             <CustomButton
               text="Delete"
-              height={dimensions.Height / 20}
+              height={dimensions.Height / 30}
               width={dimensions.Width / 5}
               backgroundColor={colors.red}
               color={colors.White}
@@ -32,10 +38,10 @@ const AlertBox = ({text, textDescription, isVisible, onCancel, onConfirm}) => {
             />
             <CustomButton
               text="Cancel"
-              height={dimensions.Height / 20}
+              height={dimensions.Height / 30}
               width={dimensions.Width / 5}
               backgroundColor={colors.cancelButton}
-              color={colors.White}
+              color={colors.Black}
               onClick={onCancel}
             />
           </View>
@@ -51,23 +57,40 @@ const styles = StyleSheet.create({
   modalContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: dimensions.Height / 4,
+    height: dimensions.Height / 5,
     width: dimensions.Width / 1.1,
     backgroundColor: 'white',
-    borderWidth: 0.5,
-    borderColor: colors.borderColor,
     borderRadius: 20,
+    shadowColor: colors.Black,
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+    elevation: 24,
   },
   modalContent: {
     backgroundColor: colors.white,
-    marginTop: dimensions.Height / 100,
+    marginTop: dimensions.Height / 50,
     alignItems: 'center',
   },
   modalButtonsContainer: {
     flexDirection: 'row',
+    marginLeft: dimensions.Width / 4,
+    marginTop: dimensions.Height / 50,
   },
   line: {
     width: dimensions.Width / 1.1,
     marginVertical: dimensions.Height / 100,
+  },
+  icons: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.borderSocialButton,
+    top: -dimensions.Width / 10,
+    height: dimensions.Height / 15,
+    width: dimensions.Height / 15,
+    borderRadius: 100,
+    shadowColor: colors.Black,
+    elevation: 10,
+    shadowRadius: 0.18,
   },
 });

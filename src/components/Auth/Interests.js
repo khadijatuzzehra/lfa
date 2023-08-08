@@ -31,12 +31,15 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: dimensions.Width / 100,
     paddingHorizontal: dimensions.Width / 50,
-    borderRadius: 4,
     margin: dimensions.Width / 100,
+    width: dimensions.Width / 5,
+    borderRadius: 4,
   },
   text: {
     color: colors.White,
-    fontFamily: fonts.family.bold,
+    textAlign: 'center',
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font11,
   },
 });
 
