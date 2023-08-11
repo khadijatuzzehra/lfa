@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {SafeAreaView, Text, Alert} from 'react-native';
 import Header from '../../../components/Profile/Header';
@@ -11,13 +12,13 @@ const Language = ({navigation}) => {
   const [getData, setGetData] = useState('');
   const [postData, setPostData] = useState('');
   const handleStatusCode = (statusCode, response) => {
-    if (statusCode == 200) {
+    if (statusCode === 200) {
       Alert.alert('Success', 'Song name: ' + response);
     }
-    if (statusCode == 401) {
+    if (statusCode === 401) {
       Alert.alert('Access token is invalid', response);
     }
-    if (statusCode == 403) {
+    if (statusCode === 403) {
       Alert.alert('Forbidden', response);
     }
   };

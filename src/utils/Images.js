@@ -22,6 +22,7 @@ import DeleteOutline from '../assets/svgs/Delete-Outline';
 import EditLogo from '../assets/svgs/edit';
 import DropdownArrow from '../assets/svgs/dropdown';
 import Add from '../assets/svgs/AddButton';
+import Active from '../assets/svgs/Active';
 
 import PersonalBio from '../assets/svgs/PersonalBio';
 import Experiences from '../assets/svgs/Experiences';
@@ -36,7 +37,7 @@ import Privacy from '../assets/svgs/Privacy';
 import SignOut from '../assets/svgs/SignOut';
 
 const ProfilePicture = require('../assets/Images/Profile.png');
-const ProfilePicture2 = require('../assets/Images/PP2.png');
+const ProfilePicture2 = require('../assets/Images/pp.png');
 const HandShake = require('../assets/Images/hand-shake.png');
 const Bottom = require('../assets/Images/Bottom.png');
 const LoginIllustration = require('../assets/Images/LoginIllustration.png');
@@ -53,9 +54,13 @@ const Liked = require('../assets/Images/Liked.png');
 const LikedOutline = require('../assets/Images/Liked-Outline.png');
 const Comment = require('../assets/Images/Comment.png');
 const coverPhoto = require('../assets/Images/coverPhoto.png');
-const userPhoto = require('../assets/Images/userPhoto.png');
+const userPhoto = require('../assets/Images/user.png');
 const ProfileHeader = require('../assets/Images/ProfileHeader.png');
 const AlertLine = require('../assets/Images/Line.png');
+const userImage = require('../assets/Images/sarah.png');
+const Camera = require('../assets/Images/Camera.png');
+const Gallery = require('../assets/Images/Gallery.png');
+const BottomModalButton = require('../assets/Images/BottomModalButton.png');
 
 export default {
   ProfilePicture,
@@ -114,4 +119,9 @@ export default {
   AlertLine,
   Add,
   DropdownArrow,
+  userImage,
+  Active,
+  Camera,
+  Gallery,
+  BottomModalButton,
 };

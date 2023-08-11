@@ -74,6 +74,7 @@ const Education = () => {
         isVisible={isModalVisible}
         onCancel={handleCancelDelete}
         onConfirm={handleDeleteConfirmed}
+        icon="DeleteOutline"
       />
       <TouchableOpacity style={styles.AddButton}>
         <Images.Add />

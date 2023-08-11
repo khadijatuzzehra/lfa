@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, Image, Text} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {handleDeleteData} from '../../../utils/GlobalFunctions';
-import AlertBox from '../../../components/Profile/AlertBox';
+import {SafeAreaView, View, Image, Text, ScrollView} from 'react-native';
 import TextCustom from '../../../components/Auth/TextCustom';
 import Header from '../../../components/Profile/Header';
 import Images from '../../../utils/Images';
@@ -16,7 +13,7 @@ const Recommendations = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header text="Recommendations" />
-      <View style={styles.bottom}>
+      <ScrollView style={styles.bottom}>
         {recommendations.map(item => (
           <View style={styles.component} key={item.id}>
             <Image style={styles.profile} source={Images[item.user_image]} />
@@ -40,7 +37,7 @@ const Recommendations = () => {
             </View>
           </View>
         ))}
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

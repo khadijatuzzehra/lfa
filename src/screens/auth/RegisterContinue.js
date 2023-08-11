@@ -60,7 +60,7 @@ your profile *"
       <View style={styles.holder}>
         <TextCustom text="Profession" textType="Labels" color={colors.Black} />
         <Dropdown
-          height={dimensions.Height / 16}
+          height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
           placeholder="Write your Profession"
           onClick={handleChange}
@@ -74,7 +74,7 @@ your profile *"
           color={colors.Black}
         />
         <Dropdown
-          height={dimensions.Height / 16}
+          height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
           placeholder="Enter your Education"
           onClick={handleChange}
@@ -104,7 +104,7 @@ your profile *"
       <View style={styles.bottom}>
         <CustomButton
           text="Next"
-          height={dimensions.Height / 18}
+          height={dimensions.Height / 20}
           width={dimensions.Width / 1.1}
           backgroundColor={colors.Primary}
           color={colors.White}
@@ -130,17 +130,15 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 1,
-    justifyContent: 'flex-end',
     position: 'relative',
-    paddingBottom: dimensions.Width / 10,
-    paddingTop: dimensions.Width / 15,
+    paddingBottom: dimensions.Width / 5,
+    paddingTop: dimensions.Width / 20,
   },
   contentContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginHorizontal: dimensions.Width / 30,
     marginBottom: dimensions.Width / 100,
+    marginLeft: dimensions.Width / 30,
   },
   row: {
     flexDirection: 'row',

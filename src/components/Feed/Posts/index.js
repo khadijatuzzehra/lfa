@@ -8,7 +8,6 @@ import {
   Image,
   Text,
 } from 'react-native';
-import TextCustom from '../../../components/Auth/TextCustom';
 import Data from '../../../utils/Data';
 import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
@@ -16,7 +15,6 @@ import dimensions from '../../../theme/Dimensions';
 import fonts from '../../../theme/Fonts';
 const Posts = () => {
   const [posts, setPosts] = useState(Data.PostsData);
-  let imgSrc = Images.LikedOutline;
   const handleLike = postId => {
     setPosts(prevPosts =>
       prevPosts.map(post =>
@@ -70,8 +68,7 @@ const Posts = () => {
         <Text style={styles.likes}>{item.likes} Likes</Text>
         <Text style={styles.userName}>
           {item.user_name}
-          <Text style={{color: 'white'}}>.</Text>
-          <Text style={styles.postText}>{item.post_text}</Text>
+          <Text style={styles.postText}> {item.post_text}</Text>
         </Text>
       </View>
     );
@@ -85,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   post: {
-    paddingVertical: dimensions.Height / 100,
+    paddingVertical: dimensions.Height / 70,
   },
   row: {
     flexDirection: 'row',
@@ -103,7 +100,10 @@ const styles = StyleSheet.create({
   },
   rowIcons: {
     flexDirection: 'row',
+    alignItems: 'center',
     marginHorizontal: dimensions.Width / 50,
+    marginBottom: dimensions.Width / 50,
+    paddingHorizontal: dimensions.Width / 100,
   },
   profile: {
     height: dimensions.Height / 20,
@@ -113,14 +113,15 @@ const styles = StyleSheet.create({
     borderRadius: dimensions.Width / 20,
   },
   userName: {
-    fontFamily: fonts.family.medium,
-    fontSize: fonts.size.font12,
+    fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font11,
     color: colors.Black,
     marginHorizontal: dimensions.Width / 80,
+    paddingHorizontal: dimensions.Width / 100,
   },
   postText: {
-    fontSize: fonts.size.font12,
-    fontFamily: fonts.family.light,
+    fontSize: fonts.size.font11,
+    fontFamily: fonts.family.regular,
     color: 'black',
   },
   postImage: {
@@ -131,13 +132,16 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   likeComment: {
+    height: dimensions.Height / 35,
+    width: dimensions.Height / 35,
+    resizeMode: 'contain',
     marginRight: dimensions.Width / 20,
-    marginBottom: dimensions.Width / 50,
   },
   likes: {
     fontWeight: 'bold',
     color: colors.Black,
     marginHorizontal: dimensions.Width / 80,
+    paddingHorizontal: dimensions.Width / 100,
   },
 });
 

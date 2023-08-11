@@ -93,6 +93,7 @@ const Projects = () => {
         isVisible={isModalVisible}
         onCancel={handleCancelDelete}
         onConfirm={handleDeleteConfirmed}
+        icon="DeleteOutline"
       />
     </SafeAreaView>
   );

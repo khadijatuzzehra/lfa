@@ -12,7 +12,6 @@ const PhoneNumberInput = ({onChangeText}) => {
     setText(inputText);
     onChangeText(inputText, countryCode);
   };
-  const [open, setOpen] = useState(false);
   const [countryCode, setCountryCode] = useState('');
 
   const dropdownValues1 = ['+1', '+91', '+44'];
@@ -47,14 +46,14 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginHorizontal: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
-    height: dimensions.Height / 16,
+    height: dimensions.Height / 18,
     width: dimensions.Width / 1.1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.White,
   },
   separator: {
-    fontSize: fonts.size.font20,
+    fontSize: fonts.size.font18,
     textAlign: 'center',
     paddingBottom: dimensions.Width / 50,
     color: colors.Gray,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
   },
   phoneNumberInput: {
     flex: 1,
-    fontSize: fonts.size.font12,
+    fontSize: fonts.size.font11,
     fontFamily: fonts.family.regular,
     color: colors.Gray,
   },

@@ -19,7 +19,6 @@ const Styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // paddingHorizontal: dimensions.Width / 100,
     backgroundColor: '#F8F8F8',
   },
 
@@ -29,13 +28,13 @@ const Styles = StyleSheet.create({
   },
   component: {
     flexDirection: 'row',
-    borderRadius: 4,
+    borderRadius: 10,
     shadowColor: colors.borderColor,
     shadowRadius: 2,
     elevation: 5,
     justifyContent: 'space-between',
     backgroundColor: colors.White,
-    marginVertical: dimensions.Width / 50,
+    marginVertical: dimensions.Width / 30,
     paddingVertical: dimensions.Width / 50,
     paddingHorizontal: dimensions.Width / 100,
     width: dimensions.Width / 1.1,
@@ -88,6 +87,9 @@ const Styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: colors.Primary,
     borderRadius: dimensions.Width / 20,
+  },
+  button: {
+    marginVertical: dimensions.Width / 20,
   },
 });
 export default Styles;

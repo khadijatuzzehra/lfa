@@ -32,7 +32,7 @@ const EditEducation = () => {
             color={colors.Black}
           />
           <Dropdown
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
             placeholder="Enter your Education"
             onClick={value => handleChange('Education', value, setFormData)}
@@ -41,7 +41,7 @@ const EditEducation = () => {
           <TextCustom text="Institute" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="Customer Support Manager"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
             onChangeText={text =>
               handleTextChange(text, 'institute', setFormData)
@@ -74,14 +74,16 @@ const EditEducation = () => {
             <Checkbox text="I currently work at this role" />
           </View>
         </View>
-        <CustomButton
-          text="Done"
-          height={dimensions.Height / 16}
-          width={dimensions.Width / 1.1}
-          backgroundColor={colors.Primary}
-          color={colors.White}
-          onClick={() => handleNavigation(navigation, 'Education', formData)}
-        />
+        <View style={styles.button}>
+          <CustomButton
+            text="Save"
+            height={dimensions.Height / 20}
+            width={dimensions.Width / 1.1}
+            backgroundColor={colors.Primary}
+            color={colors.White}
+            onClick={() => handleNavigation(navigation, 'Education', formData)}
+          />
+        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
@@ -108,5 +110,8 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     marginVertical: dimensions.Width / 100,
+  },
+  button: {
+    marginVertical: dimensions.Height / 3,
   },
 });

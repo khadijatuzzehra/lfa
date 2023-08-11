@@ -17,6 +17,8 @@ import dimensions from '../theme/Dimensions';
 import {useNavigation} from '@react-navigation/native';
 
 const OnBoarding = () => {
+  const [showNextButton, setShowNextButton] = useState(true);
+
   const data = Data.OnBoarding;
   const navigation = useNavigation();
   const flatListRef = useRef(null);
@@ -28,6 +30,10 @@ const OnBoarding = () => {
     const nextIndex = (currentIndex + 1) % data.length;
     flatListRef.current?.scrollToIndex({index: nextIndex, animated: true});
     setCurrentIndex(nextIndex);
+    setShowNextButton(false);
+    setTimeout(() => {
+      setShowNextButton(true);
+    }, 250);
   };
   const handleScroll = event => {
     const contentOffset = event.nativeEvent.contentOffset.x;
@@ -35,10 +41,9 @@ const OnBoarding = () => {
     setCurrentIndex(index);
   };
   const renderItem = ({item, index}) => {
-    // Add left and right padding to the first and last items respectively
     const containerStyle = [
       styles.listContainer,
-      index === 0 && styles.firstItem,
+      index !== data.length - 1 && styles.firstItem,
       index === data.length - 1 && styles.lastItem,
     ];
 
@@ -68,15 +73,6 @@ const OnBoarding = () => {
       <SafeAreaView style={styles.container}>
         <View style={containerStyle}>
           <View style={styles.imageContainer}>{ImageComponent}</View>
-          {item.imgName === 'OnBoarding1' && (
-            <Images.ProgressBar1 style={styles.progressBar} />
-          )}
-          {item.imgName === 'OnBoarding2' && (
-            <Images.ProgressBar2 style={styles.progressBar} />
-          )}
-          {item.imgName === 'OnBoarding3' && (
-            <Images.ProgressBar3 style={styles.progressBar} />
-          )}
           <TextCustom
             text={item.heading}
             textType="Headings"
@@ -87,37 +83,16 @@ const OnBoarding = () => {
             textType="OnBoardingText"
             color={colors.InfoText}
           />
+          {item.imgName === 'OnBoarding1' && (
+            <Images.ProgressBar1 style={styles.progressBar} />
+          )}
+          {item.imgName === 'OnBoarding2' && (
+            <Images.ProgressBar2 style={styles.progressBar} />
+          )}
+          {item.imgName === 'OnBoarding3' && (
+            <Images.ProgressBar3 style={styles.progressBar} />
+          )}
         </View>
-        {item.imgName !== 'OnBoarding3' && (
-          <View style={styles.button}>
-            <TouchableOpacity onPress={onNext}>
-              <TextCustom
-                text="Skip"
-                textType="OnBoardingText"
-                color={colors.InfoText}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handlePress}>
-              <TextCustom
-                text="Next"
-                textType="OnBoardingText"
-                color={colors.Primary}
-              />
-            </TouchableOpacity>
-          </View>
-        )}
-        {item.imgName === 'OnBoarding3' && (
-          <View style={styles.button2}>
-            <CustomButton
-              text="Done"
-              height={dimensions.Height / 14}
-              width={dimensions.Width / 1.5}
-              backgroundColor={colors.Primary}
-              color={colors.White}
-              onClick={onNext}
-            />
-          </View>
-        )}
       </SafeAreaView>
     );
   };
@@ -135,6 +110,37 @@ const OnBoarding = () => {
         onScroll={handleScroll}
         scrollEventThrottle={16}
       />
+      <View style={styles.buttonContainer}>
+        {data[currentIndex].imgName !== 'OnBoarding3' ? (
+          <>
+            <TouchableOpacity onPress={onNext} style={styles.button}>
+              <TextCustom
+                text="Skip"
+                textType="OnBoardingText"
+                color={colors.InfoText}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress} style={styles.button}>
+              <TextCustom
+                text="Next"
+                textType="OnBoardingText"
+                color={colors.Primary}
+              />
+            </TouchableOpacity>
+          </>
+        ) : (
+          <View style={[styles.button2, {opacity: showNextButton ? 1 : 0}]}>
+            <CustomButton
+              text="Done"
+              height={dimensions.Height / 20}
+              width={dimensions.Width / 1.5}
+              backgroundColor={colors.Primary}
+              color={colors.White}
+              onClick={onNext}
+            />
+          </View>
+        )}
+      </View>
     </View>
   );
 };
@@ -151,8 +157,8 @@ const styles = StyleSheet.create({
     marginHorizontal: dimensions.Width / 10,
   },
   firstItem: {
-    marginLeft: dimensions.Width / 7,
-    marginRight: dimensions.Width / 10,
+    marginLeft: dimensions.Width / 8,
+    marginBottom: dimensions.Width / 10,
   },
   lastItem: {
     marginHorizontal: dimensions.Width / 8,
@@ -161,32 +167,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: dimensions.Height / 10,
-    marginBottom: dimensions.Height / 4,
+    marginBottom: dimensions.Height / 5,
     height: dimensions.Height / 50,
     width: dimensions.Width / 50,
   },
   progressBar: {
     height: dimensions.Height / 100,
     width: dimensions.Height / 100,
-    marginBottom: dimensions.Height / 30,
+    marginTop: dimensions.Height / 30,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: dimensions.Height / 20,
+    paddingTop: dimensions.Height / 10,
+    paddingHorizontal: dimensions.Width / 30,
   },
   button: {
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginBottom: dimensions.Height / 20,
-    paddingTop: dimensions.Height / 10,
-    paddingHorizontal: dimensions.Width / 30,
   },
   button2: {
-    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: dimensions.Height / 20,
-    paddingTop: dimensions.Height / 30,
+    marginLeft: dimensions.Height / 20,
   },
   image: {
-    height: dimensions.Height / 2.5,
-    width: dimensions.Width / 1.2,
+    height: dimensions.Height / 3,
+    width: dimensions.Height / 2.5,
     resizeMode: 'contain',
   },
 });

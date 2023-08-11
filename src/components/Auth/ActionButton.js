@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-// import theme
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
@@ -21,10 +20,12 @@ const ActionButton = ({text, buttonText, handlePress}) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: dimensions.Height / 80,
+    alignItems: 'baseline',
+    marginTop: dimensions.Height / 90,
+    marginBottom: dimensions.Width / 100,
   },
   text: {
     fontFamily: fonts.family.regular,

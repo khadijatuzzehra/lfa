@@ -10,11 +10,10 @@ import fonts from '../../../theme/Fonts';
 
 const Stories = () => {
   const [image, setImage] = useState(null);
-
   const data = Data.StoriesData;
   const userId = 1;
   const user = data.find(item => item.user_id === userId);
-  const filteredData = data.filter(user => user.stories.length > 0);
+  const filteredData = data.filter(userData => userData.stories.length > 0);
 
   const handleClick = async () => {
     const imageRes = await handlePress();
@@ -55,6 +54,7 @@ const Stories = () => {
         avatarTextStyle={{
           fontSize: fonts.size.font10,
           fontFamily: fonts.family.medium,
+          color: colors.Headings,
         }}
       />
     </View>
@@ -73,13 +73,12 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   yourStory: {
-    marginTop: dimensions.Height / 70,
     justifyContent: 'center',
     alignItems: 'center',
   },
   badgeContainer: {
     position: 'absolute',
-    bottom: 20,
+    bottom: 30,
     right: 0,
     zIndex: 1,
   },

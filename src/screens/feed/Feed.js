@@ -24,7 +24,11 @@ const Feed = () => {
       <ScrollView>
         <Header />
         <View style={styles.stories}>
-          <Stories />
+          <Image source={Images.AlertLine} style={styles.line} />
+          <View style={styles.stories}>
+            <Stories />
+          </View>
+          <Image source={Images.AlertLine} style={styles.line} />
         </View>
         <View style={styles.posts}>
           <Posts />
@@ -42,11 +46,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.White,
   },
   stories: {
-    marginVertical: dimensions.Height / 50,
-    height: dimensions.Height / 10,
-    Width: dimensions.Width / 50,
+    marginVertical: 2,
   },
   posts: {
     flex: 1,
+  },
+  line: {
+    width: dimensions.Width,
   },
 });

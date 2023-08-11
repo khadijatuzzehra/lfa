@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
 import Images from '../../../utils/Images';
 import dimensions from '../../../theme/Dimensions';
@@ -7,7 +7,16 @@ import colors from '../../../theme/Colors';
 import TextCustom from '../../../components/Auth/TextCustom';
 import CustomButton from '../../../components/Auth/CustomButton';
 
-const AlertBox = ({text, textDescription, isVisible, onCancel, onConfirm}) => {
+const AlertBox = ({
+  text,
+  textDescription,
+  icon,
+  isVisible,
+  onCancel,
+  onConfirm,
+}) => {
+  const SVGComponent = Images[icon];
+
   return (
     <Modal
       isVisible={isVisible}
@@ -18,7 +27,7 @@ const AlertBox = ({text, textDescription, isVisible, onCancel, onConfirm}) => {
       hasBackdrop={true}>
       <View style={styles.modalContainer}>
         <View style={styles.icons}>
-          <Images.DeleteOutline />
+          <SVGComponent />
         </View>
         <View style={styles.modalContent}>
           <TextCustom text={text} textType="Headings" color={colors.Headings} />

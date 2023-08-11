@@ -8,7 +8,7 @@ import Account from '../screens/Account';
 import Dashboard from '../screens/Dashboard';
 import Feed from '../screens/feed/Feed';
 //profile stack
-import Profile from '../screens/profile/Profile';
+import Profile from '../screens/profile/Main/Profile';
 import PersonalBio from '../screens/profile/PersonalBio/PersonalBio';
 import Experiences from '../screens/profile/Experiences/Experiences';
 import EditExperiences from '../screens/profile/Experiences/EditExperiences';
@@ -173,10 +173,10 @@ export default () => {
         },
         tabBarHideOnKeyboard: true,
         tabBarLabelStyle: {
-          fontFamily: Fonts.family.bold,
-          fontSize: Fonts.size.font8,
+          fontFamily: Fonts.family.medium,
+          fontSize: Fonts.size.font10,
         },
-        tabBarActiveTintColor: Colors.Headings,
+        tabBarActiveTintColor: Colors.Primary,
         tabBarInactiveTintColor: Colors.Headings,
         tabBarIcon: ({focused, color, size}) => {
           switch (route.name) {

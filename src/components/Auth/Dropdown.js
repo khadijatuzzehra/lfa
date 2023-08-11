@@ -17,9 +17,14 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [showDropdown, setShowDropdown] = useState(true);
   const [selectedValue, setSelectedValue] = useState(null);
+  const [isImage, setImage] = useState(true);
   useEffect(() => {
     if (placeholder === 'Code' || placeholder === 'Gender') {
       setShowDropdown(false);
+    }
+    if (placeholder === 'Image') {
+      setModalVisible(true);
+      setImage(false);
     }
   }, []);
 
@@ -33,9 +38,27 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
     dropDownStyle = styles.dropdown;
   }
   const handlePress = item => {
+    if (placeholder === 'Image') {
+      setModalVisible(false);
+      onClick(item, placeholder);
+    } else {
+      setSelectedValue(item);
+      // setModalVisible(false);
+      // onClick(selectedValue, placeholder);
+    }
+  };
+  const onConfirm = () => {
+    setModalVisible(false);
+    onClick(selectedValue, placeholder);
+  };
+  const EditProfile = item => {
     setSelectedValue(item);
     setModalVisible(false);
     onClick(item, placeholder);
+  };
+  const backDropPress = () => {
+    setModalVisible(false);
+    onClick('', '');
   };
   const eventHandler = () => {
     if (dropdownRef.current) {
@@ -48,23 +71,27 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
   const dropdownRef = useRef(null);
   return (
     <View style={[{height, width}, containerStyle]}>
-      <TouchableOpacity
-        ref={dropdownRef}
-        style={[{height, width}, dropDownStyle]}
-        onPress={eventHandler}>
-        <Text style={styles.text}>{selectedValue || placeholder}</Text>
-        {showDropdown && <Images.DropdownArrow />}
-      </TouchableOpacity>
+      {isImage && (
+        <TouchableOpacity
+          ref={dropdownRef}
+          style={[{height, width}, dropDownStyle]}
+          onPress={eventHandler}>
+          <Text style={styles.text}>{selectedValue || placeholder}</Text>
+          {showDropdown && <Images.DropdownArrow />}
+        </TouchableOpacity>
+      )}
+
       <Modal
+        animationIn="zoomInDown"
+        animationOut="zoomOutDown"
         isVisible={isModalVisible}
-        onBackdropPress={() => {
-          setModalVisible(false);
-        }}
+        onBackdropPress={() => backDropPress()}
         style={[
           styles.modal,
           {
             top: dropdownCoordinates?.y + dropdownCoordinates?.height - 30 || 0,
-            left: dropdownCoordinates?.x - 20 || 0,
+            [placeholder === 'Image' ? 'right' : 'left']:
+              dropdownCoordinates?.x - 20 || 0,
           },
         ]}
         backdropOpacity={0.3}>
@@ -75,20 +102,27 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
           ]}>
           <ScrollView contentContainerStyle={styles.scrollViewContent}>
             {dropdownValues.map((item, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => handlePress(item)}
-                style={styles.item}>
-                <Text
-                  style={[
-                    styles.textDropdown,
-                    selectedValue === item && styles.selectedItemStyle,
-                  ]}>
-                  {item}
-                </Text>
-              </TouchableOpacity>
+              <View key={index} style={styles.item}>
+                <TouchableOpacity onPress={() => handlePress(item)}>
+                  <Text
+                    style={[
+                      styles.textDropdown,
+                      selectedValue === item && styles.selectedItemStyle,
+                    ]}>
+                    {item}
+                  </Text>
+                </TouchableOpacity>
+                {selectedValue === item && <Images.Active />}
+              </View>
             ))}
           </ScrollView>
+          {isImage && (
+            <TouchableOpacity
+              onPress={() => onConfirm()}
+              style={styles.okButton}>
+              <Text style={styles.okButtonText}>OK</Text>
+            </TouchableOpacity>
+          )}
         </View>
       </Modal>
     </View>
@@ -121,15 +155,14 @@ const styles = StyleSheet.create({
   },
   textDropdown: {
     marginTop: dimensions.Width / 70,
-    borderBottomColor: colors.borderColor,
-    borderBottomWidth: 0.2,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font12,
     color: colors.Gray,
-    padding: dimensions.Width / 100,
+    padding: dimensions.Width / 80,
   },
   text: {
     fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font11,
     color: colors.Gray,
     padding: dimensions.Width / 100,
   },
@@ -141,13 +174,31 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.Height / 100,
     width: dimensions.Width / 1.1,
     backgroundColor: colors.White,
-    borderRadius: 4,
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4,
   },
   scrollViewContent: {
     flexGrow: 1,
   },
   selectedItemStyle: {
     fontFamily: fonts.family.bold,
+    color: colors.Black,
+  },
+  item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomColor: colors.borderColor,
+    borderBottomWidth: 0.2,
+  },
+  okButton: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  okButtonText: {
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font12,
     color: colors.Black,
   },
 });

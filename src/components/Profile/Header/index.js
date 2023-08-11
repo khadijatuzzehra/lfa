@@ -1,10 +1,10 @@
-import {View, TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import TextCustom from '../../../components/Auth/TextCustom';
 import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
-import fonts from '../../../theme/Fonts';
 
 const Header = ({text}) => {
   const navigation = useNavigation();
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.White,
-    shadowColor: colors.LightestGray,
+    shadowColor: colors.Black,
     shadowRadius: 0.5,
     elevation: 10,
   },

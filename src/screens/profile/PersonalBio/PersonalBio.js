@@ -1,7 +1,14 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {useNavigation} from '@react-navigation/native';
+import {
+  handleTextChange,
+  handleChange,
+  handleNavigation,
+} from '../../../utils/GlobalFunctions';
 import Header from '../../../components/Profile/Header';
+import CustomButton from '../../../components/Auth/CustomButton';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
 import TextCustom from '../../../components/Auth/TextCustom';
 import PhoneNumberInput from '../../../components/Auth/PhoneNumberInput';
@@ -12,40 +19,9 @@ import Data from '../../../utils/Data';
 import styles from '../SharedStyles';
 import colors from '../../../theme/Colors';
 
-const PersonalBio = ({navigation}) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    countryCode: '',
-    password: '',
-    dob: '',
-    gender: '',
-    countryName: '',
-    cityName: '',
-    tagline: '',
-  });
-
-  const handleTextChange = (inputText, fieldType) => {
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [fieldType]: inputText,
-    }));
-  };
-
-  const handleChange = (placeholder, value) => {
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [placeholder.toLowerCase()]: value,
-    }));
-  };
-
-  const handleDateSelect = value => {
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      dob: value,
-    }));
-  };
+const PersonalBio = ({}) => {
+  const navigation = useNavigation();
+  const [formData, setFormData] = useState({});
 
   const handlePhoneNumberChange = (inputText, country) => {
     setFormData(prevFormData => ({
@@ -55,23 +31,25 @@ const PersonalBio = ({navigation}) => {
     }));
   };
   return (
-    <KeyboardAwareScrollView style={styles.container}>
+    <KeyboardAwareScrollView style={{flex: 1, backgroundColor: colors.White}}>
       <SafeAreaView style={{flex: 1}}>
         <Header text="Personal Bio" />
         <View style={styles.form}>
           <TextCustom text="Full Name" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="Write Your Full Name"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
-            onChangeText={text => handleTextChange(text, 'name')}
+            onChangeText={text => handleTextChange(text, 'name', setFormData)}
+            fieldType="name"
           />
           <TextCustom text="Email" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="Enter your email"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
-            onChangeText={text => handleTextChange(text, 'email')}
+            onChangeText={text => handleTextChange(text, 'email', setFormData)}
+            fieldType="email"
           />
           <TextCustom
             text="Mobile Number"
@@ -82,10 +60,12 @@ const PersonalBio = ({navigation}) => {
           <TextCustom text="Password" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="Enter your password"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
+            onChangeText={text =>
+              handleTextChange(text, 'password', setFormData)
+            }
             fieldType="password"
-            onChangeText={text => handleTextChange(text, 'password')}
           />
           <View style={styles.labelHolder}>
             <TextCustom
@@ -96,12 +76,15 @@ const PersonalBio = ({navigation}) => {
             <TextCustom text="Gender" textType="Labels" color={colors.Black} />
           </View>
           <View style={styles.dropDownHolder}>
-            <DatePicker placeholder="DD/MM/YYYY" onSelect={handleDateSelect} />
+            <DatePicker
+              placeholder="DD/MM/YYYY"
+              onSelect={value => handleChange('dob', value, setFormData)}
+            />
             <Dropdown
-              height={dimensions.Height / 16}
+              height={dimensions.Height / 18}
               width={dimensions.Width / 2.5}
               placeholder="Gender"
-              onClick={handleChange}
+              onClick={value => handleChange('Gender', value, setFormData)}
               dropdownValues={Data.Gender}
             />
           </View>
@@ -115,27 +98,40 @@ const PersonalBio = ({navigation}) => {
           </View>
           <View style={styles.dropDownHolder}>
             <Dropdown
-              height={dimensions.Height / 16}
+              height={dimensions.Height / 18}
               width={dimensions.Width / 2.5}
               placeholder="Country"
-              onClick={handleChange}
+              onClick={value => handleChange('Country', value, setFormData)}
               dropdownValues={Data.Country}
             />
             <Dropdown
-              height={dimensions.Height / 16}
+              height={dimensions.Height / 18}
               width={dimensions.Width / 2.5}
               placeholder="City"
-              onClick={handleChange}
+              onClick={value => handleChange('City', value, setFormData)}
               dropdownValues={Data.City}
             />
           </View>
           <TextCustom text="Tagline" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="Enter your bio"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
-            onChangeText={text => handleTextChange(text, 'tagline ')}
+            onChangeText={text =>
+              handleTextChange(text, 'tagline', setFormData)
+            }
+            fieldType="tagline"
           />
+          <View style={styles.button}>
+            <CustomButton
+              text="Save"
+              height={dimensions.Height / 20}
+              width={dimensions.Width / 1.1}
+              backgroundColor={colors.Primary}
+              color={colors.White}
+              onClick={() => handleNavigation(navigation, 'Profile', formData)}
+            />
+          </View>
         </View>
       </SafeAreaView>
     </KeyboardAwareScrollView>

@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {
   View,
   ScrollView,
+  SafeAreaView,
   TouchableOpacity,
   Alert,
-  Image,
   StyleSheet,
 } from 'react-native';
 import TextCustom from '../../components/Auth/TextCustom';
@@ -72,19 +72,9 @@ const Login = () => {
       console.log('error happened', error);
     }
   }
-
   return (
-    <KeyboardAwareScrollView style={styles.mainContainer}>
-      <ScrollView
-        contentContainerStyle={styles.container}
-        keyboardShouldPersistTaps="handled">
-        {/* <View style={styles.topImage}>
-          <Image
-            source={Images.LoginIllustration}
-            style={styles.image}
-            resizeMode="stretch"
-          />
-        </View> */}
+    <>
+      <KeyboardAwareScrollView style={styles.mainContainer}>
         <View style={styles.header}>
           <TextCustom
             text="Welcome Back!"
@@ -104,7 +94,7 @@ const Login = () => {
         />
         <CustomTextInput
           placeholder="Enter your email"
-          height={dimensions.Height / 16}
+          height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
           onChangeText={handleTextChange}
           fieldType="email"
@@ -112,7 +102,7 @@ const Login = () => {
         <TextCustom text="Password" textType="Labels" color={colors.Black} />
         <CustomTextInput
           placeholder="Enter your password"
-          height={dimensions.Height / 16}
+          height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
           onChangeText={handleTextChange}
           fieldType="password"
@@ -156,25 +146,26 @@ const Login = () => {
             buttonName="Google"
           />
         </View>
-        <View style={styles.ActionButtonContainer}>
-          <ActionButton
-            text="Don't have an Account? "
-            buttonText="Sign UP"
-            handlePress={onSignUp}
-          />
-        </View>
-      </ScrollView>
-    </KeyboardAwareScrollView>
+      </KeyboardAwareScrollView>
+      <View style={styles.ActionButtonContainer}>
+        <ActionButton
+          text="Don't have an Account? "
+          buttonText="Sign UP"
+          handlePress={onSignUp}
+        />
+      </View>
+    </>
   );
 };
 const styles = StyleSheet.create({
   mainContainer: {
+    height: dimensions.Height,
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.White,
+    paddingHorizontal: dimensions.Width / 80,
   },
   container: {
-    flexGrow: 1,
-    backgroundColor: colors.White,
+    flex: 1,
     paddingHorizontal: dimensions.Width / 80,
   },
   header: {
@@ -184,6 +175,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: dimensions.Width / 10,
   },
   socialAuth: {
     flexDirection: 'row',
@@ -192,29 +184,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: dimensions.Height / 20,
+    marginTop: dimensions.Height / 50,
   },
   recovery: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingRight: dimensions.Height / 50,
-    marginBottom: dimensions.Width / 50,
+    marginBottom: dimensions.Width / 100,
   },
-
   ActionButtonContainer: {
-    marginTop: dimensions.Height / 7,
-  },
-  topImage: {
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end',
-    width: dimensions.Width,
-    height: dimensions.Height / 20,
-  },
-  image: {
-    width: dimensions.Width / 2,
-    top: 0,
-    right: 0,
+    position: 'absolute',
+    alignSelf: 'center',
+    bottom: 0,
+    paddingBottom: dimensions.Width / 20,
+    backgroundColor: 'white',
+    zIndex: 1,
   },
 });
 export default Login;

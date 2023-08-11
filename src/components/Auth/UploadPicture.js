@@ -1,8 +1,7 @@
+/* eslint-disable react/self-closing-comp */
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
-import {launchImageLibrary} from 'react-native-image-picker';
 import {handlePress} from '../../utils/GlobalFunctions';
-import Upload from '../../assets/svgs/Upload';
 import TextCustom from '../../components/Auth/TextCustom';
 import Images from '../../utils/Images';
 import colors from '../../theme/Colors';

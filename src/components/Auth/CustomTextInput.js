@@ -15,28 +15,20 @@ const CustomTextInput = ({
 }) => {
   const [text, setText] = useState('');
   const [text2, setText2] = useState('');
-  const [secureTextEntry, setSecureTextEntry] = useState(
-    fieldType === 'password',
-  );
+  const [secureText, setSecureText] = useState(fieldType == 'password');
 
   const handleTextChange = inputText => {
-    if (fieldType === 'password') {
-      setText(inputText);
-      setText2(inputText);
-      onChangeText(text2, fieldType);
-    } else {
-      setText(inputText);
-      onChangeText(inputText, fieldType);
-    }
+    setText(inputText);
+    onChangeText(inputText, fieldType);
   };
 
   const togglePasswordVisibility = () => {
-    setSecureTextEntry(!secureTextEntry);
+    setSecureText(!secureText);
   };
 
   const renderIcon = () => {
     if (fieldType === 'password') {
-      if (secureTextEntry) {
+      if (secureText) {
         return (
           <EyeClose style={styles.icon} onPress={togglePasswordVisibility} />
         );
@@ -52,17 +44,17 @@ const CustomTextInput = ({
   return (
     <View style={[{height, width}, styles.container]}>
       <TextInput
-        multiline
         style={[
           styles.input,
           fieldType === 'description' || 'skills'
             ? styles.descriptionInput
             : null,
         ]}
+        multiline={fieldType !== 'password'}
+        secureTextEntry={secureText}
         placeholder={placeholder}
         autoCapitalize="none"
         placeholderTextColor={colors.placeholder}
-        secureTextEntry={secureTextEntry}
         onChangeText={handleTextChange}
         value={text}
       />
@@ -89,7 +81,7 @@ const styles = StyleSheet.create({
     margin: dimensions.Width / 100,
     color: colors.borderColor,
     fontFamily: fonts.family.regular,
-    justifyContent: 'center',
+    fontSize: fonts.size.font11,
   },
   icon: {
     height: dimensions.Width / 22,

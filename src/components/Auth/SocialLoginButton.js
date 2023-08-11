@@ -1,15 +1,13 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-// import theme
+import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
-//Import SVGS
 import Google from '../../assets/svgs/Google';
 import Facebook from '../../assets/svgs/Facebook';
 
 const SocialLoginButton = ({onGoogleButtonPress, buttonName}) => {
-  let svgName = '';
+  let SvgComponent = '';
   if (buttonName === 'Google') {
     SvgComponent = <Google style={styles.icon} />;
   }

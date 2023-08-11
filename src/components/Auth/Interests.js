@@ -30,15 +30,16 @@ const Interest = ({interest, selectedInterests, setSelectedInterests}) => {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: dimensions.Width / 100,
+    marginVertical: dimensions.Width / 100,
+    marginRight: dimensions.Width / 100,
     paddingHorizontal: dimensions.Width / 50,
-    margin: dimensions.Width / 100,
-    width: dimensions.Width / 5,
-    borderRadius: 4,
+    borderRadius: 20,
+    minWidth: dimensions.Width / 6,
   },
   text: {
     color: colors.White,
     textAlign: 'center',
-    fontFamily: fonts.family.medium,
+    fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font11,
   },
 });

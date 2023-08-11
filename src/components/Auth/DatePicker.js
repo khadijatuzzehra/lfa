@@ -16,10 +16,6 @@ const DatePicker = ({placeholder, onSelect}) => {
     onSelect(formattedDate);
     setModalVisible(false);
   };
-  const handlePress = () => {
-    console.log('Inside handlePress');
-    setModalVisible(!isModalVisible);
-  };
 
   return (
     <View style={styles.container}>
@@ -65,13 +61,12 @@ const styles = StyleSheet.create({
   modal: {
     height: dimensions.Height / 2,
     width: dimensions.Width / 1.1,
-    backgroundColor: colors.White,
     borderRadius: 10,
     backgroundColor: colors.White,
   },
 
   dropdown: {
-    height: dimensions.Height / 16,
+    height: dimensions.Height / 18,
     width: dimensions.Width / 2.5,
     borderColor: colors.borderColor,
     borderWidth: 1,
@@ -80,6 +75,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font11,
     color: colors.Gray,
     padding: dimensions.Width / 100,
   },
@@ -89,6 +85,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font11,
     color: colors.Gray,
     padding: dimensions.Width / 30,
   },

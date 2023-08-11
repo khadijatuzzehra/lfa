@@ -11,17 +11,18 @@ const City = [
 const Gender = ['Male', 'Female', 'Prefer not to say'];
 const Interests = [
   'Tech',
+  'Artificial Intelligence',
   'Business',
+  'Education',
   'Music',
   'Sports',
-  'AI',
+  'Business Development',
   'Cooking',
-  'Art',
   'Travel',
-  'Reading',
   'Gaming',
-  'Education',
-  'Singing',
+  'Data Mining',
+  'Reading',
+  'Art',
 ];
 const Profession = [
   'Actor',
@@ -40,27 +41,28 @@ const Education = [
   'Postgraduate',
   'none of the above',
 ];
+const ImageOption = ['Edit Cover', 'Edit Profile'];
 const OnBoarding = [
   {
     id: '1',
     imgName: 'OnBoarding1',
     svgName2: 'ProgressBar1',
     heading: 'Lorem Ipsum',
-    text: 'Unleashing Africas Collective Ingenuity ',
+    text: "Unleashing Africa's Collective Ingenuity\nlorem ipsum consectetur adipiscing\nvoluptatem accusantium doloremque",
   },
   {
     id: '2',
     imgName: 'OnBoarding2',
     svgName2: 'ProgressBar2',
     heading: 'Lorem Ipsum',
-    text: 'Unleashing Africas Collective Ingenuity ',
+    text: "Unleashing Africa's Collective Ingenuity\nlorem ipsum consectetur adipiscing\nvoluptatem accusantium doloremque",
   },
   {
     id: '3',
     imgName: 'OnBoarding3',
     svgName2: 'ProgressBar3',
     heading: 'Lorem Ipsum',
-    text: 'Unleashing Africas Collective Ingenuity\nlorem ipsum consectetur adipiscing\nvoluptatem accusantium doloremque',
+    text: "Unleashing Africa's Collective Ingenuity\nlorem ipsum consectetur adipiscing\nvoluptatem accusantium doloremque",
   },
 ];
 const StoriesData = [
@@ -338,8 +340,8 @@ const Users = [
   {
     id: 4,
     user_id: 2,
-    user_name: 'Sarah Forest',
-    user_image: 'userPhoto',
+    user_name: 'Sarah Faraway',
+    user_image: 'userImage',
     designation: 'UI/UX Designer',
     date: 'October 22, 2021',
     bio: 'I highly recommend the Overture Maps Foundation to developers looking to create cutting-edge mapping and navigation products.',
@@ -363,4 +365,5 @@ export default {
   Educations,
   Projects,
   Users,
+  ImageOption,
 };

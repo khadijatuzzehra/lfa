@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, TouchableOpacity, Image} from 'react-native';
+import {SafeAreaView, View, TouchableOpacity} from 'react-native';
 import {handleDeleteData} from '../../../utils/GlobalFunctions';
 import {useNavigation} from '@react-navigation/native';
 import AlertBox from '../../../components/Profile/AlertBox';
@@ -73,6 +73,7 @@ const Experiences = () => {
         isVisible={isModalVisible}
         onCancel={handleCancelDelete}
         onConfirm={handleDeleteConfirmed}
+        icon="DeleteOutline"
       />
       <TouchableOpacity style={styles.AddButton}>
         <Images.Add />

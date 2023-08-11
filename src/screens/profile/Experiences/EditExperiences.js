@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React, {useState} from 'react';
 import {SafeAreaView, View, StyleSheet} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -11,12 +12,10 @@ import Header from '../../../components/Profile/Header';
 import CustomButton from '../../../components/Auth/CustomButton';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
 import Checkbox from '../../../components/Auth/Checkbox';
-import Dropdown from '../../../components/Auth/Dropdown';
 import TextCustom from '../../../components/Auth/TextCustom';
 import DatePicker from '../../../components/Auth/DatePicker';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
-import Data from '../../../utils/Data';
 
 const EditExperiences = () => {
   const navigation = useNavigation();
@@ -33,7 +32,7 @@ const EditExperiences = () => {
           />
           <CustomTextInput
             placeholder="WestWick IC"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
             onChangeText={handleTextChange}
             fieldType="company"
@@ -48,7 +47,7 @@ const EditExperiences = () => {
           />
           <CustomTextInput
             placeholder="Customer Support Manager"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
             onChangeText={handleTextChange}
             fieldType="designation"
@@ -96,14 +95,18 @@ const EditExperiences = () => {
             fieldType="description"
           />
         </View>
-        <CustomButton
-          text="Done"
-          height={dimensions.Height / 16}
-          width={dimensions.Width / 1.1}
-          backgroundColor={colors.Primary}
-          color={colors.White}
-          onClick={() => handleNavigation(navigation, 'Experiences', formData)}
-        />
+        <View style={styles.button}>
+          <CustomButton
+            text="Save"
+            height={dimensions.Height / 20}
+            width={dimensions.Width / 1.1}
+            backgroundColor={colors.Primary}
+            color={colors.White}
+            onClick={() =>
+              handleNavigation(navigation, 'Experiences', formData)
+            }
+          />
+        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
@@ -130,5 +133,8 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     marginVertical: dimensions.Width / 100,
+  },
+  button: {
+    marginVertical: dimensions.Width / 4,
   },
 });

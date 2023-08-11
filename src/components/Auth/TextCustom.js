@@ -1,7 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-// import theme
-import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
 
@@ -66,6 +64,7 @@ const styles = StyleSheet.create({
     marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.bold,
     fontSize: fonts.size.font20,
+    marginBottom: -dimensions.Width / 40,
   },
 
   buttonText: {
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
   onBoardingText2: {
     marginRight: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
-    fontFamily: fonts.family.regular,
+    fontFamily: fonts.family.bold,
     fontSize: fonts.size.font13,
     textAlign: 'center',
   },
@@ -111,8 +110,8 @@ const styles = StyleSheet.create({
   },
   compTitles: {
     marginLeft: dimensions.Width / 30,
-    fontFamily: fonts.family.bold,
-    fontSize: fonts.size.font15,
+    fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font14,
   },
   date: {
     marginLeft: dimensions.Width / 30,
@@ -124,7 +123,7 @@ const styles = StyleSheet.create({
     marginLeft: dimensions.Width / 30,
     marginVertical: dimensions.Width / 30,
     fontFamily: fonts.family.medium,
-    fontSize: fonts.size.font16,
+    fontSize: fonts.size.font13,
   },
   name: {
     textAlign: 'center',

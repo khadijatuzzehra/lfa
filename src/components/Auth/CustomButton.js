@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import fonts from '../../theme/Fonts';
-
+import colors from '../../theme/Colors';
 const CustomButton = ({
   text,
   backgroundColor,
@@ -48,7 +48,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 5,
     marginHorizontal: 10,
-    marginVertical: 10,
+    // marginVertical: 10,
+    shadowColor: colors.Black,
+    shadowOpacity: 0.8,
+    shadowRadius: 16.0,
+    elevation: 5,
   },
   button: {
     justifyContent: 'center',
@@ -58,8 +62,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   btnText: {
-    fontFamily: fonts.family.bold,
-    fontSize: fonts.size.font12,
+    fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font16,
   },
   btnText2: {
     fontFamily: fonts.family.regular,

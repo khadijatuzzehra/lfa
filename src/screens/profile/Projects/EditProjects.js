@@ -31,7 +31,7 @@ const EditProjects = () => {
           />
           <CustomTextInput
             placeholder="Seccuracy"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
             onChangeText={text =>
               handleTextChange(text, 'projectName', setFormData)
@@ -45,7 +45,7 @@ const EditProjects = () => {
           />
           <CustomTextInput
             placeholder="Your role title..."
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
             onChangeText={text => handleTextChange(text, 'role', setFormData)}
             fieldType="role"
@@ -67,7 +67,7 @@ const EditProjects = () => {
           <TextCustom text="Web Link" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="www.seccuracy.com"
-            height={dimensions.Height / 16}
+            height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
             onChangeText={text =>
               handleTextChange(text, 'webLink', setFormData)
@@ -111,14 +111,16 @@ const EditProjects = () => {
             fieldType="skills"
           />
         </View>
-        <CustomButton
-          text="Done"
-          height={dimensions.Height / 16}
-          width={dimensions.Width / 1.1}
-          backgroundColor={colors.Primary}
-          color={colors.White}
-          onClick={() => handleNavigation(navigation, 'Projects', formData)}
-        />
+        <View style={styles.button}>
+          <CustomButton
+            text="Save"
+            height={dimensions.Height / 20}
+            width={dimensions.Width / 1.1}
+            backgroundColor={colors.Primary}
+            color={colors.White}
+            onClick={() => handleNavigation(navigation, 'Projects', formData)}
+          />
+        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
@@ -143,6 +145,9 @@ const styles = StyleSheet.create({
     paddingRight: dimensions.Width / 20,
   },
   checkbox: {
+    marginVertical: dimensions.Width / 100,
+  },
+  button: {
     marginVertical: dimensions.Width / 100,
   },
 });

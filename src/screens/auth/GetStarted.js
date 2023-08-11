@@ -23,7 +23,7 @@ const GetStarted = () => {
       <ImageBackground
         source={Images.HandShake}
         style={styles.background}
-        resizeMode="stretch"
+        resizeMode="cover"
       />
       <View style={styles.top}>
         <View style={styles.text}>
@@ -39,22 +39,26 @@ const GetStarted = () => {
           />
         </View>
         <View style={styles.buttonContainer}>
-          <CustomButton
-            text="Login"
-            height={dimensions.Height / 14}
-            width={dimensions.Width / 1.1}
-            backgroundColor={colors.Primary}
-            color={colors.White}
-            onClick={handlePress}
-          />
-          <CustomButton
-            text="Register"
-            height={dimensions.Height / 14}
-            width={dimensions.Width / 1.1}
-            backgroundColor={colors.White}
-            color={colors.TextDark}
-            onClick={handlePress}
-          />
+          <View style={styles.button}>
+            <CustomButton
+              text="Login"
+              height={dimensions.Height / 20}
+              width={dimensions.Width / 1.1}
+              backgroundColor={colors.Primary}
+              color={colors.White}
+              onClick={handlePress}
+            />
+          </View>
+          <View style={styles.button}>
+            <CustomButton
+              text="Register"
+              height={dimensions.Height / 20}
+              width={dimensions.Width / 1.1}
+              backgroundColor={colors.White}
+              color={colors.TextDark}
+              onClick={handlePress}
+            />
+          </View>
         </View>
       </View>
       <View style={styles.bottom}>
@@ -73,9 +77,6 @@ const styles = StyleSheet.create({
   },
   background: {
     position: 'absolute',
-    height: '100%',
-    resizeMode: 'repeat',
-    width: '100%',
     top: 0,
     left: 0,
     right: 0,
@@ -89,15 +90,18 @@ const styles = StyleSheet.create({
     paddingTop: dimensions.Height / 1.7,
   },
   image: {
-    height: dimensions.Height / 100,
+    height: dimensions.Height / 80,
     width: dimensions.Width,
     left: 0,
     right: 0,
   },
   bottom: {
     flex: 1,
-    justifyContent: 'flex-end',
-    position: 'relative',
+    position: 'absolute',
+    bottom: -5,
+  },
+  button: {
+    marginBottom: dimensions.Width / 20,
   },
 });
 
