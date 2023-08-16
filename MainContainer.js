@@ -23,12 +23,12 @@ const MainContainer = () => {
   };
 
   useEffect(() => {
-    SplashScreen.hide();
     AsyncStorage.getItem('userInfo').then(userInfo => {
       if (userInfo != null) {
         dispatch({type: LOGIN_SUCCESS, payload: JSON.parse(userInfo)});
       }
       setLoading(false);
+      SplashScreen.hide();
     });
     return () => {};
   }, []);
@@ -37,7 +37,7 @@ const MainContainer = () => {
     return (
       <SafeAreaView
         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <ActivityIndicator size={'large'} color={Colors.Primary} />
+        {/* <ActivityIndicator size={'large'} color={Colors.Primary} /> */}
       </SafeAreaView>
     );
   }

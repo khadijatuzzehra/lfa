@@ -37,6 +37,7 @@ const EditEducation = () => {
             placeholder="Enter your Education"
             onClick={value => handleChange('Education', value, setFormData)}
             dropdownValues={Data.Education}
+            title="Select your Education"
           />
           <TextCustom text="Institute" textType="Labels" color={colors.Black} />
           <CustomTextInput
@@ -48,30 +49,34 @@ const EditEducation = () => {
             }
             fieldType="institute"
           />
-          <View style={styles.labelHolder}>
-            <TextCustom
-              text="Start Year"
-              textType="Labels"
-              color={colors.Black}
-            />
-            <TextCustom
-              text="End Year"
-              textType="Labels"
-              color={colors.Black}
-            />
-          </View>
           <View style={styles.dropDownHolder}>
-            <DatePicker
-              placeholder="StartYear"
-              onSelect={value => handleChange('StartYear', value, setFormData)}
-            />
-            <DatePicker
-              placeholder="EndYear"
-              onSelect={value => handleChange('StartYear', value, setFormData)}
-            />
+            <View>
+              <TextCustom
+                text="Start Year"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <DatePicker
+                placeholder="StartYear"
+                onSelect={value =>
+                  handleChange('StartYear', value, setFormData)
+                }
+              />
+            </View>
+            <View>
+              <TextCustom
+                text="End Year"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <DatePicker
+                placeholder="EndYear"
+                onSelect={value => handleChange('EndYear', value, setFormData)}
+              />
+            </View>
           </View>
           <View style={styles.checkbox}>
-            <Checkbox text="I currently work at this role" />
+            <Checkbox text="I am currently working at this role" />
           </View>
         </View>
         <View style={styles.button}>
@@ -102,11 +107,6 @@ const styles = StyleSheet.create({
   dropDownHolder: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  labelHolder: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingRight: dimensions.Width / 20,
   },
   checkbox: {
     marginVertical: dimensions.Width / 100,

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -67,55 +68,64 @@ const PersonalBio = ({}) => {
             }
             fieldType="password"
           />
-          <View style={styles.labelHolder}>
-            <TextCustom
-              text="Date of Birth"
-              textType="Labels"
-              color={colors.Black}
-            />
-            <TextCustom text="Gender" textType="Labels" color={colors.Black} />
-          </View>
           <View style={styles.dropDownHolder}>
-            <DatePicker
-              placeholder="DD/MM/YYYY"
-              onSelect={value => handleChange('dob', value, setFormData)}
-            />
-            <Dropdown
-              height={dimensions.Height / 18}
-              width={dimensions.Width / 2.5}
-              placeholder="Gender"
-              onClick={value => handleChange('Gender', value, setFormData)}
-              dropdownValues={Data.Gender}
-            />
-          </View>
-          <View style={styles.labelHolder}>
-            <TextCustom text="Country" textType="Labels" color={colors.Black} />
-            <TextCustom
-              text="City/State"
-              textType="Labels"
-              color={colors.Black}
-            />
-          </View>
-          <View style={styles.dropDownHolder}>
-            <Dropdown
-              height={dimensions.Height / 18}
-              width={dimensions.Width / 2.5}
-              placeholder="Country"
-              onClick={value => handleChange('Country', value, setFormData)}
-              dropdownValues={Data.Country}
-            />
-            <Dropdown
-              height={dimensions.Height / 18}
-              width={dimensions.Width / 2.5}
-              placeholder="City"
-              onClick={value => handleChange('City', value, setFormData)}
-              dropdownValues={Data.City}
-            />
+            <View style={styles.holder}>
+              <TextCustom
+                text="Date of Birth"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <DatePicker
+                placeholder="DD/MM/YYYY"
+                onSelect={value => handleChange('dob', value, setFormData)}
+              />
+              <TextCustom
+                text="Country"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <Dropdown
+                height={dimensions.Height / 18}
+                width={dimensions.Width / 2.5}
+                placeholder="Country"
+                onClick={value => handleChange('Country', value, setFormData)}
+                dropdownValues={Data.Country}
+                title="Select Country"
+              />
+            </View>
+            <View style={styles.holder}>
+              <TextCustom
+                text="Gender"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <Dropdown
+                height={dimensions.Height / 18}
+                width={dimensions.Width / 2.5}
+                placeholder="Select"
+                onClick={value => handleChange('Gender', value, setFormData)}
+                dropdownValues={Data.Gender}
+                title="Select Gender"
+              />
+              <TextCustom
+                text="City/State"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <Dropdown
+                height={dimensions.Height / 18}
+                width={dimensions.Width / 2.5}
+                placeholder="City"
+                onClick={value => handleChange('City', value, setFormData)}
+                dropdownValues={Data.City}
+                title="Select City/State"
+              />
+            </View>
           </View>
           <TextCustom text="Tagline" textType="Labels" color={colors.Black} />
           <CustomTextInput
-            placeholder="Enter your bio"
-            height={dimensions.Height / 18}
+            placeholder="Write a Tagline"
+            height={dimensions.Height / 9}
             width={dimensions.Width / 1.1}
             onChangeText={text =>
               handleTextChange(text, 'tagline', setFormData)

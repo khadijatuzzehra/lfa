@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  ScrollView,
-  SafeAreaView,
-  TouchableOpacity,
-  Alert,
-  StyleSheet,
-} from 'react-native';
+import {View, TouchableOpacity, Alert, StyleSheet} from 'react-native';
 import TextCustom from '../../components/Auth/TextCustom';
 import CustomTextInput from '../../components/Auth/CustomTextInput';
 import RememberMe from '../../components/Auth/Checkbox';
@@ -121,7 +114,7 @@ const Login = () => {
           <CustomButton
             text="Login"
             height={dimensions.Height / 20}
-            width={dimensions.Width / 1.4}
+            width={dimensions.Width / 1.1}
             backgroundColor={colors.Primary}
             color={colors.White}
             onClick={handlePress}

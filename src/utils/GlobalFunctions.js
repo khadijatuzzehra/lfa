@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 export const handleNavigation = async (navigation, screenName, formData) => {
@@ -12,6 +11,21 @@ export const handlePress = async () => {
       return response;
     } else {
       console.log('Image selection cancelled.');
+      return null;
+    }
+  } catch (error) {
+    console.log(error.response.data);
+    return error.response.data;
+  }
+};
+
+export const handlePostStorySelection = async () => {
+  try {
+    const response = await launchImageLibrary({mediaType: 'mixed'});
+    if (!response.didCancel) {
+      return response;
+    } else {
+      console.log('Media selection cancelled.');
       return null;
     }
   } catch (error) {
@@ -46,9 +60,9 @@ export const handleDeleteData = async (data, itemIdToDelete) => {
   return updatedData;
 };
 
-const onNext = () => {
-  console.log('');
-};
+// const onNext = () => {
+//   console.log('');
+// };
 
 export const handleTextChange = async (inputText, fieldType, setFormData) => {
   setFormData(prevFormData => ({

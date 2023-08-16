@@ -19,11 +19,11 @@ const RegisterContinue = () => {
   const higherLevelEducationRef = useRef('');
 
   const handleChange = async (value, placeholder) => {
-    if (placeholder === 'Write your Profession') {
+    if (placeholder === 'Select your Profession') {
       professionRef.current = value;
       setProfession(professionRef.current);
     }
-    if (placeholder === 'Higher Level Education') {
+    if (placeholder === 'Select your Education') {
       higherLevelEducationRef.current = value;
       setHigherLevelEducation(higherLevelEducationRef.current);
     }
@@ -62,9 +62,10 @@ your profile *"
         <Dropdown
           height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
-          placeholder="Write your Profession"
+          placeholder="Select your Profession"
           onClick={handleChange}
           dropdownValues={Data.Profession}
+          title="Select your Profession"
         />
       </View>
       <View style={styles.holder}>
@@ -76,9 +77,10 @@ your profile *"
         <Dropdown
           height={dimensions.Height / 18}
           width={dimensions.Width / 1.1}
-          placeholder="Enter your Education"
+          placeholder="Select your Education"
           onClick={handleChange}
           dropdownValues={Data.Education}
+          title="Select your Education"
         />
       </View>
       <View style={styles.holder}>
@@ -131,8 +133,8 @@ const styles = StyleSheet.create({
   bottom: {
     flex: 1,
     position: 'relative',
-    paddingBottom: dimensions.Width / 5,
-    paddingTop: dimensions.Width / 20,
+    paddingBottom: dimensions.Width / 4,
+    paddingTop: dimensions.Width / 10,
   },
   contentContainer: {
     flexDirection: 'row',

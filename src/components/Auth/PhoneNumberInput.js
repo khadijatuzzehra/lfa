@@ -21,9 +21,10 @@ const PhoneNumberInput = ({onChangeText}) => {
       <Dropdown
         height={dimensions.Height / 16}
         width={dimensions.Width / 6}
-        placeholder="Code"
+        placeholder="+92"
         onClick={value => setCountryCode(value)}
         dropdownValues={dropdownValues1}
+        title=""
       />
       <Text style={styles.separator}>|</Text>
       <TextInput
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: dimensions.Width / 50,
     color: colors.Gray,
-    marginRight: dimensions.Width / 50,
+    marginRight: dimensions.Width / 40,
   },
   phoneNumberInput: {
     flex: 1,

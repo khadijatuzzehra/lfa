@@ -36,7 +36,7 @@ const Profile = () => {
   };
   const handleChange = async item => {
     dropdownVisible(false);
-    if (item == '') {
+    if (item === '') {
       optionModalVisible(false);
     } else {
       optionModalVisible(!optionModal);
@@ -84,11 +84,13 @@ const Profile = () => {
             style={styles.row}
             onPress={() => handleNavigation(item.navigation)}>
             <View style={styles.rowStart}>
-              <SVGComponent style={styles.image} />
+              <View style={styles.image}>
+                <SVGComponent />
+              </View>
               <TextCustom
                 text={item.name}
                 textType="Navigation"
-                color={colors.InfoText}
+                color={colors.navText}
               />
             </View>
             <View style={styles.rowEnd}>
@@ -161,7 +163,7 @@ const Profile = () => {
         <View style={styles.centerContainer}>
           <TextCustom
             text="My Account"
-            textType="Headings"
+            textType="HomeScreenHeadings"
             color={colors.Black}
           />
         </View>

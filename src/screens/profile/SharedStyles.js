@@ -5,17 +5,15 @@ import fonts from '../../theme/Fonts';
 
 const Styles = StyleSheet.create({
   form: {
-    marginTop: dimensions.Height / 30,
+    marginTop: dimensions.Height / 50,
     paddingHorizontal: dimensions.Width / 100,
   },
   dropDownHolder: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  labelHolder: {
-    flexDirection: 'row',
+  holder: {
     justifyContent: 'space-between',
-    paddingRight: dimensions.Width / 20,
   },
   container: {
     flex: 1,
@@ -34,7 +32,7 @@ const Styles = StyleSheet.create({
     elevation: 5,
     justifyContent: 'space-between',
     backgroundColor: colors.White,
-    marginVertical: dimensions.Width / 30,
+    marginVertical: dimensions.Width / 70,
     paddingVertical: dimensions.Width / 50,
     paddingHorizontal: dimensions.Width / 100,
     width: dimensions.Width / 1.1,
@@ -58,8 +56,8 @@ const Styles = StyleSheet.create({
   },
   AddButton: {
     position: 'absolute',
-    bottom: 10,
-    right: 15,
+    bottom: 30,
+    right: 20,
   },
   text: {
     marginHorizontal: dimensions.Width / 30,
@@ -89,7 +87,7 @@ const Styles = StyleSheet.create({
     borderRadius: dimensions.Width / 20,
   },
   button: {
-    marginVertical: dimensions.Width / 20,
+    marginBottom: dimensions.Width / 50,
   },
 });
 export default Styles;

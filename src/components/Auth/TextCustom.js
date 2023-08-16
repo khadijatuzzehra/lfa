@@ -62,14 +62,14 @@ const styles = StyleSheet.create({
   },
   homeScreenHeadings: {
     marginLeft: dimensions.Width / 30,
-    fontFamily: fonts.family.bold,
-    fontSize: fonts.size.font20,
-    marginBottom: -dimensions.Width / 40,
+    fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font18,
+    marginBottom: -dimensions.Width / 50,
   },
 
   buttonText: {
     marginLeft: dimensions.Width / 30,
-    marginTop: dimensions.Width / 50,
+    marginTop: dimensions.Width / 40,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font12,
   },
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     marginLeft: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
     fontFamily: fonts.family.regular,
-    fontSize: fonts.size.font12,
+    fontSize: fonts.size.font13,
   },
   onBoardingText: {
     marginLeft: dimensions.Width / 30,
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font13,
     textAlign: 'center',
+    gap: 10,
   },
   onBoardingText2: {
     marginRight: dimensions.Width / 30,
@@ -96,15 +97,18 @@ const styles = StyleSheet.create({
   role: {
     marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.regular,
-    fontSize: fonts.size.font14,
+    fontSize: fonts.size.font12,
   },
   labels: {
     marginLeft: dimensions.Width / 30,
+    marginBottom: dimensions.Width / 100,
     fontFamily: fonts.family.medium,
+    textAlign: 'left',
     fontSize: fonts.size.font12,
   },
   description: {
     marginLeft: dimensions.Width / 30,
+    width: dimensions.Width / 1.2,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font10,
   },
@@ -115,15 +119,14 @@ const styles = StyleSheet.create({
   },
   date: {
     marginLeft: dimensions.Width / 30,
-    width: dimensions.Width / 1.5,
+    width: dimensions.Width / 1.1,
     fontFamily: fonts.family.medium,
-    fontSize: fonts.size.font10,
+    fontSize: fonts.size.font11,
   },
   navigation: {
-    marginLeft: dimensions.Width / 30,
     marginVertical: dimensions.Width / 30,
     fontFamily: fonts.family.medium,
-    fontSize: fonts.size.font13,
+    fontSize: fonts.size.font14,
   },
   name: {
     textAlign: 'center',

@@ -39,7 +39,7 @@ const PictureOptions = ({onCancel, onSelect}) => {
             <TextCustom
               text="Camera"
               textType="Navigation"
-              color={colors.Headings}
+              color={colors.Black}
             />
           </TouchableOpacity>
           <TouchableOpacity
@@ -49,7 +49,7 @@ const PictureOptions = ({onCancel, onSelect}) => {
             <TextCustom
               text="Gallery"
               textType="Navigation"
-              color={colors.Headings}
+              color={colors.Black}
             />
           </TouchableOpacity>
         </View>
@@ -65,35 +65,30 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     backgroundColor: colors.White,
-    borderTopLeftRadius: 50,
-    borderTopRightRadius: 50,
+    borderTopLeftRadius: 60,
+    borderTopRightRadius: 60,
     height: dimensions.Width / 2,
-    shadowColor: colors.Black,
-    shadowOpacity: 0.58,
-    shadowRadius: 16.0,
-    elevation: 20,
   },
   optionContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: dimensions.Width / 6,
-    marginRight: dimensions.Width / 6,
-    marginTop: dimensions.Width / 10,
+    marginLeft: dimensions.Width / 4,
+    marginRight: dimensions.Width / 4,
+    marginTop: dimensions.Width / 20,
   },
   option: {
-    paddingVertical: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: dimensions.Width / 30,
+    marginVertical: dimensions.Width / 20,
   },
   icon: {
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 40,
     resizeMode: 'contain',
   },
   icon2: {
-    width: dimensions.Width / 5,
-    height: 10,
+    width: dimensions.Width / 7,
+    height: 12,
     resizeMode: 'contain',
   },
   header: {

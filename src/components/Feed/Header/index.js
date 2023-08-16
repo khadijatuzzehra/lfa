@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
     marginHorizontal: dimensions.Width / 30,
   },
   logo: {
-    height: dimensions.Width / 8,
-    width: dimensions.Width / 4,
+    height: dimensions.Width / 10,
+    width: dimensions.Width / 5,
     resizeMode: 'stretch',
   },
   content: {

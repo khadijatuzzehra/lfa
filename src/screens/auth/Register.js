@@ -69,16 +69,19 @@ const Register = () => {
     <>
       <KeyboardAwareScrollView style={styles.mainContainer}>
         <SafeAreaView style={styles.container}>
-          <TextCustom
-            text="Create Account"
-            textType="Headings"
-            color={colors.Headings}
-          />
-          <TextCustom
-            text="Connect through look for Africa Today!"
-            textType="InfoText"
-            color={colors.InfoText}
-          />
+          <View style={styles.header}>
+            <TextCustom
+              text="Create Account"
+              textType="Headings"
+              color={colors.Headings}
+            />
+            <TextCustom
+              text="Connect through Look for Africa Today!"
+              textType="InfoText"
+              color={colors.InfoText}
+            />
+          </View>
+
           <TextCustom text="Full Name" textType="Labels" color={colors.Black} />
           <CustomTextInput
             placeholder="Write Your Full Name"
@@ -107,52 +110,62 @@ const Register = () => {
             fieldType="password"
             onChangeText={text => handleTextChange(text, 'password')}
           />
-          <View style={styles.labelHolder}>
-            <TextCustom
-              text="Date of Birth"
-              textType="Labels"
-              color={colors.Black}
-            />
-            <TextCustom text="Gender" textType="Labels" color={colors.Black} />
-          </View>
           <View style={styles.dropDownHolder}>
-            <DatePicker placeholder="DD/MM/YYYY" onSelect={handleDateSelect} />
-            <Dropdown
-              height={dimensions.Height / 18}
-              width={dimensions.Width / 2.5}
-              placeholder="Select"
-              onClick={handleChange}
-              dropdownValues={Data.Gender}
-            />
-          </View>
-          <View style={styles.labelHolder}>
-            <TextCustom text="Country" textType="Labels" color={colors.Black} />
-            <TextCustom
-              text="City/State"
-              textType="Labels"
-              color={colors.Black}
-            />
-          </View>
-          <View style={styles.dropDownHolder}>
-            <Dropdown
-              height={dimensions.Height / 18}
-              width={dimensions.Width / 2.5}
-              placeholder="Country"
-              onClick={handleChange}
-              dropdownValues={Data.Country}
-            />
-            <Dropdown
-              height={dimensions.Height / 18}
-              width={dimensions.Width / 2.5}
-              placeholder="City"
-              onClick={handleChange}
-              dropdownValues={Data.City}
-            />
-          </View>
-          <View style={{marginVertical: dimensions.Width / 100}}>
-            <Agree text="I agree to the terms and conditions" />
+            <View style={styles.holder}>
+              <TextCustom
+                text="Date of Birth"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <DatePicker
+                placeholder="DD/MM/YYYY"
+                onSelect={handleDateSelect}
+              />
+              <TextCustom
+                text="Country"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <Dropdown
+                height={dimensions.Height / 18}
+                width={dimensions.Width / 2.5}
+                placeholder="Country"
+                onClick={handleChange}
+                dropdownValues={Data.Country}
+                title="Select Country"
+              />
+            </View>
+            <View style={styles.holder}>
+              <TextCustom
+                text="Gender"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <Dropdown
+                height={dimensions.Height / 18}
+                width={dimensions.Width / 2.5}
+                placeholder="Select"
+                onClick={handleChange}
+                dropdownValues={Data.Gender}
+                title="Select Gender"
+              />
+              <TextCustom
+                text="City/State"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <Dropdown
+                height={dimensions.Height / 18}
+                width={dimensions.Width / 2.5}
+                placeholder="City"
+                onClick={handleChange}
+                dropdownValues={Data.City}
+                title="Select City/State"
+              />
+            </View>
           </View>
           <View style={styles.button}>
+            <Agree text="I agree to the terms and conditions" />
             <CustomButton
               text="Sign Up"
               height={dimensions.Height / 20}
@@ -167,7 +180,7 @@ const Register = () => {
       <View style={styles.ActionButtonContainer}>
         <ActionButton
           text="Already have an Account? "
-          buttonText="Log IN"
+          buttonText="Log In"
           handlePress={onLogin}
         />
       </View>
@@ -185,17 +198,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.White,
     paddingHorizontal: dimensions.Width / 100,
   },
+  header: {
+    marginBottom: dimensions.Width / 30,
+  },
   dropDownHolder: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  labelHolder: {
-    flexDirection: 'row',
+  holder: {
     justifyContent: 'space-between',
-    paddingRight: dimensions.Width / 20,
   },
   button: {
-    marginTop: dimensions.Width / 20,
+    marginTop: dimensions.Width / 25,
   },
   ActionButtonContainer: {
     position: 'absolute',

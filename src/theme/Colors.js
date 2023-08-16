@@ -8,7 +8,6 @@ const LightestGray = '#A8A2A2';
 const cancelButton = '#BEBEBE';
 const ActionButton = '#A2A6AC';
 const ButtonText = '#00726D';
-const TextDarker = '#212121';
 const TextDark = '#313131';
 const Gray = '#898989';
 const Black = '#000000';
@@ -18,6 +17,9 @@ const badgeSelected = '#2B6F64';
 const badge = '#CDCDCD';
 const red = '#F31D1D';
 const placeholder = '#959AA1';
+const accentColor = '#F7B836';
+const textColor = '#707070';
+const navText = '#7B8D9E';
 export default {
   Primary,
   LightPrimary,
@@ -38,4 +40,7 @@ export default {
   badgeSelected,
   red,
   placeholder,
+  accentColor,
+  textColor,
+  navText,
 };

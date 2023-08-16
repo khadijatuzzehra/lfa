@@ -14,8 +14,8 @@ const Styles = StyleSheet.create({
   },
   image: {
     height: dimensions.Height / 40,
-    width: dimensions.Height / 40,
-    resizeMode: 'contain',
+    width: dimensions.Height / 30,
+    marginRight: dimensions.Width / 30,
   },
   coverPhoto: {
     width: dimensions.Width,
@@ -37,8 +37,8 @@ const Styles = StyleSheet.create({
   },
   text: {
     position: 'absolute',
-    marginTop: dimensions.Height / 12,
-    marginLeft: dimensions.Width / 4,
+    marginTop: dimensions.Height / 10,
+    marginLeft: dimensions.Width / 4.2,
   },
   bottomContainer: {
     width: dimensions.Width / 1.1,
@@ -63,12 +63,12 @@ const Styles = StyleSheet.create({
   profile: {
     position: 'absolute',
     marginTop: dimensions.Height / 25,
-    marginLeft: dimensions.Width / 100,
+    marginLeft: dimensions.Height / 200,
   },
   userPhoto: {
-    height: dimensions.Height / 8,
-    width: dimensions.Height / 8,
-    borderRadius: 50,
+    height: dimensions.Width / 4,
+    width: dimensions.Width / 4,
+    borderRadius: 100,
     borderWidth: 5,
     borderColor: colors.White,
     resizeMode: 'contain',

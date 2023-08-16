@@ -30,7 +30,11 @@ const AlertBox = ({
           <SVGComponent />
         </View>
         <View style={styles.modalContent}>
-          <TextCustom text={text} textType="Headings" color={colors.Headings} />
+          <TextCustom
+            text={text}
+            textType="HomeScreenHeadings"
+            color={colors.Black}
+          />
           <TextCustom
             text={textDescription}
             textType="Labels"
@@ -40,7 +44,7 @@ const AlertBox = ({
             <CustomButton
               text="Delete"
               height={dimensions.Height / 30}
-              width={dimensions.Width / 5}
+              width={dimensions.Width / 6}
               backgroundColor={colors.red}
               color={colors.White}
               onClick={onConfirm}
@@ -48,7 +52,7 @@ const AlertBox = ({
             <CustomButton
               text="Cancel"
               height={dimensions.Height / 30}
-              width={dimensions.Width / 5}
+              width={dimensions.Width / 6}
               backgroundColor={colors.cancelButton}
               color={colors.Black}
               onClick={onCancel}

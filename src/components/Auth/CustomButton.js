@@ -2,6 +2,7 @@ import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import fonts from '../../theme/Fonts';
 import colors from '../../theme/Colors';
+import dimensions from '../../theme/Dimensions';
 const CustomButton = ({
   text,
   backgroundColor,
@@ -19,13 +20,12 @@ const CustomButton = ({
   };
   let styleUse = styles.btn;
   let buttonStyle = styles.btnText;
-  if (
-    text === 'Follow' ||
-    text === 'Following' ||
-    text === 'Delete' ||
-    text === 'Cancel'
-  ) {
+  if (text === 'Follow' || text === 'Following') {
     styleUse = styles.button;
+    buttonStyle = styles.btnText2;
+  }
+  if (text === 'Delete' || text === 'Cancel') {
+    styleUse = styles.alertButton;
     buttonStyle = styles.btnText2;
   }
   return (
@@ -47,18 +47,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
-    marginHorizontal: 10,
-    // marginVertical: 10,
-    shadowColor: colors.Black,
-    shadowOpacity: 0.8,
-    shadowRadius: 16.0,
-    elevation: 5,
+    marginHorizontal: dimensions.Width / 30,
+    marginTop: dimensions.Width / 50,
   },
   button: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: 20,
     marginHorizontal: 2,
+
     marginVertical: 10,
   },
   btnText: {
@@ -66,8 +63,14 @@ const styles = StyleSheet.create({
     fontSize: fonts.size.font16,
   },
   btnText2: {
-    fontFamily: fonts.family.regular,
+    fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font11,
+  },
+  alertButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginRight: dimensions.Width / 50,
   },
 });
 

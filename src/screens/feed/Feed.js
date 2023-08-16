@@ -1,21 +1,12 @@
 import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {SafeAreaView, Image, View, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native-virtualized-view';
 import Header from '../../components/Feed/Header';
 import Stories from '../../components/Feed/Stories';
 import Posts from '../../components/Feed/Posts';
 import Images from '../../utils/Images';
-import Data from '../../utils/Data';
 import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';
-import fonts from '../../theme/Fonts';
 
 const Feed = () => {
   const [notifications, setNotifications] = useState(1);

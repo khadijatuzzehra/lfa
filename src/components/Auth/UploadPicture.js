@@ -70,20 +70,20 @@ const styles = StyleSheet.create({
   },
   badgeContainer: {
     position: 'absolute',
-    bottom: -20,
+    bottom: -10,
     left: dimensions.Width / 1.8,
     zIndex: 1,
   },
   badge: {
     backgroundColor: colors.Primary,
-    height: dimensions.Height / 30,
+    height: dimensions.Height / 40,
     borderRadius: 100,
-    width: dimensions.Width / 15,
+    width: dimensions.Width / 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
-    marginTop: dimensions.Height / 100,
+    marginTop: dimensions.Width / 100,
   },
 });
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect} from 'react';
 import {SafeAreaView, Text, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';

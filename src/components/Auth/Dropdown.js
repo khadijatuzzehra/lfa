@@ -12,14 +12,21 @@ import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
 import Images from '../../utils/Images';
 
-const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
+const Dropdown = ({
+  height,
+  width,
+  placeholder,
+  dropdownValues,
+  title,
+  onClick,
+}) => {
   const [dropdownCoordinates, setDropdownCoordinates] = useState(null);
   const [isModalVisible, setModalVisible] = useState(false);
   const [showDropdown, setShowDropdown] = useState(true);
   const [selectedValue, setSelectedValue] = useState(null);
   const [isImage, setImage] = useState(true);
   useEffect(() => {
-    if (placeholder === 'Code' || placeholder === 'Gender') {
+    if (placeholder === '+92' || placeholder === 'Gender') {
       setShowDropdown(false);
     }
     if (placeholder === 'Image') {
@@ -30,7 +37,7 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
 
   let dropDownStyle = '';
   let containerStyle = '';
-  if (placeholder === 'Code') {
+  if (placeholder === '+92') {
     containerStyle = styles.phoneNumberContainer;
     dropDownStyle = styles.phoneNumberDropdown;
   } else {
@@ -43,8 +50,8 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
       onClick(item, placeholder);
     } else {
       setSelectedValue(item);
-      // setModalVisible(false);
-      // onClick(selectedValue, placeholder);
+      setModalVisible(false);
+      onClick(selectedValue, placeholder);
     }
   };
   const onConfirm = () => {
@@ -100,6 +107,11 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
             styles.modalContainer,
             {width: width, height: height * 4 - 10},
           ]}>
+          {isImage && (
+            <View style={styles.okButton}>
+              <Text style={styles.title}>{title}</Text>
+            </View>
+          )}
           <ScrollView contentContainerStyle={styles.scrollViewContent}>
             {dropdownValues.map((item, index) => (
               <View key={index} style={styles.item}>
@@ -116,13 +128,6 @@ const Dropdown = ({height, width, placeholder, dropdownValues, onClick}) => {
               </View>
             ))}
           </ScrollView>
-          {isImage && (
-            <TouchableOpacity
-              onPress={() => onConfirm()}
-              style={styles.okButton}>
-              <Text style={styles.okButtonText}>OK</Text>
-            </TouchableOpacity>
-          )}
         </View>
       </Modal>
     </View>
@@ -133,7 +138,7 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: dimensions.Width / 30,
     borderColor: colors.LightestGray,
-    marginBottom: dimensions.Height / 100,
+    marginBottom: dimensions.Width / 30,
     backgroundColor: colors.White,
   },
   dropdown: {
@@ -148,7 +153,7 @@ const styles = StyleSheet.create({
   phoneNumberContainer: {
     paddingTop: dimensions.Height / 200,
     marginBottom: dimensions.Height / 100,
-    marginLeft: dimensions.Width / 80,
+    marginLeft: dimensions.Width / 40,
   },
   phoneNumberDropdown: {
     justifyContent: 'center',
@@ -156,8 +161,8 @@ const styles = StyleSheet.create({
   textDropdown: {
     marginTop: dimensions.Width / 70,
     fontFamily: fonts.family.regular,
-    fontSize: fonts.size.font12,
-    color: colors.Gray,
+    fontSize: fonts.size.font11,
+    color: colors.Black,
     padding: dimensions.Width / 80,
   },
   text: {
@@ -171,7 +176,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     maxHeight: dimensions.Height / 3,
-    paddingHorizontal: dimensions.Height / 100,
+    paddingHorizontal: dimensions.Height / 50,
     width: dimensions.Width / 1.1,
     backgroundColor: colors.White,
     borderBottomLeftRadius: 4,
@@ -192,14 +197,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.2,
   },
   okButton: {
-    position: 'absolute',
-    right: 0,
+    left: 0,
     top: 0,
   },
-  okButtonText: {
+  title: {
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font12,
-    color: colors.Black,
+    color: colors.placeholder,
   },
 });
 

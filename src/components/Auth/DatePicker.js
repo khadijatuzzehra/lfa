@@ -54,8 +54,9 @@ const DatePicker = ({placeholder, onSelect}) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: dimensions.Width / 30,
+
     borderColor: colors.LightestGray,
-    marginBottom: dimensions.Height / 100,
+    marginBottom: dimensions.Width / 30,
     backgroundColor: colors.White,
   },
   modal: {

@@ -75,30 +75,34 @@ const EditProjects = () => {
             fieldType="webLink"
           />
 
-          <View style={styles.labelHolder}>
-            <TextCustom
-              text="Start Year"
-              textType="Labels"
-              color={colors.Black}
-            />
-            <TextCustom
-              text="End Year"
-              textType="Labels"
-              color={colors.Black}
-            />
-          </View>
           <View style={styles.dropDownHolder}>
-            <DatePicker
-              placeholder="StartYear"
-              onSelect={value => handleChange('StartYear', value, setFormData)}
-            />
-            <DatePicker
-              placeholder="EndYear"
-              onSelect={value => handleChange('EndYear', value, setFormData)}
-            />
+            <View>
+              <TextCustom
+                text="Start Year"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <DatePicker
+                placeholder="StartYear"
+                onSelect={value =>
+                  handleChange('StartYear', value, setFormData)
+                }
+              />
+            </View>
+            <View>
+              <TextCustom
+                text="End Year"
+                textType="Labels"
+                color={colors.Black}
+              />
+              <DatePicker
+                placeholder="EndYear"
+                onSelect={value => handleChange('EndYear', value, setFormData)}
+              />
+            </View>
           </View>
           <View style={styles.checkbox}>
-            <Checkbox text="I currently work at this role" />
+            <Checkbox text="I am currently working at this role" />
           </View>
           <TextCustom text="Skills" textType="Labels" color={colors.Black} />
           <CustomTextInput

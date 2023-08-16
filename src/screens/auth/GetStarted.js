@@ -33,9 +33,9 @@ const GetStarted = () => {
             color={colors.Headings}
           />
           <TextCustom
-            text="Lorem Ipsum sit amet Constentular giz not namet Ipsum"
+            text={'Lorem Ipsum sit amet Constentular giz not\nnamet Ipsum'}
             textType="InfoText"
-            color={colors.InfoText}
+            color={colors.Gray}
           />
         </View>
         <View style={styles.buttonContainer}>
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingTop: dimensions.Height / 1.7,
+    alignItems: 'center',
   },
   image: {
     height: dimensions.Height / 80,

@@ -50,13 +50,24 @@ const Posts = () => {
           snapToInterval={dimensions.Width}>
           {item.images &&
             item.images.map((imageVariable, imageIndex) => (
-              <Image
-                key={imageIndex}
-                source={Images[imageVariable]}
-                style={styles.postImage}
-              />
+              <View key={imageIndex}>
+                <Image
+                  source={Images[imageVariable]}
+                  style={styles.postImage}
+                />
+                {item.images.length > 1 && (
+                  <View style={styles.paginationContainer}>
+                    <Text style={styles.paginationText}>
+                      {item.images
+                        ? `${imageIndex + 1}/${item.images.length}`
+                        : ''}
+                    </Text>
+                  </View>
+                )}
+              </View>
             ))}
         </ScrollView>
+
         <View style={styles.rowIcons}>
           <TouchableOpacity onPress={() => handleLike(item.id)}>
             <Image source={imgSrc} style={styles.likeComment} />
@@ -82,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   post: {
-    paddingVertical: dimensions.Height / 70,
+    paddingVertical: dimensions.Width / 70,
   },
   row: {
     flexDirection: 'row',
@@ -106,21 +117,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.Width / 100,
   },
   profile: {
-    height: dimensions.Height / 20,
-    width: dimensions.Height / 20,
+    height: dimensions.Height / 16,
+    width: dimensions.Height / 16,
     borderWidth: 2,
     borderColor: colors.Primary,
-    borderRadius: dimensions.Width / 20,
+    borderRadius: dimensions.Width / 10,
   },
   userName: {
     fontFamily: fonts.family.semiBold,
-    fontSize: fonts.size.font11,
+    fontSize: fonts.size.font13,
     color: colors.Black,
     marginHorizontal: dimensions.Width / 80,
     paddingHorizontal: dimensions.Width / 100,
   },
   postText: {
-    fontSize: fonts.size.font11,
+    fontSize: fonts.size.font12,
     fontFamily: fonts.family.regular,
     color: 'black',
   },
@@ -128,7 +139,7 @@ const styles = StyleSheet.create({
     width: dimensions.Width,
     height: dimensions.Height / 2,
     resizeMode: 'contain',
-    marginVertical: dimensions.Width / 30,
+    marginVertical: dimensions.Width / 50,
     borderRadius: 4,
   },
   likeComment: {
@@ -138,10 +149,21 @@ const styles = StyleSheet.create({
     marginRight: dimensions.Width / 20,
   },
   likes: {
-    fontWeight: 'bold',
     color: colors.Black,
+    fontSize: fonts.size.font12,
+    fontFamily: fonts.family.medium,
     marginHorizontal: dimensions.Width / 80,
     paddingHorizontal: dimensions.Width / 100,
+  },
+  paginationText: {
+    color: 'white',
+    fontSize: fonts.size.font13,
+    fontFamily: fonts.family.semiBold,
+  },
+  paginationContainer: {
+    position: 'absolute',
+    right: 20,
+    bottom: 30,
   },
 });
 

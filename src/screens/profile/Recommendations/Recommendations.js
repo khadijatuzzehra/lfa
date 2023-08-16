@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {SafeAreaView, View, Image, Text, ScrollView} from 'react-native';
 import TextCustom from '../../../components/Auth/TextCustom';
 import Header from '../../../components/Profile/Header';
@@ -8,7 +8,7 @@ import styles from '../SharedStyles';
 import colors from '../../../theme/Colors';
 
 const Recommendations = () => {
-  const [recommendations, setRecommendations] = useState(Data.Users);
+  const recommendations = Data.Users;
 
   return (
     <SafeAreaView style={styles.container}>
