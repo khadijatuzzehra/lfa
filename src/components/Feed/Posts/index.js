@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   FlatList,
@@ -13,7 +13,7 @@ import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
 import fonts from '../../../theme/Fonts';
-const Posts = () => {
+const Posts = ({ListEmpty}) => {
   const [posts, setPosts] = useState(Data.PostsData);
   const handleLike = postId => {
     setPosts(prevPosts =>
@@ -28,64 +28,76 @@ const Posts = () => {
       ),
     );
   };
+  useEffect(() => {
+    if (posts.length === 0) {
+      ListEmpty('No Data Found');
+    }
+  }, [posts, ListEmpty]);
   const renderItem = ({item}) => {
-    const imgSrc = item.liked ? Images.Liked : Images.LikedOutline;
-    return (
-      <View style={styles.post}>
-        <View style={styles.row}>
-          <View style={styles.rowStart}>
-            <Image style={styles.profile} source={Images[item.user_image]} />
-            <Text style={styles.userName}>{item.user_name}</Text>
-            <Images.Verified />
+    if (posts.length > 0) {
+      const imgSrc = item.liked ? Images.Liked : Images.LikedOutline;
+      return (
+        <View style={styles.post}>
+          <View style={styles.row}>
+            <View style={styles.rowStart}>
+              <Image style={styles.profile} source={Images[item.user_image]} />
+              <Text style={styles.userName}>{item.user_name}</Text>
+              <Images.Verified />
+            </View>
+            <TouchableOpacity style={styles.rowEnd}>
+              <Images.Options />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.rowEnd}>
-            <Images.Options />
-          </TouchableOpacity>
-        </View>
-        <ScrollView
-          style={styles.horizontalScrollView}
-          horizontal
-          decelerationRate="fast"
-          showsHorizontalScrollIndicator={true}
-          snapToInterval={dimensions.Width}>
-          {item.images &&
-            item.images.map((imageVariable, imageIndex) => (
-              <View key={imageIndex}>
-                <Image
-                  source={Images[imageVariable]}
-                  style={styles.postImage}
-                />
-                {item.images.length > 1 && (
-                  <View style={styles.paginationContainer}>
-                    <Text style={styles.paginationText}>
-                      {item.images
-                        ? `${imageIndex + 1}/${item.images.length}`
-                        : ''}
-                    </Text>
-                  </View>
-                )}
-              </View>
-            ))}
-        </ScrollView>
+          <ScrollView
+            style={styles.horizontalScrollView}
+            horizontal
+            decelerationRate="fast"
+            showsHorizontalScrollIndicator={true}
+            snapToInterval={dimensions.Width}>
+            {item.images &&
+              item.images.map((imageVariable, imageIndex) => (
+                <View key={imageIndex}>
+                  <Image
+                    source={Images[imageVariable]}
+                    style={styles.postImage}
+                  />
+                  {item.images.length > 1 && (
+                    <View style={styles.paginationContainer}>
+                      <Text style={styles.paginationText}>
+                        {item.images
+                          ? `${imageIndex + 1}/${item.images.length}`
+                          : ''}
+                      </Text>
+                    </View>
+                  )}
+                </View>
+              ))}
+          </ScrollView>
 
-        <View style={styles.rowIcons}>
-          <TouchableOpacity onPress={() => handleLike(item.id)}>
-            <Image source={imgSrc} style={styles.likeComment} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={Images.Comment} style={styles.likeComment} />
-          </TouchableOpacity>
+          <View style={styles.rowIcons}>
+            <TouchableOpacity onPress={() => handleLike(item.id)}>
+              <Image source={imgSrc} style={styles.likeComment} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image source={Images.Comment} style={styles.likeComment} />
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.likes}>{item.likes} Likes</Text>
+          <Text style={styles.userName}>
+            {item.user_name}
+            <Text style={styles.postText}> {item.post_text}</Text>
+          </Text>
         </View>
-        <Text style={styles.likes}>{item.likes} Likes</Text>
-        <Text style={styles.userName}>
-          {item.user_name}
-          <Text style={styles.postText}> {item.post_text}</Text>
-        </Text>
-      </View>
-    );
+      );
+    }
   };
   return (
-    <FlatList data={posts} renderItem={renderItem} style={styles.container} />
+    <FlatList
+      data={posts}
+      renderItem={renderItem}
+      style={styles.container}
+      ListEmptyComponent={<View />}
+    />
   );
 };
 const styles = StyleSheet.create({

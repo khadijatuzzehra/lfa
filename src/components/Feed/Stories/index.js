@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import InstaStory from 'react-native-insta-story';
 import {View, TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
 import Video from 'react-native-video';
@@ -11,6 +11,7 @@ import dimensions from '../../../theme/Dimensions';
 import fonts from '../../../theme/Fonts';
 
 const Stories = () => {
+  const videoRef = useRef(null);
   const [media, setMedia] = useState(null);
   const [mediaType, setMediaType] = useState('');
   const [isVisible, setVisible] = useState(false);
@@ -28,6 +29,13 @@ const Stories = () => {
     }
   };
 
+  const handleVideoProgress = ({currentTime}) => {
+    if (currentTime >= 12) {
+      console.log('playing again');
+      videoRef.current.seek(0);
+    }
+  };
+
   const renderMedia = () => {
     if (mediaType === 'image/jpeg') {
       return (
@@ -39,12 +47,13 @@ const Stories = () => {
         />
       );
     } else if (mediaType === 'video/mp4') {
-      console.log(media.assets[0].uri);
       return (
         <Video
+          ref={videoRef}
           source={{uri: media.assets[0].uri}}
           style={styles.image}
-          resizeMode="stretch"
+          resizeMode="contain"
+          onProgress={handleVideoProgress}
           repeat
         />
       );
@@ -95,9 +104,7 @@ const Stories = () => {
           isVisible={isVisible}
           onBackdropPress={() => setVisible(false)}
           unmountOnHide={true}
-          backdropColor={colors.WhiteDull}
-          backDropOpacity={10}
-          hasBackdrop={true}>
+          backdropColor="rgba(0, 0, 0, 0.5)">
           <View style={styles.modalContainer}>{renderMedia()}</View>
           <TouchableOpacity
             onPress={() => setVisible(false)}
@@ -143,12 +150,13 @@ const styles = StyleSheet.create({
   modalContainer: {
     height: dimensions.Height,
     width: dimensions.Width,
+    backgroundColor: 'black',
     left: -20,
   },
   image: {
     height: dimensions.Height,
     width: dimensions.Width,
-    resizeMode: 'stretch',
+    resizeMode: 'contain',
   },
   close: {
     position: 'absolute',

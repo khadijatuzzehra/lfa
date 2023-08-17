@@ -50,7 +50,9 @@ const Dropdown = ({
       onClick(item, placeholder);
     } else {
       setSelectedValue(item);
-      setModalVisible(false);
+      setTimeout(() => {
+        setModalVisible(false);
+      }, 300);
       onClick(selectedValue, placeholder);
     }
   };
