@@ -28,7 +28,9 @@ const MainContainer = () => {
         dispatch({type: LOGIN_SUCCESS, payload: JSON.parse(userInfo)});
       }
       setLoading(false);
-      SplashScreen.hide();
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 4000);
     });
     return () => {};
   }, []);
