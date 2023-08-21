@@ -13,6 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux';
 import {LOGOUT} from '../../../store/ActionTypes';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 const Profile = () => {
   const [dropdown, dropdownVisible] = useState(false);
@@ -22,11 +23,22 @@ const Profile = () => {
   const [coverImage, setCoverImage] = useState('');
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const handleNavigation = nav => {
+  const handleNavigation = async nav => {
     if (nav === 'SignOut') {
-      AsyncStorage.removeItem('userInfo').then(() => {
-        dispatch({type: LOGOUT, payload: null});
-      });
+      try {
+        const {idToken} = await GoogleSignin.getTokens();
+        if (idToken) {
+          await GoogleSignin.revokeAccess();
+          await GoogleSignin.signOut();
+        }
+        AsyncStorage.removeItem('userInfo').then(() => {
+          dispatch({type: LOGOUT, payload: null});
+        });
+      } catch (error) {
+        AsyncStorage.removeItem('userInfo').then(() => {
+          dispatch({type: LOGOUT, payload: null});
+        });
+      }
     } else {
       navigation.navigate(nav);
     }
@@ -90,7 +102,7 @@ const Profile = () => {
               <TextCustom
                 text={item.name}
                 textType="Navigation"
-                color={colors.navText}
+                color={colors.BlueGray}
               />
             </View>
             <View style={styles.rowEnd}>
@@ -152,7 +164,7 @@ const Profile = () => {
               <TextCustom
                 text="One step at a time, I will reach my destination."
                 textType="Date"
-                color={colors.White}
+                color={colors.Badge}
               />
             </View>
           </View>

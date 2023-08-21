@@ -1,23 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
-import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 import Colors from '../theme/Colors';
-import {useDispatch} from 'react-redux';
-import {LOGOUT} from '../store/ActionTypes';
 
 const Account = () => {
-  const dispatch = useDispatch();
-  const handleLogout = () => {
-    AsyncStorage.removeItem('userInfo').then(() => {
-      dispatch({type: LOGOUT, payload: null});
-    });
-  };
-
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
-      <TouchableOpacity
-        onPress={() => handleLogout()}
+      <View
         style={{
           backgroundColor: Colors.Gray,
           margin: 20,
@@ -26,8 +15,8 @@ const Account = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Text style={{color: Colors.White}}>Logout</Text>
-      </TouchableOpacity>
+        <Text style={{color: Colors.White}}>Opportunity</Text>
+      </View>
     </SafeAreaView>
   );
 };

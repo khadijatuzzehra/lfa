@@ -1,10 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, SafeAreaView, Text} from 'react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import Navigator from './src/navigation/Navigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
 import {useDispatch, useSelector} from 'react-redux';
-import Colors from './src/theme/Colors';
 import {LOGIN_SUCCESS} from './src/store/ActionTypes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from 'react-native-splash-screen';
@@ -18,7 +18,6 @@ const MainContainer = () => {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      // background: Colors.LightPrimary,
     },
   };
 
@@ -35,14 +34,6 @@ const MainContainer = () => {
     return () => {};
   }, []);
 
-  if (loading) {
-    return (
-      <SafeAreaView
-        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        {/* <ActivityIndicator size={'large'} color={Colors.Primary} /> */}
-      </SafeAreaView>
-    );
-  }
   return (
     <NavigationContainer theme={MyTheme}>
       {user ? <Navigator /> : <AuthNavigator />}

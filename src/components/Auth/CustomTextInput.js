@@ -54,7 +54,7 @@ const CustomTextInput = ({
         secureTextEntry={secureText}
         placeholder={placeholder}
         autoCapitalize="none"
-        placeholderTextColor={colors.placeholder}
+        placeholderTextColor={colors.Placeholder}
         onChangeText={handleTextChange}
         value={text}
       />
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     borderRadius: 4,
-    borderColor: colors.LightestGray,
+    borderColor: colors.PaleGray,
     marginHorizontal: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
     backgroundColor: colors.White,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     height: dimensions.Width / 22,
     width: dimensions.Width / 22,
     paddingHorizontal: dimensions.Width / 20,
-    color: colors.LightestGray,
+    color: colors.PaleGray,
   },
   descriptionInput: {
     textAlignVertical: 'top',

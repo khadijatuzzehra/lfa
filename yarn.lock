@@ -1790,6 +1790,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@notifee/react-native@^7.8.0":
+  version "7.8.0"
+  resolved "https://registry.npmjs.org/@notifee/react-native/-/react-native-7.8.0.tgz"
+  integrity sha512-sx8h62U4FrR4pqlbN1rkgPsdamDt9Tad0zgfO6VtP6rNJq/78k8nxUnh0xIX3WPDcCV8KAzdYCE7+UNvhF1CpQ==
+
 "@npmcli/fs@^1.0.0":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@npmcli/fs/-/fs-1.1.1.tgz"
@@ -2013,6 +2018,11 @@
   integrity sha512-POYGACMNSw9aV/u1eGIj0Xf78L8UItcE1pRt5f1fTXPBzPkn1feZcQ8G1oHtMxETQqtKKWsQ45n2NCcW7FnoLw==
   dependencies:
     plist "^3.0.5"
+
+"@react-native-firebase/messaging@^18.2.0":
+  version "18.2.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-18.2.0.tgz"
+  integrity sha512-bnQkU9zldQUQRK0vbhfjMq186nqrMqUeiJcWAcPqKeGvmMGPLO+KsLFqlU7lI/CDK6+J724sLQl/JkAEIR7pEw==
 
 "@react-native-google-signin/google-signin@^10.0.1":
   version "10.0.1"

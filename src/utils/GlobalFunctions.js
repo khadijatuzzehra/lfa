@@ -51,6 +51,7 @@ export const handlePostStorySelection = async () => {
     quality: 1,
     maxWidth: 800,
     maxHeight: 800,
+    selectionLimit: 5,
   };
 
   try {
@@ -98,14 +99,12 @@ export const handleCameraPress = async () => {
       PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES,
       PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO,
     ]);
-    console.log(granted);
     if (
       granted['android.permission.CAMERA'] === 'granted' &&
       granted['android.permission.READ_MEDIA_IMAGES'] === 'granted' &&
       granted['android.permission.READ_MEDIA_VIDEO'] === 'granted'
     ) {
       try {
-        console.log('Inside handle camera press');
         const response = await launchCamera(options);
         if (!response.didCancel) {
           return response;
@@ -129,10 +128,6 @@ export const handleDeleteData = async (data, itemIdToDelete) => {
   const updatedData = data.filter(item => item.id !== itemIdToDelete);
   return updatedData;
 };
-
-// const onNext = () => {
-//   console.log('');
-// };
 
 export const handleTextChange = async (inputText, fieldType, setFormData) => {
   setFormData(prevFormData => ({

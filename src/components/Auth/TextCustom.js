@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     marginLeft: dimensions.Width / 30,
     width: dimensions.Width / 1.1,
     fontFamily: fonts.family.medium,
-    fontSize: fonts.size.font11,
+    fontSize: fonts.size.font10,
   },
   navigation: {
     marginVertical: dimensions.Width / 30,

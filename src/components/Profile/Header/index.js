@@ -26,7 +26,7 @@ const Header = ({text}) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    height: dimensions.Height / 10,
+    height: dimensions.Height / 15,
     width: dimensions.Width,
     justifyContent: 'center',
     alignItems: 'center',

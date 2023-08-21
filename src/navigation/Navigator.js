@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+/* eslint-disable no-unreachable */
+/* eslint-disable react/no-unstable-nested-components */
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Feather from 'react-native-vector-icons/Feather';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import Account from '../screens/Account';
 import Dashboard from '../screens/Dashboard';
@@ -25,7 +26,6 @@ import dimensions from '../theme/Dimensions';
 import Fonts from '../theme/Fonts';
 
 import Images from '../utils/Images';
-import TestIcon from '../assets/svgs/Group 13';
 
 const FeedStack = createNativeStackNavigator();
 const FeedStackScreens = () => (
@@ -144,17 +144,17 @@ function getTabBarVisibility(route) {
   const routeName = getFocusedRouteNameFromRoute(route);
 
   if (
-    routeName == 'PersonalBio' ||
-    routeName == 'Education' ||
-    routeName == 'EditEducation' ||
-    routeName == 'Experiences' ||
-    routeName == 'EditExperiences' ||
-    routeName == 'Projects' ||
-    routeName == 'EditProjects' ||
-    routeName == 'Recommendations' ||
+    routeName === 'PersonalBio' ||
+    routeName === 'Education' ||
+    routeName === 'EditEducation' ||
+    routeName === 'Experiences' ||
+    routeName === 'EditExperiences' ||
+    routeName === 'Projects' ||
+    routeName === 'EditProjects' ||
+    routeName === 'Recommendations' ||
     routeName === 'Language' ||
-    routeName == 'SpecialOffers' ||
-    routeName == 'Businesses'
+    routeName === 'SpecialOffers' ||
+    routeName === 'Businesses'
   ) {
     return 'none';
   }
@@ -168,16 +168,19 @@ export default () => {
     <Tabs.Navigator
       screenOptions={({route}) => ({
         tabBarStyle: {
-          height: dimensions.Height / 12,
+          height: dimensions.Height / 15,
           display: getTabBarVisibility(route),
+          paddingVertical: 10,
+          alignItems: 'center',
         },
         tabBarHideOnKeyboard: true,
         tabBarLabelStyle: {
           fontFamily: Fonts.family.medium,
           fontSize: Fonts.size.font10,
+          margin: 0,
         },
         tabBarActiveTintColor: Colors.Primary,
-        tabBarInactiveTintColor: Colors.Headings,
+        tabBarInactiveTintColor: Colors.BlueGray,
         tabBarIcon: ({focused, color, size}) => {
           switch (route.name) {
             case 'FeedStack':
@@ -292,10 +295,8 @@ export default () => {
 };
 
 const styles = StyleSheet.create({
-  iconBackground: {},
-  tabItem: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  iconBackground: {
+    padding: 0,
+    margin: 0,
   },
 });

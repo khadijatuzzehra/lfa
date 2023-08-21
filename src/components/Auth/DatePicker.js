@@ -38,8 +38,8 @@ const DatePicker = ({placeholder, onSelect}) => {
               handleDateChange(dateSelected);
             }}
             options={{
-              textHeaderColor: '#333333',
-              textDefaultColor: '#333333',
+              textHeaderColor: colors.TurquoiseActionButton,
+              textDefaultColor: colors.TurquoiseActionButton,
               mainColor: colors.Primary,
               textSecondaryColor: colors.Primary,
             }}
@@ -54,8 +54,7 @@ const DatePicker = ({placeholder, onSelect}) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: dimensions.Width / 30,
-
-    borderColor: colors.LightestGray,
+    borderColor: colors.PaleGray,
     marginBottom: dimensions.Width / 30,
     backgroundColor: colors.White,
   },

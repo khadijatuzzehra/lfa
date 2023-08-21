@@ -6,13 +6,13 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import CustomButton from '../../components/Auth/CustomButton';
-import TextCustom from '../../components/Auth/TextCustom';
+import CustomButton from '../../../components/Auth/CustomButton';
+import TextCustom from '../../../components/Auth/TextCustom';
 import {useNavigation} from '@react-navigation/native';
-import Images from '../../utils/Images';
-import colors from '../../theme/Colors';
-import dimensions from '../../theme/Dimensions';
-import Data from '../../utils/Data';
+import Images from '../../../utils/Images';
+import colors from '../../../theme/Colors';
+import dimensions from '../../../theme/Dimensions';
+import Data from '../../../utils/Data';
 
 const DiscoverPeople = () => {
   const [users, setUsers] = useState(Data.Users);
@@ -77,9 +77,7 @@ const DiscoverPeople = () => {
                         height={dimensions.Height / 40}
                         width={dimensions.Width / 6}
                         backgroundColor={
-                          item.followed
-                            ? colors.badgeSelected
-                            : colors.accentColor
+                          item.followed ? colors.Secondary : colors.AccentColor
                         }
                         color={colors.White}
                         onClick={() => handlePress(item)}
@@ -113,8 +111,8 @@ const DiscoverPeople = () => {
                           width={dimensions.Width / 6}
                           backgroundColor={
                             users[index + 1].followed
-                              ? colors.badgeSelected
-                              : colors.accentColor
+                              ? colors.Secondary
+                              : colors.AccentColor
                           }
                           color={colors.White}
                           onClick={() => handlePress(users[index + 1])}

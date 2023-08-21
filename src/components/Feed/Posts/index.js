@@ -15,6 +15,13 @@ import dimensions from '../../../theme/Dimensions';
 import fonts from '../../../theme/Fonts';
 const Posts = ({ListEmpty}) => {
   const [posts, setPosts] = useState(Data.PostsData);
+
+  useEffect(() => {
+    if (posts.length === 0) {
+      ListEmpty('No Data Found');
+    }
+  }, [posts, ListEmpty]);
+
   const handleLike = postId => {
     setPosts(prevPosts =>
       prevPosts.map(post =>
@@ -28,11 +35,7 @@ const Posts = ({ListEmpty}) => {
       ),
     );
   };
-  useEffect(() => {
-    if (posts.length === 0) {
-      ListEmpty('No Data Found');
-    }
-  }, [posts, ListEmpty]);
+
   const renderItem = ({item}) => {
     if (posts.length > 0) {
       const imgSrc = item.liked ? Images.Liked : Images.LikedOutline;
@@ -52,7 +55,6 @@ const Posts = ({ListEmpty}) => {
             style={styles.horizontalScrollView}
             horizontal
             decelerationRate="fast"
-            showsHorizontalScrollIndicator={true}
             snapToInterval={dimensions.Width}>
             {item.images &&
               item.images.map((imageVariable, imageIndex) => (
@@ -129,15 +131,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.Width / 100,
   },
   profile: {
-    height: dimensions.Height / 16,
-    width: dimensions.Height / 16,
+    height: dimensions.Height / 17,
+    width: dimensions.Height / 17,
     borderWidth: 2,
     borderColor: colors.Primary,
     borderRadius: dimensions.Width / 10,
   },
   userName: {
     fontFamily: fonts.family.semiBold,
-    fontSize: fonts.size.font13,
+    fontSize: fonts.size.font12,
     color: colors.Black,
     marginHorizontal: dimensions.Width / 80,
     paddingHorizontal: dimensions.Width / 100,

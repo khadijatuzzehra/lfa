@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, TextInput, StyleSheet, Text} from 'react-native';
 import Dropdown from '../../components/Auth/Dropdown';
+import Data from '../../utils/Data';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
@@ -12,9 +13,7 @@ const PhoneNumberInput = ({onChangeText}) => {
     setText(inputText);
     onChangeText(inputText, countryCode);
   };
-  const [countryCode, setCountryCode] = useState('');
-
-  const dropdownValues1 = ['+1', '+91', '+44'];
+  const [countryCode, setCountryCode] = useState('+92');
 
   return (
     <View style={styles.container}>
@@ -23,14 +22,14 @@ const PhoneNumberInput = ({onChangeText}) => {
         width={dimensions.Width / 6}
         placeholder="+92"
         onClick={value => setCountryCode(value)}
-        dropdownValues={dropdownValues1}
+        dropdownValues={Data.CountryCode}
         title=""
       />
       <Text style={styles.separator}>|</Text>
       <TextInput
         style={styles.phoneNumberInput}
         placeholder="Phone Number"
-        placeholderTextColor={colors.placeholder}
+        placeholderTextColor={colors.Placeholder}
         onChangeText={handleTextChange}
         value={text}
         keyboardType="phone-pad"

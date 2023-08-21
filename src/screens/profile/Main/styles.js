@@ -13,9 +13,11 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    height: dimensions.Height / 40,
+    height: dimensions.Height / 30,
     width: dimensions.Height / 30,
     marginRight: dimensions.Width / 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   coverPhoto: {
     width: dimensions.Width,
@@ -37,7 +39,7 @@ const Styles = StyleSheet.create({
   },
   text: {
     position: 'absolute',
-    marginTop: dimensions.Height / 10,
+    marginTop: dimensions.Height / 12,
     marginLeft: dimensions.Width / 4.2,
   },
   bottomContainer: {
@@ -74,9 +76,10 @@ const Styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   badgeContainer: {
+    height: dimensions.Width / 1.1,
+    padding: 20,
     position: 'absolute',
-    top: 20,
-    right: 20,
+    right: 0,
     zIndex: 1,
   },
   line: {

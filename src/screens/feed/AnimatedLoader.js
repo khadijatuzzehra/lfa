@@ -1,17 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 import dimensions from '../../theme/Dimensions';
-import colors from '../../theme/Colors';
-import Header from '../../components/Feed/Header';
+// import Header from '../../components/Feed/Header';
 
 const AnimatedLoader = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <SkeletonPlaceholder>
         <View style={styles.skeletonContainer}>
+          {/* <View style={styles.skeletonHeader}>
+            <View style={styles.skeletonLogo} />
+            <View style={styles.skeletonLogo} />
+          </View> */}
           <View style={styles.skeletonStories}>
             <View style={styles.circle} />
             <View style={styles.circle} />

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, Image, View, StyleSheet, Alert} from 'react-native';
+import {SafeAreaView, Image, View, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native-virtualized-view';
 import Header from '../../components/Feed/Header';
 import AnimatedLoader from './AnimatedLoader';
@@ -11,35 +11,35 @@ import colors from '../../theme/Colors';
 
 const Feed = () => {
   const [loading, setLoading] = useState(true);
-  const [notifications, setNotifications] = useState(1);
-  const EmptyListMessage = () => {
+  const HandleLoad = () => {
     setLoading(false);
-    Alert.alert('No data found');
   };
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
+
   return (
     <SafeAreaView style={styles.container}>
+      <Header />
       <ScrollView>
         {loading ? (
           <AnimatedLoader />
         ) : (
           <ScrollView>
-            <Header />
             <View style={styles.stories}>
               <Image source={Images.AlertLine} style={styles.line} />
               <View style={styles.stories}>
-                <Stories />
+                <Stories EmptyListMessage={HandleLoad} />
               </View>
               <Image source={Images.AlertLine} style={styles.line} />
             </View>
             <View style={styles.posts}>
-              <Posts ListEmpty={EmptyListMessage} />
+              <Posts ListEmpty={HandleLoad} />
             </View>
           </ScrollView>
         )}

@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React, {useState, useRef} from 'react';
 import {SafeAreaView, View, ScrollView, StyleSheet} from 'react-native';
-import CustomButton from '../../components/Auth/CustomButton';
-import TextCustom from '../../components/Auth/TextCustom';
-import Interests from '../../components/Auth/Interests';
-import UploadPicture from '../../components/Auth/UploadPicture';
-import Dropdown from '../../components/Auth/Dropdown';
-import dimensions from '../../theme/Dimensions';
-import colors from '../../theme/Colors';
-import Data from '../../utils/Data';
+import CustomButton from '../../../components/Auth/CustomButton';
+import TextCustom from '../../../components/Auth/TextCustom';
+import Interests from '../../../components/Auth/Interests';
+import UploadPicture from '../../../components/Auth/UploadPicture';
+import Dropdown from '../../../components/Auth/Dropdown';
+import dimensions from '../../../theme/Dimensions';
+import colors from '../../../theme/Colors';
+import Data from '../../../utils/Data';
 import {useNavigation} from '@react-navigation/native';
 
-const RegisterContinue = () => {
+const ProfileSetup = () => {
   const navigation = useNavigation();
   const [image, setImage] = useState(null);
   const [profession, setProfession] = useState('');
@@ -51,8 +52,9 @@ const RegisterContinue = () => {
         />
       </View>
       <TextCustom
-        text="You can also fill out this section later when setting up 
-your profile *"
+        text={
+          'You can also fill out this section later when setting up your profile *'
+        }
         textType="InfoText"
         color={colors.InfoText}
       />
@@ -147,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegisterContinue;
+export default ProfileSetup;

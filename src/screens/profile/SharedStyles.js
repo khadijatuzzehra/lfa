@@ -71,7 +71,7 @@ const Styles = StyleSheet.create({
     color: colors.InfoText,
   },
   recommendations: {
-    marginRight: dimensions.Width / 10,
+    marginRight: dimensions.Width / 12,
     paddingRight: dimensions.Width / 20,
     textAlign: 'left',
     fontFamily: fonts.family.medium,

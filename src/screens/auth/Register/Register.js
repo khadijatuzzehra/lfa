@@ -1,32 +1,46 @@
-import React, {useState} from 'react';
-import {SafeAreaView, View, StyleSheet} from 'react-native';
+/* eslint-disable no-unused-vars */
+import React, {useState, useEffect} from 'react';
+import {SafeAreaView, View, Keyboard} from 'react-native';
+import styles from './styles';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import CustomButton from '../../components/Auth/CustomButton';
-import TextCustom from '../../components/Auth/TextCustom';
-import CustomTextInput from '../../components/Auth/CustomTextInput';
-import PhoneNumberInput from '../../components/Auth/PhoneNumberInput';
-import Dropdown from '../../components/Auth/Dropdown';
-import DatePicker from '../../components/Auth/DatePicker';
-import Agree from '../../components/Auth/Checkbox';
-import ActionButton from '../../components/Auth/ActionButton';
-import dimensions from '../../theme/Dimensions';
-import colors from '../../theme/Colors';
+import CustomButton from '../../../components/Auth/CustomButton';
+import TextCustom from '../../../components/Auth/TextCustom';
+import CustomTextInput from '../../../components/Auth/CustomTextInput';
+import PhoneNumberInput from '../../../components/Auth/PhoneNumberInput';
+import Dropdown from '../../../components/Auth/Dropdown';
+import DatePicker from '../../../components/Auth/DatePicker';
+import Agree from '../../../components/Auth/Checkbox';
+import ActionButton from '../../../components/Auth/ActionButton';
+import dimensions from '../../../theme/Dimensions';
+import colors from '../../../theme/Colors';
 import {useNavigation} from '@react-navigation/native';
-import Data from '../../utils/Data';
+import Data from '../../../utils/Data';
 
 const Register = () => {
   const navigation = useNavigation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    countryCode: '',
-    password: '',
-    dob: '',
-    gender: '',
-    countryName: '',
-    cityName: '',
-  });
+  const [formData, setFormData] = useState({});
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardVisible(true);
+      },
+    );
+
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardVisible(false);
+      },
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
 
   const handleTextChange = (inputText, fieldType) => {
     setFormData(prevFormData => ({
@@ -62,7 +76,7 @@ const Register = () => {
   };
 
   const handlePress = () => {
-    navigation.navigate('RegisterContinue');
+    navigation.navigate('ProfileSetup');
   };
 
   return (
@@ -177,47 +191,17 @@ const Register = () => {
           </View>
         </SafeAreaView>
       </KeyboardAwareScrollView>
-      <View style={styles.ActionButtonContainer}>
-        <ActionButton
-          text="Already have an Account? "
-          buttonText="Log In"
-          handlePress={onLogin}
-        />
-      </View>
+      {!isKeyboardVisible ? (
+        <View style={styles.ActionButtonContainer}>
+          <ActionButton
+            text="Already have an Account? "
+            buttonText="Log In"
+            handlePress={onLogin}
+          />
+        </View>
+      ) : null}
     </>
   );
 };
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-  container: {
-    flex: 1,
-    paddingTop: dimensions.Height / 20,
-    backgroundColor: colors.White,
-    paddingHorizontal: dimensions.Width / 100,
-  },
-  header: {
-    marginBottom: dimensions.Width / 30,
-  },
-  dropDownHolder: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  holder: {
-    justifyContent: 'space-between',
-  },
-  button: {
-    marginTop: dimensions.Width / 25,
-  },
-  ActionButtonContainer: {
-    position: 'absolute',
-    alignSelf: 'center',
-    bottom: 0,
-    backgroundColor: 'white',
-    paddingBottom: dimensions.Width / 20,
-    zIndex: 1,
-  },
-});
+
 export default Register;

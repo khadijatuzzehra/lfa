@@ -1,13 +1,12 @@
 import React from 'react';
 import {View, StyleSheet, Image, ImageBackground} from 'react-native';
-import CustomButton from '../../components/Auth/CustomButton';
-import TextCustom from '../../components/Auth/TextCustom';
+import CustomButton from '../../../components/Auth/CustomButton';
+import TextCustom from '../../../components/Auth/TextCustom';
 import {useNavigation} from '@react-navigation/native';
-import Images from '../../utils/Images';
+import Images from '../../../utils/Images';
+import colors from '../../../theme/Colors';
+import dimensions from '../../../theme/Dimensions';
 
-// import theme
-import colors from '../../theme/Colors';
-import dimensions from '../../theme/Dimensions';
 const GetStarted = () => {
   const navigation = useNavigation();
 

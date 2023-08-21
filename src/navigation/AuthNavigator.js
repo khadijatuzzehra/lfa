@@ -1,9 +1,9 @@
 import React from 'react';
-import Login from '../screens/auth/Login';
-import Register from '../screens/auth/Register';
-import RegisterContinue from '../screens/auth/RegisterContinue';
-import GetStarted from '../screens/auth/GetStarted';
-import DiscoverPeople from '../screens/auth/DiscoverPeople';
+import Login from '../screens/auth/Login/Login';
+import Register from '../screens/auth/Register/Register';
+import ProfileSetup from '../screens/auth/ProfileSetup/ProfileSetup';
+import GetStarted from '../screens/auth/GetStarted/GetStarted';
+import DiscoverPeople from '../screens/auth/DiscoverPeople/DiscoverPeople';
 
 import OnBoarding from '../screens/OnBoarding';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -42,8 +42,8 @@ const AuthNavigator = () => {
         }}
       />
       <AuthStack.Screen
-        name={'RegisterContinue'}
-        component={RegisterContinue}
+        name={'ProfileSetup'}
+        component={ProfileSetup}
         options={{
           headerShown: false,
         }}

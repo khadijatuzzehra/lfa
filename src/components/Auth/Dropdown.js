@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, {useState, useRef, useEffect} from 'react';
 import {
   ScrollView,
@@ -33,7 +34,7 @@ const Dropdown = ({
       setModalVisible(true);
       setImage(false);
     }
-  }, []);
+  }, [placeholder]);
 
   let dropDownStyle = '';
   let containerStyle = '';
@@ -55,15 +56,6 @@ const Dropdown = ({
       }, 300);
       onClick(selectedValue, placeholder);
     }
-  };
-  const onConfirm = () => {
-    setModalVisible(false);
-    onClick(selectedValue, placeholder);
-  };
-  const EditProfile = item => {
-    setSelectedValue(item);
-    setModalVisible(false);
-    onClick(item, placeholder);
   };
   const backDropPress = () => {
     setModalVisible(false);
@@ -107,7 +99,7 @@ const Dropdown = ({
         <View
           style={[
             styles.modalContainer,
-            {width: width, height: height * 4 - 10},
+            {width: width, height: height * 4 - 15},
           ]}>
           {isImage && (
             <View style={styles.okButton}>
@@ -139,33 +131,35 @@ const Dropdown = ({
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: dimensions.Width / 30,
-    borderColor: colors.LightestGray,
+    borderColor: colors.PaleGray,
     marginBottom: dimensions.Width / 30,
     backgroundColor: colors.White,
   },
   dropdown: {
     flexDirection: 'row',
-    alignItems: 'center',
     borderColor: colors.borderColor,
     borderWidth: 1,
     borderRadius: 4,
+    alignItems: 'center',
     justifyContent: 'space-between',
     paddingRight: dimensions.Width / 30,
   },
   phoneNumberContainer: {
     paddingTop: dimensions.Height / 200,
     marginBottom: dimensions.Height / 100,
-    marginLeft: dimensions.Width / 40,
   },
   phoneNumberDropdown: {
     justifyContent: 'center',
+    alignItems: 'center',
   },
   textDropdown: {
-    marginTop: dimensions.Width / 70,
+    justifyContent: 'center',
+    marginTop: dimensions.Width / 100,
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font11,
     color: colors.Black,
-    padding: dimensions.Width / 80,
+    paddingRight: dimensions.Width / 80,
+    paddingBottom: dimensions.Width / 80,
   },
   text: {
     fontFamily: fonts.family.regular,
@@ -196,7 +190,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderBottomColor: colors.borderColor,
-    borderBottomWidth: 0.2,
+    borderBottomWidth: 0.8,
   },
   okButton: {
     left: 0,
@@ -205,7 +199,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font12,
-    color: colors.placeholder,
+    color: colors.Placeholder,
   },
 });
 

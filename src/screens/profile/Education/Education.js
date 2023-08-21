@@ -49,12 +49,12 @@ const Education = () => {
               <TextCustom
                 text={item.years}
                 textType="Date"
-                color={colors.placeholder}
+                color={colors.Placeholder}
               />
               <TextCustom
                 text={item.role}
                 textType="Role"
-                color={colors.textColor}
+                color={colors.TextColor}
               />
             </View>
             <View style={styles.manageContainer}>

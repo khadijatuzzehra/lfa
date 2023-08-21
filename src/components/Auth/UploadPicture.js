@@ -1,19 +1,33 @@
 /* eslint-disable react/self-closing-comp */
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
-import {handlePress} from '../../utils/GlobalFunctions';
+import {handlePress, handleCameraPress} from '../../utils/GlobalFunctions';
 import TextCustom from '../../components/Auth/TextCustom';
+import PictureOptions from '../../components/shared/PictureOptions';
 import Images from '../../utils/Images';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
 
 const UploadPicture = ({uploadPicture}) => {
+  const [optionModal, optionModalVisible] = useState(false);
   const [image, setImage] = useState(null);
   const handleClick = async () => {
-    const imageRes = await handlePress();
-    if (imageRes) {
-      setImage(imageRes);
+    optionModalVisible(true);
+  };
+  const onSelect = async item => {
+    optionModalVisible(false);
+    if (item === 'Camera') {
+      const imageRes = await handleCameraPress();
+      if (imageRes) {
+        setImage(imageRes);
+      }
+    }
+    if (item === 'Gallery') {
+      const imageRes = await handlePress();
+      if (imageRes) {
+        setImage(imageRes);
+      }
     }
   };
   return (
@@ -37,6 +51,9 @@ const UploadPicture = ({uploadPicture}) => {
           color={colors.Black}
         />
       </View>
+      {optionModal && (
+        <PictureOptions onCancel={onSelect} onSelect={onSelect} />
+      )}
     </View>
   );
 };

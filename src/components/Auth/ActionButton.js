@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: fonts.family.regular,
-    color: colors.ActionButton,
+    color: colors.MutedBrown,
     fontSize: fonts.size.font12,
   },
   btnText: {
     fontFamily: fonts.family.semiBold,
-    color: colors.ButtonText,
+    color: colors.TurquoiseActionButton,
     fontSize: fonts.size.font12,
   },
 });

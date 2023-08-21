@@ -45,7 +45,7 @@ const AlertBox = ({
               text="Delete"
               height={dimensions.Height / 30}
               width={dimensions.Width / 6}
-              backgroundColor={colors.red}
+              backgroundColor={colors.Red}
               color={colors.White}
               onClick={onConfirm}
             />
@@ -53,7 +53,7 @@ const AlertBox = ({
               text="Cancel"
               height={dimensions.Height / 30}
               width={dimensions.Width / 6}
-              backgroundColor={colors.cancelButton}
+              backgroundColor={colors.LightGray}
               color={colors.Black}
               onClick={onCancel}
             />

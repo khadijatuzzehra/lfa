@@ -6,7 +6,7 @@ import dimensions from '../../theme/Dimensions';
 import fonts from '../../theme/Fonts';
 const Interest = ({interest, selectedInterests, setSelectedInterests}) => {
   const isSelected = selectedInterests.includes(interest);
-  const badgeBackgroundColor = isSelected ? colors.badgeSelected : colors.badge;
+  const badgeBackgroundColor = isSelected ? colors.Secondary : colors.Badge;
 
   const handlePress = () => {
     if (isSelected) {

@@ -1,19 +1,21 @@
-import React, {useState} from 'react';
-import {View, TouchableOpacity, Alert, StyleSheet} from 'react-native';
-import TextCustom from '../../components/Auth/TextCustom';
-import CustomTextInput from '../../components/Auth/CustomTextInput';
-import RememberMe from '../../components/Auth/Checkbox';
-import CustomButton from '../../components/Auth/CustomButton';
-import SocialLoginButton from '../../components/Auth/SocialLoginButton';
-import ActionButton from '../../components/Auth/ActionButton';
-import Images from '../../utils/Images';
-import dimensions from '../../theme/Dimensions';
-import colors from '../../theme/Colors';
+/* eslint-disable no-unused-vars */
+import React, {useState, useEffect} from 'react';
+import {View, TouchableOpacity, Alert, Keyboard} from 'react-native';
+import styles from './styles';
+import TextCustom from '../../../components/Auth/TextCustom';
+import CustomTextInput from '../../../components/Auth/CustomTextInput';
+import RememberMe from '../../../components/Auth/Checkbox';
+import CustomButton from '../../../components/Auth/CustomButton';
+import SocialLoginButton from '../../../components/Auth/SocialLoginButton';
+import ActionButton from '../../../components/Auth/ActionButton';
+import Images from '../../../utils/Images';
+import dimensions from '../../../theme/Dimensions';
+import colors from '../../../theme/Colors';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
-import {LOGIN_SUCCESS} from '../../store/ActionTypes';
+import {LOGIN_SUCCESS} from '../../../store/ActionTypes';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 GoogleSignin.configure({
@@ -26,6 +28,28 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardVisible(true);
+      },
+    );
+
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardVisible(false);
+      },
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
 
   const handleTextChange = (inputText, fieldType) => {
     if (fieldType === 'email') {
@@ -34,11 +58,8 @@ const Login = () => {
       setPassword(inputText);
     }
   };
-  const onSignUp = () => {
-    navigation.navigate('Register');
-  };
   const handlePress = text => {
-    let info = {name: 'John', email: 'john@example.com'};
+    let info = {displayName: 'John', email: 'john@example.com'};
     AsyncStorage.setItem('userInfo', JSON.stringify(info)).then(() => {
       dispatch({type: LOGIN_SUCCESS, payload: info});
     });
@@ -140,59 +161,17 @@ const Login = () => {
           />
         </View>
       </KeyboardAwareScrollView>
-      <View style={styles.ActionButtonContainer}>
-        <ActionButton
-          text="Don't have an Account? "
-          buttonText="Sign UP"
-          handlePress={onSignUp}
-        />
-      </View>
+      {!isKeyboardVisible ? (
+        <View style={styles.ActionButtonContainer}>
+          <ActionButton
+            text="Don't have an Account? "
+            buttonText="Sign up"
+            handlePress={() => navigation.navigate('Register')}
+          />
+        </View>
+      ) : null}
     </>
   );
 };
-const styles = StyleSheet.create({
-  mainContainer: {
-    height: dimensions.Height,
-    flex: 1,
-    backgroundColor: colors.White,
-    paddingHorizontal: dimensions.Width / 80,
-  },
-  container: {
-    flex: 1,
-    paddingHorizontal: dimensions.Width / 80,
-  },
-  header: {
-    paddingTop: dimensions.Height / 20,
-    paddingBottom: dimensions.Height / 10,
-  },
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: dimensions.Width / 10,
-  },
-  socialAuth: {
-    flexDirection: 'row',
-  },
-  option: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: dimensions.Height / 50,
-  },
-  recovery: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingRight: dimensions.Height / 50,
-    marginBottom: dimensions.Width / 100,
-  },
-  ActionButtonContainer: {
-    position: 'absolute',
-    alignSelf: 'center',
-    bottom: 0,
-    paddingBottom: dimensions.Width / 20,
-    backgroundColor: 'white',
-    zIndex: 1,
-  },
-});
+
 export default Login;
