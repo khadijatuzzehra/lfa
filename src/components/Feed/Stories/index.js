@@ -1,18 +1,23 @@
 import React, {useState, useRef, useEffect} from 'react';
 import InstaStory from 'react-native-insta-story';
-import {View, TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Image,
+  Text,
+  StyleSheet,
+  Platform,
+} from 'react-native';
 import Video from 'react-native-video';
 import Modal from 'react-native-modal';
-import {
-  handlePostStorySelection,
-  handleCameraPress,
-} from '../../../utils/GlobalFunctions';
 import Data from '../../../utils/Data';
 import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
 import fonts from '../../../theme/Fonts';
 import PictureOptions from '../../Shared/PictureOptions';
+import {PERMISSIONS, request, requestMultiple} from 'react-native-permissions';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 const Stories = ({EmptyListMessage}) => {
   const videoRef = useRef(null);
@@ -31,24 +36,79 @@ const Stories = ({EmptyListMessage}) => {
   };
 
   const onSelect = async item => {
-    optionModalVisible(false);
     if (item === 'Camera') {
-      const mediaRes = await handleCameraPress();
-      if (mediaRes) {
-        setMedia(mediaRes);
-        let type = mediaRes.assets[0].type;
-        setMediaType(type);
-        setVisible(true);
+      try {
+        request(
+          Platform.OS === 'ios'
+            ? PERMISSIONS.IOS.CAMERA
+            : PERMISSIONS.ANDROID.CAMERA,
+        ).then(async result => {
+          if (result === 'granted') {
+            const response = await launchCamera({
+              mediaType: 'photo',
+              minWidth: 100,
+              minHeight: 100,
+            });
+
+            if (!response.didCancel && !response.error) {
+              setMedia(response);
+              let type = response?.assets[0].type;
+              setMediaType(type);
+              optionModalVisible(false);
+              setVisible(true);
+            } else {
+              console.log('Camera launch cancelled or error occurred.');
+            }
+          } else {
+            console.log('Camera permission denied.');
+          }
+        });
+      } catch (error) {
+        console.log('Error:', error);
       }
     }
+
     if (item === 'Gallery') {
-      const mediaRes = await handlePostStorySelection();
-      if (mediaRes) {
-        setMedia(mediaRes);
-        let type = mediaRes.assets[0].type;
-        setMediaType(type);
-        setVisible(true);
+      try {
+        const permissionsToRequest =
+          Platform.OS === 'ios'
+            ? [PERMISSIONS.IOS.PHOTO_LIBRARY]
+            : [
+                PERMISSIONS.ANDROID.READ_MEDIA_IMAGES,
+                PERMISSIONS.ANDROID.READ_MEDIA_VIDEO,
+              ];
+
+        const results = await requestMultiple(permissionsToRequest);
+
+        const allGranted = Object.values(results).every(
+          result => result === 'granted',
+        );
+
+        if (allGranted) {
+          const response = await launchImageLibrary({
+            mediaType: 'mixed',
+            minWidth: 100,
+            minHeight: 100,
+          });
+
+          if (!response.didCancel && !response.error) {
+            console.log(response);
+            setMedia(response);
+            let type = response.assets[0].type;
+            setMediaType(type);
+            optionModalVisible(false);
+            setVisible(true);
+          } else {
+            console.log('Gallery launch cancelled or error occurred.');
+          }
+        } else {
+          console.log('Some permissions were denied.');
+        }
+      } catch (error) {
+        console.log('Error:', error);
       }
+    } else if (item === '') {
+      optionModalVisible(false);
     }
   };
 
@@ -70,7 +130,11 @@ const Stories = ({EmptyListMessage}) => {
   }, [EmptyListMessage, data]);
 
   const renderMedia = () => {
-    if (mediaType === 'image/jpeg') {
+    if (
+      mediaType === 'image/jpeg' ||
+      mediaType === 'image/png' ||
+      mediaType === 'image/jpg'
+    ) {
       return (
         <Image
           source={{
@@ -141,8 +205,11 @@ const Stories = ({EmptyListMessage}) => {
       {media && (
         <Modal
           isVisible={isVisible}
+          animationIn="slideInUp"
+          animationOut="slideOutDown"
+          hasBackdrop
           onBackdropPress={() => setVisible(false)}
-          unmountOnHide={true}
+          backdropOpacity={0.6}
           backdropColor="rgba(0, 0, 0, 0.5)">
           <View style={styles.modalContainer}>{renderMedia()}</View>
           <TouchableOpacity
