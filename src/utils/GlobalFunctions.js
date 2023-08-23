@@ -17,12 +17,13 @@ export const handlePress = async () => {
     if (permissionResult === 'granted') {
       const response = await launchImageLibrary({
         mediaType: 'photo',
+        quality: 1,
         maxWidth: 300,
         maxHeight: 300,
       });
 
       if (!response.didCancel && !response.error) {
-        return response; // Return the response object
+        return response;
       } else {
         console.log('Image selection cancelled or error occurred.');
       }
@@ -38,31 +39,34 @@ export const handlePostStorySelection = async () => {
   try {
     const permissionResults = await requestMultiple(
       Platform.OS === 'ios'
-        ? [PERMISSIONS.IOS.MEDIA_LIBRARY]
+        ? [PERMISSIONS.IOS.PHOTO_LIBRARY]
         : [
             PERMISSIONS.ANDROID.READ_MEDIA_IMAGES,
             PERMISSIONS.ANDROID.READ_MEDIA_VIDEO,
           ],
     );
 
+    console.log(permissionResults);
     const mediaLibraryPermission =
       permissionResults[
         Platform.OS === 'ios'
-          ? PERMISSIONS.IOS.MEDIA_LIBRARY
+          ? PERMISSIONS.IOS.PHOTO_LIBRARY
           : PERMISSIONS.ANDROID.READ_MEDIA_IMAGES
       ];
 
     const videoPermission =
       permissionResults[PERMISSIONS.ANDROID.READ_MEDIA_VIDEO];
 
-    if (mediaLibraryPermission === 'granted' && videoPermission === 'granted') {
+    if (mediaLibraryPermission === 'granted' || videoPermission === 'granted') {
       const response = await launchImageLibrary({
         mediaType: 'mixed',
-        maxWidth: 300,
-        maxHeight: 300,
+        quality: 1,
+        minWidth: 100,
+        minHeight: 100,
       });
 
       if (!response.didCancel && !response.error) {
+        console.log(response);
         return response;
       } else {
         console.log('Camera launch cancelled or error occurred.');
@@ -82,16 +86,17 @@ export const handleCameraPress = async () => {
         ? PERMISSIONS.IOS.CAMERA
         : PERMISSIONS.ANDROID.CAMERA,
     );
-
+    console.log(permissionResult);
     if (permissionResult === 'granted') {
       const response = await launchCamera({
         mediaType: 'photo',
-        maxWidth: 300,
-        maxHeight: 300,
+        minWidth: 100,
+        minHeight: 100,
       });
+      console.log(response, 'camera Response');
 
       if (!response.didCancel && !response.error) {
-        return response; // Return the response object
+        return response;
       } else {
         console.log('Camera launch cancelled or error occurred.');
       }

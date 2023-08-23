@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, TouchableOpacity, Image, ScrollView} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 import TextCustom from '../../../components/Shared/TextCustom';
 import Dropdown from '../../../components/Auth/Dropdown';
 import PictureOptions from '../../../components/Shared/PictureOptions';
@@ -119,7 +125,7 @@ const Profile = () => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.topContainer}>
           {coverImage && coverImage.assets ? (
             <Image
@@ -185,7 +191,7 @@ const Profile = () => {
         <View style={styles.bottomContainer}>
           {renderNavItems(Data.ProfileNavigation2)}
         </View>
-      </View>
+      </SafeAreaView>
     </ScrollView>
   );
 };

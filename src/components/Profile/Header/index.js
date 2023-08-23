@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import TextCustom from '../../../components/Shared/TextCustom';
+import TextCustom from '../../Shared/TextCustom';
 import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
