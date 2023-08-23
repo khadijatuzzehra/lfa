@@ -7,7 +7,7 @@ import {
   Image,
 } from 'react-native';
 import CustomButton from '../../../components/Auth/CustomButton';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import {useNavigation} from '@react-navigation/native';
 import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
@@ -134,11 +134,7 @@ const DiscoverPeople = () => {
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={onNext} style={styles.button}>
-          <TextCustom
-            text="Next"
-            textType="OnBoardingText"
-            color={colors.Primary}
-          />
+          <TextCustom text="Next" textType="Button" color={colors.Primary} />
         </TouchableOpacity>
       </View>
     </View>

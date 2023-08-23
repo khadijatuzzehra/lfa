@@ -8,23 +8,21 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import TextCustom from '../components/Auth/TextCustom';
+import TextCustom from '../components/Shared/TextCustom';
 import CustomButton from '../components/Auth/CustomButton';
 import Images from '../utils/Images';
 import colors from '../theme/Colors';
 import Data from '../utils/Data';
-
 import dimensions from '../theme/Dimensions';
 import {useNavigation} from '@react-navigation/native';
 
 const OnBoarding = () => {
   const [showNextButton, setShowNextButton] = useState(true);
-
   const data = Data.OnBoarding;
   const navigation = useNavigation();
   const flatListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const onNext = () => {
+  const onComplete = () => {
     navigation.navigate('GetStarted');
   };
   const handlePress = () => {
@@ -34,7 +32,7 @@ const OnBoarding = () => {
     setShowNextButton(false);
     setTimeout(() => {
       setShowNextButton(true);
-    }, 250);
+    }, 200);
   };
   const handleScroll = event => {
     const contentOffset = event.nativeEvent.contentOffset.x;
@@ -111,36 +109,38 @@ const OnBoarding = () => {
         onScroll={handleScroll}
         scrollEventThrottle={16}
       />
-      <View style={styles.buttonContainer}>
-        {data[currentIndex].imgName !== 'OnBoarding3' ? (
-          <>
-            <TouchableOpacity onPress={onNext} style={styles.button}>
-              <TextCustom
-                text="Skip"
-                textType="OnBoardingText"
-                color={colors.InfoText}
+      <View style={styles.bottomContainer}>
+        <View style={styles.buttonContainer}>
+          {data[currentIndex].imgName !== 'OnBoarding3' ? (
+            <>
+              <TouchableOpacity onPress={onComplete}>
+                <TextCustom
+                  text="Skip"
+                  textType="OnBoardingText"
+                  color={colors.InfoText}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handlePress}>
+                <TextCustom
+                  text="Next"
+                  textType="Button"
+                  color={colors.Primary}
+                />
+              </TouchableOpacity>
+            </>
+          ) : (
+            <View style={[styles.button2, {opacity: showNextButton ? 1 : 0}]}>
+              <CustomButton
+                text="Done"
+                height={dimensions.Height / 20}
+                width={dimensions.Width / 1.5}
+                backgroundColor={colors.Primary}
+                color={colors.White}
+                onClick={onComplete}
               />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handlePress} style={styles.button}>
-              <TextCustom
-                text="Next"
-                textType="OnBoardingText"
-                color={colors.Primary}
-              />
-            </TouchableOpacity>
-          </>
-        ) : (
-          <View style={[styles.button2, {opacity: showNextButton ? 1 : 0}]}>
-            <CustomButton
-              text="Done"
-              height={dimensions.Height / 20}
-              width={dimensions.Width / 1.5}
-              backgroundColor={colors.Primary}
-              color={colors.White}
-              onClick={onNext}
-            />
-          </View>
-        )}
+            </View>
+          )}
+        </View>
       </View>
     </View>
   );
@@ -159,7 +159,6 @@ const styles = StyleSheet.create({
   },
   firstItem: {
     marginLeft: dimensions.Width / 8,
-    marginBottom: dimensions.Width / 10,
   },
   lastItem: {
     marginHorizontal: dimensions.Width / 8,
@@ -177,17 +176,15 @@ const styles = StyleSheet.create({
     width: dimensions.Height / 100,
     marginTop: dimensions.Height / 30,
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: dimensions.Height / 20,
+  bottomContainer: {
+    marginBottom: dimensions.Height / 50,
+    height: dimensions.Height / 5,
     paddingTop: dimensions.Height / 10,
     paddingHorizontal: dimensions.Width / 30,
   },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  buttonContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   button2: {
     alignItems: 'center',

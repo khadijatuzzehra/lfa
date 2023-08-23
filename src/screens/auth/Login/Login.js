@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, TouchableOpacity, Alert, Keyboard} from 'react-native';
 import styles from './styles';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
 import RememberMe from '../../../components/Auth/Checkbox';
 import CustomButton from '../../../components/Auth/CustomButton';
@@ -125,8 +125,8 @@ const Login = () => {
           <RememberMe text="Remember Me" />
           <TouchableOpacity>
             <TextCustom
-              text="Forgot Password"
-              textType="Button"
+              text="Forgot Password?"
+              textType="OnBoardingText"
               color={colors.Primary}
             />
           </TouchableOpacity>

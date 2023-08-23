@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Image, ScrollView} from 'react-native';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import Dropdown from '../../../components/Auth/Dropdown';
-import PictureOptions from '../../../components/shared/PictureOptions';
-import colors from '../../../theme/Colors';
-import dimensions from '../../../theme/Dimensions';
+import PictureOptions from '../../../components/Shared/PictureOptions';
 import {handleCameraPress, handlePress} from '../../../utils/GlobalFunctions';
-import styles from './styles';
-import Data from '../../../utils/Data';
-import Images from '../../../utils/Images';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch} from 'react-redux';
 import {LOGOUT} from '../../../store/ActionTypes';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import styles from './styles';
+import colors from '../../../theme/Colors';
+import dimensions from '../../../theme/Dimensions';
+import Data from '../../../utils/Data';
+import Images from '../../../utils/Images';
 
 const Profile = () => {
   const [dropdown, dropdownVisible] = useState(false);

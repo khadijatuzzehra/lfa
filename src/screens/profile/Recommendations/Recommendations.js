@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, View, Image, Text, ScrollView} from 'react-native';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import Header from '../../../components/Profile/Header';
 import Images from '../../../utils/Images';
 import Data from '../../../utils/Data';

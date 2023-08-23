@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
-import Images from '../../../utils/Images';
-import dimensions from '../../../theme/Dimensions';
-import colors from '../../../theme/Colors';
-import TextCustom from '../../../components/Auth/TextCustom';
-import CustomButton from '../../../components/Auth/CustomButton';
+import Images from '../../utils/Images';
+import dimensions from '../../theme/Dimensions';
+import colors from '../../theme/Colors';
+import TextCustom from '../../components/Shared/TextCustom';
+import CustomButton from '../../components/Auth/CustomButton';
 
 const AlertBox = ({
   text,

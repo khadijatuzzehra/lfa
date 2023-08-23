@@ -11,7 +11,7 @@ import {
 import Header from '../../../components/Profile/Header';
 import CustomButton from '../../../components/Auth/CustomButton';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import PhoneNumberInput from '../../../components/Auth/PhoneNumberInput';
 import Dropdown from '../../../components/Auth/Dropdown';
 import DatePicker from '../../../components/Auth/DatePicker';

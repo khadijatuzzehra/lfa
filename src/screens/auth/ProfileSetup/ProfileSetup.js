@@ -2,7 +2,7 @@
 import React, {useState, useRef} from 'react';
 import {SafeAreaView, View, ScrollView, StyleSheet} from 'react-native';
 import CustomButton from '../../../components/Auth/CustomButton';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import Interests from '../../../components/Auth/Interests';
 import UploadPicture from '../../../components/Auth/UploadPicture';
 import Dropdown from '../../../components/Auth/Dropdown';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
@@ -26,7 +26,7 @@ const Header = ({text}) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    height: dimensions.Height / 15,
+    height: 60,
     width: dimensions.Width,
     justifyContent: 'center',
     alignItems: 'center',

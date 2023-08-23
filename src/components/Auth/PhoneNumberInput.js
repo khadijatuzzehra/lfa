@@ -23,7 +23,7 @@ const PhoneNumberInput = ({onChangeText}) => {
         placeholder="+92"
         onClick={value => setCountryCode(value)}
         dropdownValues={Data.CountryCode}
-        title=""
+        title="Select Country Code"
       />
       <Text style={styles.separator}>|</Text>
       <TextInput

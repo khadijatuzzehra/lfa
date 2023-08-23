@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
-import {View, Image, TouchableOpacity, StyleSheet, Text} from 'react-native';
+import React from 'react';
+import {View, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import Images from '../../utils/Images';
-import TextCustom from '../../components/Auth/TextCustom';
+import TextCustom from '../../components/Shared/TextCustom';
 
 const PictureOptions = ({onCancel, onSelect}) => {
-  const [isModalVisible, setModalVisible] = useState(true);
-
   const backDropPress = () => {
     onCancel('');
   };
@@ -19,7 +17,7 @@ const PictureOptions = ({onCancel, onSelect}) => {
 
   return (
     <Modal
-      isVisible={isModalVisible}
+      isVisible={true}
       onBackdropPress={backDropPress}
       onSwipeComplete={backDropPress}
       swipeDirection="down"

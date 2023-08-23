@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import fonts from '../../theme/Fonts';
-import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 const CustomButton = ({
   text,
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 20,
     marginHorizontal: 2,
-
     marginVertical: 10,
   },
   btnText: {

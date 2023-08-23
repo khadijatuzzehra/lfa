@@ -16,14 +16,6 @@ const size = {
   font24: metrics.screenWidth * (24 / 365),
 };
 
-const weight = {
-  full: '900',
-  semi: '600',
-  low: '400',
-  bold: 'bold',
-  normal: 'normal',
-};
-
 const family = {
   bold: 'Poppins-Bold',
   light: 'Poppins-Light',
@@ -34,6 +26,5 @@ const family = {
 
 export default {
   size,
-  weight,
   family,
 };

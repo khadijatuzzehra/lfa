@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-shadow */
 import React, {useState, useRef, useEffect} from 'react';
 import {
@@ -51,11 +52,11 @@ const Dropdown = ({
       onClick(item, placeholder);
     } else {
       setSelectedValue(item);
-      setTimeout(() => {
-        setModalVisible(false);
-      }, 300);
-      onClick(selectedValue, placeholder);
     }
+  };
+  const onConfirm = () => {
+    setModalVisible(false);
+    onClick(selectedValue, placeholder);
   };
   const backDropPress = () => {
     setModalVisible(false);
@@ -88,22 +89,35 @@ const Dropdown = ({
         isVisible={isModalVisible}
         onBackdropPress={() => backDropPress()}
         style={[
-          styles.modal,
-          {
+          placeholder === 'Image' && {
             top: dropdownCoordinates?.y + dropdownCoordinates?.height - 30 || 0,
-            [placeholder === 'Image' ? 'right' : 'left']:
-              dropdownCoordinates?.x - 20 || 0,
+            right: dropdownCoordinates?.x - 20 || 0,
+            position: 'absolute',
+          },
+          placeholder !== 'Image' && {
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: dimensions.Height,
           },
         ]}
         backdropOpacity={0.3}>
         <View
           style={[
             styles.modalContainer,
-            {width: width, height: height * 4 - 15},
+            {
+              width: placeholder === 'Image' ? width : dimensions.Width / 1.1,
+              height:
+                placeholder === 'Image'
+                  ? height * 4 - 15
+                  : dimensions.Height / 2,
+            },
           ]}>
           {isImage && (
-            <View style={styles.okButton}>
+            <View style={styles.topButton}>
               <Text style={styles.title}>{title}</Text>
+              <TouchableOpacity onPress={() => setModalVisible(false)}>
+                <Text style={styles.titleButton}>X</Text>
+              </TouchableOpacity>
             </View>
           )}
           <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -122,6 +136,13 @@ const Dropdown = ({
               </View>
             ))}
           </ScrollView>
+          {isImage && (
+            <TouchableOpacity
+              style={styles.okButton}
+              onPress={() => onConfirm()}>
+              <Text style={styles.titleButton}>OK</Text>
+            </TouchableOpacity>
+          )}
         </View>
       </Modal>
     </View>
@@ -156,7 +177,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: dimensions.Width / 100,
     fontFamily: fonts.family.regular,
-    fontSize: fonts.size.font11,
+    fontSize: fonts.size.font12,
     color: colors.Black,
     paddingRight: dimensions.Width / 80,
     paddingBottom: dimensions.Width / 80,
@@ -171,7 +192,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   modalContainer: {
-    maxHeight: dimensions.Height / 3,
+    maxHeight: dimensions.Width,
     paddingHorizontal: dimensions.Height / 50,
     width: dimensions.Width / 1.1,
     backgroundColor: colors.White,
@@ -193,13 +214,27 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.8,
   },
   okButton: {
-    left: 0,
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  topButton: {
     top: 0,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginBottom: 5,
   },
   title: {
     fontFamily: fonts.family.medium,
-    fontSize: fonts.size.font12,
+    fontSize: fonts.size.font14,
     color: colors.Placeholder,
+  },
+  titleButton: {
+    fontFamily: fonts.family.bold,
+    fontSize: fonts.size.font15,
+    color: colors.Black,
   },
 });
 

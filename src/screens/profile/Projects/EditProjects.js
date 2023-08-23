@@ -11,7 +11,7 @@ import Header from '../../../components/Profile/Header';
 import CustomButton from '../../../components/Auth/CustomButton';
 import Checkbox from '../../../components/Auth/Checkbox';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import DatePicker from '../../../components/Auth/DatePicker';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';

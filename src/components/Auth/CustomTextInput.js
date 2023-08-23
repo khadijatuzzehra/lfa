@@ -14,8 +14,7 @@ const CustomTextInput = ({
   fieldType,
 }) => {
   const [text, setText] = useState('');
-  const [text2, setText2] = useState('');
-  const [secureText, setSecureText] = useState(fieldType == 'password');
+  const [secureText, setSecureText] = useState(fieldType === 'password');
 
   const handleTextChange = inputText => {
     setText(inputText);

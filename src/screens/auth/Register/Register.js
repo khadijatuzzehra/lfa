@@ -4,7 +4,7 @@ import {SafeAreaView, View, Keyboard} from 'react-native';
 import styles from './styles';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import CustomButton from '../../../components/Auth/CustomButton';
-import TextCustom from '../../../components/Auth/TextCustom';
+import TextCustom from '../../../components/Shared/TextCustom';
 import CustomTextInput from '../../../components/Auth/CustomTextInput';
 import PhoneNumberInput from '../../../components/Auth/PhoneNumberInput';
 import Dropdown from '../../../components/Auth/Dropdown';
