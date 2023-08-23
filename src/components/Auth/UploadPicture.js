@@ -17,15 +17,20 @@ const UploadPicture = ({uploadPicture}) => {
   };
   const onSelect = async item => {
     optionModalVisible(false);
+    console.log(item);
     if (item === 'Camera') {
       const imageRes = await handleCameraPress();
+      console.log(imageRes, 'Image');
       if (imageRes) {
         setImage(imageRes);
       }
     }
     if (item === 'Gallery') {
       const imageRes = await handlePress();
+      console.log('Image', imageRes);
+
       if (imageRes) {
+        console.log(imageRes, 'Image');
         setImage(imageRes);
       }
     }

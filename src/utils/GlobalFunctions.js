@@ -1,126 +1,105 @@
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import {PermissionsAndroid} from 'react-native';
+import {Platform} from 'react-native';
+import {PERMISSIONS, request, requestMultiple} from 'react-native-permissions';
 
 export const handleNavigation = async (navigation, screenName, formData) => {
   navigation.navigate(screenName);
 };
 
 export const handlePress = async () => {
-  const options = {
-    mediaType: 'photo',
-    quality: 1,
-    maxWidth: 800,
-    maxHeight: 800,
-  };
-
   try {
-    const granted = await PermissionsAndroid.requestMultiple([
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES,
-      PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO,
-    ]);
+    const permissionResult = await request(
+      Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.PHOTO_LIBRARY
+        : PERMISSIONS.ANDROID.READ_MEDIA_IMAGES,
+    );
 
-    if (
-      granted['android.permission.CAMERA'] === 'granted' &&
-      granted['android.permission.READ_MEDIA_IMAGES'] === 'granted' &&
-      granted['android.permission.READ_MEDIA_VIDEO'] === 'granted'
-    ) {
-      try {
-        const response = await launchImageLibrary(options);
-        if (!response.didCancel) {
-          return response;
-        } else {
-          console.log('Image selection cancelled.');
-          return null;
-        }
-      } catch (error) {
-        console.log('Image selection error:', error);
-        return null;
+    if (permissionResult === 'granted') {
+      const response = await launchImageLibrary({
+        mediaType: 'photo',
+        maxWidth: 300,
+        maxHeight: 300,
+      });
+
+      if (!response.didCancel && !response.error) {
+        return response; // Return the response object
+      } else {
+        console.log('Image selection cancelled or error occurred.');
       }
     } else {
-      console.log('Storage permission denied');
+      console.log('Image gallery permission denied.');
     }
-  } catch (err) {
-    console.log('Permission request error:', err);
+  } catch (error) {
+    console.log('Error:', error.message);
   }
 };
 
 export const handlePostStorySelection = async () => {
-  const options = {
-    mediaType: 'mixed',
-    quality: 1,
-    maxWidth: 800,
-    maxHeight: 800,
-    selectionLimit: 5,
-  };
-
   try {
-    const granted = await PermissionsAndroid.requestMultiple([
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES,
-      PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO,
-    ]);
+    const permissionResults = await requestMultiple(
+      Platform.OS === 'ios'
+        ? [PERMISSIONS.IOS.MEDIA_LIBRARY]
+        : [
+            PERMISSIONS.ANDROID.READ_MEDIA_IMAGES,
+            PERMISSIONS.ANDROID.READ_MEDIA_VIDEO,
+          ],
+    );
 
-    if (
-      granted['android.permission.CAMERA'] === 'granted' &&
-      granted['android.permission.READ_MEDIA_IMAGES'] === 'granted' &&
-      granted['android.permission.READ_MEDIA_VIDEO'] === 'granted'
-    ) {
-      try {
-        const response = await launchImageLibrary(options);
-        if (!response.didCancel) {
-          return response;
-        } else {
-          console.log('Media selection cancelled.');
-          return null;
-        }
-      } catch (error) {
-        console.log('Media selection error:', error);
-        return null;
+    const mediaLibraryPermission =
+      permissionResults[
+        Platform.OS === 'ios'
+          ? PERMISSIONS.IOS.MEDIA_LIBRARY
+          : PERMISSIONS.ANDROID.READ_MEDIA_IMAGES
+      ];
+
+    const videoPermission =
+      permissionResults[PERMISSIONS.ANDROID.READ_MEDIA_VIDEO];
+
+    if (mediaLibraryPermission === 'granted' && videoPermission === 'granted') {
+      const response = await launchImageLibrary({
+        mediaType: 'mixed',
+        maxWidth: 300,
+        maxHeight: 300,
+      });
+
+      if (!response.didCancel && !response.error) {
+        return response;
+      } else {
+        console.log('Camera launch cancelled or error occurred.');
       }
     } else {
-      console.log('Storage permission denied');
+      console.log('Camera or media library permission denied.');
     }
-  } catch (err) {
-    console.log('Permission request error:', err);
+  } catch (error) {
+    console.log('Error:', error);
   }
 };
 
 export const handleCameraPress = async () => {
-  const options = {
-    mediaType: 'photo',
-    quality: 1,
-    maxWidth: 800,
-    maxHeight: 800,
-  };
   try {
-    const granted = await PermissionsAndroid.requestMultiple([
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES,
-      PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO,
-    ]);
-    if (
-      granted['android.permission.CAMERA'] === 'granted' &&
-      granted['android.permission.READ_MEDIA_IMAGES'] === 'granted' &&
-      granted['android.permission.READ_MEDIA_VIDEO'] === 'granted'
-    ) {
-      try {
-        const response = await launchCamera(options);
-        if (!response.didCancel) {
-          return response;
-        } else {
-          console.log('Camera capture cancelled.');
-          return null;
-        }
-      } catch (error) {
-        console.log('Camera capture error:', error);
-        return null;
+    const permissionResult = await request(
+      Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.CAMERA
+        : PERMISSIONS.ANDROID.CAMERA,
+    );
+
+    if (permissionResult === 'granted') {
+      const response = await launchCamera({
+        mediaType: 'photo',
+        maxWidth: 300,
+        maxHeight: 300,
+      });
+
+      if (!response.didCancel && !response.error) {
+        return response; // Return the response object
+      } else {
+        console.log('Camera launch cancelled or error occurred.');
       }
     } else {
-      console.log('Camera permission denied');
+      console.log('Camera permission denied.');
     }
-  } catch (err) {
-    console.warn(err);
+  } catch (error) {
+    console.log('Error:', error);
   }
 };
 
