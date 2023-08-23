@@ -2,8 +2,8 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {handlePress, handleCameraPress} from '../../utils/GlobalFunctions';
-import TextCustom from '../../components/Shared/TextCustom';
-import PictureOptions from '../../components/Shared/PictureOptions';
+import TextCustom from '../Shared/TextCustom';
+import PictureOptions from '../Shared/PictureOptions';
 import Images from '../../utils/Images';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';

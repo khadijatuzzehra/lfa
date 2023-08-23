@@ -4,7 +4,7 @@ import Modal from 'react-native-modal';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import Images from '../../utils/Images';
-import TextCustom from '../../components/Shared/TextCustom';
+import TextCustom from './TextCustom';
 
 const PictureOptions = ({onCancel, onSelect}) => {
   const backDropPress = () => {

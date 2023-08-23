@@ -12,7 +12,7 @@ import Images from '../../../utils/Images';
 import colors from '../../../theme/Colors';
 import dimensions from '../../../theme/Dimensions';
 import fonts from '../../../theme/Fonts';
-import PictureOptions from '../../../components/Shared/PictureOptions';
+import PictureOptions from '../../Shared/PictureOptions';
 
 const Stories = ({EmptyListMessage}) => {
   const videoRef = useRef(null);
