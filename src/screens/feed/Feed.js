@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, Image, View, StyleSheet} from 'react-native';
+import {SafeAreaView, Image, View, StyleSheet, Platform} from 'react-native';
 import {ScrollView} from 'react-native-virtualized-view';
 import Header from '../../components/Feed/Header';
 import AnimatedLoader from './AnimatedLoader';
@@ -20,9 +20,11 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    registerDeviceForMessaging();
-    requestUserPermission();
-    notificationListener();
+    if (Platform.OS === 'android') {
+      registerDeviceForMessaging();
+      requestUserPermission();
+      notificationListener();
+    }
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 1000);
