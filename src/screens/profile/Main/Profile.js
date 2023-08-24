@@ -22,13 +22,16 @@ import Data from '../../../utils/Data';
 import Images from '../../../utils/Images';
 
 const Profile = () => {
-  const [dropdown, dropdownVisible] = useState(false);
-  const [optionModal, optionModalVisible] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const [optionModal, setOptionModal] = useState(false);
+
   const [profileImage, setProfileImage] = useState('');
   const [imageType, setImageType] = useState('');
+
   const [coverImage, setCoverImage] = useState('');
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
   const handleNavigation = async nav => {
     if (nav === 'SignOut') {
       try {
@@ -37,60 +40,50 @@ const Profile = () => {
           await GoogleSignin.revokeAccess();
           await GoogleSignin.signOut();
         }
-        AsyncStorage.removeItem('userInfo').then(() => {
-          dispatch({type: LOGOUT, payload: null});
-        });
+        await AsyncStorage.removeItem('userInfo');
+        dispatch({type: LOGOUT, payload: null});
       } catch (error) {
-        AsyncStorage.removeItem('userInfo').then(() => {
-          dispatch({type: LOGOUT, payload: null});
-        });
+        await AsyncStorage.removeItem('userInfo');
+        dispatch({type: LOGOUT, payload: null});
       }
     } else {
       navigation.navigate(nav);
     }
   };
+
   const handleClick = () => {
-    dropdownVisible(true);
+    setDropdown(true);
   };
-  const handleChange = async item => {
-    dropdownVisible(false);
-    if (item === '') {
-      optionModalVisible(false);
-    } else {
-      optionModalVisible(!optionModal);
+  const handleChange = item => {
+    setDropdown(false);
+    if (item == 'Edit Profile' || item == 'Edit Cover') {
       setImageType(item);
+      setTimeout(() => {
+        setOptionModal(true);
+      }, 200);
+    } else {
+      setOptionModal(false);
     }
   };
+
   const onSelect = async item => {
-    optionModalVisible(!optionModal);
+    const handleImageSelection = async setImageFunc => {
+      let imageRes;
+      if (item === 'Camera') {
+        imageRes = await handleCameraPress();
+      } else if (item === 'Gallery') {
+        imageRes = await handlePress();
+      }
+      if (imageRes) {
+        setImageFunc(imageRes);
+      }
+    };
     if (imageType === 'Edit Cover') {
-      if (item === 'Camera') {
-        const imageRes = await handleCameraPress();
-        if (imageRes) {
-          setCoverImage(imageRes);
-        }
-      }
-      if (item === 'Gallery') {
-        const imageRes = await handlePress();
-        if (imageRes) {
-          setCoverImage(imageRes);
-        }
-      }
+      await handleImageSelection(setCoverImage);
+    } else if (imageType === 'Edit Profile') {
+      await handleImageSelection(setProfileImage);
     }
-    if (imageType === 'Edit Profile') {
-      if (item === 'Camera') {
-        const imageRes = await handleCameraPress();
-        if (imageRes) {
-          setProfileImage(imageRes);
-        }
-      }
-      if (item === 'Gallery') {
-        const imageRes = await handlePress();
-        if (imageRes) {
-          setProfileImage(imageRes);
-        }
-      }
-    }
+    setOptionModal(false);
   };
 
   const renderNavItems = navData => {
@@ -149,6 +142,9 @@ const Profile = () => {
               dropdownValues={Data.ImageOption}
             />
           )}
+          {optionModal ? (
+            <PictureOptions onCancel={onSelect} onSelect={onSelect} />
+          ) : null}
 
           <View style={styles.profile}>
             <View style={styles.profile}>
@@ -175,9 +171,7 @@ const Profile = () => {
             </View>
           </View>
         </View>
-        {optionModal && (
-          <PictureOptions onCancel={handleChange} onSelect={onSelect} />
-        )}
+
         <View style={styles.centerContainer}>
           <TextCustom
             text="My Account"
@@ -195,4 +189,5 @@ const Profile = () => {
     </ScrollView>
   );
 };
+
 export default Profile;
