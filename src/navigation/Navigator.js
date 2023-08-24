@@ -1,7 +1,6 @@
-/* eslint-disable no-unreachable */
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
@@ -182,87 +181,16 @@ export default () => {
         tabBarActiveTintColor: Colors.Primary,
         tabBarInactiveTintColor: Colors.BlueGray,
         tabBarIcon: ({focused, color, size}) => {
-          switch (route.name) {
-            case 'FeedStack':
-              if (focused) {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.FeedFocused />
-                  </View>
-                );
-              } else {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.Feed />
-                  </View>
-                );
-              }
-              break;
-
-            case 'OpportunityStack':
-              if (focused) {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.OpportunityFocused />
-                  </View>
-                );
-              } else {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.Opportunity />
-                  </View>
-                );
-              }
-              break;
-
-            case 'ExploreStack':
-              if (focused) {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.ExploreFocused />
-                  </View>
-                );
-              } else {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.Explore />
-                  </View>
-                );
-              }
-              break;
-
-            case 'EventsStack':
-              if (focused) {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.EventsFocused />
-                  </View>
-                );
-              } else {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.Events />
-                  </View>
-                );
-              }
-              break;
-
-            case 'ProfileStack':
-              if (focused) {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.ProfileFocused />
-                  </View>
-                );
-              } else {
-                return (
-                  <View style={styles.iconBackground}>
-                    <Images.Profile />
-                  </View>
-                );
-              }
-              break;
-          }
+          let iconName = route.name;
+          let focusedIconName = route.name + 'Focused';
+          const IconComponent = focused
+            ? Images[focusedIconName]
+            : Images[iconName];
+          return (
+            <View>
+              <IconComponent />
+            </View>
+          );
         },
       })}>
       <Tabs.Screen
@@ -293,10 +221,3 @@ export default () => {
     </Tabs.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  iconBackground: {
-    padding: 0,
-    margin: 0,
-  },
-});

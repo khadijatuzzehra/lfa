@@ -7,16 +7,16 @@ import Bell from '../assets/svgs/bell';
 import DropdownArrow from '../assets/svgs/dropdown';
 import Active from '../assets/svgs/Active';
 //Tab SVGS
-import Feed from '../assets/svgs/feed';
-import FeedFocused from '../assets/svgs/feed-focused';
-import Opportunity from '../assets/svgs/opportunity';
-import OpportunityFocused from '../assets/svgs/opportunity-focused';
-import Explore from '../assets/svgs/explore';
-import ExploreFocused from '../assets/svgs/explore-focused';
-import Events from '../assets/svgs/events';
-import EventsFocused from '../assets/svgs/events-focused';
-import Profile from '../assets/svgs/profile';
-import ProfileFocused from '../assets/svgs/profile-focused';
+import FeedStack from '../assets/svgs/feed';
+import FeedStackFocused from '../assets/svgs/feed-focused';
+import OpportunityStack from '../assets/svgs/opportunity';
+import OpportunityStackFocused from '../assets/svgs/opportunity-focused';
+import ExploreStack from '../assets/svgs/explore';
+import ExploreStackFocused from '../assets/svgs/explore-focused';
+import EventsStack from '../assets/svgs/events';
+import EventsStackFocused from '../assets/svgs/events-focused';
+import ProfileStack from '../assets/svgs/profile';
+import ProfileStackFocused from '../assets/svgs/profile-focused';
 //Feed Posts
 import Options from '../assets/svgs/Options';
 import Verified from '../assets/svgs/Verified';
@@ -84,16 +84,16 @@ export default {
   Bell,
   DropdownArrow,
   Active,
-  Feed,
-  FeedFocused,
-  Opportunity,
-  OpportunityFocused,
-  Explore,
-  ExploreFocused,
-  Events,
-  EventsFocused,
-  Profile,
-  ProfileFocused,
+  FeedStack,
+  FeedStackFocused,
+  OpportunityStack,
+  OpportunityStackFocused,
+  ExploreStack,
+  ExploreStackFocused,
+  EventsStack,
+  EventsStackFocused,
+  ProfileStack,
+  ProfileStackFocused,
   Options,
   Verified,
   Arrow,
