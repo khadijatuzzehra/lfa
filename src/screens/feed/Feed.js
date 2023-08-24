@@ -8,7 +8,11 @@ import Posts from '../../components/Feed/Posts';
 import Images from '../../utils/Images';
 import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';
-
+import {
+  registerDeviceForMessaging,
+  requestUserPermission,
+  notificationListener,
+} from '../../utils/NotificationServices';
 const Feed = () => {
   const [loading, setLoading] = useState(true);
   const HandleLoad = () => {
@@ -16,6 +20,9 @@ const Feed = () => {
   };
 
   useEffect(() => {
+    registerDeviceForMessaging();
+    requestUserPermission();
+    notificationListener();
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 1000);

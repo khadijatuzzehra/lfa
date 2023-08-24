@@ -56,7 +56,7 @@ const Profile = () => {
   };
   const handleChange = item => {
     setDropdown(false);
-    if (item == 'Edit Profile' || item == 'Edit Cover') {
+    if (item === 'Edit Profile' || item === 'Edit Cover') {
       setImageType(item);
       setTimeout(() => {
         setOptionModal(true);
