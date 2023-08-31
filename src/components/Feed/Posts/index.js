@@ -96,6 +96,7 @@ const Posts = ({ListEmpty}) => {
   return (
     <FlatList
       data={posts}
+      scrollEnabled={false}
       renderItem={renderItem}
       style={styles.container}
       ListEmptyComponent={<View />}

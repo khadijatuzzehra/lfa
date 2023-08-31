@@ -27,6 +27,9 @@ const CustomButton = ({
     styleUse = styles.alertButton;
     buttonStyle = styles.btnText2;
   }
+  if (text === 'Read More') {
+    buttonStyle = styles.btnText2;
+  }
   return (
     <View>
       <TouchableOpacity

@@ -260,9 +260,9 @@ const styles = StyleSheet.create({
 
   badge: {
     backgroundColor: colors.Primary,
-    borderRadius: 10,
-    height: dimensions.Width / 20,
-    width: dimensions.Width / 20,
+    borderRadius: 20,
+    height: 25,
+    width: 25,
   },
   badgeContainer2: {
     position: 'absolute',
@@ -272,9 +272,9 @@ const styles = StyleSheet.create({
   },
   badge2: {
     backgroundColor: colors.Primary,
-    borderRadius: 10,
-    height: dimensions.Width / 20,
-    width: dimensions.Width / 20,
+    borderRadius: 20,
+    height: 25,
+    width: 25,
   },
   modalContainer: {
     height: dimensions.Height,

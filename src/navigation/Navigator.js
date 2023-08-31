@@ -18,7 +18,9 @@ import Projects from '../screens/profile/Projects/Projects';
 import EditProjects from '../screens/profile/Projects/EditProjects';
 import Recommendations from '../screens/profile/Recommendations/Recommendations';
 import Language from '../screens/profile/Language/Language';
-
+//Events Stack
+import Events from '../screens/events/Events';
+import EventDetails from '../screens/events/EventDetails/EventDetails';
 import Services from '../screens/Services';
 import Colors from '../theme/Colors';
 import dimensions from '../theme/Dimensions';
@@ -70,6 +72,16 @@ const ExploreStackScreens = () => (
 const EventsStack = createNativeStackNavigator();
 const EventsStackScreens = () => (
   <EventsStack.Navigator>
+    <EventsStack.Screen
+      name={'Events'}
+      component={Events}
+      options={{headerShown: false}}
+    />
+    <EventsStack.Screen
+      name={'EventDetails'}
+      component={EventDetails}
+      options={{headerShown: false}}
+    />
     <EventsStack.Screen
       name={'Dashboard'}
       component={Dashboard}
@@ -152,7 +164,7 @@ function getTabBarVisibility(route) {
     routeName === 'EditProjects' ||
     routeName === 'Recommendations' ||
     routeName === 'Language' ||
-    routeName === 'SpecialOffers' ||
+    routeName === 'EventDetails' ||
     routeName === 'Businesses'
   ) {
     return 'none';

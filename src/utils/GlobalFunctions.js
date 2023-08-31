@@ -18,8 +18,8 @@ export const handlePress = async () => {
       const response = await launchImageLibrary({
         mediaType: 'photo',
         quality: 1,
-        maxWidth: 300,
-        maxHeight: 300,
+        minWidth: 100,
+        minHeight: 100,
       });
 
       if (!response.didCancel && !response.error) {
@@ -90,6 +90,7 @@ export const handleCameraPress = async () => {
     if (permissionResult === 'granted') {
       const response = await launchCamera({
         mediaType: 'photo',
+        quality: 1,
         minWidth: 100,
         minHeight: 100,
       });

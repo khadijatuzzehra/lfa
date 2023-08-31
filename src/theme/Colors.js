@@ -19,6 +19,11 @@ const TurquoiseActionButton = '#188F79';
 const TextDark = '#313131';
 const TextColor = '#707070';
 const Badge = '#CDCDCD';
+const EventHeading = '#343535';
+const BackgroundColor = '#F8F8F8';
+const EventDate = '#838383';
+const EventDetails = '#5B5050';
+const TextEvents = '#8F8F8F';
 export default {
   Primary,
   Secondary,
@@ -41,4 +46,9 @@ export default {
   TextDark,
   Badge,
   TextColor,
+  EventHeading,
+  EventDate,
+  BackgroundColor,
+  EventDetails,
+  TextEvents,
 };

@@ -8,7 +8,7 @@ export const registerDeviceForMessaging = async () => {
   const token = await messaging().getToken();
   console.log(token, 'device registered token');
   AsyncStorage.setItem('FCMToken', token).then(() => {
-    console.log('FCM Token: ', token);
+    console.log('FCM Token Stored');
   });
 };
 
@@ -51,20 +51,15 @@ export const notificationListener = () => {
 
 const getFcmToken = async () => {
   let fcmToken = await AsyncStorage.getItem('FCMToken');
-  console.log('============old token========================');
-  console.log(fcmToken);
-  console.log('====================================');
   if (!fcmToken) {
     try {
       fcmToken = await messaging().getToken();
       if (fcmToken) {
-        console.log('===============new generated token=====================');
         console.log(fcmToken);
-        console.log('====================================');
         await AsyncStorage.setItem('fcmToken', fcmToken);
       }
     } catch (error) {
-      console.log(error, '===============error in Fcm Token=================');
+      console.log(error);
     }
   }
 };

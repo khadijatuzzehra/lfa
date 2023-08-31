@@ -18,12 +18,19 @@ const textTypeStyles = StyleSheet.create({
     fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font18,
     marginLeft: dimensions.Width / 30,
+    textAlign: 'left',
   },
   HomeScreenHeadings: {
     marginLeft: dimensions.Width / 30,
     fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font18,
     marginBottom: -dimensions.Width / 50,
+  },
+  EventDate: {
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font12,
+    marginTop: -dimensions.Width / 30,
+    textAlign: 'center',
   },
 
   InfoText: {
@@ -57,6 +64,13 @@ const textTypeStyles = StyleSheet.create({
     marginBottom: dimensions.Width / 100,
     textAlign: 'left',
   },
+  EventDetails: {
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font10,
+    marginLeft: 2,
+    marginTop: 2,
+    textAlign: 'left',
+  },
   Description: {
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font10,
@@ -65,6 +79,11 @@ const textTypeStyles = StyleSheet.create({
   },
   CompTitles: {
     fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font14,
+    marginLeft: dimensions.Width / 30,
+  },
+  EventTitle: {
+    fontFamily: fonts.family.medium,
     fontSize: fonts.size.font14,
     marginLeft: dimensions.Width / 30,
   },
@@ -78,6 +97,7 @@ const textTypeStyles = StyleSheet.create({
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font14,
     marginVertical: dimensions.Width / 30,
+    marginLeft: dimensions.Width / 30,
   },
   Name: {
     fontFamily: fonts.family.semiBold,
@@ -85,6 +105,34 @@ const textTypeStyles = StyleSheet.create({
     textAlign: 'center',
   },
   Designation: {
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font10,
+    textAlign: 'center',
+  },
+  UpcomingEventsTitle: {
+    fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font11,
+    textAlign: 'left',
+    marginBottom: dimensions.Width / 80,
+  },
+  UpcomingEventsDate: {
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font6,
+  },
+  UpcomingEventsDetail: {
+    fontFamily: fonts.family.medium,
+    fontSize: fonts.size.font8,
+    marginLeft: 2,
+    marginTop: 2,
+  },
+  MyEventsTitle: {
+    fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font12,
+    marginLeft: dimensions.Width / 30,
+    marginBottom: dimensions.Width / 100,
+    textAlign: 'left',
+  },
+  EventLocation: {
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font10,
     textAlign: 'center',

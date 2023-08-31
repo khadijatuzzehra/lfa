@@ -31,7 +31,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: dimensions.Width / 30,
+    paddingHorizontal: dimensions.Width / 30,
+    backgroundColor: colors.White,
+    shadowColor: colors.borderColor,
+    shadowRadius: 2,
+    elevation: 12,
   },
   logo: {
     height: dimensions.Width / 10,

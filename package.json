@@ -28,6 +28,7 @@
     "react-native-insta-story": "^1.1.9",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.8.2",
+    "react-native-maps": "^1.7.1",
     "react-native-modal": "^13.0.1",
     "react-native-modern-datepicker": "^1.0.0-beta.91",
     "react-native-permissions": "^3.8.4",
@@ -39,7 +40,6 @@
     "react-native-svg-transformer": "^1.0.0",
     "react-native-vector-icons": "^9.2.0",
     "react-native-video": "^5.2.1",
-    "react-native-virtualized-view": "^1.0.0",
     "react-redux": "^8.0.7",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2"

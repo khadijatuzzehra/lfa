@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, Image, View, StyleSheet, Platform} from 'react-native';
-import {ScrollView} from 'react-native-virtualized-view';
+import {
+  SafeAreaView,
+  Image,
+  View,
+  StyleSheet,
+  Platform,
+  ScrollView,
+} from 'react-native';
 import Header from '../../components/Feed/Header';
 import AnimatedLoader from './AnimatedLoader';
 import Stories from '../../components/Feed/Stories';
@@ -35,24 +41,21 @@ const Feed = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <ScrollView>
-        {loading ? (
-          <AnimatedLoader />
-        ) : (
-          <ScrollView>
+      {loading ? (
+        <AnimatedLoader />
+      ) : (
+        <ScrollView>
+          <View style={styles.stories}>
             <View style={styles.stories}>
-              <Image source={Images.AlertLine} style={styles.line} />
-              <View style={styles.stories}>
-                <Stories EmptyListMessage={HandleLoad} />
-              </View>
-              <Image source={Images.AlertLine} style={styles.line} />
+              <Stories EmptyListMessage={HandleLoad} />
             </View>
-            <View style={styles.posts}>
-              <Posts ListEmpty={HandleLoad} />
-            </View>
-          </ScrollView>
-        )}
-      </ScrollView>
+            <Image source={Images.AlertLine} style={styles.line} />
+          </View>
+          <View style={styles.posts}>
+            <Posts ListEmpty={HandleLoad} />
+          </View>
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 };

@@ -1,13 +1,15 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import Navigator from './src/navigation/Navigator';
+import {ActivityIndicator, SafeAreaView} from 'react-native';
 import AuthNavigator from './src/navigation/AuthNavigator';
 import {useDispatch, useSelector} from 'react-redux';
 import {LOGIN_SUCCESS} from './src/store/ActionTypes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from 'react-native-splash-screen';
+import colors from './src/theme/Colors';
 
 const MainContainer = () => {
   const [loading, setLoading] = useState(true);
@@ -26,14 +28,25 @@ const MainContainer = () => {
       if (userInfo != null) {
         dispatch({type: LOGIN_SUCCESS, payload: JSON.parse(userInfo)});
       }
+      SplashScreen.hide();
       setLoading(false);
-      setTimeout(() => {
-        SplashScreen.hide();
-      }, 4000);
     });
     return () => {};
   }, []);
 
+  if (loading) {
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colors.White,
+        }}>
+        <ActivityIndicator size={'large'} color={colors.Primary} />
+      </SafeAreaView>
+    );
+  }
   return (
     <NavigationContainer theme={MyTheme}>
       {user ? <Navigator /> : <AuthNavigator />}

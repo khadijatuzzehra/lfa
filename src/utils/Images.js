@@ -6,6 +6,13 @@ import ProgressBar3 from '../assets/svgs/ProgressBar3';
 import Bell from '../assets/svgs/bell';
 import DropdownArrow from '../assets/svgs/dropdown';
 import Active from '../assets/svgs/Active';
+import Clock from '../assets/svgs/Clock';
+import Location from '../assets/svgs/Location';
+import ClockGray from '../assets/svgs/ClockGray';
+import LocationGray from '../assets/svgs/LocationGray';
+import Seperator from '../assets/svgs/Seperator';
+import DottedLine from '../assets/svgs/DottedLine';
+import EventHeader from '../assets/svgs/EventHeader';
 //Tab SVGS
 import FeedStack from '../assets/svgs/feed';
 import FeedStackFocused from '../assets/svgs/feed-focused';
@@ -55,7 +62,11 @@ const Post1 = require('../assets/Images/Post1.png');
 const Post2 = require('../assets/Images/Post2.png');
 const Post3 = require('../assets/Images/Post3.png');
 const Post4 = require('../assets/Images/Post4.png');
-
+//Events Dummy Images
+const Event1 = require('../assets/Images/Event1.png');
+const Event2 = require('../assets/Images/Event2.png');
+const Event3 = require('../assets/Images/Event3.png');
+const Event4 = require('../assets/Images/Event4.png');
 //Get started background image
 const HandShake = require('../assets/Images/hand-shake.png');
 const Bottom = require('../assets/Images/Bottom.png');
@@ -122,6 +133,10 @@ export default {
   Post2,
   Post3,
   Post4,
+  Event1,
+  Event2,
+  Event3,
+  Event4,
   HandShake,
   Bottom,
   OnBoarding1,
@@ -136,4 +151,11 @@ export default {
   Camera,
   Gallery,
   BottomModalButton,
+  Clock,
+  Location,
+  ClockGray,
+  LocationGray,
+  Seperator,
+  DottedLine,
+  EventHeader,
 };
