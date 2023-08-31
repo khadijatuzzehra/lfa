@@ -19,7 +19,7 @@ import EditProjects from '../screens/profile/Projects/EditProjects';
 import Recommendations from '../screens/profile/Recommendations/Recommendations';
 import Language from '../screens/profile/Language/Language';
 //Events Stack
-import Events from '../screens/events/Events';
+import Events from '../screens/events/Events/Events';
 import EventDetails from '../screens/events/EventDetails/EventDetails';
 import Services from '../screens/Services';
 import Colors from '../theme/Colors';

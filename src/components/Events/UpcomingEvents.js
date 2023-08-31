@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet, ImageBackground} from 'react-native';
+import {View, FlatList, StyleSheet, ImageBackground} from 'react-native';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
 import Images from '../../utils/Images';
@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const UpcomingEvents = ({events}) => {
   return (
     <View>
-      <Text>Upcoming Events</Text>
       <FlatList
         horizontal
         data={events}
@@ -58,7 +57,7 @@ const UpcomingEvents = ({events}) => {
 const styles = StyleSheet.create({
   component: {
     backgroundColor: 'white',
-    marginHorizontal: 10,
+    marginHorizontal: dimensions.Width / 70,
     borderRadius: 10,
     shadowColor: colors.borderColor,
     shadowOffset: {width: 5, height: 2},
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
   },
   imageView: {
     height: dimensions.Height / 4.5,
-    width: dimensions.Height / 4.5,
+    width: dimensions.Height / 4.1,
     justifyContent: 'flex-end',
     paddingBottom: 20,
     paddingHorizontal: 4,

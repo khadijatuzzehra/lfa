@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import TextCustom from '../../components/Shared/TextCustom';
-import Header from '../../components/Feed/Header';
-import UpcomingEvents from '../../components/Events/UpcomingEvents';
-import AllEvents from '../../components/Events/AllEvents';
-import MyEvents from '../../components/Events/MyEvents';
-import Data from '../../utils/Data';
-import dimensions from '../../theme/Dimensions';
-import colors from '../../theme/Colors';
+import TextCustom from '../../../components/Shared/TextCustom';
+import Header from '../../../components/Feed/Header';
+import UpcomingEvents from '../../../components/Events/UpcomingEvents';
+import AllEvents from '../../../components/Events/AllEvents';
+import MyEvents from '../../../components/Events/MyEvents';
+import Data from '../../../utils/Data';
+import dimensions from '../../../theme/Dimensions';
+import colors from '../../../theme/Colors';
 
 const Events = () => {
   const allEvents = Data.Events;

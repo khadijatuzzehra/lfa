@@ -500,6 +500,7 @@ const Events = [
     vipTicketPrice: 1500,
     premiumTicketPrice: 2500,
     seating: 'ROW A-C',
+    status: 'Paid',
     refreshments: 'N/A',
     number: '+92 330 547 0653',
     email: 'aj@gmail.com',

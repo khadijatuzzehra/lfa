@@ -178,11 +178,13 @@ const EventDetails = ({route}) => {
             textType="Headings"
             color={colors.EventDetails}
           />
-          <TextCustom
-            text="Purchase Ticket"
-            textType="Button"
-            color={colors.Primary}
-          />
+          <TouchableOpacity>
+            <TextCustom
+              text="Purchase Ticket"
+              textType="Button"
+              color={colors.Primary}
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.ticketDetails}>
           <TextCustom
@@ -195,7 +197,7 @@ const EventDetails = ({route}) => {
           </View>
           <TextCustom
             text={'$' + event.standardTicketPrice}
-            textType="Headings"
+            textType="Navigation"
             color={colors.EventHeading}
           />
         </View>
@@ -210,7 +212,7 @@ const EventDetails = ({route}) => {
           </View>
           <TextCustom
             text={'$' + event.vipTicketPrice}
-            textType="Headings"
+            textType="Navigation"
             color={colors.EventHeading}
           />
         </View>
@@ -225,7 +227,7 @@ const EventDetails = ({route}) => {
           </View>
           <TextCustom
             text={'$' + event.premiumTicketPrice}
-            textType="Headings"
+            textType="Navigation"
             color={colors.EventHeading}
           />
         </View>
