@@ -98,7 +98,7 @@ const EventDetails = ({route}) => {
               />
             </View>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.Button}>
             <TextCustom
               text="Add to Calendar"
               textType="Button"
@@ -149,7 +149,7 @@ const EventDetails = ({route}) => {
             </View>
             <TextCustom
               text={event.rating}
-              textType="Headings"
+              textType="Rating"
               color={colors.EventHeading}
             />
           </View>
@@ -178,7 +178,7 @@ const EventDetails = ({route}) => {
             textType="Headings"
             color={colors.EventDetails}
           />
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.Button}>
             <TextCustom
               text="Purchase Ticket"
               textType="Button"
@@ -284,7 +284,7 @@ const EventDetails = ({route}) => {
                 latitude: 33.54981993492977,
                 longitude: 73.12246493917426,
               }}
-              title={event.name}
+              title={event.name + '-' + event.location + ' , ' + event.city}
               pinColor={colors.Primary}
             />
           </MapView>

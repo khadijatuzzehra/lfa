@@ -41,7 +41,7 @@ const Projects = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Header text="Projects" />
+      <Header text="Project" />
       <ScrollView>
         <View style={styles.bottom}>
           {projects.map(item => (
@@ -93,7 +93,7 @@ const Projects = () => {
         isVisible={isModalVisible}
         onCancel={handleCancelDelete}
         onConfirm={handleDeleteConfirmed}
-        icon="DeleteOutline"
+        icon="trash-outline"
       />
     </SafeAreaView>
   );

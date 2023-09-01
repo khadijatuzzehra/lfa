@@ -64,7 +64,11 @@ const EditProjects = () => {
             }
             fieldType="description"
           />
-          <TextCustom text="Web Link" textType="Labels" color={colors.Black} />
+          <TextCustom
+            text="Project Link"
+            textType="Labels"
+            color={colors.Black}
+          />
           <CustomTextInput
             placeholder="www.seccuracy.com"
             height={dimensions.Height / 18}

@@ -137,6 +137,11 @@ const textTypeStyles = StyleSheet.create({
     fontSize: fonts.size.font10,
     textAlign: 'center',
   },
+  Rating: {
+    fontFamily: fonts.family.semiBold,
+    fontSize: fonts.size.font20,
+    textAlign: 'left',
+  },
 });
 
 export default TextCustom;

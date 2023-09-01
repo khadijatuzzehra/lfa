@@ -42,6 +42,7 @@ const Styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginRight: dimensions.Width / 100,
     marginVertical: dimensions.Width / 30,
     marginTop: -20,
@@ -51,19 +52,21 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: dimensions.Width / 50,
     marginLeft: dimensions.Width / 30,
+    alignItems: 'center',
   },
   rowBottom: {
     flexDirection: 'row',
-    marginVertical: 5,
     marginRight: dimensions.Width / 4,
   },
   locationContext: {
-    borderColor: colors.EventDetails,
-    borderWidth: 1,
+    borderColor: colors.InfoText,
+    borderWidth: 0.8,
     borderRadius: 10,
     justifyContent: 'center',
-    height: dimensions.Width / 10,
-    padding: 5,
+    height: dimensions.Width / 15,
+    paddingHorizontal: dimensions.Width / 40,
+    paddingVertical: dimensions.Width / 100,
+    margin: dimensions.Width / 100,
   },
   ticketStatus: {
     borderRadius: 10,
@@ -83,6 +86,8 @@ const Styles = StyleSheet.create({
     width: dimensions.Width / 1.1,
     borderRadius: 20,
     margin: dimensions.Width / 30,
+    paddingBottom: dimensions.Width / 3,
+    paddingTop: dimensions.Width / 20,
   },
   icons: {
     marginRight: 80,
@@ -121,7 +126,6 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginHorizontal: dimensions.Width / 30,
     marginTop: dimensions.Width / 20,
-    marginBottom: dimensions.Width / 3,
   },
   darkBg: {
     backgroundColor: colors.Badge,
@@ -144,6 +148,9 @@ const Styles = StyleSheet.create({
     width: dimensions.Width / 1.2,
     marginHorizontal: 15,
     marginVertical: 20,
+  },
+  Button: {
+    paddingBottom: dimensions.Width / 40,
   },
 });
 

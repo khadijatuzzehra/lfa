@@ -35,7 +35,7 @@ const Experiences = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Header text="Experiences" />
+      <Header text="Experience" />
       <View style={styles.bottom}>
         {experiences.map(item => (
           <View style={styles.component} key={item.id}>
@@ -73,7 +73,7 @@ const Experiences = () => {
         isVisible={isModalVisible}
         onCancel={handleCancelDelete}
         onConfirm={handleDeleteConfirmed}
-        icon="DeleteOutline"
+        icon="trash-outline"
       />
       <TouchableOpacity style={styles.AddButton}>
         <Images.Add />

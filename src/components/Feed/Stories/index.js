@@ -230,6 +230,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     paddingLeft: dimensions.Width / 100,
+    backgroundColor: colors.White,
   },
   avatar: {
     height: 75,

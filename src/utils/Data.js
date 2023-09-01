@@ -191,7 +191,7 @@ const PostsData = [
     verified: false,
     post_text:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    images: ['Post4'],
+    images: ['Post4', 'Event1', 'Event4'],
     likes: 5,
     liked: false,
   },

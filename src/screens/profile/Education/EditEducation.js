@@ -27,7 +27,7 @@ const EditEducation = () => {
         <Header text="Edit Education" />
         <View style={styles.form}>
           <TextCustom
-            text="Highest level of education"
+            text="Level of education"
             textType="Labels"
             color={colors.Black}
           />

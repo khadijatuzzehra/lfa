@@ -46,9 +46,8 @@ const Feed = () => {
       ) : (
         <ScrollView>
           <View style={styles.stories}>
-            <View style={styles.stories}>
-              <Stories EmptyListMessage={HandleLoad} />
-            </View>
+            <Image source={Images.AlertLine} style={styles.line} />
+            <Stories EmptyListMessage={HandleLoad} />
             <Image source={Images.AlertLine} style={styles.line} />
           </View>
           <View style={styles.posts}>
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
   },
 
   stories: {
-    marginVertical: 2,
+    marginBottom: 2,
   },
   posts: {
     flex: 1,

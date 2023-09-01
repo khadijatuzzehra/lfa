@@ -6,6 +6,7 @@ import dimensions from '../../theme/Dimensions';
 import colors from '../../theme/Colors';
 import TextCustom from './TextCustom';
 import CustomButton from '../Auth/CustomButton';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const AlertBox = ({
   text,
@@ -15,8 +16,6 @@ const AlertBox = ({
   onCancel,
   onConfirm,
 }) => {
-  const SVGComponent = Images[icon];
-
   return (
     <Modal
       isVisible={isVisible}
@@ -27,7 +26,7 @@ const AlertBox = ({
       hasBackdrop={true}>
       <View style={styles.modalContainer}>
         <View style={styles.icons}>
-          <SVGComponent />
+          <Icon name={icon} size={30} color={colors.Red} />
         </View>
         <View style={styles.modalContent}>
           <TextCustom

@@ -15,7 +15,7 @@ const Styles = StyleSheet.create({
   image: {
     height: dimensions.Height / 30,
     width: dimensions.Height / 30,
-    marginRight: dimensions.Width / 30,
+    marginRight: dimensions.Width / 100,
     justifyContent: 'center',
     alignItems: 'center',
   },
