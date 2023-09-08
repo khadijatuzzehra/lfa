@@ -8,10 +8,19 @@ import fonts from '../../theme/Fonts';
 import moment from 'moment';
 
 const DatePicker = ({placeholder, onSelect}) => {
+  let dateHolder = 'DD/MM/YY';
+  if (placeholder === 'ExpiryDate') {
+    dateHolder = 'MM/YY';
+  }
   const [isModalVisible, setModalVisible] = useState(false);
-  const [date, setDate] = useState('DD/MM/YYYY');
+  const [date, setDate] = useState(dateHolder);
   const handleDateChange = dateInput => {
-    const formattedDate = moment(dateInput, 'YYYY/MM/DD').format('D/MM/YYYY');
+    let formattedDate = '';
+    if (placeholder === 'ExpiryDate') {
+      formattedDate = moment(dateInput, 'YYYY/MM/DD').format('MM/YYYY');
+    } else {
+      formattedDate = moment(dateInput, 'YYYY/MM/DD').format('D/MM/YYYY');
+    }
     setDate(formattedDate);
     onSelect(formattedDate);
     setModalVisible(false);

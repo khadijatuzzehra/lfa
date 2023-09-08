@@ -178,7 +178,9 @@ const EventDetails = ({route}) => {
             textType="Headings"
             color={colors.EventDetails}
           />
-          <TouchableOpacity style={styles.Button}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => navigation.navigate('Plans')}>
             <TextCustom
               text="Purchase Ticket"
               textType="Button"

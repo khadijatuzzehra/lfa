@@ -512,6 +512,41 @@ const Events = [
     posted: '2023-08-25T12:00:00',
   },
 ];
+const Plans = [
+  {
+    id: 1,
+    name: 'Standard Ticket',
+    price: '500',
+    ticketStatus: 'Available',
+    seating: 'Row G-I',
+    refreshments: 'N/A',
+    ticketTotal: 100,
+    ticketRemaining: 40,
+    svgName2: 'ProgressBar1',
+  },
+  {
+    id: 2,
+    name: 'VIP Ticket',
+    price: '1500',
+    ticketStatus: 'Available',
+    seating: 'Row D-F',
+    refreshments: 'N/A',
+    ticketTotal: 100,
+    ticketRemaining: 32,
+    svgName2: 'ProgressBar2',
+  },
+  {
+    id: 3,
+    name: 'Premium Ticket',
+    price: '2500',
+    ticketStatus: 'Available',
+    seating: 'Row A-C',
+    refreshments: 'A',
+    ticketTotal: 100,
+    ticketRemaining: 80,
+    svgName2: 'ProgressBar3',
+  },
+];
 export default {
   CountryCode,
   Country,
@@ -531,4 +566,5 @@ export default {
   Users,
   ImageOption,
   Events,
+  Plans,
 };

@@ -14,6 +14,11 @@ const TextCustom = ({text, textType, color}) => {
 };
 
 const textTypeStyles = StyleSheet.create({
+  TicketPrice: {
+    fontFamily: fonts.family.bold,
+    fontSize: fonts.size.font24,
+    textAlign: 'center',
+  },
   Headings: {
     fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font18,
@@ -32,12 +37,15 @@ const textTypeStyles = StyleSheet.create({
     marginTop: -dimensions.Width / 30,
     textAlign: 'center',
   },
-
   InfoText: {
     fontFamily: fonts.family.regular,
     fontSize: fonts.size.font13,
     marginLeft: dimensions.Width / 30,
     marginBottom: dimensions.Width / 30,
+  },
+  TicketStatus: {
+    fontFamily: fonts.family.regular,
+    fontSize: fonts.size.font12,
   },
   OnBoardingText: {
     fontFamily: fonts.family.regular,
@@ -97,6 +105,11 @@ const textTypeStyles = StyleSheet.create({
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font14,
     marginVertical: dimensions.Width / 30,
+    marginLeft: dimensions.Width / 30,
+  },
+  TicketDetails: {
+    fontFamily: fonts.family.bold,
+    fontSize: fonts.size.font14,
     marginLeft: dimensions.Width / 30,
   },
   Name: {

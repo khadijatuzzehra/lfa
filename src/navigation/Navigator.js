@@ -21,6 +21,9 @@ import Language from '../screens/profile/Language/Language';
 //Events Stack
 import Events from '../screens/events/Events/Events';
 import EventDetails from '../screens/events/EventDetails/EventDetails';
+import Plans from '../screens/events/Plans/Plans';
+import PurchaseTicket from '../screens/events/PurchaseTicket/PurchaseTicket';
+
 import Services from '../screens/Services';
 import Colors from '../theme/Colors';
 import dimensions from '../theme/Dimensions';
@@ -83,8 +86,13 @@ const EventsStackScreens = () => (
       options={{headerShown: false}}
     />
     <EventsStack.Screen
-      name={'Dashboard'}
-      component={Dashboard}
+      name={'Plans'}
+      component={Plans}
+      options={{headerShown: false}}
+    />
+    <EventsStack.Screen
+      name={'PurchaseTicket'}
+      component={PurchaseTicket}
       options={{headerShown: false}}
     />
   </EventsStack.Navigator>
@@ -165,7 +173,8 @@ function getTabBarVisibility(route) {
     routeName === 'Recommendations' ||
     routeName === 'Language' ||
     routeName === 'EventDetails' ||
-    routeName === 'Businesses'
+    routeName === 'Plans' ||
+    routeName === 'PurchaseTicket'
   ) {
     return 'none';
   }

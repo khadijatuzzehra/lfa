@@ -86,6 +86,13 @@ const AlertLine = require('../assets/Images/Line.png');
 const Camera = require('../assets/Images/Camera.png');
 const Gallery = require('../assets/Images/Gallery.png');
 const BottomModalButton = require('../assets/Images/BottomModalButton.png');
+//Events
+const Background = require('../assets/Images/Background.png');
+const TicketLine = require('../assets/Images/TicketLine.png');
+const Ticket = require('../assets/Images/Ticket.png');
+const TicketStatus = require('../assets/Images/TicketStatus.png');
+const Seating = require('../assets/Images/Seating.png');
+const Refreshments = require('../assets/Images/Refreshment.png');
 
 export default {
   Line,
@@ -158,4 +165,10 @@ export default {
   Seperator,
   DottedLine,
   EventHeader,
+  TicketLine,
+  Ticket,
+  TicketStatus,
+  Seating,
+  Refreshments,
+  Background,
 };
