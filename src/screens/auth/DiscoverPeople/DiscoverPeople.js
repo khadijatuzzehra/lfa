@@ -34,7 +34,7 @@ const DiscoverPeople = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.content}>
         <TextCustom
           text="Discover People"
           textType="Headings"
@@ -146,10 +146,12 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingTop: dimensions.Height / 20,
     backgroundColor: colors.White,
-    paddingHorizontal: dimensions.Width / 100,
+  },
+  content: {
+    marginHorizontal: dimensions.Width / 100,
   },
   usersDisplay: {
-    paddingHorizontal: dimensions.Width / 30,
+    marginHorizontal: dimensions.Width / 30,
   },
   row: {
     flexDirection: 'row',
@@ -168,8 +170,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     backgroundColor: colors.White,
     marginVertical: dimensions.Width / 30,
-    marginHorizontal: dimensions.Width / 50,
-    width: dimensions.Width / 2.5,
+    width: dimensions.Width / 2.4,
     height: dimensions.Height / 3.5,
     borderRadius: 10,
   },

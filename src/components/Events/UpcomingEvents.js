@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   imageView: {
     height: dimensions.Height / 4.5,
-    width: dimensions.Height / 4.1,
+    width: dimensions.Width / 2,
     justifyContent: 'flex-end',
     paddingBottom: 20,
     paddingHorizontal: 4,

@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   post: {
-    paddingVertical: dimensions.Width / 70,
+    marginVertical: dimensions.Height / 70,
   },
   row: {
     flexDirection: 'row',
@@ -129,21 +129,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: dimensions.Width / 50,
     marginBottom: dimensions.Width / 50,
-    paddingHorizontal: dimensions.Width / 100,
   },
   profile: {
-    height: dimensions.Height / 17,
-    width: dimensions.Height / 17,
+    height: 55,
+    width: 55,
     borderWidth: 2,
     borderColor: colors.Primary,
-    borderRadius: dimensions.Width / 10,
+    borderRadius: 100,
   },
   userName: {
     fontFamily: fonts.family.semiBold,
     fontSize: fonts.size.font12,
     color: colors.Black,
-    marginHorizontal: dimensions.Width / 80,
-    paddingHorizontal: dimensions.Width / 100,
+    marginHorizontal: dimensions.Width / 50,
   },
   postText: {
     fontSize: fonts.size.font12,
@@ -153,13 +151,13 @@ const styles = StyleSheet.create({
   postImage: {
     width: dimensions.Width,
     height: dimensions.Height / 2,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     marginVertical: dimensions.Width / 50,
     borderRadius: 4,
   },
   likeComment: {
     height: dimensions.Height / 35,
-    width: dimensions.Height / 35,
+    width: dimensions.Width / 20,
     resizeMode: 'contain',
     marginRight: dimensions.Width / 20,
   },
@@ -167,8 +165,7 @@ const styles = StyleSheet.create({
     color: colors.Black,
     fontSize: fonts.size.font12,
     fontFamily: fonts.family.medium,
-    marginHorizontal: dimensions.Width / 80,
-    paddingHorizontal: dimensions.Width / 100,
+    marginHorizontal: dimensions.Width / 50,
   },
   paginationText: {
     color: 'white',

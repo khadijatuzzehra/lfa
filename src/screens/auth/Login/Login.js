@@ -101,35 +101,37 @@ const Login = () => {
             color={colors.InfoText}
           />
         </View>
-        <TextCustom
-          text="Email Address"
-          textType="Labels"
-          color={colors.Black}
-        />
-        <CustomTextInput
-          placeholder="Enter your email"
-          height={dimensions.Height / 18}
-          width={dimensions.Width / 1.1}
-          onChangeText={handleTextChange}
-          fieldType="email"
-        />
-        <TextCustom text="Password" textType="Labels" color={colors.Black} />
-        <CustomTextInput
-          placeholder="Enter your password"
-          height={dimensions.Height / 18}
-          width={dimensions.Width / 1.1}
-          onChangeText={handleTextChange}
-          fieldType="password"
-        />
-        <View style={styles.recovery}>
-          <RememberMe text="Remember Me" />
-          <TouchableOpacity>
-            <TextCustom
-              text="Forgot Password?"
-              textType="OnBoardingText"
-              color={colors.Primary}
-            />
-          </TouchableOpacity>
+        <View style={styles.form}>
+          <TextCustom
+            text="Email Address"
+            textType="Labels"
+            color={colors.Black}
+          />
+          <CustomTextInput
+            placeholder="Enter your email"
+            height={dimensions.Height / 18}
+            width={dimensions.Width / 1.1}
+            onChangeText={handleTextChange}
+            fieldType="email"
+          />
+          <TextCustom text="Password" textType="Labels" color={colors.Black} />
+          <CustomTextInput
+            placeholder="Enter your password"
+            height={dimensions.Height / 18}
+            width={dimensions.Width / 1.1}
+            onChangeText={handleTextChange}
+            fieldType="password"
+          />
+          <View style={styles.recovery}>
+            <RememberMe text="Remember Me" />
+            <TouchableOpacity>
+              <TextCustom
+                text="Forgot Password?"
+                textType="OnBoardingText"
+                color={colors.Primary}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.button}>
           <CustomButton

@@ -121,7 +121,7 @@ const PurchaseTicket = ({route}) => {
               color={colors.Black}
             />
             <CustomTextInput
-              placeholder="Seccuracy"
+              placeholder="XXX XXX XXXX XXXX"
               height={dimensions.Height / 20}
               width={dimensions.Width / 1.1}
               onChangeText={text =>
@@ -150,9 +150,9 @@ const PurchaseTicket = ({route}) => {
                   height={dimensions.Height / 18}
                   width={dimensions.Width / 2.5}
                   onChangeText={text =>
-                    handleTextChange(text, 'projectName', setFormData)
+                    handleTextChange(text, 'cvv', setFormData)
                   }
-                  fieldType="projectName"
+                  fieldType="cvv"
                 />
               </View>
             </View>

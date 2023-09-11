@@ -172,8 +172,6 @@ const styles = StyleSheet.create({
     width: dimensions.Width / 50,
   },
   progressBar: {
-    height: dimensions.Height / 100,
-    width: dimensions.Height / 100,
     marginTop: dimensions.Height / 30,
   },
   bottomContainer: {
@@ -192,7 +190,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: dimensions.Height / 3,
-    width: dimensions.Height / 2.5,
+    width: dimensions.Width / 1.5,
     resizeMode: 'contain',
   },
 });

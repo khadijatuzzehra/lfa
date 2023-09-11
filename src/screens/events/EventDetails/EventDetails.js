@@ -32,7 +32,7 @@ const EventDetails = ({route}) => {
 
   const displayText = showFullText
     ? event.details
-    : event.details.substring(0, 50);
+    : event.details.substring(0, 200);
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>
@@ -98,6 +98,7 @@ const EventDetails = ({route}) => {
               />
             </View>
           </View>
+
           <TouchableOpacity style={styles.Button}>
             <TextCustom
               text="Add to Calendar"
@@ -171,68 +172,73 @@ const EventDetails = ({route}) => {
             {buttonText}
           </Text>
         </Text>
-
-        <View style={styles.row}>
-          <TextCustom
-            text="Pricing"
-            textType="Headings"
-            color={colors.EventDetails}
-          />
-          <TouchableOpacity
-            style={styles.Button}
-            onPress={() => navigation.navigate('Plans')}>
+        {event.status === 'Paid' && (
+          <View style={styles.row}>
             <TextCustom
-              text="Purchase Ticket"
-              textType="Button"
-              color={colors.Primary}
+              text="Pricing"
+              textType="Headings"
+              color={colors.EventDetails}
             />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.ticketDetails}>
-          <TextCustom
-            text="Standard"
-            textType="Navigation"
-            color={colors.TextEvents}
-          />
-          <View style={styles.line}>
-            <Images.DottedLine />
+            <TouchableOpacity
+              style={styles.Button}
+              onPress={() => navigation.navigate('Plans')}>
+              <TextCustom
+                text="Purchase Ticket"
+                textType="Button"
+                color={colors.Primary}
+              />
+            </TouchableOpacity>
           </View>
-          <TextCustom
-            text={'$' + event.standardTicketPrice}
-            textType="Navigation"
-            color={colors.EventHeading}
-          />
-        </View>
-        <View style={styles.ticketDetails}>
-          <TextCustom
-            text="VIP"
-            textType="Navigation"
-            color={colors.TextEvents}
-          />
-          <View style={styles.line}>
-            <Images.DottedLine />
+        )}
+        {event.status === 'Paid' && (
+          <View>
+            <View style={styles.ticketDetails}>
+              <TextCustom
+                text="Standard"
+                textType="Navigation"
+                color={colors.TextEvents}
+              />
+              <View style={styles.line}>
+                <Images.DottedLine />
+              </View>
+              <TextCustom
+                text={'$' + event.standardTicketPrice}
+                textType="Navigation"
+                color={colors.EventHeading}
+              />
+            </View>
+            <View style={styles.ticketDetails}>
+              <TextCustom
+                text="VIP"
+                textType="Navigation"
+                color={colors.TextEvents}
+              />
+              <View style={styles.line}>
+                <Images.DottedLine />
+              </View>
+              <TextCustom
+                text={'$' + event.vipTicketPrice}
+                textType="Navigation"
+                color={colors.EventHeading}
+              />
+            </View>
+            <View style={styles.ticketDetails}>
+              <TextCustom
+                text="Premium"
+                textType="Navigation"
+                color={colors.TextEvents}
+              />
+              <View style={styles.line}>
+                <Images.DottedLine />
+              </View>
+              <TextCustom
+                text={'$' + event.premiumTicketPrice}
+                textType="Navigation"
+                color={colors.EventHeading}
+              />
+            </View>
           </View>
-          <TextCustom
-            text={'$' + event.vipTicketPrice}
-            textType="Navigation"
-            color={colors.EventHeading}
-          />
-        </View>
-        <View style={styles.ticketDetails}>
-          <TextCustom
-            text="Premium"
-            textType="Navigation"
-            color={colors.TextEvents}
-          />
-          <View style={styles.line}>
-            <Images.DottedLine />
-          </View>
-          <TextCustom
-            text={'$' + event.premiumTicketPrice}
-            textType="Navigation"
-            color={colors.EventHeading}
-          />
-        </View>
+        )}
         <View style={styles.heading}>
           <TextCustom
             text="Contact Info"

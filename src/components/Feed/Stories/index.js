@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    paddingLeft: dimensions.Width / 100,
+    marginLeft: dimensions.Width / 100,
     backgroundColor: colors.White,
   },
   avatar: {

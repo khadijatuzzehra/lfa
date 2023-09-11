@@ -36,19 +36,19 @@ const MyEvents = ({events}) => {
               />
               <View style={styles.rows}>
                 <View style={styles.row}>
-                  <Icon name="location" size={15} color={colors.EventDetails} />
+                  <Icon name="location" size={15} color={colors.EventDate} />
                   <TextCustom
                     text={event.location}
                     textType="EventDetails"
-                    color={colors.EventDetails}
+                    color={colors.EventDate}
                   />
                 </View>
                 <View style={styles.row}>
-                  <Icon name="time" size={15} color={colors.EventDetails} />
+                  <Icon name="time" size={15} color={colors.EventDate} />
                   <TextCustom
                     text={event.time}
                     textType="EventDetails"
-                    color={colors.EventDetails}
+                    color={colors.EventDate}
                   />
                 </View>
               </View>
@@ -69,7 +69,7 @@ const MyEvents = ({events}) => {
 const styles = StyleSheet.create({
   component: {
     height: dimensions.Height / 6.5,
-    width: dimensions.Width / 1.1,
+    width: dimensions.Width / 1.2,
     backgroundColor: colors.White,
     marginHorizontal: 10,
     marginBottom: 20,
@@ -92,21 +92,21 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'flex-start',
     height: dimensions.Height / 7.5,
-    width: dimensions.Width / 3,
+    width: dimensions.Width / 3.5,
     resizeMode: 'cover',
     borderRadius: 20,
   },
   rows: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingLeft: dimensions.Width / 30,
+    paddingLeft: dimensions.Width / 40,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   eventTime: {
-    marginTop: dimensions.Width / 20,
+    marginTop: dimensions.Height / 40,
     paddingLeft: dimensions.Width / 40,
   },
 });

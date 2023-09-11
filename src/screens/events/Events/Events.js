@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.BackgroundColor,
   },
   container: {
-    paddingLeft: dimensions.Width / 70,
-    paddingTop: dimensions.Width / 50,
+    marginLeft: dimensions.Width / 70,
+    marginTop: dimensions.Width / 20,
   },
   header: {
     shadowColor: colors.borderColor,
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: dimensions.Width / 30,
+    marginVertical: dimensions.Width / 20,
   },
 });
 export default Events;

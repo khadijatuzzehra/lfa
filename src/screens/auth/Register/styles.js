@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.White,
   },
   container: {
-    paddingTop: dimensions.Height / 20,
-    paddingHorizontal: dimensions.Width / 100,
+    marginTop: dimensions.Height / 20,
+    marginHorizontal: dimensions.Width / 100,
   },
   header: {
     marginBottom: dimensions.Width / 40,

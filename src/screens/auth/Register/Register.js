@@ -101,6 +101,7 @@ const Register = () => {
             placeholder="Write Your Full Name"
             height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
+            fieldType="name"
             onChangeText={text => handleTextChange(text, 'name')}
           />
           <TextCustom text="Email" textType="Labels" color={colors.Black} />
@@ -108,6 +109,7 @@ const Register = () => {
             placeholder="Enter your email"
             height={dimensions.Height / 18}
             width={dimensions.Width / 1.1}
+            fieldType="email"
             onChangeText={text => handleTextChange(text, 'email')}
           />
           <TextCustom

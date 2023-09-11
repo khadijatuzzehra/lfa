@@ -75,7 +75,7 @@ const textTypeStyles = StyleSheet.create({
   EventDetails: {
     fontFamily: fonts.family.medium,
     fontSize: fonts.size.font10,
-    marginLeft: 2,
+    marginRight: 10,
     marginTop: 2,
     textAlign: 'left',
   },

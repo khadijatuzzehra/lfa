@@ -39,81 +39,91 @@ const ProfileSetup = () => {
   const [selectedInterests, setSelectedInterests] = useState([]);
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <TextCustom
-          text="Profile Setup"
-          textType="Headings"
-          color={colors.Headings}
-        />
-        <TextCustom
-          text="Let us know about you!"
-          textType="InfoText"
-          color={colors.InfoText}
-        />
-      </View>
-      <TextCustom
-        text={
-          'You can also fill out this section later when setting up your profile *'
-        }
-        textType="InfoText"
-        color={colors.InfoText}
-      />
-      <UploadPicture uploadPicture={clickUploadPicture} />
-      <View style={styles.holder}>
-        <TextCustom text="Profession" textType="Labels" color={colors.Black} />
-        <Dropdown
-          height={dimensions.Height / 18}
-          width={dimensions.Width / 1.1}
-          placeholder="Select your Profession"
-          onClick={handleChange}
-          dropdownValues={Data.Profession}
-          title="Select your Profession"
-        />
-      </View>
-      <View style={styles.holder}>
-        <TextCustom
-          text="Highest Level Education"
-          textType="Labels"
-          color={colors.Black}
-        />
-        <Dropdown
-          height={dimensions.Height / 18}
-          width={dimensions.Width / 1.1}
-          placeholder="Select your Education"
-          onClick={handleChange}
-          dropdownValues={Data.Education}
-          title="Select your Education"
-        />
-      </View>
-      <View style={styles.holder}>
-        <View style={styles.row}>
-          <TextCustom text="Interests" textType="Labels" color={colors.Black} />
+      <View style={styles.content}>
+        <View style={styles.header}>
           <TextCustom
-            text="(Select Your Interests)"
+            text="Profile Setup"
+            textType="Headings"
+            color={colors.Headings}
+          />
+          <TextCustom
+            text="Let us know about you!"
             textType="InfoText"
             color={colors.InfoText}
           />
         </View>
-        <ScrollView contentContainerStyle={styles.contentContainer}>
-          {Data.Interests.map(interest => (
-            <Interests
-              key={interest}
-              interest={interest}
-              selectedInterests={selectedInterests}
-              setSelectedInterests={setSelectedInterests}
-            />
-          ))}
-        </ScrollView>
-      </View>
-      <View style={styles.bottom}>
-        <CustomButton
-          text="Next"
-          height={dimensions.Height / 20}
-          width={dimensions.Width / 1.1}
-          backgroundColor={colors.Primary}
-          color={colors.White}
-          onClick={handlePress}
+        <TextCustom
+          text={
+            'You can also fill out this section later when setting up your profile *'
+          }
+          textType="InfoText"
+          color={colors.InfoText}
         />
+        <UploadPicture uploadPicture={clickUploadPicture} />
+        <View style={styles.holder}>
+          <TextCustom
+            text="Profession"
+            textType="Labels"
+            color={colors.Black}
+          />
+          <Dropdown
+            height={dimensions.Height / 18}
+            width={dimensions.Width / 1.1}
+            placeholder="Select your Profession"
+            onClick={handleChange}
+            dropdownValues={Data.Profession}
+            title="Select your Profession"
+          />
+        </View>
+        <View style={styles.holder}>
+          <TextCustom
+            text="Highest Level Education"
+            textType="Labels"
+            color={colors.Black}
+          />
+          <Dropdown
+            height={dimensions.Height / 18}
+            width={dimensions.Width / 1.1}
+            placeholder="Select your Education"
+            onClick={handleChange}
+            dropdownValues={Data.Education}
+            title="Select your Education"
+          />
+        </View>
+        <View style={styles.holder}>
+          <View style={styles.row}>
+            <TextCustom
+              text="Interests"
+              textType="Labels"
+              color={colors.Black}
+            />
+            <TextCustom
+              text="(Select Your Interests)"
+              textType="InfoText"
+              color={colors.InfoText}
+            />
+          </View>
+          <ScrollView contentContainerStyle={styles.contentContainer}>
+            {Data.Interests.map(interest => (
+              <Interests
+                key={interest}
+                interest={interest}
+                selectedInterests={selectedInterests}
+                setSelectedInterests={setSelectedInterests}
+              />
+            ))}
+          </ScrollView>
+        </View>
+        <View style={styles.bottom}>
+          <CustomButton
+            text="Next"
+            height={dimensions.Height / 20}
+            width={dimensions.Width / 1.1}
+            backgroundColor={colors.Primary}
+            color={colors.White}
+            onClick={handlePress}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -125,6 +135,9 @@ const styles = StyleSheet.create({
     paddingTop: dimensions.Height / 20,
     backgroundColor: colors.White,
     paddingHorizontal: dimensions.Width / 100,
+  },
+  content: {
+    marginHorizontal: dimensions.Width / 100,
   },
   header: {
     paddingBottom: dimensions.Height / 100,
@@ -142,7 +155,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginBottom: dimensions.Width / 100,
-    marginLeft: dimensions.Width / 30,
   },
   row: {
     flexDirection: 'row',

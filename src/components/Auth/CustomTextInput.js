@@ -17,8 +17,21 @@ const CustomTextInput = ({
   const [secureText, setSecureText] = useState(fieldType === 'password');
 
   const handleTextChange = inputText => {
-    setText(inputText);
-    onChangeText(inputText, fieldType);
+    if (fieldType === 'cvv' && inputText.length > 3) {
+      setText('');
+    } else {
+      let formattedInput = inputText;
+      if (fieldType === 'cardNumber') {
+        if (formattedInput.length > 3) {
+          formattedInput = formattedInput.replace(
+            /(\d{3})(\d{3})(\d{4})(\d{4}).*/,
+            '$1 $2 $3 $4',
+          );
+        }
+      }
+      setText(formattedInput);
+      onChangeText(formattedInput, fieldType);
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -52,10 +65,21 @@ const CustomTextInput = ({
         multiline={fieldType !== 'password'}
         secureTextEntry={secureText}
         placeholder={placeholder}
-        autoCapitalize="none"
+        autoCapitalize={
+          fieldType === 'email' || fieldType === 'password'
+            ? 'none'
+            : 'sentences'
+        }
         placeholderTextColor={colors.Placeholder}
         onChangeText={handleTextChange}
         value={text}
+        keyboardType={
+          fieldType === 'cardNumber' || fieldType === 'cvv'
+            ? 'phone-pad'
+            : fieldType === 'email'
+            ? 'email-address'
+            : 'default'
+        }
       />
       {renderIcon()}
     </View>

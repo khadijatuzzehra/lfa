@@ -3,6 +3,7 @@ import metrics from './Metrics';
 const size = {
   font6: metrics.screenWidth * (6 / 365),
   font8: metrics.screenWidth * (8 / 365),
+  font9: metrics.screenWidth * (9 / 365),
   font10: metrics.screenWidth * (10 / 365),
   font11: metrics.screenWidth * (11 / 365),
   font12: metrics.screenWidth * (12 / 365),

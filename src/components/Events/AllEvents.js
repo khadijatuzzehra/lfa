@@ -39,19 +39,19 @@ const AllEvents = ({events, onClick}) => {
             </View>
             <View style={styles.rows}>
               <View style={styles.row}>
-                <Icon name="location" size={15} color={colors.borderColor} />
+                <Icon name="location" size={15} color={colors.EventDate} />
                 <TextCustom
                   text={event.location + ' - ' + event.city}
                   textType="EventDetails"
-                  color={colors.borderColor}
+                  color={colors.EventDate}
                 />
               </View>
               <View style={styles.row}>
-                <Icon name="time" size={15} color={colors.borderColor} />
+                <Icon name="time" size={15} color={colors.EventDate} />
                 <TextCustom
                   text={event.time}
                   textType="EventDetails"
-                  color={colors.borderColor}
+                  color={colors.EventDate}
                 />
               </View>
             </View>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
   date: {
     width: 55,
-    height: 60,
+    height: 65,
     paddingTop: 5,
     position: 'absolute',
     top: 30,

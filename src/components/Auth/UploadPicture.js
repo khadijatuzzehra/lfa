@@ -7,7 +7,6 @@ import PictureOptions from '../Shared/PictureOptions';
 import Images from '../../utils/Images';
 import colors from '../../theme/Colors';
 import dimensions from '../../theme/Dimensions';
-import fonts from '../../theme/Fonts';
 
 const UploadPicture = ({uploadPicture}) => {
   const [optionModal, optionModalVisible] = useState(false);
@@ -71,24 +70,15 @@ const styles = StyleSheet.create({
     marginTop: dimensions.Width / 10,
     height: dimensions.Height / 30,
   },
-  buttonUpload: {
-    flexDirection: 'row',
-    paddingTop: dimensions.Width / 100,
-  },
   icon: {
     height: dimensions.Width / 25,
     width: dimensions.Width / 25,
     color: colors.Primary,
   },
   image: {
-    height: dimensions.Width / 4,
+    height: dimensions.Height / 8,
     width: dimensions.Width / 4,
     borderRadius: 100,
-  },
-  btnText: {
-    color: colors.Primary,
-    fontFamily: fonts.family.bold,
-    paddingHorizontal: dimensions.Width / 100,
   },
   badgeContainer: {
     position: 'absolute',

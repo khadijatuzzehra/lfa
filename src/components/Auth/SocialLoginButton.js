@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     borderColor: colors.borderSocialButton,
     borderWidth: 1,
     borderRadius: 4,
-    marginHorizontal: dimensions.Width / 30,
+    marginHorizontal: dimensions.Width / 20,
     marginVertical: dimensions.Width / 30,
   },
   icon: {

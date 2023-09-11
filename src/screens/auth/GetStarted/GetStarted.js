@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   top: {
-    paddingHorizontal: dimensions.Width / 40,
-    paddingTop: dimensions.Height / 20,
+    marginHorizontal: dimensions.Width / 40,
+    marginTop: dimensions.Height / 20,
   },
   buttonContainer: {
-    paddingTop: dimensions.Height / 1.7,
+    marginTop: dimensions.Height / 1.7,
     alignItems: 'center',
   },
   image: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   bottom: {
     flex: 1,
     position: 'absolute',
-    bottom: -5,
+    bottom: 0,
   },
   button: {
     marginBottom: dimensions.Width / 20,

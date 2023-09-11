@@ -25,12 +25,12 @@ const Styles = StyleSheet.create({
   },
   image: {
     width: dimensions.Width,
-    height: dimensions.Width / 2,
+    height: dimensions.Width / 1.1,
   },
   imageContainer: {
     position: 'relative',
     width: dimensions.Width,
-    height: dimensions.Width / 2,
+    height: dimensions.Width / 1.1,
   },
   gradient: {
     position: 'absolute',

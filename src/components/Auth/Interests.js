@@ -28,10 +28,9 @@ const Interest = ({interest, selectedInterests, setSelectedInterests}) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: dimensions.Width / 100,
+    padding: dimensions.Width / 80,
     marginVertical: dimensions.Width / 100,
     marginRight: dimensions.Width / 100,
-    paddingHorizontal: dimensions.Width / 50,
     borderRadius: 20,
     minWidth: dimensions.Width / 6,
   },

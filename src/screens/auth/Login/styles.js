@@ -7,20 +7,24 @@ const styles = StyleSheet.create({
     height: dimensions.Height,
     flex: 1,
     backgroundColor: colors.White,
-    paddingHorizontal: dimensions.Width / 80,
   },
   container: {
     flex: 1,
-    paddingHorizontal: dimensions.Width / 80,
+    marginHorizontal: dimensions.Width / 80,
   },
   header: {
-    paddingTop: dimensions.Height / 20,
-    paddingBottom: dimensions.Height / 10,
+    marginTop: dimensions.Height / 20,
+    marginBottom: dimensions.Height / 10,
+    marginHorizontal: dimensions.Width / 80,
+  },
+  form: {
+    marginHorizontal: dimensions.Width / 80,
   },
   button: {
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: dimensions.Width / 10,
+    marginHorizontal: dimensions.Width / 80,
   },
   socialAuth: {
     flexDirection: 'row',
@@ -30,12 +34,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: dimensions.Height / 50,
+    marginHorizontal: dimensions.Width / 80,
   },
   recovery: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingRight: dimensions.Height / 50,
+    marginRight: dimensions.Height / 50,
     marginBottom: dimensions.Width / 100,
   },
   ActionButtonContainer: {

@@ -4,9 +4,10 @@ import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import Account from '../screens/Account';
-import Dashboard from '../screens/Dashboard';
 import Feed from '../screens/feed/Feed';
+//Boilerplate screens
+import Account from '../screens/Account';
+import Services from '../screens/Services';
 //profile stack
 import Profile from '../screens/profile/Main/Profile';
 import PersonalBio from '../screens/profile/PersonalBio/PersonalBio';
@@ -23,25 +24,15 @@ import Events from '../screens/events/Events/Events';
 import EventDetails from '../screens/events/EventDetails/EventDetails';
 import Plans from '../screens/events/Plans/Plans';
 import PurchaseTicket from '../screens/events/PurchaseTicket/PurchaseTicket';
-
-import Services from '../screens/Services';
 import Colors from '../theme/Colors';
-import dimensions from '../theme/Dimensions';
 import Fonts from '../theme/Fonts';
-
 import Images from '../utils/Images';
-
 const FeedStack = createNativeStackNavigator();
 const FeedStackScreens = () => (
   <FeedStack.Navigator>
     <FeedStack.Screen
       name={'Feed'}
       component={Feed}
-      options={{headerShown: false}}
-    />
-    <FeedStack.Screen
-      name={'Dashboard'}
-      component={Dashboard}
       options={{headerShown: false}}
     />
   </FeedStack.Navigator>
@@ -152,11 +143,6 @@ const ProfileStackScreens = () => (
       component={EditProjects}
       options={{headerShown: false}}
     />
-    <ProfileStack.Screen
-      name={'Dashboard'}
-      component={Dashboard}
-      options={{headerShown: false}}
-    />
   </ProfileStack.Navigator>
 );
 function getTabBarVisibility(route) {
@@ -188,9 +174,9 @@ export default () => {
     <Tabs.Navigator
       screenOptions={({route}) => ({
         tabBarStyle: {
-          height: dimensions.Height / 15,
+          height: 55,
           display: getTabBarVisibility(route),
-          paddingVertical: 10,
+          paddingVertical: 2,
           alignItems: 'center',
         },
         tabBarHideOnKeyboard: true,
