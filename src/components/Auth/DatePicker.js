@@ -42,10 +42,11 @@ const DatePicker = ({placeholder, onSelect}) => {
         }}>
         <View style={styles.modal}>
           <DatePick
-            mode="calendar"
+            mode={placeholder === 'ExpiryDate' ? 'monthYear' : 'calendar'}
             onDateChange={dateSelected => {
               handleDateChange(dateSelected);
             }}
+            onMonthYearChange={dateSelected => handleDateChange(dateSelected)}
             options={{
               textHeaderColor: colors.TurquoiseActionButton,
               textDefaultColor: colors.TurquoiseActionButton,

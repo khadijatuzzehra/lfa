@@ -3,7 +3,7 @@
 import React, {useEffect, useState} from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import Navigator from './src/navigation/Navigator';
-import {ActivityIndicator, SafeAreaView} from 'react-native';
+import {ActivityIndicator, SafeAreaView, View} from 'react-native';
 import AuthNavigator from './src/navigation/AuthNavigator';
 import {useDispatch, useSelector} from 'react-redux';
 import {LOGIN_SUCCESS} from './src/store/ActionTypes';
@@ -20,7 +20,9 @@ const MainContainer = () => {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
+      // background: 'red',
     },
+    flex: 1,
   };
 
   useEffect(() => {
@@ -48,9 +50,11 @@ const MainContainer = () => {
     );
   }
   return (
-    <NavigationContainer theme={MyTheme}>
-      {user ? <Navigator /> : <AuthNavigator />}
-    </NavigationContainer>
+    <View style={{flex: 1}}>
+      <NavigationContainer theme={MyTheme}>
+        {user ? <Navigator /> : <AuthNavigator />}
+      </NavigationContainer>
+    </View>
   );
 };
 

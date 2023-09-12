@@ -39,19 +39,19 @@ const AllEvents = ({events, onClick}) => {
             </View>
             <View style={styles.rows}>
               <View style={styles.row}>
-                <Icon name="location" size={15} color={colors.EventDate} />
+                <Icon name="location" size={15} color={colors.EventsGray} />
                 <TextCustom
                   text={event.location + ' - ' + event.city}
                   textType="EventDetails"
-                  color={colors.EventDate}
+                  color={colors.EventsGray}
                 />
               </View>
               <View style={styles.row}>
-                <Icon name="time" size={15} color={colors.EventDate} />
+                <Icon name="time" size={15} color={colors.EventsGray} />
                 <TextCustom
                   text={event.time}
                   textType="EventDetails"
-                  color={colors.EventDate}
+                  color={colors.EventsGray}
                 />
               </View>
             </View>

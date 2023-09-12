@@ -45,7 +45,7 @@ const textTypeStyles = StyleSheet.create({
   },
   TicketStatus: {
     fontFamily: fonts.family.regular,
-    fontSize: fonts.size.font12,
+    fontSize: fonts.size.font11,
   },
   OnBoardingText: {
     fontFamily: fonts.family.regular,
