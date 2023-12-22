@@ -11,7 +11,6 @@ const HTAccountCard = ({
   backgroundColor = Colors.DialogColor,
   color = Colors.Black,
 }) => {
-  console.log(data);
   const background = {
     backgroundColor: backgroundColor,
   };

@@ -1,15 +1,21 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React from 'react';
-import {StyleSheet, Image, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Image, View, TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {LOGOUT} from '../../../store/actions/ActionTypes';
-import {HTWrapper, HTAccountCard} from '../../../components';
+import {HTWrapper, HTAccountCard, HTPictureOption} from '../../../components';
 import {Images} from '../../../utils/media';
 import {GlobalStyles, Data, Dimensions} from '../../../utils/constants';
 import {Colors} from '../../../theme';
+import {
+  uploadFromCamera,
+  selectFromGallery,
+} from '../../../services/media_upload';
 
 const Account = () => {
   const dispatch = useDispatch();
+  const [pictureModal, setPictureModal] = useState(false);
+
   const handleNavigation = navigate => {
     console.log(navigate);
     if (navigate !== false) {
@@ -17,6 +23,16 @@ const Account = () => {
         dispatch({type: LOGOUT, payload: null});
       });
     }
+  };
+  const handlePictureUpload = async pictureOption => {
+    let picture = '';
+    setPictureModal(false);
+    if (pictureOption === 'Camera') {
+      picture = await uploadFromCamera();
+    } else {
+      picture = await selectFromGallery();
+    }
+    console.log(picture);
   };
 
   return (
@@ -26,6 +42,14 @@ const Account = () => {
           source={Images.appImages.User}
           style={[GlobalStyles.roundMedium, styles.image]}
         />
+        <TouchableOpacity
+          style={styles.editButton}
+          onPress={() => setPictureModal(true)}>
+          <Image
+            source={Images.appImages.Edit}
+            style={[GlobalStyles.roundIcon]}
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.card}>
         <HTAccountCard
@@ -35,6 +59,11 @@ const Account = () => {
           color={Colors.Primary}
         />
       </View>
+      <HTPictureOption
+        isVisible={pictureModal}
+        onCancel={() => setPictureModal(false)}
+        onSelect={handlePictureUpload}
+      />
     </HTWrapper>
   );
 };
@@ -50,5 +79,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderColor: Colors.LightPrimary,
     borderWidth: 5,
+  },
+  editButton: {
+    position: 'absolute',
+    right: 140,
+    bottom: 10,
   },
 });

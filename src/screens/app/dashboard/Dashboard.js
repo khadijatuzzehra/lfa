@@ -7,7 +7,7 @@ import {
   HTButton,
   HTText,
   HTDropdown,
-  HTPictureOption,
+  HTBottomSheet,
 } from '../../../components';
 import {Images} from '../../../utils/media';
 import {useNavigation} from '@react-navigation/native';
@@ -15,10 +15,6 @@ import {Colors} from '../../../theme';
 import {getDeviceInformation} from '../../../services/notifications/FirebaseNotifications';
 import messaging from '@react-native-firebase/messaging';
 import {PERMISSIONS, request} from 'react-native-permissions';
-import {
-  selectFromGallery,
-  uploadFromCamera,
-} from '../../../services/media_upload';
 LogBox.ignoreAllLogs();
 console.warn = () => {};
 
@@ -82,34 +78,15 @@ const Dashboard = () => {
     setVisible(false);
   };
   const societiesFilter = ['All', 'Joined', 'Not Joined'];
-  const handlePictureUpload = async pictureOption => {
-    let picture = '';
-    setPictureModal(false);
-    if (pictureOption === 'Camera') {
-      picture = await uploadFromCamera();
-    } else {
-      picture = await selectFromGallery();
-    }
-    console.log(picture);
-  };
 
   return (
     <HTWrapper translucent={false}>
       <Image source={Images.appImages.User} style={[GlobalStyles.roundLarge]} />
       <HTText text="Dashboard" />
-      {/* <HTButton
-        onClick={() => setVisible(true)}
-        buttonType="border"
-        text="Show Alert"
-        borderColor={Colors.Primary}
-        textColor={Colors.Primary}
-        bold
-        style={styles.gap}
-      /> */}
       <HTButton
         onClick={() => setPictureModal(true)}
         buttonType="fill"
-        text="Upload Picture"
+        text="Show Bottom Sheet"
         backgroundColor={Colors.Primary}
         textColor={Colors.White}
         bold
@@ -140,16 +117,11 @@ const Dashboard = () => {
         onCancel={onCancel}
         button={'Thanks'}
       />
-      <HTPictureOption
-        isVisible={pictureModal}
-        onCancel={() => setPictureModal(false)}
-        onSelect={handlePictureUpload}
-      />
-      {/* <HTBottomSheet
+      <HTBottomSheet
         isVisible={pictureModal}
         onCancel={() => setPictureModal(false)}
         backgroundColor={Colors.White}
-      /> */}
+      />
     </HTWrapper>
   );
 };

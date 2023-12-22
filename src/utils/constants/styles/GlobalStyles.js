@@ -68,6 +68,11 @@ const GlobalStyles = StyleSheet.create({
     width: Dimensions.Height * 0.08,
     borderRadius: Dimensions.Height * 0.08,
   },
+  roundIcon: {
+    height: Dimensions.Height * 0.04,
+    width: Dimensions.Height * 0.04,
+    borderRadius: Dimensions.Height * 0.03,
+  },
   //Rectangular Container
 
   rectangleLarge: {
