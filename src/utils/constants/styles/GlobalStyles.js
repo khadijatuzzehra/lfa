@@ -74,7 +74,6 @@ const GlobalStyles = StyleSheet.create({
     borderRadius: Dimensions.Height * 0.03,
   },
   //Rectangular Container
-
   rectangleLarge: {
     height: Dimensions.Height * 0.2,
     width: Dimensions.Width * 0.9,
@@ -83,7 +82,6 @@ const GlobalStyles = StyleSheet.create({
     height: Dimensions.Height * 0.18,
     width: Dimensions.Width * 0.7,
   },
-
   rectangleSmall: {
     height: Dimensions.Height * 0.1,
     width: Dimensions.Width * 0.4,
@@ -154,7 +152,6 @@ const GlobalStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-
   imageContain: {
     resizeMode: 'contain',
   },
