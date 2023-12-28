@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: Dimensions.Width * 0.9,
     margin: 8,
-    borderBottomColor: Colors.LightAccent,
+    borderBottomColor: Colors.SoftMint,
     borderBottomWidth: 1,
   },
   activeItem: {

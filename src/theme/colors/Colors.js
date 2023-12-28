@@ -3,9 +3,8 @@ const Primary = '#6358B2';
 const LightPrimary = '#8279C8';
 const Secondary = '#59C3C3';
 const LightSecondary = '#7ADBDB';
-const Accent = '#CAD2C5';
-const LightAccent = '#DDE4D8';
 //Used for Dialog Components
+const SoftMint = '#DDE4D8';
 const DialogColor = '#ffffff';
 //Descriptive
 const SuccessColor = '#64CC62';
@@ -32,8 +31,7 @@ export default {
   LightPrimary,
   Secondary,
   LightSecondary,
-  Accent,
-  LightAccent,
+  SoftMint,
   DialogColor,
   BackgroundColor,
   White,
