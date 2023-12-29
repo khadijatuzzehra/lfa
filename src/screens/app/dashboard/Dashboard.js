@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, StyleSheet, Image, LogBox} from 'react-native';
+import {Platform, StyleSheet, Image, LogBox, View} from 'react-native';
 import GlobalStyles from '../../../utils/constants/styles/GlobalStyles';
 import {
   HTWrapper,
@@ -81,47 +81,52 @@ const Dashboard = () => {
 
   return (
     <HTWrapper translucent={false}>
-      <Image source={Images.appImages.User} style={[GlobalStyles.roundLarge]} />
-      <HTText text="Dashboard" />
-      <HTButton
-        onClick={() => setPictureModal(true)}
-        buttonType="fill"
-        text="Show Bottom Sheet"
-        backgroundColor={Colors.Primary}
-        textColor={Colors.White}
-        bold
-        style={styles.gap}
-      />
-      <HTButton
-        onClick={() => setDropdownOpen(true)}
-        buttonType="border"
-        text={selectedOption}
-        textColor={Colors.Primary}
-        bold
-        style={styles.gap}
-      />
-      <HTDropdown
-        heading={'Please select an option'}
-        items={societiesFilter}
-        selectedValue={selectedOption}
-        onSelect={handleSelect}
-        open={dropdownOpen}
-        onCancel={() => setDropdownOpen(false)}
-      />
-      <HTAlertWithIcon
-        heading={alertTitle}
-        isVisible={visible}
-        description={alertDescription}
-        iconName="checkmark-done-outline"
-        iconColor={Colors.Primary}
-        onCancel={onCancel}
-        button={'Thanks'}
-      />
-      <HTBottomSheet
-        isVisible={pictureModal}
-        onCancel={() => setPictureModal(false)}
-        backgroundColor={Colors.White}
-      />
+      <View style={GlobalStyles.contentCenter}>
+        <Image
+          source={Images.appImages.User}
+          style={[GlobalStyles.roundLarge]}
+        />
+        <HTText text="Dashboard" />
+        <HTButton
+          onClick={() => setPictureModal(true)}
+          buttonType="fill"
+          text="Show Bottom Sheet"
+          backgroundColor={Colors.Primary}
+          textColor={Colors.White}
+          bold
+          style={styles.gap}
+        />
+        <HTButton
+          onClick={() => setDropdownOpen(true)}
+          buttonType="border"
+          text={selectedOption}
+          textColor={Colors.Primary}
+          bold
+          style={styles.gap}
+        />
+        <HTDropdown
+          heading={'Please select an option'}
+          items={societiesFilter}
+          selectedValue={selectedOption}
+          onSelect={handleSelect}
+          open={dropdownOpen}
+          onCancel={() => setDropdownOpen(false)}
+        />
+        <HTAlertWithIcon
+          heading={alertTitle}
+          isVisible={visible}
+          description={alertDescription}
+          iconName="checkmark-done-outline"
+          iconColor={Colors.Primary}
+          onCancel={onCancel}
+          button={'Thanks'}
+        />
+        <HTBottomSheet
+          isVisible={pictureModal}
+          onCancel={() => setPictureModal(false)}
+          backgroundColor={Colors.White}
+        />
+      </View>
     </HTWrapper>
   );
 };

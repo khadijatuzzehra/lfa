@@ -165,5 +165,9 @@ const GlobalStyles = StyleSheet.create({
     borderRadius: 8,
     alignSelf: 'center',
   },
+  contentCenter: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 export default GlobalStyles;
