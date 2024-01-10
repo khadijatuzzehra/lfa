@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {Colors} from '../../../theme';
+import { responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 10,
+    borderRadius: 15,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -11,6 +12,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
+    fontSize:responsiveFontSize(1)
   },
 });
 

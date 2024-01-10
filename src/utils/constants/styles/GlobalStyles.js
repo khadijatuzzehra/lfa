@@ -1,6 +1,7 @@
 import {StyleSheet, StatusBar} from 'react-native';
 import Dimensions from '../dimensions/Dimensions';
 import {Colors} from '../../../theme';
+import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 const GlobalStyles = StyleSheet.create({
   //Adjust content according to card size large with image
@@ -112,42 +113,42 @@ const GlobalStyles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 3,
     },
-    shadowOpacity: 0.23,
+    shadowOpacity: 1,
     shadowRadius: 2.62,
 
-    elevation: 4,
+    elevation: 5,
   },
   //Spacer
   marginLarge: {margin: 20},
   marginMedium: {margin: 10},
   marginSmall: {margin: 5},
   marginVerticalExtraLarge: {marginVertical: Dimensions.Height * 0.05},
-  marginVerticalLarge: {marginVertical: 20},
-  marginVerticalMedium: {marginVertical: 10},
-  marginVerticalSmall: {marginVertical: 5},
-  marginVerticalExtraSmall: {marginVertical: 2},
-  marginHorizontalLarge: {marginHorizontal: 20},
-  marginHorizontalMedium: {marginHorizontal: 10},
-  marginHorizontalSmall: {marginHorizontal: 5},
-  marginHorizontalExtraSmall: {marginHorizontal: 2},
-  marginLeftLarge: {marginLeft: 20},
-  marginLeftMedium: {marginLeft: 10},
-  marginLeftSmall: {marginLeft: 5},
-  marginLeftExtraSmall: {marginLeft: 2},
-  marginRightLarge: {marginRight: 20},
-  marginRightMedium: {marginRight: 10},
-  marginRightSmall: {marginRight: 5},
-  marginRightExtraSmall: {marginRight: 2},
-  marginTopLarge: {marginTop: 20},
-  marginTopMedium: {marginTop: 10},
-  marginTopSmall: {marginTop: 5},
-  marginTopExtraSmall: {marginTop: 2},
-  marginBottomLarge: {marginBottom: 20},
-  marginBottomMedium: {marginBottom: 10},
-  marginBottomSmall: {marginBottom: 5},
-  marginBottomExtraSmall: {marginBottom: 2},
+  marginVerticalLarge: {marginVertical: responsiveHeight(2.5)},
+  marginVerticalMedium: {marginVertical: responsiveHeight(1.2)},
+  marginVerticalSmall: {marginVertical: responsiveHeight(1)},
+  marginVerticalExtraSmall: {marginVertical: responsiveHeight(.5)},
+  marginHorizontalLarge: {marginHorizontal: responsiveWidth(2.5)},
+  marginHorizontalMedium: {marginHorizontal: responsiveWidth(1.5)},
+  marginHorizontalSmall: {marginHorizontal: responsiveWidth(1.5)},
+  marginHorizontalExtraSmall: {marginHorizontal: responsiveWidth(.5)},
+  marginLeftLarge: {marginLeft: responsiveWidth(.5)},
+  marginLeftMedium: {marginLeft: responsiveWidth(1.5)},
+  marginLeftSmall: {marginLeft: responsiveWidth(.4)},
+  marginLeftExtraSmall: {marginLeft: responsiveWidth(.2)},
+  marginRightLarge: {marginRight: responsiveWidth(2.5)},
+  marginRightMedium: {marginRight: responsiveWidth(1.5)},
+  marginRightSmall: {marginRight: responsiveWidth(.3)},
+  marginRightExtraSmall: {marginRight: responsiveWidth(.5)},
+  marginTopLarge: {marginTop: responsiveHeight(2.5)},
+  marginTopMedium: {marginTop: responsiveHeight(1.5)},
+  marginTopSmall: {marginTop: responsiveHeight(.5)},
+  marginTopExtraSmall: {marginTop: responsiveHeight(.3)},
+  marginBottomLarge: {marginBottom: responsiveHeight(2.5)},
+  marginBottomMedium: {marginBottom: responsiveHeight(1.5)},
+  marginBottomSmall: {marginBottom: responsiveHeight(.3)},
+  marginBottomExtraSmall: {marginBottom: responsiveHeight(.3)},
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -166,8 +167,9 @@ const GlobalStyles = StyleSheet.create({
     alignSelf: 'center',
   },
   contentCenter: {
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'#FFFFFF',
   },
 });
 export default GlobalStyles;

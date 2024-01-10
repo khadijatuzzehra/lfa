@@ -21,6 +21,7 @@ const HTAccountCard = ({
         styles.list,
         background,
         GlobalStyles.shadow,
+        
         GlobalStyles.marginHorizontalLarge,
       ]}
       data={data}

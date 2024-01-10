@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {Fonts} from '../../../theme';
+import { responsiveWidth } from 'react-native-responsive-dimensions';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 2,
   },
   icon: {
-    marginHorizontal: 10,
+    marginHorizontal: responsiveWidth(3.44),
   },
 });
 export default styles;

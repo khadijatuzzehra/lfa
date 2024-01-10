@@ -6,6 +6,7 @@ import {Colors, Fonts} from '../../../theme';
 import {HTText, HTButton} from '../../../components';
 import {Images} from '../../../utils/media';
 import Dimensions from '../../../utils/constants/dimensions/Dimensions';
+import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 const HTCardWithImage = ({
   cardSize,
@@ -31,10 +32,11 @@ const HTCardWithImage = ({
   return (
     <View
       style={[
-        cardSize === 'large'
-          ? GlobalStyles.roundedRectangleLarge
-          : GlobalStyles.roundedRectangleMedium,
+        // cardSize === 'large'
+        //   ? GlobalStyles.roundedRectangleLarge
+        //   : GlobalStyles.roundedRectangleMedium,
         GlobalStyles.shadow,
+        GlobalStyles.roundedRectangleLarge,
         styles.container,
         containerStyle,
       ]}>
@@ -42,6 +44,7 @@ const HTCardWithImage = ({
         <Image
           source={imageSource}
           style={[
+            GlobalStyles.shadow,
             cardSize === 'large'
               ? GlobalStyles.roundedSquareMedium
               : GlobalStyles.roundedSquareSmall,
@@ -52,9 +55,9 @@ const HTCardWithImage = ({
       <View
         style={[
           styles.content,
-          cardSize === 'large'
-            ? GlobalStyles.contentLarge
-            : GlobalStyles.squareMedium,
+          // cardSize === 'large'
+          //   ? GlobalStyles.contentLarge
+          //   : GlobalStyles.squareMedium,
         ]}>
         <HTText
           text={title}
@@ -118,12 +121,16 @@ const HTCardWithImage = ({
 };
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: 'column',
     alignItems: 'center',
+    height:responsiveHeight(23),
+    backgroundColor:'red'
   },
   image: {
-    resizeMode: 'cover',
+    width:responsiveWidth(53.87),
+    height:responsiveHeight(14.68),
+    borderRadius:responsiveHeight(2),
+    // resizeMode: 'contain',
   },
   content: {
     justifyContent: 'center',
