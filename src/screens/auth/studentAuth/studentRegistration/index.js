@@ -1,11 +1,5 @@
-import React, {useState} from 'react';
-import {
-  HTButton,
-  HTButtonWithIcon,
-  HTInput,
-  HTText,
-  HTWrapper,
-} from '../../../../components';
+import React from 'react';
+import {HTButton, HTInput, HTText, HTWrapper} from '../../../../components';
 import {Image, TouchableOpacity, View} from 'react-native';
 import {Dimensions, GlobalStyles} from '../../../../utils/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,12 +7,9 @@ import {useDispatch} from 'react-redux';
 import {LOGIN_SUCCESS} from '../../../../store/actions/ActionTypes';
 import {Images} from '../../../../utils/media';
 import {Styles} from './style';
-import {CheckBox} from '@rneui/themed';
 import {Fonts, Colors} from '../../../../theme';
 
-const InstructorSignIn = ({navigation}) => {
-  const [checked, setChecked] = useState(true);
-  const toggleCheckbox = () => setChecked(!checked);
+const StudentRegistration = ({navigation}) => {
   const dispatch = useDispatch();
   const handleLogin = () => {
     let info = {name: 'John', email: 'john@example.com'};
@@ -35,20 +26,20 @@ const InstructorSignIn = ({navigation}) => {
         <Image source={Images.appImages.logo} style={Styles.logostyle} />
         <HTText
           size={Fonts.size.font14}
-          text="Instructor"
+          text="Student"
           bold
           textColor={Colors.titleTextColor}
         />
         <View style={Styles.ContentView}>
           <HTText
             size={Fonts.size.font15}
-            text="Sign in!"
+            text="Sign up!"
             bold
             textColor={Colors.ContinueAsTextColor}
           />
           <HTText
             size={Fonts.size.font11}
-            text="Elevate your teaching experience at Charter Center! "
+            text="Seamlessly access a world of knowledge at Charter Center. "
             textColor={Colors.ContinueAsTextColor}
             styles={GlobalStyles.marginTopSmall}
           />
@@ -82,31 +73,11 @@ const InstructorSignIn = ({navigation}) => {
             styles={[GlobalStyles.marginBottomMedium, Styles.inputField]}
             onChangeText={() => handleChange()}
           />
-          <View style={Styles.rememberView}>
-            <View style={Styles.checkBoxView}>
-              <CheckBox
-                checked={checked}
-                onPress={toggleCheckbox}
-                iconType="material-community"
-                checkedIcon="checkbox-outline"
-                uncheckedIcon={'checkbox-blank-outline'}
-                checkedColor="#519041"
-                uncheckedColor="#519041"
-                title={'Remember me'}
-              />
-            </View>
-            <HTText
-              text={'Forgot Password'}
-              size={Fonts.size.font12}
-              textColor={Colors.Primary}
-            />
-          </View>
         </View>
-
         <View style={Styles.btnView}>
           <HTButton
-            onClick={() => navigation.navigate('InstructorSignIn')}
-            text={'Sign In'}
+            onClick={() => navigation.navigate('ProfileComplete')}
+            text={'Continue'}
             textSize={12}
             textColor={Colors.TextColor}
             style={[GlobalStyles.marginVerticalLarge]}
@@ -114,37 +85,21 @@ const InstructorSignIn = ({navigation}) => {
             width={Dimensions.Width * 0.52}
             backgroundColor={Colors.buttonColor}
           />
-          <HTText
-            size={Fonts.size.font12}
-            bold
-            text="Or Continue as"
-            textColor={Colors.ContinueAsTextColor}
-          />
-          <HTButton
-            onClick={() => navigation.navigate('StudentSignIn')}
-            text={'Student'}
-            textSize={12}
-            textColor={Colors.TextColor}
-            style={Styles.btn}
-            height={Dimensions.Height * 0.043}
-            width={Dimensions.Width * 0.52}
-            backgroundColor={Colors.ButtonColor}
-          />
         </View>
       </View>
       <TouchableOpacity
         style={Styles.bottomView}
-        onPress={() => navigation.navigate('InstructorRegistration')}>
-        <HTText size={Fonts.size.font12} text={'Don’t have an account?'} />
+        onPress={() => navigation.navigate('StudentSignIn')}>
+        <HTText size={Fonts.size.font12} text={'Already have an account?'} />
         <HTText
           size={Fonts.size.font12}
           textColor={Colors.Blue}
           bold
-          text={' Sign up'}
+          text={' Sign in'}
         />
       </TouchableOpacity>
     </HTWrapper>
   );
 };
 
-export default InstructorSignIn;
+export default StudentRegistration;

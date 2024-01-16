@@ -3,9 +3,12 @@ import HTWrapper from './wrapper';
 //Buttons
 import HTButton from './buttons/HTButton';
 import HTButtonWithIcon from './buttons/HTButtonWithIcon';
+import HTBackButton from './buttons/HTBackButton';
 //Form elements
 import HTInput from './form_elements/HTInput';
+import HTPhoneInput from './form_elements/HTPhoneInput';
 import HTDropdown from './form_elements/HTDropdown';
+import HTDatePicker from './form_elements/HTDatePicker';
 //Text
 import HTText from './text/HTText';
 //Dialogs
@@ -26,8 +29,11 @@ export {
   HTWrapper,
   HTButton,
   HTButtonWithIcon,
+  HTBackButton,
   HTInput,
+  HTPhoneInput,
   HTDropdown,
+  HTDatePicker,
   HTText,
   HTLoader,
   HTAlert,

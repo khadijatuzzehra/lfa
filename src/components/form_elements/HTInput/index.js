@@ -57,7 +57,6 @@ const HTInput = ({
     borderColor: backgroundColor ? backgroundColor : Colors.Primary,
   };
   const inputStyle = {
-    height: height * 0.85,
     width: width * 0.85,
     color: textColor,
   };

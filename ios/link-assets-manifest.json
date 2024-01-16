@@ -2,24 +2,20 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/theme/fonts/Fonts.js",
-      "sha1": "a339908f7f0441940e32666e95ed7162cb3df681"
+      "path": "src/theme/fonts/Poppins-Bold.ttf",
+      "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
     },
     {
-      "path": "src/theme/fonts/Montserrat-Bold.ttf",
-      "sha1": "04052dc3b846609216de1e0cbcec337c6b6e74f6"
+      "path": "src/theme/fonts/Poppins-Italic.ttf",
+      "sha1": "e2bfcd56016c3c915221ef1c5fc1a17b0776eb91"
     },
     {
-      "path": "src/theme/fonts/Montserrat-Italic.ttf",
-      "sha1": "4ee8f07c7414009645d03d87cd72df15658fe9f4"
+      "path": "src/theme/fonts/Poppins-Regular.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
     },
     {
-      "path": "src/theme/fonts/Montserrat-Regular.ttf",
-      "sha1": "de57aa03e4821fdbe6c34ec2c895e8b5c914e837"
-    },
-    {
-      "path": "src/theme/fonts/Montserrat-SemiBold.ttf",
-      "sha1": "8580dec824bbdb6ce24d04d3aaf360776339f0a7"
+      "path": "src/theme/fonts/Poppins-SemiBold.ttf",
+      "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
     }
   ]
 }

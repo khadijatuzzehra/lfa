@@ -1,7 +1,10 @@
 import {StyleSheet, StatusBar} from 'react-native';
 import Dimensions from '../dimensions/Dimensions';
 import {Colors} from '../../../theme';
-import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
 
 const GlobalStyles = StyleSheet.create({
   //Adjust content according to card size large with image
@@ -55,9 +58,9 @@ const GlobalStyles = StyleSheet.create({
     borderRadius: Dimensions.Height * 0.3,
   },
   roundMedium: {
-    height: Dimensions.Height * 0.2,
-    width: Dimensions.Height * 0.2,
-    borderRadius: Dimensions.Height * 0.2,
+    height: Dimensions.Height * 0.18,
+    width: Dimensions.Height * 0.18,
+    borderRadius: Dimensions.Height * 0.18,
   },
   roundSmall: {
     height: Dimensions.Height * 0.1,
@@ -128,27 +131,27 @@ const GlobalStyles = StyleSheet.create({
   marginVerticalLarge: {marginVertical: responsiveHeight(2.5)},
   marginVerticalMedium: {marginVertical: responsiveHeight(1.2)},
   marginVerticalSmall: {marginVertical: responsiveHeight(1)},
-  marginVerticalExtraSmall: {marginVertical: responsiveHeight(.5)},
+  marginVerticalExtraSmall: {marginVertical: responsiveHeight(0.5)},
   marginHorizontalLarge: {marginHorizontal: responsiveWidth(2.5)},
   marginHorizontalMedium: {marginHorizontal: responsiveWidth(1.5)},
   marginHorizontalSmall: {marginHorizontal: responsiveWidth(1.5)},
-  marginHorizontalExtraSmall: {marginHorizontal: responsiveWidth(.5)},
-  marginLeftLarge: {marginLeft: responsiveWidth(.5)},
+  marginHorizontalExtraSmall: {marginHorizontal: responsiveWidth(0.5)},
+  marginLeftLarge: {marginLeft: responsiveWidth(0.5)},
   marginLeftMedium: {marginLeft: responsiveWidth(1.5)},
-  marginLeftSmall: {marginLeft: responsiveWidth(.4)},
-  marginLeftExtraSmall: {marginLeft: responsiveWidth(.2)},
+  marginLeftSmall: {marginLeft: responsiveWidth(0.4)},
+  marginLeftExtraSmall: {marginLeft: responsiveWidth(0.2)},
   marginRightLarge: {marginRight: responsiveWidth(2.5)},
   marginRightMedium: {marginRight: responsiveWidth(1.5)},
-  marginRightSmall: {marginRight: responsiveWidth(.3)},
-  marginRightExtraSmall: {marginRight: responsiveWidth(.5)},
+  marginRightSmall: {marginRight: responsiveWidth(0.3)},
+  marginRightExtraSmall: {marginRight: responsiveWidth(0.5)},
   marginTopLarge: {marginTop: responsiveHeight(2.5)},
   marginTopMedium: {marginTop: responsiveHeight(1.5)},
-  marginTopSmall: {marginTop: responsiveHeight(.5)},
-  marginTopExtraSmall: {marginTop: responsiveHeight(.3)},
+  marginTopSmall: {marginTop: responsiveHeight(0.5)},
+  marginTopExtraSmall: {marginTop: responsiveHeight(0.3)},
   marginBottomLarge: {marginBottom: responsiveHeight(2.5)},
   marginBottomMedium: {marginBottom: responsiveHeight(1.5)},
-  marginBottomSmall: {marginBottom: responsiveHeight(.3)},
-  marginBottomExtraSmall: {marginBottom: responsiveHeight(.3)},
+  marginBottomSmall: {marginBottom: responsiveHeight(0.3)},
+  marginBottomExtraSmall: {marginBottom: responsiveHeight(0.3)},
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -169,7 +172,10 @@ const GlobalStyles = StyleSheet.create({
   contentCenter: {
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#FFFFFF',
+    backgroundColor: '#FFFFFF',
+  },
+  textAlignLeft: {
+    alignSelf: 'flex-start',
   },
 });
 export default GlobalStyles;

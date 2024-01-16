@@ -25,10 +25,10 @@ const size = {
 };
 
 const family = {
-  bold: 'Montserrat-Bold',
-  semiBold: 'Montserrat-SemiBold',
-  regular: 'Montserrat-Regular',
-  italic: 'Montserrat-Italic',
+  bold: 'Poppins-Bold',
+  semiBold: 'Poppins-SemiBold',
+  regular: 'Poppins-Regular',
+  italic: 'Poppins-Italic',
 };
 
 export default {

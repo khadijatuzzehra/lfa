@@ -20,23 +20,23 @@ const Container = () => {
   };
 
   useEffect(() => {
-    // AsyncStorage.getItem('userInfo').then(userInfo => {
-    //   if (userInfo != null) {
-    //     dispatch({type: LOGIN_SUCCESS, payload: JSON.parse(userInfo)});
-    //   }
+    AsyncStorage.getItem('userInfo').then(userInfo => {
+      if (userInfo != null) {
+        dispatch({type: LOGIN_SUCCESS, payload: JSON.parse(userInfo)});
+      }
       setTimeout(() => {
         setLoading(false);
       }, 2000);
     });
-  //   return () => {};
-  // }, [dispatch]);
+    return () => {};
+  }, [dispatch]);
 
   if (loading) {
     return <HTLoader />;
   }
   return (
     <NavigationContainer theme={MyTheme}>
-      {!user ? <Navigator /> : <AuthNavigator />}
+      {user ? <Navigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

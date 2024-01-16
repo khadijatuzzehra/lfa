@@ -4,70 +4,53 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Feather from 'react-native-vector-icons/Feather';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
+import Account from '../screens/app/account/Account';
+import Dashboard from '../screens/app/dashboard/Dashboard';
+import Services from '../screens/app/services/Services';
 import Colors from '../theme/colors/Colors';
-import Dashboard from '../screens/app/guestSection/home';
 import Notification from '../screens/app/guestSection/blog';
-import Profile from '../screens/app/guestSection/profile';
-import Instructor from '../screens/app/guestSection/instructor';
-import Home from '../screens/app/guestSection/home';
-import Blog from '../screens/app/guestSection/blog';
-// import Account from '../screens/app/guestSection/account';
 
 const DashboardStack = createNativeStackNavigator();
-const HomeStackScreens = () => (
-  <HomeStack.Navigator>
-    <HomeStack.Screen
-      name={'Home'}
-      component={Home}
+const DashboardStackScreens = () => (
+  <DashboardStack.Navigator>
+    <DashboardStack.Screen
+      name={'Dashboard'}
+      component={Dashboard}
       options={{headerShown: false}}
     />
-  </HomeStack.Navigator>
+  </DashboardStack.Navigator>
 );
 
-const InstructorStack = createNativeStackNavigator();
-const InstructorStackScreens = () => (
-  <InstructorStack.Navigator>
-    <InstructorStack.Screen
-      name={'Instructor'}
-      component={Instructor}
+const AccountStack = createNativeStackNavigator();
+const AccountStackScreens = () => (
+  <AccountStack.Navigator>
+    <AccountStack.Screen
+      name={'Account'}
+      component={Account}
       options={{
         headerShown: false,
       }}
     />
-  </InstructorStack.Navigator>
+  </AccountStack.Navigator>
 );
 
-const BlogStack = createNativeStackNavigator();
-const BlogStackScreen = () => (
-  <BlogStack.Navigator>
-    <BlogStack.Screen
-      name={'Blog'}
-      component={Blog}
+const ServicesStack = createNativeStackNavigator();
+const ServicesStackScreens = () => (
+  <ServicesStack.Navigator>
+    <ServicesStack.Screen
+      name={'Services'}
+      component={Services}
       options={{
         headerShown: false,
       }}
     />
-  </BlogStack.Navigator>
+  </ServicesStack.Navigator>
 );
-
-const ProfileStack = createNativeStackNavigator();
-const ProfileStackScreens = () => (
-  <ProfileStack.Navigator>
-    <ProfileStack.Screen
-      name={'Profile'}
-      component={Profile}
-      options={{
-        headerShown: false,
-      }}
-    />
-  </ProfileStack.Navigator>
-);
-
 
 function getTabBarVisibility(route) {
   const routeName = getFocusedRouteNameFromRoute(route);
 
-  if (routeName === 'Dashboard' || routeName === 'Dashboard') {
+  if (routeName === 'Announcements' || routeName === 'Announcement') {
     return 'none';
   }
 
@@ -79,25 +62,24 @@ export default () => {
   return (
     <Tabs.Navigator
       screenOptions={({route}) => ({
-        tabBarStyle: {display: getTabBarVisibility(route),backgroundColor:'#233465'},
-        tabBarActiveTintColor: '#FFFFFF',
-        tabBarInactiveTintColor: 'lightgray',
+        tabBarStyle: {display: getTabBarVisibility(route)},
+        tabBarActiveTintColor: Colors.Primary,
+        tabBarInactiveTintColor: Colors.LightSecondary,
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
           let IconComponent = Feather;
           switch (route.name) {
-            case 'Home':
+            case 'DashboardStack':
               iconName = 'home';
               break;
-            case 'Instructor':
+
+            case 'ServicesStack':
+              iconName = 'grid';
+              break;
+
+            case 'AccountStack':
               iconName = 'user';
               break;
-              case 'Blog':
-              iconName = 'blog';
-              break;
-              case 'Profile':
-                iconName = 'profile';
-                break;
           }
           return (
             <IconComponent
@@ -109,25 +91,19 @@ export default () => {
         },
       })}>
       <Tabs.Screen
-        name={'Home'}
-        options={{headerShown: false, tabBarLabel: 'Home'}}
-        component={Home}
+        name={'DashboardStack'}
+        options={{headerShown: false, tabBarLabel: 'Dashboard'}}
+        component={DashboardStackScreens}
       />
       <Tabs.Screen
-        name={'Instructor'}
-        options={{headerShown: false, tabBarLabel: 'Instructor'}}
-        component={Instructor}
+        name={'ServicesStack'}
+        options={{headerShown: false, tabBarLabel: 'Services'}}
+        component={ServicesStackScreens}
       />
       <Tabs.Screen
-        name={'Blog'}
-        options={{headerShown: false, tabBarLabel: 'Blog'}}
-        component={Blog}
-      />
-      
-      <Tabs.Screen
-        name={'ProfileStack'}
-        options={{headerShown: false, tabBarLabel: 'Profile'}}
-        component={Profile}
+        name={'AccountStack'}
+        options={{headerShown: false, tabBarLabel: 'Account'}}
+        component={AccountStackScreens}
       />
     </Tabs.Navigator>
   );
