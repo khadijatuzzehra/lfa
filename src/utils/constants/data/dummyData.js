@@ -13,31 +13,31 @@ export const Lablesdata = [
     {id:1,
     title:'Meta Social Media Marketing',
     description:'Professional Certificate',
-    image:Images.appImages.rectangle
+    image:Images.appImages.rectangle1
     },
     {id:2,
       title:'Meta Social Media Marketing',
       description:'Professional Certificate',
-      image:Images.appImages.rectangle
+      image:Images.appImages.rectangle1
       },
       {id:3,
         title:'Meta Social Media Marketing',
         description:'Professional Certificate',
-        image:Images.appImages.rectangle
+        image:Images.appImages.rectangle1
         },
         {id:4,
           title:'Meta Social Media Marketing',
           description:'Professional Certificate',
-          image:Images.appImages.rectangle
+          image:Images.appImages.rectangle1
           },
           {id:5,
             title:'Meta Social Media Marketing',
             description:'Professional Certificate',
-            image:Images.appImages.rectangle
+            image:Images.appImages.rectangle1
             },
             {id:6,
               title:'Meta Social Media Marketing',
               description:'Professional Certificate',
-              image:Images.appImages.rectangle
+              image:Images.appImages.rectangle1
               }
   ]

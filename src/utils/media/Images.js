@@ -7,7 +7,10 @@ const appImages = {
   logo: require(`${images}/logo.png`),
   leftArrow: require(`${images}/Arrowleft.png`),
   searchicon: require(`${images}/Search.png`),
-  rectangle: require(`${images}/Rectangle.png`),
+  rectangle1: require(`${images}/Rectangle1.png`),
   line: require(`${images}/orline.png`),
+  rectangle2: require(`${images}/Rectangle2.png`),
+  calender: require(`${images}/Date_range_fill.png`),
+
 };
 export default {appImages};
