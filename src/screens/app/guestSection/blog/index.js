@@ -1,6 +1,6 @@
 import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
-import {HTCardWithImageList, HTText, HTWrapper} from '../../../../components';
+import {HTText, HTWrapper} from '../../../../components';
 import {styles} from './style';
 import {Fonts} from '../../../../theme';
 import {

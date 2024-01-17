@@ -17,6 +17,9 @@ import Profile from '../screens/app/guestSection/profile';
 import Instructor from '../screens/app/guestSection/instructor';
 import Home from '../screens/app/guestSection/home';
 import Blog from '../screens/app/guestSection/blog';
+import BlogDetails from '../screens/app/guestSection/blogdetails';
+import CourseDetails from '../screens/app/guestSection/coursedetails.js'
+
 
 const HomeStack = createNativeStackNavigator();
 const HomeStackScreens = () => (
@@ -24,6 +27,11 @@ const HomeStackScreens = () => (
     <HomeStack.Screen
       name={'Home'}
       component={Home}
+      options={{headerShown: false}}
+    />
+     <HomeStack.Screen
+      name={'CourseDetails'}
+      component={CourseDetails}
       options={{headerShown: false}}
     />
   </HomeStack.Navigator>
@@ -48,6 +56,13 @@ const BlogStackScreens = () => (
     <BlogStack.Screen
       name={'Blog'}
       component={Blog}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <BlogStack.Screen
+      name={'BlogDetails'}
+      component={BlogDetails}
       options={{
         headerShown: false,
       }}
@@ -124,7 +139,7 @@ const ProfileStackScreens = () => (
   </ProfileStack.Navigator>
 );
 
-function getTabBarVisibility(route) {
+function getTabBarVisibility(route) {                 // function for nav bar visibility
   const routeName = getFocusedRouteNameFromRoute(route);
 
   if (
@@ -132,6 +147,7 @@ function getTabBarVisibility(route) {
     routeName === 'StudentRegistration' ||
     routeName === 'ProfileComplete' ||
     routeName === 'InstructorRegistration' ||
+    routeName === 'BlogDetails' ||
     routeName === 'InstructorSignIn'
   ) {
     return 'none';

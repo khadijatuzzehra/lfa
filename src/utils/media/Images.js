@@ -11,6 +11,12 @@ const appImages = {
   line: require(`${images}/orline.png`),
   rectangle2: require(`${images}/Rectangle2.png`),
   calender: require(`${images}/Date_range_fill.png`),
+  blogimg: require(`${images}/blogimg.png`),
+  rectangle3: require(`${images}/Rectangle3.png`),
+  rectangle4: require(`${images}/Rectangle4.png`),
+  rectangle5: require(`${images}/Rectangle5.png`),
+
+
 
 };
 export default {appImages};

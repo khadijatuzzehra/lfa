@@ -21,7 +21,9 @@ import HTBottomSheet from './dialogs/HTBottomSheet';
 import HTCardWithImage from './cards/HTCardWithImage';
 import HTCardWithoutImage from './cards/HTCardWithoutImage';
 import HTAccountCard from './cards/HTAccountCard';
+import CourseCard from './cards/CoursesCard';
 //Card List
+
 import HTCardWithImageList from './cards/HTCardWithImage/List';
 import HTCardWithoutImageList from './cards/HTCardWithoutImage/List';
 
@@ -45,4 +47,5 @@ export {
   HTAccountCard,
   HTCardWithImageList,
   HTCardWithoutImageList,
+  CourseCard,
 };

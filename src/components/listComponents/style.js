@@ -48,6 +48,12 @@ export const styles = StyleSheet.create({
     margin: responsiveHeight(1),
   },
 
+  flatlist:{
+    flexDirection:'row',
+    flexWrap:'wrap',
+    justifyContent:'center',
+  },
+
   image: {
     height: responsiveHeight(17),
     width: responsiveWidth(57),
@@ -67,6 +73,7 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.cardBackground,
     margin: 8,
   },
+  
   imagestyle: {
     width: responsiveWidth(40),
     margin: 2,

@@ -6,11 +6,13 @@ import HTText from '../text/HTText';
 import {Image} from 'react-native';
 import {GlobalStyles} from '../../utils/constants';
 import {Colors, Fonts} from '../../theme';
+import { useNavigation } from '@react-navigation/native';
+
 
 export const CategoriesButtons = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [lables, setLables] = useState(Lablesdata);
-
+  
   const renderItem = ({item}) => (
     <TouchableOpacity
       style={[
@@ -44,7 +46,9 @@ export const CategoriesButtons = () => {
 //Home Card components
 
 export const CoursesCard = ({data}) => {
+  const navigation = useNavigation();
   return (
+    
     <FlatList
       showsHorizontalScrollIndicator={false}
       style={GlobalStyles.marginHorizontalMedium}
@@ -52,6 +56,7 @@ export const CoursesCard = ({data}) => {
       data={data}
       keyExtractor={item => item.id}
       renderItem={({item}) => (
+        <TouchableOpacity onPress={() => navigation.navigate('CourseDetails', { })}>
         <View style={styles.cardContainer}>
           <Image source={item.image} style={styles.image} />
           <View style={styles.inner}>
@@ -68,19 +73,23 @@ export const CoursesCard = ({data}) => {
             />
           </View>
         </View>
+        </TouchableOpacity>
       )}
     />
   );
 };
 
 export const BlogCard = ({data}) => {
+  const navigation = useNavigation();
   return (
-    <FlatList
+    <FlatList 
+    contentContainerStyle ={styles.flatlist}
       showsHorizontalScrollIndicator={false}
       horizontal={false}
       data={data}
       keyExtractor={item => item.id}
       renderItem={({item}) => (
+        <TouchableOpacity onPress={() => navigation.navigate('BlogDetails', { item })}>
         <View style={styles.blogcardcontainer}>
           <View style={[styles.Container, GlobalStyles.shadow]}>
             <Image source={item.image} style={styles.imagestyle} />
@@ -88,6 +97,26 @@ export const BlogCard = ({data}) => {
               <Text style={styles.titlestyle}>{item.title}</Text>
             </View>
           </View>
+        </View>
+        </TouchableOpacity>
+      )}
+    />
+  );
+  
+};
+
+export const BlogCard2 = ({data}) => {
+  const navigation = useNavigation();
+  return (
+    <FlatList 
+    contentContainerStyle ={styles.flatlist}
+      showsHorizontalScrollIndicator={false}
+      horizontal={true}
+      data={data}
+      keyExtractor={item => item.id}
+      renderItem={({item}) => (
+        <TouchableOpacity onPress={() => navigation.navigate('BlogDetails', { item })}>
+        <View style={styles.blogcardcontainer}>
           <View style={[styles.Container, GlobalStyles.shadow]}>
             <Image source={item.image} style={styles.imagestyle} />
             <View style={styles.innerview}>
@@ -95,7 +124,9 @@ export const BlogCard = ({data}) => {
             </View>
           </View>
         </View>
+        </TouchableOpacity>
       )}
     />
   );
+  
 };
