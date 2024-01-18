@@ -4,7 +4,6 @@ import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimen
 export const styles= StyleSheet.create({
 
     container:{
-        flex:1,
     backgroundColor:'white',
     },
 
@@ -14,6 +13,7 @@ export const styles= StyleSheet.create({
     cards:{
     marginTop:responsiveHeight(2),
     marginLeft:responsiveWidth(6),
+    gap:20,
     },
 
 

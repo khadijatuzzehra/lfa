@@ -1,35 +1,27 @@
 import React from 'react';
-import {View, StyleSheet,Image} from 'react-native';
+import {View, Image} from 'react-native';
 import GlobalStyles from '../../../utils/constants/styles/GlobalStyles';
 import {Colors, Fonts} from '../../../theme';
 import {HTText, HTButton} from '../../../components';
-import Dimensions from '../../../utils/constants/dimensions/Dimensions';
 import {styles} from './style';
-import{Images} from '../../../utils/media';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Dimensions } from '../../../utils/constants';
+import {useNavigation} from '@react-navigation/native';
+
 
 const CourseCard = ({
   cardSize,
   title = 'Graphic Design',
   detail='Graphic design Advanced',
   titleColor = Colors.Black,
-  titleColor2=Colors.Blue,
-  description = 'Card Description',
-  descriptionColor = Colors.Black,
-  buttonText = 'Read More',
-  isPressable,
   backgroundColor = Colors.White,
-  onPress,
-  primaryIcon = 'help-circle-outline',
-  primaryIconData,
-  secondaryIcon,
-  secondaryIconData,
-  buttonColor = Colors.Primary,
-  buttonTextColor = Colors.White,
+  imageSource,
 }) => {
   const containerStyle = {
     backgroundColor,
   };
+  const navigation = useNavigation();
+
   return (
     <View
       style={[
@@ -43,7 +35,7 @@ const CourseCard = ({
 
         
           <Image style={styles.image}
-          source={Images.appImages.rectangle3}/>
+          source={imageSource}/>     
         
 
       <View style={[GlobalStyles.marginMedium,styles.coursetext]}>
@@ -51,7 +43,7 @@ const CourseCard = ({
           text={title}
           bold
           size={Fonts.size.font12}
-          textColor={titleColor}
+          textColor={"rgba(35, 52, 101, 1)"}
           
           
         />
@@ -59,7 +51,7 @@ const CourseCard = ({
           text={detail}
           bold
           size={Fonts.size.font12}
-          textColor={titleColor2}
+          textColor={titleColor}
           
         />
         <View style={styles.stars}>
@@ -67,9 +59,27 @@ const CourseCard = ({
         <Icon name="star" size={10} color="#F1C332" />
         <Icon name="star" size={10} color="#F1C332" />
         <Icon name="star" size={10} color="#F1C332" />
+         
+        <HTText
+          text={"4.2 | 2hrs 36 "}
+          size={Fonts.size.font11}
+          textColor={"rgba(0, 0, 0, 0.54)"}
+          styles={styles.detailtxt}
+        />
         </View>
         
+        <HTButton
+
+         onClick={() => navigation.navigate('CourseDetails')} 
+        text={'View Details'}
+        textSize={11}
+        textColor={Colors.TextColor} 
+        style={[styles.button]}
+        height={Dimensions.Height * 0.03}
+        width={Dimensions.Width * 0.25}
+        backgroundColor={Colors.buttonColor}
         
+        />
           
           
         </View>

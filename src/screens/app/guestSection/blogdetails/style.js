@@ -9,7 +9,9 @@ export const styles= StyleSheet.create({
     img:{
         height:responsiveHeight(20),
         width:responsiveWidth(100),
-        objectFit:"cover",
+        resizeMode: 'contain',
+        resizeMode: 'cover',
+
     },
     title:{
         marginTop:responsiveHeight(2),
@@ -20,26 +22,36 @@ export const styles= StyleSheet.create({
         marginRight:responsiveWidth(2),
     },
     paragraph1:{
-        marginTop:responsiveHeight(1), 
+        marginTop:responsiveHeight(1),
+        marginLeft:responsiveWidth(2),
+        marginRight:responsiveWidth(2),
         textAlign:"justify",
     },
     paragraph2:{
         marginTop:responsiveHeight(1),
         textAlign:"justify",
+        marginLeft:responsiveWidth(2),
+        marginRight:responsiveWidth(2),
 
     },
     paragraph3:{
-        marginTop:responsiveHeight(1), 
+        marginTop:responsiveHeight(1),
+        marginLeft:responsiveWidth(2),
+        marginRight:responsiveWidth(2),
         textAlign:"justify",
 
     },
     paragraph4:{
         marginTop:responsiveHeight(1),
+        marginLeft:responsiveWidth(2),
+        marginRight:responsiveWidth(2),
         textAlign:"justify",
 
     },
     paragraph5:{
         marginTop:responsiveHeight(1),
+        marginLeft:responsiveWidth(2),
+        marginRight:responsiveWidth(2),
         textAlign:"justify",
 
     },

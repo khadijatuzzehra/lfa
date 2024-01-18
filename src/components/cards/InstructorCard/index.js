@@ -1,5 +1,5 @@
 import React from 'react';
-import { View ,Text,Image} from 'react-native';
+import { View ,Image} from 'react-native';
 import HTText from '../../text/HTText';
 import Fonts from '../../../../android/app/src/main/assets/custom/Fonts';
 import styles from './style';
@@ -20,12 +20,12 @@ const Card = ({name ="Alex Hales" , course="58" , date="12/12/2023"}) => {
             styles={styles.textstyle}
             text={name}
           />
-          <Text style={styles.textstyle} > Course: {course} </Text>
+          <HTText styles={styles.textstyle} size={Fonts.size.font12} textColor="rgba(99, 99, 99, 1)" text={'Course:'+ course}/>
           <View style={styles.dateview}  >
           <Image style={styles.imagestyle}
                 source={Images.appImages.calender}
             />
-            <Text style={styles.textstyle} >{date} </Text>
+            <HTText styles={styles.textstyle} size={Fonts.size.font12} textColor="rgba(99, 99, 99, 1)" text={date} />
           </View>
           
     </View>

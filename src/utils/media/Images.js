@@ -15,7 +15,7 @@ const appImages = {
   rectangle3: require(`${images}/Rectangle3.png`),
   rectangle4: require(`${images}/Rectangle4.png`),
   rectangle5: require(`${images}/Rectangle5.png`),
-
+  of: require(`${images}/of.jpg`),
 
 
 };

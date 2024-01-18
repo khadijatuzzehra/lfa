@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, FlatList, TouchableOpacity, Text} from 'react-native';
-import {Lablesdata} from '../../utils/constants/data/dummyData';
+import {Lablesdata,BlogData} from '../../utils/constants/data/dummyData';
 import {styles} from './style';
 import HTText from '../text/HTText';
 import {Image} from 'react-native';
@@ -12,6 +12,9 @@ import { useNavigation } from '@react-navigation/native';
 export const CategoriesButtons = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [lables, setLables] = useState(Lablesdata);
+  const [blogs, setBlogs] = useState(BlogData);
+
+  
   
   const renderItem = ({item}) => (
     <TouchableOpacity
@@ -56,7 +59,7 @@ export const CoursesCard = ({data}) => {
       data={data}
       keyExtractor={item => item.id}
       renderItem={({item}) => (
-        <TouchableOpacity onPress={() => navigation.navigate('CourseDetails', { })}>
+        <TouchableOpacity onPress={() => navigation.navigate('Courses', { })}>
         <View style={styles.cardContainer}>
           <Image source={item.image} style={styles.image} />
           <View style={styles.inner}>
@@ -64,12 +67,12 @@ export const CoursesCard = ({data}) => {
               bold
               text={item.title}
               size={Fonts.size.font12}
-              textColor={Colors.Gray}
+              textColor={Colors.Black}
             />
             <HTText
               text={item.description}
               size={Fonts.size.font12}
-              textColor={Colors.Gray}
+              textColor={Colors.Black}
             />
           </View>
         </View>
@@ -81,6 +84,11 @@ export const CoursesCard = ({data}) => {
 
 export const BlogCard = ({data}) => {
   const navigation = useNavigation();
+
+  const truncateTitle = (title) => {
+    return title.length > 25 ? title.substring(0, 25) + '...' :title;
+  };
+
   return (
     <FlatList 
     contentContainerStyle ={styles.flatlist}
@@ -94,7 +102,7 @@ export const BlogCard = ({data}) => {
           <View style={[styles.Container, GlobalStyles.shadow]}>
             <Image source={item.image} style={styles.imagestyle} />
             <View style={styles.innerview}>
-              <Text style={styles.titlestyle}>{item.title}</Text>
+            <Text style={styles.titlestyle}>{truncateTitle(item.title)}</Text>
             </View>
           </View>
         </View>

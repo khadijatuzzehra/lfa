@@ -9,7 +9,7 @@ import {
   CategoriesButtons,
   CoursesCard,
 } from '../../../../components/listComponents';
-import {CardData} from '../../../../utils/constants/data/dummyData';
+import {BlogData} from '../../../../utils/constants/data/dummyData';
 
 const Home = () => {
   return (
@@ -34,7 +34,7 @@ const Home = () => {
             text={'Explore Courses'}
           />
         </View>
-        <CoursesCard data={CardData} />
+        <CoursesCard data={BlogData} />
         <View style={styles.titleView}>
           <HTText
             size={Fonts.size.font16}
@@ -43,7 +43,7 @@ const Home = () => {
             text={'Top Courses'}
           />
         </View>
-        <CoursesCard data={CardData} />
+        <CoursesCard data={BlogData} />
       </ScrollView>
     </HTWrapper>
   );

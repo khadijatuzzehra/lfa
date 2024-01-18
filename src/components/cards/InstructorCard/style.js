@@ -39,7 +39,6 @@ export default StyleSheet.create({
   },
   textstyle:{
     alignSelf:'center',
-    fontFamily: 'Poppins-Regular'
 
   },
   imagestyle:{

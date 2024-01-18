@@ -11,8 +11,8 @@ export const styles= StyleSheet.create({
       image: {
         height:responsiveHeight(20),
         width:responsiveWidth(35),
-        objectFit:"cover",
-
+        resizeMode: 'contain',
+        resizeMode: 'cover',
       },
       coursetext:{
         alignSelf:'center'
@@ -21,9 +21,16 @@ export const styles= StyleSheet.create({
         flexDirection:"row",
         gap:3,
         marginTop:responsiveHeight(.5),
+        alignItems:"center",
       },
       detailtxt:{
-        
+        marginLeft:responsiveWidth(1),
+        flexDirection:"row",
       },
-      
+      button:{
+         
+        flexDirection:"row",
+alignSelf:"flex-end",
+marginTop:responsiveHeight(2),
+      },
 })

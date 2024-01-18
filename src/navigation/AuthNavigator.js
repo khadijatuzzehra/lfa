@@ -18,8 +18,8 @@ import Instructor from '../screens/app/guestSection/instructor';
 import Home from '../screens/app/guestSection/home';
 import Blog from '../screens/app/guestSection/blog';
 import BlogDetails from '../screens/app/guestSection/blogdetails';
-import CourseDetails from '../screens/app/guestSection/coursedetails.js'
-
+import Courses from '../screens/app/guestSection/courses.js/index.js';
+import CourseDetails from '../screens/app/guestSection/coursedetail.js/index';
 
 const HomeStack = createNativeStackNavigator();
 const HomeStackScreens = () => (
@@ -30,12 +30,19 @@ const HomeStackScreens = () => (
       options={{headerShown: false}}
     />
      <HomeStack.Screen
+      name={'Courses'}
+      component={Courses}
+      options={{headerShown: false}}
+    />
+     <HomeStack.Screen
       name={'CourseDetails'}
       component={CourseDetails}
       options={{headerShown: false}}
     />
   </HomeStack.Navigator>
 );
+
+
 
 const InstructorStack = createNativeStackNavigator();
 const InstructorStackScreens = () => (
@@ -148,6 +155,7 @@ function getTabBarVisibility(route) {                 // function for nav bar vi
     routeName === 'ProfileComplete' ||
     routeName === 'InstructorRegistration' ||
     routeName === 'BlogDetails' ||
+    routeName === 'CourseDetails' ||
     routeName === 'InstructorSignIn'
   ) {
     return 'none';

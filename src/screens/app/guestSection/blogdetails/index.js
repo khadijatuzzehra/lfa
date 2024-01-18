@@ -1,16 +1,14 @@
 import React from 'react';
 import {View, Text, ScrollView,Image} from 'react-native';
-import {HTCardWithImageList, HTText, HTWrapper} from '../../../../components';
-import {CardData} from '../../../../utils/constants/data/dummyData';
+import {HTText, HTWrapper} from '../../../../components';
+import {BlogData, CardData} from '../../../../utils/constants/data/dummyData';
 import {HomeHeader} from '../../../../components/Header';
-import {SearchInput} from '../../../../components/inputField';
 import { Images } from '../../../../utils/media';
 import {styles} from './style';
 import {Fonts} from '../../../../theme';
 
 import {
     BlogCard2,
-    CoursesCard,
   } from '../../../../components/listComponents';
 
 
@@ -28,12 +26,12 @@ const BlogDetails = ( ) => {
             styles={styles.title}
             text={CardData[1].title}
           />
-          <View style={styles.paragraphview}>
-          <Text style={styles.paragraph1} >{CardData[1].blogdetail} </Text>
-          <Text style={styles.paragraph2} >{CardData[1].blogdetail2} </Text>
-          <Text style={styles.paragraph3} >{CardData[1].blogdetail3} </Text>
-          <Text style={styles.paragraph4} >{CardData[1].blogdetail4} </Text>
-          <Text style={styles.paragraph5} >{CardData[1].blogdetail5} </Text>
+          <View styles={styles.paragraphview}>
+          <HTText styles={styles.paragraph1} size={Fonts.size.font11} textColor="rgba(0, 0, 0, 0.64)" text={CardData[1].blogdetail}/>
+          <HTText styles={styles.paragraph2} size={Fonts.size.font11} textColor="rgba(0, 0, 0, 0.64)" text={CardData[1].blogdetail2} />
+          <HTText styles={styles.paragraph3} size={Fonts.size.font11} textColor="rgba(0, 0, 0, 0.64)" text={CardData[1].blogdetail3}/>
+          <HTText styles={styles.paragraph4} size={Fonts.size.font11} textColor="rgba(0, 0, 0, 0.64)" text={CardData[1].blogdetail4} />
+          <HTText styles={styles.paragraph5} size={Fonts.size.font11} textColor="rgba(0, 0, 0, 0.64)" text={CardData[1].blogdetail5}/>
           </View>
           
           <HTText
@@ -43,7 +41,7 @@ const BlogDetails = ( ) => {
             text={'Other Blogs'}
           />
           
-          <BlogCard2 data={CardData} />
+          <BlogCard2 data={BlogData} />
           
       </HTWrapper>
       </ScrollView>  
