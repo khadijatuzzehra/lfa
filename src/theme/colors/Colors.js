@@ -17,7 +17,7 @@ const Black = 'black';
 const Gray = 'gray';
 const LightGray = 'lightgrey';
 const LighterGray = '#EDF5F3';
-const LightestGray = '#fafafa';
+const LightestGray = 'rgba(217, 217, 217, 0.25)';
 const DarkerGray = '#525252';
 //Others
 const Blue = '#233465';

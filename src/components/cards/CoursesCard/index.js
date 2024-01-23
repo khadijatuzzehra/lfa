@@ -61,7 +61,7 @@ const CourseCard = ({
         <Icon name="star" size={10} color="#F1C332" />
          
         <HTText
-          text={"4.2 | 2hrs 36 "}
+          text={" 4.2 | 2hrs 36 "}
           size={Fonts.size.font11}
           textColor={"rgba(0, 0, 0, 0.54)"}
           styles={styles.detailtxt}

@@ -16,7 +16,12 @@ const appImages = {
   rectangle4: require(`${images}/Rectangle4.png`),
   rectangle5: require(`${images}/Rectangle5.png`),
   of: require(`${images}/of.jpg`),
-
+  globe: require(`${images}/globe_icon.png`),
+  hourglass: require(`${images}/Hourglass_icon.png`),
+  timer: require(`${images}/Timer_icon.png`),
+  waterfall: require(`${images}/Waterfall_icon.png`),
+  chat: require(`${images}/Chat_icon.png`),
+  UserIcon: require(`${images}/User_icon.png`),
 
 };
 export default {appImages};
