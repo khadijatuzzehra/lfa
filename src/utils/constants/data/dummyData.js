@@ -8,6 +8,25 @@ export const Lablesdata = [
     // Add more buttons as needed
   ];
 
+  export const Studentdata = [
+    { id: 'Academic', label: 'Academic' },
+    { id: 'business', label: 'Business' },
+    { id: 'Art & Craft', label: 'Art & Craft' },
+  
+    // Add more buttons as needed
+  ];
+
+  
+  export const Buttondata = [
+    { id: '1', label: 'Completed' },
+    { id: '2', label: 'Ongoing' },
+    ,
+  
+    // Add more buttons as needed
+  ];
+
+
+
 
   export const CardData=[
     {id:1,

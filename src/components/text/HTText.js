@@ -8,6 +8,7 @@ const HTText = ({text, textColor = Colors.Black, bold, size, styles}) => {
     fontFamily: bold ? Fonts.family.semiBold : Fonts.family.regular,
     fontSize: size,
     color: textColor,
+    
   };
 
   return <Text style={[styles, textStyle]}>{text}</Text>;

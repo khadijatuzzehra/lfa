@@ -4,11 +4,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Feather from 'react-native-vector-icons/Feather';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import Account from '../screens/app/account/Account';
-import Dashboard from '../screens/app/dashboard/Dashboard';
-import Services from '../screens/app/services/Services';
+import Account from '../screens/app/studentSection/account';
+import Dashboard from '../screens/app/studentSection/dashboard';
 import Colors from '../theme/colors/Colors';
-import Notification from '../screens/app/guestSection/blog';
+import Notification from '../screens/app/studentSection/notification';
+import Courses from '../screens/app/studentSection/courses';
 
 
 const DashboardStack = createNativeStackNavigator();
@@ -35,17 +35,30 @@ const AccountStackScreens = () => (
   </AccountStack.Navigator>
 );
 
-const ServicesStack = createNativeStackNavigator();
-const ServicesStackScreens = () => (
-  <ServicesStack.Navigator>
-    <ServicesStack.Screen
-      name={'Services'}
-      component={Services}
+const NotificationStack = createNativeStackNavigator();
+const NotificationStackScreens = () => (
+  <NotificationStack.Navigator>
+    <NotificationStack.Screen
+      name={'Notification'}
+      component={Notification}
       options={{
         headerShown: false,
       }}
     />
-  </ServicesStack.Navigator>
+  </NotificationStack.Navigator>
+);
+
+const CoursesStack = createNativeStackNavigator();
+const CoursesStackScreens = () => (
+  <CoursesStack.Navigator>
+    <CoursesStack.Screen
+      name={'Courses'}
+      component={Courses}
+      options={{
+        headerShown: false,
+      }}
+    />
+  </CoursesStack.Navigator>
 );
 
 function getTabBarVisibility(route) {
@@ -63,9 +76,12 @@ export default () => {
   return (
     <Tabs.Navigator
       screenOptions={({route}) => ({
-        tabBarStyle: {display: getTabBarVisibility(route)},
-        tabBarActiveTintColor: Colors.Primary,
-        tabBarInactiveTintColor: Colors.LightSecondary,
+
+        tabBarStyle: {display: getTabBarVisibility(route),
+           backgroundColor: '#233465',
+      },
+        tabBarActiveTintColor: Colors.White,
+        tabBarInactiveTintColor: Colors.White,
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
           let IconComponent = Feather;
@@ -74,9 +90,13 @@ export default () => {
               iconName = 'home';
               break;
 
-            case 'ServicesStack':
-              iconName = 'grid';
+            case 'CoursesStack':
+              iconName = 'book-open';
               break;
+
+            case 'NotificationStack':
+                iconName = 'bell';
+                break;
 
             case 'AccountStack':
               iconName = 'user';
@@ -86,7 +106,7 @@ export default () => {
             <IconComponent
               name={iconName}
               size={20}
-              color={focused ? Colors.Primary : Colors.LightSecondary}
+              color={focused ? Colors.White : Colors.White}
             />
           );
         },
@@ -97,9 +117,15 @@ export default () => {
         component={DashboardStackScreens}
       />
       <Tabs.Screen
-        name={'ServicesStack'}
-        options={{headerShown: false, tabBarLabel: 'Services'}}
-        component={ServicesStackScreens}
+        name={'CoursesStack'}
+        options={{headerShown: false, tabBarLabel: 'Courses'}}
+        component={CoursesStackScreens}
+      />
+
+      <Tabs.Screen
+        name={'NotificationStack'}
+        options={{headerShown: false, tabBarLabel: 'Notification'}}
+        component={NotificationStackScreens}
       />
       <Tabs.Screen
         name={'AccountStack'}

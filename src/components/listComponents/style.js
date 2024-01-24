@@ -91,7 +91,7 @@ export const styles = StyleSheet.create({
     fontSize: 13,
   },
   inner: {
-    margin: responsiveHeight(1.22),
+    margin: responsiveHeight(0.5),
   },
   innerview: {
     alignSelf: 'center',
@@ -104,4 +104,17 @@ export const styles = StyleSheet.create({
   },
 
   spacer: {},
+  button1:{
+         
+alignSelf:"flex-end",
+  },
+
+  cardContainer1: {
+    backgroundColor: Colors.cardBackground,
+    borderRadius: 24,
+    flexDirection: 'column',
+    height: responsiveHeight(27),
+    width: responsiveWidth(57),
+    margin: responsiveHeight(1),
+  },
 });

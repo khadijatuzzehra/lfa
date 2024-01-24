@@ -10,6 +10,8 @@ import {Colors} from '../../theme';
 import {Dimensions, GlobalStyles} from '../../utils/constants';
 import {useNavigation} from '@react-navigation/native';
 
+import { Profile } from '../../utils/media/Svgs';
+
 export const AuthHeader = ({title, onBackPress}) => {
   return (
     <View style={styles.headerView}>
@@ -49,6 +51,22 @@ export const HomeHeader = () => {
         width={Dimensions.Width * 0.3}
         backgroundColor={Colors.buttonColor}
       />
+    </View>
+  );
+};
+
+export const StudentHeader = () => {
+  return (
+    <View style={styles.homeheader}>
+      <Image
+        source={Images.appImages.logo}
+        style={styles.logostyle}
+        resizeMode="contain"
+      />
+        
+    <Profile height={Dimensions.Height * 0.080} width={Dimensions.Width * 0.2}
+    style={[GlobalStyles.marginVerticalLarge]}/>
+      
     </View>
   );
 };
